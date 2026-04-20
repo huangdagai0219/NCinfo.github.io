@@ -504,47 +504,66 @@ nav{padding:16px 24px}
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>胰島素（囤脂荷爾蒙）</div>
       </div>
     </div>
-    <svg class="chart" viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
+    <svg class="chart" viewBox="0 0 860 360" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g0f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c04444" stop-opacity="0.28"/><stop offset="100%" stop-color="#c04444" stop-opacity="0"/></linearGradient>
         <linearGradient id="g0l" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c07840"/><stop offset="50%" stop-color="#c04444"/><stop offset="100%" stop-color="#c07840"/></linearGradient>
         <filter id="gl0"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
+      <!-- 背景區塊 -->
       <rect x="55" y="26" width="790" height="70" rx="3" fill="rgba(192,80,70,0.07)"/>
-      <text x="62" y="41" font-size="9" fill="rgba(192,80,70,0.7)" font-family="'Noto Sans TC',sans-serif">⚠ 危險區：血糖過高，身體被迫大量分泌胰島素來壓制</text>
       <rect x="55" y="166" width="790" height="60" rx="3" fill="rgba(184,134,11,0.07)"/>
-      <text x="62" y="181" font-size="9" fill="rgba(255,209,102,0.4)" font-family="'Noto Sans TC',sans-serif">正常空腹血糖區間</text>
+      <!-- 格線 -->
       <line x1="55" y1="96" x2="845" y2="96" stroke="rgba(192,80,70,0.15)" stroke-dasharray="4,5"/>
       <line x1="55" y1="166" x2="845" y2="166" stroke="rgba(184,134,11,0.1)" stroke-dasharray="4,5"/>
-      <line x1="55" y1="226" x2="845" y2="226" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,5"/>
+      <line x1="55" y1="226" x2="845" y2="226" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,5"/>
+      <!-- Y軸標籤 -->
       <g font-size="10" font-family="monospace" text-anchor="end">
-        <text x="50" y="30" fill="rgba(192,80,70,0.85)">高</text><text x="50" y="168" fill="rgba(184,134,11,0.75)">正常</text><text x="50" y="284" fill="rgba(180,155,120,0.65)">低</text>
+        <text x="50" y="30" fill="rgba(192,80,70,0.85)">高</text>
+        <text x="50" y="168" fill="rgba(184,134,11,0.75)">正常</text>
+        <text x="50" y="284" fill="rgba(180,155,120,0.65)">低</text>
       </g>
+      <!-- 座標軸 -->
       <line x1="55" y1="298" x2="845" y2="298" stroke="rgba(255,255,255,0.07)"/>
       <line x1="55" y1="18" x2="55" y2="298" stroke="rgba(255,255,255,0.07)"/>
+      <!-- 餐點垂直線 -->
       <line x1="95" y1="24" x2="95" y2="298" stroke="rgba(192,120,64,0.3)" stroke-dasharray="3,6"/>
       <line x1="340" y1="24" x2="340" y2="298" stroke="rgba(184,134,11,0.3)" stroke-dasharray="3,6"/>
       <line x1="500" y1="24" x2="500" y2="298" stroke="rgba(155,93,229,0.22)" stroke-dasharray="3,6"/>
       <line x1="675" y1="24" x2="675" y2="298" stroke="rgba(192,80,70,0.25)" stroke-dasharray="3,6"/>
-      <text x="95" y="20" text-anchor="middle" font-size="15">🍞</text><text x="340" y="20" text-anchor="middle" font-size="15">🍜</text><text x="500" y="20" text-anchor="middle" font-size="15">🧋</text><text x="675" y="20" text-anchor="middle" font-size="15">🍚</text>
+      <!-- 餐點圖示 -->
+      <text x="95" y="20" text-anchor="middle" font-size="15">🍞</text>
+      <text x="340" y="20" text-anchor="middle" font-size="15">🍜</text>
+      <text x="500" y="20" text-anchor="middle" font-size="15">🧋</text>
+      <text x="675" y="20" text-anchor="middle" font-size="15">🍚</text>
+      <!-- X軸時間標籤 -->
       <g font-size="9.5" fill="rgba(180,155,120,0.8)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
         <text x="95" y="310">早7點</text><text x="220" y="310">9點</text><text x="340" y="310">12點</text><text x="500" y="310">下午3:30</text><text x="675" y="310">晚7點</text><text x="820" y="310">10點</text>
       </g>
       <g font-size="8" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
         <text x="95" y="321" fill="rgba(192,120,64,0.85)">早餐</text><text x="340" y="321" fill="rgba(184,134,11,0.82)">午餐</text><text x="500" y="321" fill="rgba(155,93,229,0.7)">下午茶</text><text x="675" y="321" fill="rgba(192,80,70,0.85)">晚餐</text>
       </g>
+      <!-- 血糖填充 -->
       <path d="M55,226 L95,226 C112,223 120,196 135,91 C148,44 158,34 178,34 C198,34 210,51 228,124 C246,191 255,258 285,252 C310,248 325,246 340,246 C358,244 365,224 380,84 C393,43 400,34 418,34 C436,34 446,51 462,128 C476,192 480,254 520,239 C530,184 545,131 565,74 C578,54 600,50 618,50 C628,64 642,138 655,198 C688,248 700,244 706,243 C695,234 706,141 724,84 C740,46 760,28 775,28 C793,28 803,42 817,108 C827,154 845,201 845,201 L845,298 L55,298 Z" fill="url(#g0f)" opacity="0.75"/>
+      <!-- 血糖線 -->
       <path d="M55,226 L95,226 C112,223 120,196 135,91 C148,44 158,34 178,34 C198,34 210,51 228,124 C246,191 255,258 285,252 C310,248 325,246 340,246 C358,244 365,224 380,84 C393,43 400,34 418,34 C436,34 446,51 462,128 C476,192 480,254 520,239 C530,184 545,131 565,74 C578,54 600,50 618,50 C628,64 642,138 655,198 C688,248 700,244 706,243 C695,234 706,141 724,84 C740,46 760,28 775,28 C793,28 803,42 817,108 C827,154 845,201" fill="none" stroke="url(#g0l)" stroke-width="3" filter="url(#gl0)" stroke-linecap="round"/>
-      <path d="M55,260 L110,258 C128,254 142,231 160,134 C172,84 182,74 202,74 C220,74 232,101 250,164 C265,212 272,264 300,266 C318,268 355,268 C368,264 378,241 396,144 C408,94 415,78 435,78 C454,78 464,104 480,166 C493,212 516,268 C526,266 532,261 542,221 C556,178 578,141 C592,126 618,126 C634,130 644,154 658,208 C668,241 700,268 C710,264 722,228 C734,171 755,120 C767,100 787,92 C804,94 824,166 C832,194 845,229" fill="none" stroke="#4a7c59" stroke-width="2" stroke-dasharray="6,3" opacity="0.65"/>
+      <!-- 胰島素（囤脂荷爾蒙）線 — 完整延伸到10點 -->
+      <path d="M55,260 C80,258 105,254 130,244 C145,237 158,228 172,210 C182,196 188,182 202,174 C212,168 220,166 232,170 C244,175 252,188 265,208 C276,224 282,248 296,258 C308,264 320,266 340,266 C355,263 364,256 377,242 C388,230 396,218 410,208 C420,200 428,196 442,196 C454,196 462,202 474,216 C484,228 490,244 504,256 C514,264 522,268 534,266 C544,262 552,254 562,242 C572,230 580,220 594,212 C604,206 612,204 624,206 C636,210 644,220 656,238 C666,252 674,264 690,268 C702,270 712,268 724,258 C736,248 744,234 756,222 C766,212 774,208 786,210 C798,214 808,224 820,240 C830,252 838,260 845,264" fill="none" stroke="#4a7c59" stroke-width="2" stroke-dasharray="6,3" opacity="0.85"/>
+      <!-- 文字標注（在填充層上方） -->
       <circle cx="178" cy="34" r="5" fill="#c04444" filter="url(#gl0)"/>
       <text x="192" y="40" font-size="10" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 血糖急速飆高</text>
       <text x="145" y="75" font-size="8.5" fill="rgba(192,80,70,0.9)" font-family="'Noto Sans TC',sans-serif">🔒 脂肪囤積</text>
       <text x="390" y="75" font-size="8.5" fill="rgba(192,80,70,0.9)" font-family="'Noto Sans TC',sans-serif">🔒 脂肪囤積</text>
       <text x="722" y="66" font-size="8.5" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif">🔒 夜間囤積最強</text>
       <text x="252" y="270" font-size="8.5" fill="rgba(90,160,110,0.9)" font-family="'Noto Sans TC',sans-serif">血糖急降→肚子餓→又想吃甜食</text>
-      <g transform="translate(55,332)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+      <!-- 危險區標籤（最上層，不被遮擋） -->
+      <rect x="55" y="26" width="790" height="18" fill="rgba(192,80,70,0.12)" rx="3"/>
+      <text x="62" y="39" font-size="9" fill="rgba(220,100,80,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 危險區：血糖過高，身體被迫大量分泌胰島素（囤脂荷爾蒙）來壓制</text>
+      <text x="62" y="52" font-size="8.5" fill="rgba(192,80,70,0.85)" font-family="'Noto Sans TC',sans-serif">胰島素把多餘血糖直接轉成脂肪儲存，同時阻止身體燃燒脂肪</text>
+      <!-- 圖例 -->
+      <g transform="translate(55,338)" font-family="'Noto Sans TC',sans-serif" font-size="10">
         <line x1="0" y1="0" x2="22" y2="0" stroke="#c07840" stroke-width="3" stroke-linecap="round"/><text x="27" y="4" fill="rgba(192,120,64,0.9)">血糖</text>
-        <line x1="90" y1="0" x2="112" y2="0" stroke="#4a7c59" stroke-width="2" stroke-dasharray="5,3"/><text x="117" y="4" fill="rgba(90,160,110,0.9)">胰島素（囤脂荷爾蒙）</text>
+        <line x1="90" y1="0" x2="112" y2="0" stroke="#4a7c59" stroke-width="2" stroke-dasharray="5,3"/><text x="117" y="4" fill="rgba(90,160,110,0.9)">胰島素（囤脂荷爾蒙）：血糖高時大量分泌，把糖轉成脂肪</text>
       </g>
     </svg>
   </div>
@@ -600,24 +619,32 @@ nav{padding:16px 24px}
       </g>
       <path d="M55,243 C90,243 120,246 150,254 C180,264 200,272 230,278 C260,282 290,280 340,278 C360,268 374,244 387,101 C398,64 405,54 423,54 C441,54 451,68 466,139 C480,196 486,252 510,252 C524,246 530,194 545,144 C551,111 566,88 579,68 C586,64 602,64 620,64 C630,78 643,151 656,208 C663,252 688,252 700,248 C695,236 708,151 726,74 C742,56 762,38 778,38 C796,38 806,54 820,116 C830,161 840,211 840,211 L840,318 L55,318 Z" fill="url(#g1f)" opacity="0.7"/>
       <path d="M55,243 C90,243 120,246 150,254 C180,264 200,272 230,278 C260,282 290,280 340,278 C360,268 374,244 387,101 C398,64 405,54 423,54 C441,54 451,68 466,139 C480,196 486,252 524,246 C530,194 545,144 566,88 C579,68 602,64 620,64 C630,78 643,151 656,208 C688,252 700,248 695,236 C708,151 726,74 742,56 C762,38 778,38 796,38 C806,54 820,116 840,211" fill="none" stroke="#c07840" stroke-width="3" filter="url(#gl1)" stroke-linecap="round"/>
-      <path d="M55,293 C90,294 140,293 200,292 C240,292 290,291 340,291 C360,288 376,266 394,191 C405,151 430,136 C448,136 457,161 472,211 C482,244 510,292 C522,286 528,276 540,244 C553,214 573,184 C585,170 606,170 C620,174 627,194 640,238 C650,266 682,292 C694,286 700,284 708,256 C720,211 740,168 C752,148 772,144 C786,146 804,211 C812,238 840,281" fill="none" stroke="#4a7c59" stroke-width="2" stroke-dasharray="6,3" opacity="0.65"/>
-      <path d="M55,208 C75,204 95,198 115,191 C135,184 175,170 C195,164 235,160 C255,159 295,166 C310,170 340,184 C352,190 372,204 C384,210 406,212 C419,212 442,202 C455,195 476,188 C490,186 512,196 C524,202 546,218 C557,222 578,218 C590,212 610,198 C623,192 646,194 C660,198 680,218 C690,228 708,236 C718,234 738,220 C750,210 772,208 C786,210 808,232 C818,240 840,258" fill="none" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.52"/>
-      <path d="M55,268 C75,267 100,266 125,264 C148,261 165,257 182,250 C198,242 220,218 C232,203 248,184 C258,176 275,173 C285,173 302,190 C312,202 328,224 C338,233 355,240 C365,241 380,238 C390,235 405,232 C416,232 435,242 C446,249 466,263 C477,267 510,270 C522,267 530,262 542,256 C553,250 572,244 C584,242 604,249 C614,254 634,266 C644,269 680,270 C690,267 710,257 C721,251 741,245 C754,243 774,251 C784,257 804,268 C814,270 840,271" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.7"/>
+      <!-- 囤脂荷爾蒙（胰島素）— 斷食期幾乎為零，午餐後大幅飆升 -->
+      <path d="M55,293 C80,294 120,293 170,292 C210,292 265,291 310,291 C330,291 336,290 340,290 C358,287 372,268 390,194 C401,154 410,138 428,136 C446,134 456,160 470,212 C480,246 486,290 508,292 C520,288 526,278 538,246 C550,216 558,200 571,186 C583,172 591,168 604,172 C617,176 625,194 637,240 C647,268 658,288 680,292 C692,288 699,284 707,257 C718,213 726,192 739,170 C750,150 757,144 770,146 C783,148 791,166 802,214 C810,240 822,264 833,274 C838,278 842,280 845,281" fill="none" stroke="#4a7c59" stroke-width="2" stroke-dasharray="6,3" opacity="0.85"/>
+      <!-- 壓力荷爾蒙（皮質醇）— 空腹時持續升高，進食後逐漸下降 -->
+      <path d="M55,210 C70,206 88,200 108,194 C126,188 148,180 168,174 C188,168 208,164 228,162 C248,160 268,162 288,166 C306,170 322,176 336,182 C340,184 348,190 360,200 C372,210 380,214 394,214 C406,214 416,210 428,204 C440,198 448,194 460,192 C472,190 480,192 492,198 C504,204 512,212 524,218 C534,222 542,222 552,218 C562,212 570,206 582,200 C592,196 600,194 612,196 C624,198 632,204 644,216 C654,226 662,234 672,238 C682,240 690,238 700,230 C712,222 720,214 732,210 C744,206 752,206 763,210 C774,216 783,226 794,236 C803,244 828,256 845,260" fill="none" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.75"/>
+      <!-- 腎上腺素 — 低血糖時急速升高，進食後快速下降 -->
+      <path d="M55,268 C68,267 88,266 110,264 C130,261 148,257 164,250 C178,244 190,234 204,222 C214,212 222,200 234,190 C244,182 252,178 262,178 C272,178 280,184 290,196 C300,208 308,222 320,232 C330,238 338,240 348,240 C358,238 366,234 378,228 C390,220 398,212 410,208 C420,204 428,204 440,208 C452,213 460,222 472,232 C482,240 490,246 504,248 C516,248 524,244 534,236 C546,226 554,218 566,212 C576,208 584,208 596,212 C608,218 616,228 628,240 C638,250 646,256 660,260 C672,262 682,260 694,253 C706,245 714,235 726,226 C736,218 744,215 756,216 C768,218 777,226 788,238 C798,248 820,262 845,268" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.85"/>
+      <!-- 標注文字 -->
       <text x="68" y="295" font-size="8.5" fill="rgba(92,107,192,0.92)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 血糖掉太低</text>
       <text x="68" y="307" font-size="8" fill="rgba(92,107,192,0.8)" font-family="'Noto Sans TC',sans-serif">肝醣耗盡 → 開始分解肌肉當燃料</text>
-      <text x="58" y="145" font-size="8.5" fill="rgba(192,80,70,0.88)" font-family="'Noto Sans TC',sans-serif" font-weight="700">① 壓力荷爾蒙升高</text>
-      <text x="58" y="156" font-size="8" fill="rgba(192,80,70,0.68)" font-family="'Noto Sans TC',sans-serif">→ 分解肌肉蛋白當血糖用</text>
-      <text x="220" y="170" font-size="8.5" fill="rgba(184,134,11,0.92)" font-family="'Noto Sans TC',sans-serif" font-weight="700">② 腎上腺素緊急分泌</text>
-      <text x="220" y="181" font-size="8" fill="rgba(184,134,11,0.8)" font-family="'Noto Sans TC',sans-serif">血糖再低時的第二道緊急機制</text>
-      <text x="220" y="192" font-size="8" fill="rgba(184,134,11,0.7)" font-family="'Noto Sans TC',sans-serif">→ 心跳加速、手抖、焦慮、強烈飢餓感</text>
+      <text x="58" y="138" font-size="8.5" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">① 壓力荷爾蒙（皮質醇）升高</text>
+      <text x="58" y="149" font-size="8" fill="rgba(192,80,70,0.8)" font-family="'Noto Sans TC',sans-serif">身體感到威脅時分泌，讓肌肉蛋白</text>
+      <text x="58" y="160" font-size="8" fill="rgba(192,80,70,0.8)" font-family="'Noto Sans TC',sans-serif">分解成血糖，長期高皮質醇→腹部肥胖</text>
+      <text x="220" y="168" font-size="8.5" fill="rgba(184,134,11,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">② 腎上腺素緊急分泌</text>
+      <text x="220" y="179" font-size="8" fill="rgba(184,134,11,0.85)" font-family="'Noto Sans TC',sans-serif">血糖再低時啟動，讓你感到</text>
+      <text x="220" y="190" font-size="8" fill="rgba(184,134,11,0.85)" font-family="'Noto Sans TC',sans-serif">心跳加速、手抖、焦慮、強烈飢餓</text>
       <circle cx="423" cy="54" r="5" fill="#c07840" filter="url(#gl1)"/>
       <text x="437" y="60" font-size="10" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 空腹後血糖更猛烈飆升</text>
       <text x="437" y="72" font-size="8.5" fill="rgba(192,120,64,0.8)" font-family="'Noto Sans TC',sans-serif">空腹讓身體對糖更敏感 → 反而儲存更多脂肪</text>
+      <!-- 圖例 -->
       <g transform="translate(55,356)" font-family="'Noto Sans TC',sans-serif" font-size="10">
         <line x1="0" y1="0" x2="20" y2="0" stroke="#c07840" stroke-width="3" stroke-linecap="round"/><text x="25" y="4" fill="rgba(192,120,64,0.9)">血糖</text>
-        <line x1="75" y1="0" x2="95" y2="0" stroke="#4a7c59" stroke-width="2" stroke-dasharray="5,3"/><text x="100" y="4" fill="rgba(90,160,110,0.9)">囤脂荷爾蒙</text>
-        <line x1="200" y1="0" x2="220" y2="0" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,4"/><text x="225" y="4" fill="rgba(192,80,70,0.9)">壓力荷爾蒙</text>
-        <line x1="330" y1="0" x2="350" y2="0" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4"/><text x="355" y="4" fill="rgba(184,134,11,0.9)">腎上腺素</text>
+        <line x1="75" y1="0" x2="95" y2="0" stroke="#4a7c59" stroke-width="2" stroke-dasharray="5,3"/><text x="100" y="4" fill="rgba(90,160,110,0.9)">囤脂荷爾蒙（胰島素）</text>
+        <line x1="240" y1="0" x2="260" y2="0" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,4"/><text x="265" y="4" fill="rgba(192,80,70,0.9)">壓力荷爾蒙（皮質醇）：空腹壓力↑，分解肌肉</text>
+      </g>
+      <g transform="translate(55,370)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+        <line x1="0" y1="0" x2="20" y2="0" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4"/><text x="25" y="4" fill="rgba(184,134,11,0.9)">腎上腺素：血糖過低的緊急警報，引發手抖心跳加速</text>
       </g>
     </svg>
   </div>
@@ -668,8 +695,11 @@ nav{padding:16px 24px}
       </g>
       <path d="M55,241 L95,241 C110,239 120,229 138,207 C152,192 162,179 178,175 C194,171 205,173 220,182 C235,191 242,207 258,222 C272,236 286,238 340,238 C352,234 360,222 374,205 C386,191 394,175 410,170 C426,165 436,167 450,175 C462,183 470,197 485,217 C494,229 510,234 522,231 C530,222 542,196 564,184 C578,182 598,192 616,209 C628,221 638,230 675,234 C685,231 694,221 706,205 C718,189 740,177 754,175 C762,177 776,187 796,207 C808,219 830,233 840,235 L840,302 L55,302 Z" fill="url(#g2f)" opacity="0.8"/>
       <path d="M55,241 L95,241 C110,239 120,229 138,207 C152,192 162,179 178,175 C194,171 205,173 220,182 C235,191 242,207 258,222 C272,236 286,238 340,238 C352,234 360,222 374,205 C386,191 394,175 410,170 C426,165 436,167 450,175 C462,183 470,197 485,217 C494,229 522,231 530,222 C542,196 564,184 578,182 C598,192 616,209 628,221 C638,230 675,234 685,231 C694,221 706,205 718,189 C740,177 754,175 762,177 C776,187 796,207 830,233 C840,235" fill="none" stroke="#4a7c59" stroke-width="3" filter="url(#gl2)" stroke-linecap="round"/>
-      <path d="M55,270 L95,269 C108,267 118,262 133,252 C146,242 155,235 171,233 C187,231 197,235 211,245 C223,253 231,262 258,265 C278,267 302,267 340,267 C352,265 360,257 374,249 C386,241 394,235 410,233 C424,231 434,233 447,241 C458,247 466,255 482,261 C492,264 498,265 512,263 C520,257 530,250 542,244 C550,240 564,238 580,237 C588,238 600,246 612,253 C620,260 630,266 642,268 C652,269 675,268 685,266 C694,260 706,252 718,244 C726,238 738,236 752,234 C762,236 774,244 784,251 C793,259 807,263 840,268" fill="none" stroke="#2e7d8a" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
-      <path d="M55,181 C80,179 105,176 130,171 C148,167 162,164 178,164 C194,164 205,168 220,176 C232,183 240,191 258,196 C270,200 285,200 310,198 C325,196 340,190 C350,186 360,181 376,176 C389,171 397,168 413,168 C429,168 439,171 452,178 C464,184 472,191 488,196 C497,199 512,199 522,196 C530,192 542,186 558,182 C568,180 580,179 596,179 C608,181 620,188 634,197 C644,204 654,209 670,210 C682,210 693,206 708,199 C720,192 730,187 746,185 C760,183 770,185 784,193 C796,200 808,210 820,213 C830,215 840,214" fill="none" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="8,3" opacity="0.58"/>
+      <!-- 囤脂荷爾蒙（胰島素）— 低GI飲食下保持低位小幅波動 -->
+      <path d="M55,270 L95,269 C108,267 118,262 133,252 C146,242 155,235 171,233 C187,231 197,235 211,245 C223,253 231,262 258,265 C278,267 302,267 340,267 C352,265 360,257 374,249 C386,241 394,235 410,233 C424,231 434,233 447,241 C458,247 466,255 482,261 C492,264 498,265 512,263 C520,257 530,250 542,244 C550,240 564,238 580,237 C588,238 600,246 612,253 C620,260 630,266 642,268 C652,269 675,268 685,266 C694,260 706,252 718,244 C726,238 738,236 752,234 C762,236 774,244 784,251 C793,259 807,263 820,266 C830,267 838,268 845,268" fill="none" stroke="#2e7d8a" stroke-width="2" stroke-dasharray="6,3" opacity="0.85"/>
+      <!-- 燃脂荷爾蒙（升糖素）— 血糖平穩時持續活躍，促進脂肪燃燒 -->
+      <path d="M55,181 C72,179 90,177 110,174 C128,171 146,168 162,166 C178,164 192,164 206,168 C218,172 228,178 242,186 C252,192 260,198 274,202 C284,204 296,204 310,202 C322,200 332,196 340,192 C350,188 360,183 374,178 C386,173 396,170 410,170 C424,170 434,172 446,178 C456,184 464,192 476,198 C486,202 496,204 508,202 C518,199 528,193 540,188 C550,184 562,182 574,181 C586,181 596,184 608,190 C618,196 626,204 638,210 C648,214 658,216 670,214 C680,212 690,207 702,200 C714,194 724,190 736,188 C748,187 758,188 770,194 C780,200 790,208 802,214 C812,218 824,219 834,218 C840,217 843,217 845,216" fill="none" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="8,3" opacity="0.85"/>
+      <!-- 圖例說明框 -->
       <rect x="690" y="143" width="148" height="34" rx="6" fill="rgba(90,160,110,0.12)" stroke="rgba(90,160,110,0.28)" stroke-width="1"/>
       <text x="764" y="156" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ 全程保持理想區間</text>
       <text x="764" y="169" text-anchor="middle" font-size="8" fill="rgba(90,160,110,0.8)" font-family="'Noto Sans TC',sans-serif">身體持續燃燒脂肪</text>
@@ -679,10 +709,13 @@ nav{padding:16px 24px}
       <text x="360" y="111" font-size="9" fill="rgba(92,107,192,0.85)" font-family="'Noto Sans TC',sans-serif">→ 餐與餐之間 身體一直在燒脂肪</text>
       <text x="682" y="98" font-size="9" fill="rgba(92,107,192,0.88)" font-family="'Noto Sans TC',sans-serif">夜間生長荷爾蒙↑</text>
       <text x="682" y="110" font-size="8.5" fill="rgba(92,107,192,0.75)" font-family="'Noto Sans TC',sans-serif">→ 修復肌肉 + 燃脂</text>
+      <!-- 圖例 -->
       <g transform="translate(55,333)" font-family="'Noto Sans TC',sans-serif" font-size="10">
         <line x1="0" y1="0" x2="22" y2="0" stroke="#4a7c59" stroke-width="3" stroke-linecap="round"/><text x="27" y="4" fill="rgba(90,160,110,0.9)">血糖</text>
-        <line x1="88" y1="0" x2="110" y2="0" stroke="#2e7d8a" stroke-width="2" stroke-dasharray="5,3"/><text x="115" y="4" fill="rgba(46,125,138,0.9)">囤脂荷爾蒙</text>
-        <line x1="218" y1="0" x2="240" y2="0" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="7,3"/><text x="245" y="4" fill="rgba(92,107,192,0.9)">燃脂荷爾蒙</text>
+        <line x1="88" y1="0" x2="110" y2="0" stroke="#2e7d8a" stroke-width="2" stroke-dasharray="5,3"/><text x="115" y="4" fill="rgba(46,125,138,0.9)">囤脂荷爾蒙（胰島素）：低GI飲食下全天維持低位</text>
+      </g>
+      <g transform="translate(55,348)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+        <line x1="0" y1="0" x2="22" y2="0" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="7,3"/><text x="27" y="4" fill="rgba(92,107,192,0.9)">燃脂荷爾蒙（升糖素）：胰島素低時升高，持續分解脂肪</text>
       </g>
     </svg>
   </div>
