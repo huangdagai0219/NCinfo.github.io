@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血糖管理與體重控制指南</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Bebas+Neue&display=swap');
+
+:root {
+–bg: #0c0b14;
+–panel: #16142a;
+–red: #ff4d6d;
+–orange: #ff8c42;
+–yellow: #ffd166;
+–green: #06d6a0;
+–teal: #00b4d8;
+–blue: #4361ee;
+–purple: #9b5de5;
+–amber: #f4a261;
+–text: #f0eeff;
+–muted: #8b80b0;
+–border: rgba(255,255,255,0.06);
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: ‘Noto Sans TC’, sans-serif;
+padding: 40px 20px 60px;
+}
+
+body::before {
+content: ‘’;
+position: fixed; inset: 0;
+background: radial-gradient(ellipse at 20% 20%, rgba(67,97,238,0.06) 0%, transparent 50%),
+radial-gradient(ellipse at 80% 80%, rgba(255,77,109,0.04) 0%, transparent 50%);
+pointer-events: none; z-index: 0;
+}
+
+.wrapper { position: relative; z-index: 1; width: 100%; max-width: 960px; margin: 0 auto; }
+
+/* HEADER */
+.main-header { text-align: center; margin-bottom: 52px; }
+.main-header .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(–orange); margin-bottom: 12px; }
+.main-header h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(36px, 8vw, 72px); line-height: 0.95;
+background: linear-gradient(135deg, #ff4d6d 0%, #ff8c42 40%, #ffd166 70%, #06d6a0 100%);
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+letter-spacing: 2px;
+}
+.main-header .sub { margin-top: 14px; font-size: 13.5px; color: var(–muted); line-height: 1.85; }
+
+/* TABS */
+.scenario-nav { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.scenario-nav button {
+flex: 1; min-width: 175px; padding: 14px 16px;
+border-radius: 14px; border: 1.5px solid var(–border);
+background: var(–panel); color: var(–muted);
+font-family: ‘Noto Sans TC’, sans-serif; font-size: 13px; font-weight: 500;
+cursor: pointer; transition: all 0.25s;
+display: flex; align-items: center; gap: 10px; text-align: left;
+}
+.scenario-nav button .s-icon { font-size: 20px; flex-shrink: 0; }
+.scenario-nav button .s-title { font-weight: 700; display: block; font-size: 13.5px; }
+.scenario-nav button .s-tag { font-size: 10px; opacity: 0.6; display: block; margin-top: 2px; }
+.scenario-nav button[data-s=“0”].active { border-color: var(–red); color: var(–text); background: rgba(255,77,109,0.08); }
+.scenario-nav button[data-s=“1”].active { border-color: var(–amber); color: var(–text); background: rgba(244,162,97,0.08); }
+.scenario-nav button[data-s=“2”].active { border-color: var(–green); color: var(–text); background: rgba(6,214,160,0.08); }
+.scenario-nav button:hover { transform: translateY(-2px); }
+
+/* PANELS */
+.scenario-panel { display: none; }
+.scenario-panel.active { display: block; animation: fadeUp 0.35s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* CHART */
+.chart-box {
+background: var(–panel); border-radius: 20px; padding: 28px 24px 16px;
+border: 1px solid var(–border); box-shadow: 0 32px 64px rgba(0,0,0,0.4); margin-bottom: 24px;
+}
+.chart-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.chtitle { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(–muted); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; }
+.leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(–muted); }
+.leg-swatch { width: 20px; height: 3px; border-radius: 2px; }
+
+svg.chart { width: 100%; height: auto; display: block; }
+
+/* CARDS */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.card {
+background: var(–panel); border-radius: 16px; padding: 18px;
+border: 1px solid var(–border); position: relative; overflow: hidden; transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-3px); }
+.card::before { content:’’; position:absolute; top:0; left:0; right:0; height:3px; }
+.clabel { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–muted); margin-bottom: 5px; }
+.cname { font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+.cdesc { font-size: 12px; color: var(–muted); line-height: 1.7; }
+.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-top: 10px; }
+
+/* CONCLUSION */
+.conclusion { border-radius: 20px; padding: 26px; display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+.conclusion .big-icon { font-size: 58px; line-height: 1; flex-shrink: 0; }
+.conclusion h3 { font-family: ‘Bebas Neue’, sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 10px; }
+.conclusion p { font-size: 13px; color: var(–muted); line-height: 1.9; max-width: 580px; }
+.conclusion p strong { color: var(–text); }
+
+.tip-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.tip-pill {
+display: inline-flex; align-items: center; gap: 7px;
+font-size: 11px; padding: 6px 12px; border-radius: 20px;
+border: 1px solid rgba(255,255,255,0.1); color: var(–muted);
+}
+.tip-pill .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+/* SCENARIO COLORS */
+.s0 .card::before { background: var(–red); }
+.s0 .conclusion { background: linear-gradient(135deg, rgba(255,77,109,0.07), rgba(155,93,229,0.07)); border: 1px solid rgba(255,77,109,0.2); }
+.s0 h3 { color: var(–red); }
+.b-red { background: rgba(255,77,109,0.14); color: var(–red); }
+.b-orange { background: rgba(255,140,66,0.14); color: var(–orange); }
+
+.s1 .card:nth-child(1)::before, .s1 .card:nth-child(2)::before { background: var(–amber); }
+.s1 .card:nth-child(3)::before, .s1 .card:nth-child(4)::before { background: var(–red); }
+.s1 .conclusion { background: linear-gradient(135deg, rgba(244,162,97,0.07), rgba(255,77,109,0.07)); border: 1px solid rgba(244,162,97,0.25); }
+.s1 h3 { color: var(–amber); }
+.b-amber { background: rgba(244,162,97,0.14); color: var(–amber); }
+
+.s2 .card::before { background: var(–green); }
+.s2 .conclusion { background: linear-gradient(135deg, rgba(6,214,160,0.07), rgba(67,97,238,0.07)); border: 1px solid rgba(6,214,160,0.2); }
+.s2 h3 { color: var(–green); }
+.b-green { background: rgba(6,214,160,0.14); color: var(–green); }
+.b-teal { background: rgba(0,180,216,0.14); color: var(–teal); }
+
+/* SHAKE HIGHLIGHT */
+.shake-highlight { background: rgba(6,214,160,0.06); border: 1px solid rgba(6,214,160,0.18); }
+.shake-highlight .cname { color: var(–green); }
+
+@keyframes pulseAnim { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+.pulse { animation: pulseAnim 2.2s ease-in-out infinite; }
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="main-header">
+    <div class="eyebrow">體重管理 · 飲食習慣 · 血糖與代謝</div>
+    <h1>你吃的方式<br>決定你的體態</h1>
+    <p class="sub">血糖的起伏幅度，直接決定身體是在「燃燒脂肪」還是「囤積脂肪」<br>同樣一天24小時，三種吃法帶來截然不同的結果</p>
+  </div>
+
+  <div class="scenario-nav">
+    <button data-s="0" class="active" onclick="switchScenario(0)">
+      <span class="s-icon">🔴</span>
+      <span><span class="s-title">高GI飲食</span><span class="s-tag">血糖大起大落 → 囤積脂肪</span></span>
+    </button>
+    <button data-s="1" onclick="switchScenario(1)">
+      <span class="s-icon">🟡</span>
+      <span><span class="s-title">錯誤168斷食</span><span class="s-tag">不吃早餐 → 燒肌肉留脂肪</span></span>
+    </button>
+    <button data-s="2" onclick="switchScenario(2)">
+      <span class="s-icon">🟢</span>
+      <span><span class="s-title">正確低GI飲食</span><span class="s-tag">血糖平穩 → 燃脂保肌</span></span>
+    </button>
+  </div>
+
+  <!-- ═══ S0: 高GI ═══ -->
+
+  <div class="scenario-panel s0 active" id="panel-0">
+    <div class="chart-box">
+      <div class="chart-header">
+        <div class="chtitle">全天血糖與脂肪囤積荷爾蒙變化（高GI飲食）</div>
+        <div class="legend">
+          <div class="leg-item"><div class="leg-swatch" style="background:#ff8c42;"></div>血糖</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#06d6a0 0,#06d6a0 5px,transparent 5px,transparent 9px);"></div>胰島素（囤脂荷爾蒙）</div>
+        </div>
+      </div>
+      <svg class="chart" viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g0f" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ff4d6d" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#ff4d6d" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="g0l" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ff8c42"/><stop offset="50%" stop-color="#ff4d6d"/><stop offset="100%" stop-color="#ff8c42"/>
+          </linearGradient>
+          <filter id="gl0"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- danger zone -->
+        <rect x="55" y="26" width="790" height="70" rx="3" fill="rgba(255,77,109,0.05)"/>
+        <text x="62" y="41" font-size="9" fill="rgba(255,77,109,0.45)" font-family="'Noto Sans TC',sans-serif">⚠ 危險區：血糖過高，身體被迫大量分泌胰島素來壓制</text>
+        <!-- normal zone -->
+        <rect x="55" y="166" width="790" height="60" rx="3" fill="rgba(255,209,102,0.04)"/>
+        <text x="62" y="181" font-size="9" fill="rgba(255,209,102,0.4)" font-family="'Noto Sans TC',sans-serif">正常空腹血糖區間</text>
+        <!-- grid -->
+        <line x1="55" y1="96" x2="845" y2="96" stroke="rgba(255,77,109,0.1)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="166" x2="845" y2="166" stroke="rgba(255,209,102,0.08)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="226" x2="845" y2="226" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,5"/>
+        <!-- y labels -->
+        <g font-size="10" font-family="monospace" text-anchor="end">
+          <text x="50" y="30" fill="rgba(255,77,109,0.7)">高</text>
+          <text x="50" y="98" fill="rgba(255,140,66,0.6)">↑</text>
+          <text x="50" y="168" fill="rgba(255,209,102,0.6)">正常</text>
+          <text x="50" y="228" fill="rgba(169,160,192,0.5)">↓</text>
+          <text x="50" y="284" fill="rgba(169,160,192,0.4)">低</text>
+        </g>
+        <!-- axes -->
+        <line x1="55" y1="298" x2="845" y2="298" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="55" y1="18" x2="55" y2="298" stroke="rgba(255,255,255,0.07)"/>
+        <!-- meal lines -->
+        <line x1="95" y1="24" x2="95" y2="298" stroke="rgba(255,140,66,0.2)" stroke-dasharray="3,6"/>
+        <line x1="340" y1="24" x2="340" y2="298" stroke="rgba(255,209,102,0.2)" stroke-dasharray="3,6"/>
+        <line x1="500" y1="24" x2="500" y2="298" stroke="rgba(155,93,229,0.22)" stroke-dasharray="3,6"/>
+        <line x1="675" y1="24" x2="675" y2="298" stroke="rgba(255,77,109,0.22)" stroke-dasharray="3,6"/>
+        <!-- icons -->
+        <text x="95" y="20" text-anchor="middle" font-size="15">🍞</text>
+        <text x="340" y="20" text-anchor="middle" font-size="15">🍜</text>
+        <text x="500" y="20" text-anchor="middle" font-size="15">🧋</text>
+        <text x="675" y="20" text-anchor="middle" font-size="15">🍚</text>
+        <!-- x labels -->
+        <g font-size="9.5" fill="rgba(169,160,192,0.65)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="310">早7點</text><text x="220" y="310">9點</text>
+          <text x="340" y="310">12點</text><text x="500" y="310">下午3:30</text>
+          <text x="675" y="310">晚7點</text><text x="820" y="310">10點</text>
+        </g>
+        <g font-size="8" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="321" fill="rgba(255,140,66,0.7)">早餐</text>
+          <text x="340" y="321" fill="rgba(255,209,102,0.7)">午餐</text>
+          <text x="500" y="321" fill="rgba(155,93,229,0.7)">下午茶</text>
+          <text x="675" y="321" fill="rgba(255,77,109,0.7)">晚餐</text>
+        </g>
+        <!-- BG fill -->
+        <path d="M55,226 L95,226 C112,223 120,196 135,91 C148,44 158,34 178,34 C198,34 210,51 228,124 C246,191 255,258 285,252 C310,248 325,246 340,246 C358,244 365,224 380,84 C393,43 400,34 418,34 C436,34 446,51 462,128 C476,192 480,254 520,239 C530,184 545,131 565,74 C578,54 600,50 618,50 C628,64 642,138 655,198 C688,248 700,244 706,243 C695,234 706,141 724,84 C740,46 760,28 775,28 C793,28 803,42 817,108 C827,154 845,201 845,201 L845,298 L55,298 Z" fill="url(#g0f)" opacity="0.75"/>
+        <!-- BG line -->
+        <path d="M55,226 L95,226 C112,223 120,196 135,91 C148,44 158,34 178,34 C198,34 210,51 228,124 C246,191 255,258 285,252 C310,248 325,246 340,246 C358,244 365,224 380,84 C393,43 400,34 418,34 C436,34 446,51 462,128 C476,192 480,254 520,239 C530,184 545,131 565,74 C578,54 600,50 618,50 C628,64 642,138 655,198 C688,248 700,244 706,243 C695,234 706,141 724,84 C740,46 760,28 775,28 C793,28 803,42 817,108 C827,154 845,201" fill="none" stroke="url(#g0l)" stroke-width="3" filter="url(#gl0)" stroke-linecap="round"/>
+        <!-- Insulin line -->
+        <path d="M55,260 L110,258 C128,254 142,231 160,134 C172,84 182,74 202,74 C220,74 232,101 250,164 C265,212 272,264 300,266 C318,268 330,266 355,268 C368,264 378,241 396,144 C408,94 415,78 435,78 C454,78 464,104 480,166 C493,212 500,266 516,268 C526,266 532,261 542,221 C556,178 562,158 578,141 C592,126 600,122 618,126 C634,130 644,154 658,208 C668,241 678,264 700,268 C710,264 715,263 722,228 C734,171 740,144 755,120 C767,100 773,91 787,92 C804,94 812,114 824,166 C832,194 838,214 845,229" fill="none" stroke="#06d6a0" stroke-width="2" stroke-dasharray="6,3" opacity="0.65"/>
+        <!-- Annotations -->
+        <circle cx="178" cy="34" r="5" fill="#ff4d6d" filter="url(#gl0)"/>
+        <text x="192" y="40" font-size="10" fill="#ff8c42" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 血糖急速飆高</text>
+        <!-- fat storage labels on peaks -->
+        <text x="145" y="75" font-size="8.5" fill="rgba(255,77,109,0.8)" font-family="'Noto Sans TC',sans-serif">🔒 脂肪囤積</text>
+        <text x="390" y="75" font-size="8.5" fill="rgba(255,77,109,0.8)" font-family="'Noto Sans TC',sans-serif">🔒 脂肪囤積</text>
+        <text x="555" y="88" font-size="8.5" fill="rgba(255,77,109,0.8)" font-family="'Noto Sans TC',sans-serif">🔒 囤積</text>
+        <text x="722" y="66" font-size="8.5" fill="rgba(255,77,109,0.9)" font-family="'Noto Sans TC',sans-serif">🔒 夜間囤積最強</text>
+        <!-- crash annotations -->
+        <text x="252" y="270" font-size="8.5" fill="rgba(6,214,160,0.75)" font-family="'Noto Sans TC',sans-serif">血糖急降→肚子餓→又想吃甜食</text>
+        <!-- legend -->
+        <g transform="translate(55,332)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#ff8c42" stroke-width="3" stroke-linecap="round"/>
+          <text x="27" y="4" fill="rgba(255,140,66,0.8)">血糖</text>
+          <line x1="90" y1="0" x2="112" y2="0" stroke="#06d6a0" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="117" y="4" fill="rgba(6,214,160,0.8)">胰島素（囤脂荷爾蒙）</text>
+        </g>
+      </svg>
+    </div>
+
+```
+<div class="cards">
+  <div class="card">
+    <div class="clabel">☀️ 早餐 7:00</div><div class="cname">白吐司 + 含糖果汁</div>
+    <div class="cdesc">精製澱粉和糖分消化極快，血糖在短短30分鐘內急速飆高，身體為了壓制高血糖，分泌大量「囤脂荷爾蒙」（胰島素）</div>
+    <span class="badge b-red">⚠ 血糖急升 → 脂肪囤積</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🌞 午餐 12:00</div><div class="cname">白飯 + 拉麵</div>
+    <div class="cdesc">第二波大量精製碳水，囤脂荷爾蒙再次大量分泌，多餘的糖份無法代謝，直接被身體轉換成脂肪儲存</div>
+    <span class="badge b-orange">↑ 第二波囤脂高峰</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🌤 下午茶 3:30</div><div class="cname">珍珠奶茶 + 蛋糕</div>
+    <div class="cdesc">血糖急降讓你感到飢餓、想吃甜食——這是身體的「低血糖飢餓陷阱」，吃進去後血糖又再次飆高</div>
+    <span class="badge b-red">⚠ 低血糖飢餓陷阱</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🌙 晚餐 7:00</div><div class="cname">炒飯 + 含糖飲料</div>
+    <div class="cdesc">夜間身體活動少、代謝慢，多餘血糖無處消耗；加上夜間脂肪儲存能力最強，這一餐囤積的脂肪比白天更多</div>
+    <span class="badge b-red">🌙 夜間囤積效率最高</span>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="big-icon pulse">🫃</div>
+  <div>
+    <h3>血糖反覆大起大落 → 脂肪不斷囤積</h3>
+    <p>每次血糖飆升，身體就分泌大量<strong>胰島素（囤脂荷爾蒙）</strong>來壓制。胰島素的作用是把多餘的糖分<strong>轉換成脂肪儲存</strong>，同時阻止身體燃燒脂肪。
+    一天四次劇烈震盪，長期下來身體對胰島素越來越不靈敏，需要分泌更多才能控制血糖，
+    形成<strong>囤脂荷爾蒙越來越多 → 脂肪越堆越厚 → 越來越難瘦</strong>的惡性循環。</p>
+    <div class="tip-row">
+      <span class="tip-pill"><span class="dot" style="background:#ff4d6d;"></span>血糖飆升 → 囤脂荷爾蒙大量分泌</span>
+      <span class="tip-pill"><span class="dot" style="background:#ff8c42;"></span>囤脂荷爾蒙↑ → 脂肪轉換儲存↑</span>
+      <span class="tip-pill"><span class="dot" style="background:#9b5de5;"></span>長期反覆 → 荷爾蒙失調惡性循環</span>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ═══ S1: 錯誤168 ═══ -->
+
+  <div class="scenario-panel s1" id="panel-1">
+    <div class="chart-box">
+      <div class="chart-header">
+        <div class="chtitle">錯誤168斷食：不吃早餐後發生了什麼事</div>
+        <div class="legend">
+          <div class="leg-item"><div class="leg-swatch" style="background:#f4a261;"></div>血糖</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#06d6a0 0,#06d6a0 5px,transparent 5px,transparent 9px);"></div>囤脂荷爾蒙</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#ff4d6d 0,#ff4d6d 3px,transparent 3px,transparent 7px);"></div>壓力荷爾蒙（分解肌肉）</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#ffd166 0,#ffd166 4px,transparent 4px,transparent 8px);"></div>腎上腺素（緊急警報）</div>
+        </div>
+      </div>
+      <svg class="chart" viewBox="0 0 860 375" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1f" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f4a261" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#f4a261" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="gl1"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- fasting band -->
+        <rect x="55" y="24" width="285" height="278" rx="4" fill="rgba(244,162,97,0.04)"/>
+        <text x="197" y="40" text-anchor="middle" font-size="9" fill="rgba(244,162,97,0.4)" font-family="'Noto Sans TC',sans-serif" letter-spacing="1">── 斷食期（不吃早餐）──</text>
+        <!-- danger / muscle loss zones -->
+        <rect x="55" y="54" width="790" height="68" rx="3" fill="rgba(255,77,109,0.05)"/>
+        <text x="62" y="69" font-size="9" fill="rgba(255,77,109,0.4)" font-family="'Noto Sans TC',sans-serif">⚠ 血糖過高危險區</text>
+        <rect x="55" y="270" width="790" height="36" rx="3" fill="rgba(67,97,238,0.07)"/>
+        <text x="62" y="283" font-size="9" fill="rgba(67,97,238,0.5)" font-family="'Noto Sans TC',sans-serif">⚠ 血糖過低危險區：肝醣耗盡 → 身體開始分解肌肉當燃料</text>
+        <!-- grid -->
+        <line x1="55" y1="122" x2="840" y2="122" stroke="rgba(255,77,109,0.1)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="188" x2="840" y2="188" stroke="rgba(255,209,102,0.08)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="243" x2="840" y2="243" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="270" x2="840" y2="270" stroke="rgba(67,97,238,0.12)" stroke-dasharray="2,5"/>
+        <!-- y labels -->
+        <g font-size="10" font-family="monospace" text-anchor="end">
+          <text x="50" y="58" fill="rgba(255,77,109,0.7)">高</text>
+          <text x="50" y="188" fill="rgba(255,209,102,0.6)">正常</text>
+          <text x="50" y="243" fill="rgba(169,160,192,0.5)">↓</text>
+          <text x="50" y="272" fill="rgba(67,97,238,0.6)">低</text>
+        </g>
+        <line x1="55" y1="318" x2="840" y2="318" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="55" y1="24" x2="55" y2="318" stroke="rgba(255,255,255,0.07)"/>
+        <!-- meal lines -->
+        <line x1="340" y1="24" x2="340" y2="318" stroke="rgba(255,209,102,0.22)" stroke-dasharray="3,6"/>
+        <line x1="510" y1="24" x2="510" y2="318" stroke="rgba(155,93,229,0.22)" stroke-dasharray="3,6"/>
+        <line x1="680" y1="24" x2="680" y2="318" stroke="rgba(255,77,109,0.22)" stroke-dasharray="3,6"/>
+        <!-- icons -->
+        <text x="95" y="18" text-anchor="middle" font-size="15">❌</text>
+        <text x="340" y="18" text-anchor="middle" font-size="15">🍜</text>
+        <text x="510" y="18" text-anchor="middle" font-size="15">🧋</text>
+        <text x="680" y="18" text-anchor="middle" font-size="15">🍚</text>
+        <!-- x labels -->
+        <g font-size="9.5" fill="rgba(169,160,192,0.65)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="330">早7點</text><text x="205" y="330">10點</text>
+          <text x="340" y="330">12點</text><text x="510" y="330">下午3:30</text>
+          <text x="680" y="330">晚7點</text><text x="820" y="330">10點</text>
+        </g>
+        <g font-size="8" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="341" fill="rgba(244,162,97,0.6)">跳過早餐</text>
+          <text x="340" y="341" fill="rgba(255,209,102,0.7)">高GI午餐</text>
+          <text x="510" y="341" fill="rgba(155,93,229,0.7)">含糖點心</text>
+          <text x="680" y="341" fill="rgba(255,77,109,0.7)">高GI晚餐</text>
+        </g>
+        <!-- BG: slowly drops to hypo zone, then big spikes -->
+        <path d="M55,243 C90,243 120,246 150,254 C180,264 200,272 230,278 C260,282 290,280 340,278 C360,268 374,244 387,101 C398,64 405,54 423,54 C441,54 451,68 466,139 C480,196 486,252 510,252 C524,246 530,194 545,144 C551,111 566,88 579,68 C586,64 602,64 620,64 C630,78 643,151 656,208 C663,252 688,252 700,248 C695,236 708,151 726,74 C742,56 762,38 778,38 C796,38 806,54 820,116 C830,161 840,211 840,211 L840,318 L55,318 Z" fill="url(#g1f)" opacity="0.7"/>
+        <path d="M55,243 C90,243 120,246 150,254 C180,264 200,272 230,278 C260,282 290,280 340,278 C360,268 374,244 387,101 C398,64 405,54 423,54 C441,54 451,68 466,139 C480,196 486,252 524,246 C530,194 545,144 566,88 C579,68 602,64 620,64 C630,78 643,151 656,208 C688,252 700,248 695,236 C708,151 726,74 742,56 C762,38 778,38 796,38 C806,54 820,116 840,211" fill="none" stroke="#f4a261" stroke-width="3" filter="url(#gl1)" stroke-linecap="round"/>
+        <!-- Insulin: flat during fast, then big spikes post-meals -->
+        <path d="M55,293 C90,294 140,293 200,292 C240,292 290,291 340,291 C360,288 376,266 394,191 C405,151 412,136 430,136 C448,136 457,161 472,211 C482,244 488,290 510,292 C522,286 528,276 540,244 C553,214 559,198 573,184 C585,170 592,166 606,170 C620,174 627,194 640,238 C650,266 660,288 682,292 C694,286 700,284 708,256 C720,211 726,191 740,168 C752,148 758,141 772,144 C786,146 792,164 804,211 C812,238 838,271 840,281" fill="none" stroke="#06d6a0" stroke-width="2" stroke-dasharray="6,3" opacity="0.65"/>
+        <!-- Cortisol/stress hormone: rises during prolonged fast -->
+        <path d="M55,208 C75,204 95,198 115,191 C135,184 155,176 175,170 C195,164 215,161 235,160 C255,159 275,161 295,166 C310,170 325,176 340,184 C352,190 360,196 372,204 C384,210 393,212 406,212 C419,212 428,208 442,202 C455,195 462,190 476,188 C490,186 498,188 512,196 C524,202 532,212 546,218 C557,222 566,222 578,218 C590,212 598,205 610,198 C623,192 632,190 646,194 C660,198 668,206 680,218 C690,228 698,234 708,236 C718,234 726,228 738,220 C750,210 758,206 772,208 C786,210 796,220 808,232 C818,240 836,254 840,258" fill="none" stroke="#ff4d6d" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.52"/>
+        <!-- Adrenaline line: spikes sharply when BG drops to hypo, peaks around 10-11am, then subsides after lunch -->
+        <path d="M55,268 C75,267 100,266 125,264 C148,261 165,257 182,250 C198,242 208,232 220,218 C232,203 238,192 248,184 C258,176 265,173 275,173 C285,173 292,178 302,190 C312,202 318,214 328,224 C338,233 345,238 355,240 C365,241 372,240 380,238 C390,235 396,232 405,232 C416,232 424,235 435,242 C446,249 453,257 466,263 C477,267 486,269 510,270 C522,267 530,262 542,256 C553,250 560,246 572,244 C584,242 592,243 604,249 C614,254 622,261 634,266 C644,269 654,270 680,270 C690,267 698,263 710,257 C721,251 729,247 741,245 C754,243 762,244 774,251 C784,257 792,264 804,268 C814,270 830,271 840,271" fill="none" stroke="#ffd166" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.7"/>
+        <!-- Annotations -->
+        <text x="68" y="295" font-size="8.5" fill="rgba(67,97,238,0.85)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 血糖掉太低</text>
+        <text x="68" y="307" font-size="8" fill="rgba(67,97,238,0.65)" font-family="'Noto Sans TC',sans-serif">肝醣耗盡 → 開始分解肌肉當燃料</text>
+        <!-- Cortisol annotation -->
+        <text x="58" y="145" font-size="8.5" fill="rgba(255,77,109,0.75)" font-family="'Noto Sans TC',sans-serif" font-weight="700">① 壓力荷爾蒙升高</text>
+        <text x="58" y="156" font-size="8" fill="rgba(255,77,109,0.55)" font-family="'Noto Sans TC',sans-serif">→ 分解肌肉蛋白當血糖用</text>
+        <!-- Adrenaline annotation -->
+        <text x="220" y="170" font-size="8.5" fill="rgba(255,209,102,0.85)" font-family="'Noto Sans TC',sans-serif" font-weight="700">② 腎上腺素緊急分泌</text>
+        <text x="220" y="181" font-size="8" fill="rgba(255,209,102,0.65)" font-family="'Noto Sans TC',sans-serif">血糖再低時的第二道緊急機制</text>
+        <text x="220" y="192" font-size="8" fill="rgba(255,209,102,0.55)" font-family="'Noto Sans TC',sans-serif">→ 心跳加速、手抖、焦慮、強烈飢餓感</text>
+        <circle cx="423" cy="54" r="5" fill="#f4a261" filter="url(#gl1)"/>
+        <text x="437" y="60" font-size="10" fill="#f4a261" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 空腹後血糖更猛烈飆升</text>
+        <text x="437" y="72" font-size="8.5" fill="rgba(244,162,97,0.65)" font-family="'Noto Sans TC',sans-serif">空腹讓身體對糖更敏感 → 反而儲存更多脂肪</text>
+        <!-- legend -->
+        <g transform="translate(55,356)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+          <line x1="0" y1="0" x2="20" y2="0" stroke="#f4a261" stroke-width="3" stroke-linecap="round"/>
+          <text x="25" y="4" fill="rgba(244,162,97,0.8)">血糖</text>
+          <line x1="75" y1="0" x2="95" y2="0" stroke="#06d6a0" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="100" y="4" fill="rgba(6,214,160,0.8)">囤脂荷爾蒙</text>
+          <line x1="200" y1="0" x2="220" y2="0" stroke="#ff4d6d" stroke-width="1.5" stroke-dasharray="3,4"/>
+          <text x="225" y="4" fill="rgba(255,77,109,0.8)">壓力荷爾蒙</text>
+          <line x1="330" y1="0" x2="350" y2="0" stroke="#ffd166" stroke-width="1.8" stroke-dasharray="4,4"/>
+          <text x="355" y="4" fill="rgba(255,209,102,0.8)">腎上腺素</text>
+        </g>
+      </svg>
+    </div>
+
+```
+<div class="cards">
+  <div class="card">
+    <div class="clabel">❌ 早上7–12點（跳過早餐）</div><div class="cname">不吃早餐</div>
+    <div class="cdesc">空腹超過12小時，血糖持續下降。肝醣耗盡後，<strong>壓力荷爾蒙</strong>先升高分解肌肉補血糖；血糖繼續太低時，<strong>腎上腺素</strong>緊急分泌——這就是你感到心跳加速、手抖、焦慮、極度飢餓的原因</div>
+    <span class="badge b-amber">⚠ 燒肌肉 不燒脂肪</span>
+  </div>
+  <div class="card">
+    <div class="clabel">⚡ 低血糖的兩階段緊急反應</div><div class="cname">壓力荷爾蒙 + 腎上腺素</div>
+    <div class="cdesc">血糖過低時，身體啟動兩道緊急機制：<strong>①壓力荷爾蒙</strong>先出動，分解肌肉蛋白轉為血糖；血糖再撐不住時，<strong>②腎上腺素</strong>緊急介入，進一步加速分解、抑制囤脂荷爾蒙——脂肪反而被鎖住不動</div>
+    <span class="badge b-amber">⚠ 脂肪被鎖住 肌肉被燃燒</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🌞 午餐 12:00</div><div class="cname">空腹後吃高GI午餐</div>
+    <div class="cdesc">長時間不吃讓身體對糖分特別敏感，午餐的血糖飆升比平常更猛烈，分泌的囤脂荷爾蒙更多，儲存的脂肪反而<strong>比正常吃早餐更多</strong></div>
+    <span class="badge b-red">↑ 空腹後囤脂反應更強</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🌙 下午茶+晚餐</div><div class="cname">繼續高GI飲食</div>
+    <div class="cdesc">肌肉已被部分分解，<strong>代謝速度下降</strong>，身體燒熱量的能力變差。夜間高血糖加上低代謝率，脂肪囤積效率比任何時候都高</div>
+    <span class="badge b-red">🌙 代謝↓ 囤脂效率↑</span>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="big-icon pulse">💪❌</div>
+  <div>
+    <h3>錯誤斷食 = 肌肉越來越少 × 脂肪越來越多</h3>
+    <p>不吃早餐時，血糖持續下滑，身體啟動兩道緊急保命機制：<strong>①壓力荷爾蒙（皮質醇）</strong>先升高，把肌肉蛋白分解成血糖；血糖繼續太低時，<strong>②腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮、強烈想吃東西的原因。
+    腎上腺素雖然能短暫抑制囤脂荷爾蒙，但同時也把脂肪「鎖住」無法有效燃燒，身體反而優先消耗肌肉。
+    等到午餐時，空腹讓身體對糖分極度敏感，血糖飆得更猛、<strong>囤脂荷爾蒙分泌更多</strong>，儲存的脂肪反而比正常吃早餐更多。
+    最終結果：<strong>肌肉越來越少 → 代謝速度越來越慢 → 越來越容易復胖</strong>。</p>
+    <div class="tip-row">
+      <span class="tip-pill"><span class="dot" style="background:#ff4d6d;"></span>壓力荷爾蒙↑ → 肌肉分解 → 代謝↓</span>
+      <span class="tip-pill"><span class="dot" style="background:#ffd166;"></span>腎上腺素↑ → 心跳加速手抖焦慮飢餓</span>
+      <span class="tip-pill"><span class="dot" style="background:#f4a261;"></span>空腹後高GI → 囤脂荷爾蒙反應更強</span>
+      <span class="tip-pill"><span class="dot" style="background:#9b5de5;"></span>肌肉↓ → 基礎代謝↓ → 更易復胖</span>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ═══ S2: 正確低GI ═══ -->
+
+  <div class="scenario-panel s2" id="panel-2">
+    <div class="chart-box">
+      <div class="chart-header">
+        <div class="chtitle">正確低GI飲食：血糖平穩，身體持續燃脂</div>
+        <div class="legend">
+          <div class="leg-item"><div class="leg-swatch" style="background:#06d6a0;"></div>血糖</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#00b4d8 0,#00b4d8 5px,transparent 5px,transparent 9px);"></div>囤脂荷爾蒙（低）</div>
+          <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4361ee 0,#4361ee 7px,transparent 7px,transparent 11px);"></div>燃脂荷爾蒙（升糖素）</div>
+        </div>
+      </div>
+      <svg class="chart" viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2f" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#06d6a0" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#06d6a0" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="gl2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- ideal zone -->
+        <rect x="55" y="143" width="790" height="98" rx="3" fill="rgba(6,214,160,0.05)"/>
+        <text x="62" y="158" font-size="9" fill="rgba(6,214,160,0.4)" font-family="'Noto Sans TC',sans-serif">✅ 理想血糖控制區間：波動小、身體持續燃燒脂肪</text>
+        <!-- grid -->
+        <line x1="55" y1="100" x2="840" y2="100" stroke="rgba(255,77,109,0.06)" stroke-dasharray="4,6"/>
+        <line x1="55" y1="143" x2="840" y2="143" stroke="rgba(6,214,160,0.12)" stroke-dasharray="4,5"/>
+        <line x1="55" y1="241" x2="840" y2="241" stroke="rgba(255,255,255,0.04)" stroke-dasharray="4,5"/>
+        <!-- y labels -->
+        <g font-size="10" font-family="monospace" text-anchor="end">
+          <text x="50" y="34" fill="rgba(255,77,109,0.5)">高</text>
+          <text x="50" y="100" fill="rgba(255,140,66,0.4)">↑</text>
+          <text x="50" y="145" fill="rgba(6,214,160,0.7)">理想</text>
+          <text x="50" y="193" fill="rgba(6,214,160,0.5)">區間</text>
+          <text x="50" y="243" fill="rgba(169,160,192,0.5)">↓</text>
+          <text x="50" y="290" fill="rgba(169,160,192,0.4)">低</text>
+        </g>
+        <!-- axes -->
+        <line x1="55" y1="302" x2="840" y2="302" stroke="rgba(255,255,255,0.07)"/>
+        <line x1="55" y1="18" x2="55" y2="302" stroke="rgba(255,255,255,0.07)"/>
+        <!-- meal lines -->
+        <line x1="95" y1="24" x2="95" y2="302" stroke="rgba(6,214,160,0.18)" stroke-dasharray="3,6"/>
+        <line x1="340" y1="24" x2="340" y2="302" stroke="rgba(6,214,160,0.18)" stroke-dasharray="3,6"/>
+        <line x1="500" y1="24" x2="500" y2="302" stroke="rgba(0,180,216,0.18)" stroke-dasharray="3,6"/>
+        <line x1="675" y1="24" x2="675" y2="302" stroke="rgba(6,214,160,0.18)" stroke-dasharray="3,6"/>
+        <!-- icons -->
+        <text x="95" y="20" text-anchor="middle" font-size="15">🥤</text>
+        <text x="340" y="20" text-anchor="middle" font-size="15">🥗</text>
+        <text x="500" y="20" text-anchor="middle" font-size="15">🥤</text>
+        <text x="675" y="20" text-anchor="middle" font-size="15">🐟</text>
+        <!-- x labels -->
+        <g font-size="9.5" fill="rgba(169,160,192,0.65)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="314">早7點</text><text x="210" y="314">10點</text>
+          <text x="340" y="314">12點</text><text x="500" y="314">下午3:30</text>
+          <text x="675" y="314">晚7點</text><text x="820" y="314">10點</text>
+        </g>
+        <g font-size="8" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
+          <text x="95" y="325" fill="rgba(6,214,160,0.8)">營養奶昔</text>
+          <text x="340" y="325" fill="rgba(6,214,160,0.75)">低GI午餐</text>
+          <text x="500" y="325" fill="rgba(0,180,216,0.8)">營養奶昔</text>
+          <text x="675" y="325" fill="rgba(6,214,160,0.75)">低GI晚餐</text>
+        </g>
+        <!-- BG fill: gentle waves all in green zone -->
+        <path d="M55,241 L95,241 C110,239 120,229 138,207 C152,192 162,179 178,175 C194,171 205,173 220,182 C235,191 242,207 258,222 C272,236 286,238 340,238 C352,234 360,222 374,205 C386,191 394,175 410,170 C426,165 436,167 450,175 C462,183 470,197 485,217 C494,229 510,234 522,231 C530,222 542,196 564,184 C578,182 598,192 616,209 C628,221 638,230 675,234 C685,231 694,221 706,205 C718,189 740,177 754,175 C762,177 776,187 796,207 C808,219 830,233 840,235 L840,302 L55,302 Z" fill="url(#g2f)" opacity="0.8"/>
+        <path d="M55,241 L95,241 C110,239 120,229 138,207 C152,192 162,179 178,175 C194,171 205,173 220,182 C235,191 242,207 258,222 C272,236 286,238 340,238 C352,234 360,222 374,205 C386,191 394,175 410,170 C426,165 436,167 450,175 C462,183 470,197 485,217 C494,229 522,231 530,222 C542,196 564,184 578,182 C598,192 616,209 628,221 C638,230 675,234 685,231 C694,221 706,205 718,189 C740,177 754,175 762,177 C776,187 796,207 830,233 C840,235" fill="none" stroke="#06d6a0" stroke-width="3" filter="url(#gl2)" stroke-linecap="round"/>
+        <!-- Insulin: tiny gentle humps -->
+        <path d="M55,270 L95,269 C108,267 118,262 133,252 C146,242 155,235 171,233 C187,231 197,235 211,245 C223,253 231,262 258,265 C278,267 302,267 340,267 C352,265 360,257 374,249 C386,241 394,235 410,233 C424,231 434,233 447,241 C458,247 466,255 482,261 C492,264 498,265 512,263 C520,257 530,250 542,244 C550,240 564,238 580,237 C588,238 600,246 612,253 C620,260 630,266 642,268 C652,269 662,269 675,268 C685,266 694,260 706,252 C718,244 726,238 738,236 C752,234 762,236 774,244 C784,251 793,259 807,263 C818,266 832,267 840,268" fill="none" stroke="#00b4d8" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+        <!-- Glucagon/fat-burning: stays elevated between meals -->
+        <path d="M55,181 C80,179 105,176 130,171 C148,167 162,164 178,164 C194,164 205,168 220,176 C232,183 240,191 258,196 C270,200 285,200 310,198 C325,196 334,193 340,190 C350,186 360,181 376,176 C389,171 397,168 413,168 C429,168 439,171 452,178 C464,184 472,191 488,196 C497,199 512,199 522,196 C530,192 542,186 558,182 C568,180 580,179 596,179 C608,181 620,188 634,197 C644,204 654,209 670,210 C682,210 693,206 708,199 C720,192 730,187 746,185 C760,183 770,185 784,193 C796,200 808,210 820,213 C830,215 838,214 840,214" fill="none" stroke="#4361ee" stroke-width="2" stroke-dasharray="8,3" opacity="0.58"/>
+        <!-- Annotations -->
+        <!-- Fat burning zone label -->
+        <rect x="690" y="143" width="148" height="34" rx="6" fill="rgba(6,214,160,0.1)" stroke="rgba(6,214,160,0.22)" stroke-width="1"/>
+        <text x="764" y="156" text-anchor="middle" font-size="8.5" fill="rgba(6,214,160,0.9)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ 全程保持理想區間</text>
+        <text x="764" y="169" text-anchor="middle" font-size="8" fill="rgba(6,214,160,0.65)" font-family="'Noto Sans TC',sans-serif">身體持續燃燒脂肪</text>
+        <!-- shake annotation -->
+        <text x="108" y="163" font-size="9" fill="rgba(6,214,160,0.85)" font-family="'Noto Sans TC',sans-serif">緩慢上升 → 囤脂荷爾蒙少量分泌</text>
+        <text x="108" y="174" font-size="8.5" fill="rgba(6,214,160,0.65)" font-family="'Noto Sans TC',sans-serif">高纖維 高蛋白 → 飽足感持久</text>
+        <!-- fat burning annotation -->
+        <text x="360" y="98" font-size="9.5" fill="rgba(67,97,238,0.9)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔥 燃脂荷爾蒙持續活躍</text>
+        <text x="360" y="111" font-size="9" fill="rgba(67,97,238,0.7)" font-family="'Noto Sans TC',sans-serif">→ 餐與餐之間 身體一直在燒脂肪</text>
+        <!-- night recovery -->
+        <text x="682" y="98" font-size="9" fill="rgba(67,97,238,0.75)" font-family="'Noto Sans TC',sans-serif">夜間生長荷爾蒙↑</text>
+        <text x="682" y="110" font-size="8.5" fill="rgba(67,97,238,0.6)" font-family="'Noto Sans TC',sans-serif">→ 修復肌肉 + 燃脂</text>
+        <!-- legend -->
+        <g transform="translate(55,333)" font-family="'Noto Sans TC',sans-serif" font-size="10">
+          <line x1="0" y1="0" x2="22" y2="0" stroke="#06d6a0" stroke-width="3" stroke-linecap="round"/>
+          <text x="27" y="4" fill="rgba(6,214,160,0.8)">血糖</text>
+          <line x1="88" y1="0" x2="110" y2="0" stroke="#00b4d8" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="115" y="4" fill="rgba(0,180,216,0.8)">囤脂荷爾蒙</text>
+          <line x1="218" y1="0" x2="240" y2="0" stroke="#4361ee" stroke-width="2" stroke-dasharray="7,3"/>
+          <text x="245" y="4" fill="rgba(67,97,238,0.8)">燃脂荷爾蒙</text>
+        </g>
+      </svg>
+    </div>
+
+```
+<!-- Shake info banner -->
+<div style="background:rgba(6,214,160,0.06);border:1px solid rgba(6,214,160,0.2);border-radius:16px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+  <div style="font-size:36px;flex-shrink:0;">🥤</div>
+  <div>
+    <div style="font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px;">營養奶昔（早餐 &amp; 下午茶）</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.75;">低升糖指數（GI值低） &nbsp;·&nbsp; 高膳食纖維 &nbsp;·&nbsp; 低脂低熱量 &nbsp;·&nbsp; 含完整蛋白質、醣類、脂肪（巨量營養素）&nbsp;·&nbsp; 含豐富維生素與礦物質（微量營養素）<br>
+    血糖緩慢上升，飽足感持久，不觸發大量囤脂荷爾蒙，讓身體的燃脂模式持續運作。</div>
+  </div>
+</div>
+
+<div class="cards">
+  <div class="card shake-highlight">
+    <div class="clabel">🥤 早餐 7:00</div><div class="cname">營養奶昔</div>
+    <div class="cdesc">低GI配方讓血糖緩慢上升，高纖維和蛋白質讓你有飽足感、不會很快肚子餓；囤脂荷爾蒙只需少量分泌，燃脂荷爾蒙保持活躍</div>
+    <span class="badge b-green">✅ 緩升血糖 飽足感持久</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🥗 低GI午餐 12:00</div><div class="cname">糙米 + 蛋白質 + 蔬菜</div>
+    <div class="cdesc">複合碳水消化慢，蔬菜纖維進一步緩衝血糖上升；蛋白質讓你有飽足感，血糖平穩不超標，囤脂荷爾蒙維持低位</div>
+    <span class="badge b-green">✅ 血糖峰值低 飽足感強</span>
+  </div>
+  <div class="card shake-highlight">
+    <div class="clabel">🥤 下午茶 3:30</div><div class="cname">營養奶昔</div>
+    <div class="cdesc">下午是最容易想吃甜食的時段，這杯奶昔幫你補充完整營養，血糖不上不下維持穩定，讓燃脂荷爾蒙繼續運作到晚餐前</div>
+    <span class="badge b-teal">🌿 穩定血糖 持續燃脂</span>
+  </div>
+  <div class="card">
+    <div class="clabel">🐟 低GI晚餐 7:00</div><div class="cname">魚 + 地瓜 + 綠葉蔬菜</div>
+    <div class="cdesc">低GI晚餐讓囤脂荷爾蒙夜間維持低位；睡眠時<strong>生長荷爾蒙</strong>正常分泌，幫助修復與增長肌肉，同時持續燃燒脂肪</div>
+    <span class="badge b-green">🌙 睡眠燃脂 修復肌肉</span>
+  </div>
+</div>
+
+<div class="conclusion">
+  <div class="big-icon pulse">🔥</div>
+  <div>
+    <h3>血糖平穩 → 身體全天持續燃脂 × 保留肌肉</h3>
+    <p>低GI飲食讓囤脂荷爾蒙全天保持低位，身體的<strong>燃脂荷爾蒙</strong>得以持續活躍——這代表即使在餐與餐之間的休息時段，身體也在默默燃燒脂肪。
+    穩定的血糖也防止壓力荷爾蒙升高，肌肉不會被分解，<strong>代謝速度</strong>才能維持在高效狀態。
+    晚上睡覺時，<strong>生長荷爾蒙</strong>正常分泌，繼續修復與強化肌肉，讓你在睡眠中同時燃脂。
+    這才是<strong>讓身體真正瘦下來、不反彈</strong>的正確方向。</p>
+    <div class="tip-row">
+      <span class="tip-pill"><span class="dot" style="background:#06d6a0;"></span>囤脂荷爾蒙低 → 燃脂荷爾蒙活躍</span>
+      <span class="tip-pill"><span class="dot" style="background:#00b4d8;"></span>肌肉不流失 → 代謝速度維持</span>
+      <span class="tip-pill"><span class="dot" style="background:#4361ee;"></span>夜間生長荷爾蒙 → 睡眠燃脂+修肌</span>
+      <span class="tip-pill"><span class="dot" style="background:#9b5de5;"></span>血糖穩定 → 飽足感↑ 不過食</span>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+</div>
+<script>
+function switchScenario(n) {
+  document.querySelectorAll('.scenario-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  document.querySelectorAll('.scenario-nav button').forEach((b,i) => b.classList.toggle('active', i===n));
+}
+</script>
+</body>
+</html>
