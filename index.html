@@ -306,11 +306,11 @@ svg.chart{width:100%;height:auto;display:block}
 .pulse{animation:pulseAnim 2.2s ease-in-out infinite}
 
 /* Hormone info panel below chart */
-.hormone-panel { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px;margin-top:-4px; }
-.h-pill { display:flex;align-items:flex-start;gap:10px;background:rgba(255,245,235,0.06);border:1px solid rgba(212,196,168,0.18);border-radius:12px;padding:12px 14px; }
-.h-swatch { width:24px;height:3px;border-radius:2px;flex-shrink:0;margin-top:8px; }
-.h-name { font-size:12px;font-weight:700;color:#f0e0c0;margin-bottom:3px; }
-.h-desc { font-size:11px;color:#c4a060;line-height:1.55; }
+.hormone-panel { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px;margin-top:16px; }
+.h-pill { display:flex;align-items:flex-start;gap:12px;background:rgba(255,245,235,0.07);border:1px solid rgba(212,196,168,0.22);border-radius:12px;padding:14px 16px; }
+.h-swatch { width:28px;height:4px;border-radius:2px;flex-shrink:0;margin-top:9px; }
+.h-name { font-size:12px;font-weight:700;color:#654321;margin-bottom:4px; }
+.h-desc { font-size:11px;color:#c4a060;line-height:1.6; }
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -581,8 +581,8 @@ nav{padding:16px 24px}
   </div>
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
-    <div class="h-pill"><div class="h-swatch" style="background:#c07840;height:3px;width:24px;margin-top:8px;flex-shrink:0;border-radius:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">飲食中的碳水化合物消化後進入血液。高GI食物讓血糖急速飆升，低GI食物讓血糖緩慢上升。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">血糖升高時由胰臟分泌。把血糖轉成脂肪儲存，同時阻止身體燃脂。血糖越高，分泌越多，囤脂越強。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">飲食中的碳水化合物消化後進入血液。高GI食物讓血糖急速飆升，低GI食物讓血糖緩慢上升。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">血糖升高時由胰臟分泌。把血糖轉成脂肪儲存，同時阻止身體燃脂。血糖越高，分泌越多，囤脂越強。</div></div></div>
   </div>
 
   <div class="cards">
@@ -651,8 +651,31 @@ nav{padding:16px 24px}
       <!-- 血糖填充 + 線條 -->
       <path d="M55,210 C90,210 120,213 150,220 C180,230 200,236 230,241 C260,245 290,243 340,241 C360,232 374,210 387,70 C398,36 405,26 423,26 C441,26 451,40 466,110 C480,164 486,218 510,218 C524,212 530,162 545,114 C551,82 566,60 579,42 C586,36 602,36 620,36 C630,50 643,118 656,172 C663,214 688,218 700,214 C695,202 708,118 726,48 C742,24 762,10 778,10 C796,10 806,24 820,86 C830,130 840,174 840,174 L840,280 L55,280 Z" fill="url(#g1f)" opacity="0.65"/>
       <path d="M55,210 C90,210 120,213 150,220 C180,230 200,236 230,241 C260,245 290,243 340,241 C360,232 374,210 387,70 C398,36 405,26 423,26 C441,26 451,40 466,110 C480,164 486,218 524,212 C530,162 545,114 566,60 C579,42 602,36 620,36 C630,50 643,118 656,172 C688,218 700,214 695,202 C708,118 726,48 742,24 C762,10 778,10 796,10 C806,24 820,86 840,174" fill="none" stroke="#c07840" stroke-width="3" filter="url(#gl1)" stroke-linecap="round"/>
-      <!-- 胰島素：斷食期低，餐後飆升 -->
-      <path d="M55,258 C80,258 120,257 180,256 C220,255 280,254 340,254 C358,251 374,232 392,160 C403,122 412,106 430,104 C448,102 458,126 472,175 C482,210 488,254 510,256 C522,252 528,242 540,210 C552,180 560,164 573,150 C585,136 593,132 606,136 C619,140 627,158 639,202 C649,230 659,252 680,254 C692,250 699,246 707,220 C718,178 726,158 739,136 C750,117 757,112 770,114 C783,116 791,134 802,180 C810,206 822,230 833,242 C838,246 842,248 845,249" fill="none" stroke="#4a7c59" stroke-width="2" stroke-dasharray="6,3" opacity="0.9"/>
+      <!-- 胰島素（囤脂荷爾蒙）— 斷食期幾乎為零，午餐因空腹增敏後爆發性飆升，其他餐次也大幅上升 -->
+      <path d="M55,272 C70,272 90,271 120,270
+               C150,269 200,268 250,267
+               C290,266 320,265 340,265
+               C354,262 364,248 376,198
+               C384,162 390,130 402,90
+               C410,62 416,36 428,28
+               C440,20 448,30 458,62
+               C468,96 476,142 486,190
+               C494,224 500,256 512,262
+               C522,258 528,244 540,210
+               C550,182 558,158 570,128
+               C580,104 588,82 600,62
+               C610,46 618,36 630,34
+               C642,32 650,48 660,88
+               C670,124 676,162 686,206
+               C694,234 700,258 710,264
+               C720,260 727,246 738,208
+               C748,174 756,144 768,110
+               C778,82 786,58 798,40
+               C808,26 816,20 828,22
+               C836,24 840,32 845,44"
+        fill="none" stroke="#4a7c59" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.95" filter="url(#gl1)"/>
+      <!-- 胰島素飆升標注 -->
+      <text x="434" y="22" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ 胰島素爆發（空腹增敏）</text>
       <!-- 壓力荷爾蒙（皮質醇）：空腹升高 -->
       <path d="M55,176 C70,172 88,166 108,160 C126,154 148,148 168,144 C188,140 208,137 228,136 C248,136 268,138 288,142 C306,146 322,152 336,158 C340,160 348,166 360,174 C372,182 380,186 394,186 C406,186 416,182 428,176 C440,170 448,166 460,164 C472,162 480,164 492,170 C504,175 512,182 524,188 C534,191 542,191 552,188 C562,182 570,176 582,170 C592,166 600,164 612,166 C624,168 632,174 644,186 C654,196 662,204 672,208 C682,210 690,208 700,200 C712,192 720,184 732,180 C744,177 752,177 763,181 C774,186 783,194 794,204 C803,212 828,224 845,228" fill="none" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.8"/>
       <!-- 腎上腺素：低血糖時急升 -->
@@ -664,10 +687,10 @@ nav{padding:16px 24px}
   </div>
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
-    <div class="h-pill"><div class="h-swatch" style="background:#c07840;height:3px;width:24px;margin-top:8px;flex-shrink:0;border-radius:2px;"></div><div><div class="h-name">血糖</div><div class="h-desc">斷食期緩慢下滑，午餐後因空腹增敏而急劇飆升，比正常進食飆得更高。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">斷食期接近零，餐後因血糖急升而大量分泌，脂肪合成效率比正常吃早餐更強。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#c04444 0,#c04444 3px,transparent 3px,transparent 7px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">皮質醇（壓力荷爾蒙）</div><div class="h-desc">血糖過低時升高，命令身體分解肌肉蛋白轉為血糖。長期高皮質醇會導致腹部脂肪堆積。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">腎上腺素（緊急警報）</div><div class="h-desc">血糖繼續過低時啟動第二道緊急機制。讓你感到心跳加速、手抖、焦慮、強烈飢餓感。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖</div><div class="h-desc">斷食期緩慢下滑，午餐後因空腹增敏而急劇飆升，比正常進食飆得更高。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">斷食期接近零，餐後因血糖急升而大量分泌，脂肪合成效率比正常吃早餐更強。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#a03030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">皮質醇（壓力荷爾蒙）</div><div class="h-desc">血糖過低時升高，命令身體分解肌肉蛋白轉為血糖。長期高皮質醇會導致腹部脂肪堆積。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#9a7000;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">腎上腺素（緊急警報）</div><div class="h-desc">血糖繼續過低時啟動第二道緊急機制。讓你感到心跳加速、手抖、焦慮、強烈飢餓感。</div></div></div>
   </div>
 
   <div class="cards">
@@ -746,10 +769,10 @@ nav{padding:16px 24px}
   </div>
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
-    <div class="h-pill"><div class="h-swatch" style="background:#4a7c59;height:3px;width:24px;margin-top:8px;flex-shrink:0;border-radius:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">低GI飲食讓血糖全天緩升緩降，波動幅度小。胰島素只需少量分泌，燃脂模式得以持續。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#2e7d8a 0,#2e7d8a 5px,transparent 5px,transparent 9px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">低GI飲食下全天維持低位，幾乎不觸發脂肪合成。低胰島素是讓身體燃脂的前提。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);height:3px;width:24px;margin-top:8px;flex-shrink:0;"></div><div><div class="h-name">升糖素（燃脂荷爾蒙）</div><div class="h-desc">胰島素低時由胰臟分泌。活化脂肪細胞釋放脂肪酸供能，即使不在運動也持續燃燒脂肪。</div></div></div>
-    <div class="h-pill"><div class="h-swatch" style="background:rgba(160,120,80,0.6);height:3px;width:24px;margin-top:8px;flex-shrink:0;border-radius:2px;"></div><div><div class="h-name">生長激素（夜間）</div><div class="h-desc">睡眠深層期脈衝分泌，促進肌肉蛋白合成與脂肪分解。低GI晚餐讓胰島素低，生長激素才能正常釋放。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">低GI飲食讓血糖全天緩升緩降，波動幅度小。胰島素只需少量分泌，燃脂模式得以持續。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#1e6070;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">低GI飲食下全天維持低位，幾乎不觸發脂肪合成。低胰島素是讓身體燃脂的前提。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#4040a0;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">升糖素（燃脂荷爾蒙）</div><div class="h-desc">胰島素低時由胰臟分泌。活化脂肪細胞釋放脂肪酸供能，即使不在運動也持續燃燒脂肪。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#806040;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">生長激素（夜間）</div><div class="h-desc">睡眠深層期脈衝分泌，促進肌肉蛋白合成與脂肪分解。低GI晚餐讓胰島素低，生長激素才能正常釋放。</div></div></div>
   </div>
   <div style="background:rgba(90,160,110,0.08);border:1px solid rgba(90,160,110,0.25);border-radius:16px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
     <div style="font-size:36px;flex-shrink:0;">🥤</div>
