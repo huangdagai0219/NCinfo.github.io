@@ -305,6 +305,74 @@ svg.chart{width:100%;height:auto;display:block}
 @keyframes pulseAnim{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 .pulse{animation:pulseAnim 2.2s ease-in-out infinite}
 
+/* ── BS-CARD CLICKABLE LINK ── */
+.bs-card-link { text-decoration:none;display:block;cursor:pointer; }
+.bs-card-link .bs-card { transition:background .25s,transform .25s,box-shadow .25s; }
+.bs-card-link:hover .bs-card { transform:translateY(-6px);box-shadow:0 16px 40px rgba(92,61,46,.18); }
+.bs-card-link .go-arrow {
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;color:var(--earth);
+  margin-top:12px;
+  transition:gap .2s,color .2s;
+}
+.bs-card-link:hover .go-arrow { gap:10px;color:var(--honey); }
+
+/* ── CHART ZOOM MODAL ── */
+.chart-zoom-wrap { position:relative;cursor:zoom-in; }
+.chart-zoom-btn {
+  position:absolute;top:10px;right:10px;z-index:10;
+  background:rgba(61,43,30,0.85);
+  border:1px solid rgba(212,196,168,0.3);
+  color:#d4b896;
+  font-size:11px;font-family:'Noto Sans TC',sans-serif;
+  padding:5px 12px;border-radius:20px;
+  cursor:pointer;
+  display:flex;align-items:center;gap:5px;
+  transition:background .2s,color .2s;
+  backdrop-filter:blur(4px);
+}
+.chart-zoom-btn:hover { background:rgba(212,148,74,0.25);color:#f0d898; }
+
+.chart-modal-overlay {
+  display:none;
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(20,12,6,0.88);
+  backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;
+  padding:20px;
+}
+.chart-modal-overlay.open { display:flex; }
+.chart-modal-inner {
+  background:#3d2b1e;
+  border:1px solid rgba(212,196,168,0.18);
+  border-radius:20px;
+  width:min(960px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  animation:modalIn .25s ease;
+  padding:28px 24px;
+}
+@keyframes modalIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
+.chart-modal-close {
+  position:sticky;top:0;float:right;
+  background:rgba(212,148,74,0.18);
+  border:1px solid rgba(212,148,74,0.35);
+  color:#d4b896;
+  font-size:13px;font-family:'Noto Sans TC',sans-serif;
+  padding:7px 18px;border-radius:20px;
+  cursor:pointer;margin-bottom:16px;
+  transition:background .2s;
+  z-index:1;
+}
+.chart-modal-close:hover { background:rgba(212,148,74,0.32);color:#f0d898; }
+.chart-modal-title {
+  font-family:'Noto Serif TC',serif;
+  font-size:16px;font-weight:700;color:#d4a040;
+  margin-bottom:16px;clear:both;
+}
+.chart-modal-inner svg.chart { width:100%;height:auto; }
+
 /* Hormone info panel below chart */
 .hormone-panel { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px;margin-top:16px; }
 .h-pill { display:flex;align-items:flex-start;gap:12px;background:rgba(255,245,235,0.07);border:1px solid rgba(212,196,168,0.22);border-radius:12px;padding:14px 16px; }
@@ -435,9 +503,15 @@ nav{padding:16px 24px}
       <h2 class="section-title reveal">三種吃法，三種截然不同的結果</h2>
       <p class="section-sub reveal">同樣一天24小時，你的飲食習慣決定了身體是在囤積脂肪、分解肌肉，還是真正燃燒脂肪。</p>
       <div class="bs-grid">
-        <div class="bs-card bad reveal reveal-delay-1"><div class="bs-scenario">情境 01 · 高GI飲食</div><div class="bs-title">🍞 白吐司、白飯、含糖飲料</div><div class="bs-desc">血糖一天四次劇烈飆升，<strong>胰島素</strong>（囤脂荷爾蒙）反覆大量分泌。長期下來荷爾蒙失調，脂肪越堆越多、越來越難瘦。</div><div class="bs-outcome bad">🔴 血糖震盪 → 脂肪囤積</div></div>
-        <div class="bs-card warn reveal reveal-delay-2"><div class="bs-scenario">情境 02 · 錯誤 168 斷食</div><div class="bs-title">❌ 不吃早餐，午餐才開始</div><div class="bs-desc">血糖過低時<strong>皮質醇</strong>（壓力荷爾蒙）與<strong>腎上腺素</strong>接連升高，身體優先分解肌肉補充血糖，脂肪反而被鎖住。</div><div class="bs-outcome warn">🟡 燒肌肉 → 代謝越來越慢</div></div>
-        <div class="bs-card good reveal reveal-delay-3"><div class="bs-scenario">情境 03 · 正確低GI飲食</div><div class="bs-title">🥤 營養奶昔 + 低GI正餐</div><div class="bs-desc">血糖全天平穩，<strong>胰島素</strong>低位、<strong>升糖素</strong>（燃脂荷爾蒙）持續活躍。夜間<strong>生長激素</strong>正常分泌，睡覺也在燃脂修肌。</div><div class="bs-outcome good">🟢 血糖平穩 → 持續燃脂保肌</div></div>
+        <a class="bs-card-link" onclick="showPage('chart');switchScenario(0)" style="cursor:pointer;">
+          <div class="bs-card bad reveal reveal-delay-1"><div class="bs-scenario">情境 01 · 高GI飲食</div><div class="bs-title">🍞 白吐司、白飯、含糖飲料</div><div class="bs-desc">血糖一天四次劇烈飆升，<strong>胰島素</strong>（囤脂荷爾蒙）反覆大量分泌。長期下來荷爾蒙失調，脂肪越堆越多、越來越難瘦。</div><div class="bs-outcome bad">🔴 血糖震盪 → 脂肪囤積</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+        </a>
+        <a class="bs-card-link" onclick="showPage('chart');switchScenario(1)" style="cursor:pointer;">
+          <div class="bs-card warn reveal reveal-delay-2"><div class="bs-scenario">情境 02 · 錯誤 168 斷食</div><div class="bs-title">❌ 不吃早餐，午餐才開始</div><div class="bs-desc">血糖過低時<strong>皮質醇</strong>（壓力荷爾蒙）與<strong>腎上腺素</strong>接連升高，身體優先分解肌肉補充血糖，脂肪反而被鎖住。</div><div class="bs-outcome warn">🟡 燒肌肉 → 代謝越來越慢</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+        </a>
+        <a class="bs-card-link" onclick="showPage('chart');switchScenario(2)" style="cursor:pointer;">
+          <div class="bs-card good reveal reveal-delay-3"><div class="bs-scenario">情境 03 · 正確低GI飲食</div><div class="bs-title">🥤 營養奶昔 + 低GI正餐</div><div class="bs-desc">血糖全天平穩，<strong>胰島素</strong>低位、<strong>升糖素</strong>（燃脂荷爾蒙）持續活躍。夜間<strong>生長激素</strong>正常分泌，睡覺也在燃脂修肌。</div><div class="bs-outcome good">🟢 血糖平穩 → 持續燃脂保肌</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+        </a>
       </div>
       <div class="bs-cta reveal">
         <div class="bs-cta-text"><h3>想看完整的血糖波動圖表分析？</h3><p>互動圖表帶你一目了然比較三種飲食模式，了解每一餐對你身體的影響</p></div>
@@ -502,9 +576,11 @@ nav{padding:16px 24px}
 
 <!-- ═══ S0 ═══ -->
 <div class="scenario-panel s0 active" id="panel-0">
+  <div class="chart-zoom-wrap">
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s0')" type="button">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">全天血糖與脂肪囤積荷爾蒙變化（高GI飲食）</div>
+      <div class="chtitle">高GI飲食：全天血糖與胰島素波動</div>
       <div class="legend">
         <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>血糖</div>
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>胰島素（囤脂荷爾蒙）</div>
@@ -579,6 +655,7 @@ nav{padding:16px 24px}
       <text x="690" y="48" font-size="8" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔒 夜間囤積最強</text>
     </svg>
   </div>
+  </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
     <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">飲食中的碳水化合物消化後進入血液。高GI食物讓血糖急速飆升，低GI食物讓血糖緩慢上升。</div></div></div>
@@ -596,9 +673,11 @@ nav{padding:16px 24px}
 
 <!-- ═══ S1 ═══ -->
 <div class="scenario-panel s1" id="panel-1">
+  <div class="chart-zoom-wrap">
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">錯誤168斷食：不吃早餐後發生了什麼事</div>
+      <div class="chtitle">錯誤168斷食：血糖、荷爾蒙變化</div>
       <div class="legend">
         <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>血糖</div>
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>囤脂荷爾蒙</div>
@@ -685,6 +764,7 @@ nav{padding:16px 24px}
       <text x="434" y="32" font-size="8" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 空腹後血糖猛烈飆升（對糖更敏感）</text>
     </svg>
   </div>
+  </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
     <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖</div><div class="h-desc">斷食期緩慢下滑，午餐後因空腹增敏而急劇飆升，比正常進食飆得更高。</div></div></div>
@@ -740,6 +820,8 @@ nav{padding:16px 24px}
 
 <!-- ═══ S2 ═══ -->
 <div class="scenario-panel s2" id="panel-2">
+  <div class="chart-zoom-wrap">
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
       <div class="chtitle">正確低GI飲食：血糖平穩，身體持續燃脂</div>
@@ -803,6 +885,7 @@ nav{padding:16px 24px}
       <text x="764" y="103" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ 全程保持理想區間</text>
     </svg>
   </div>
+  </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
     <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">低GI飲食讓血糖全天緩升緩降，波動幅度小。胰島素只需少量分泌，燃脂模式得以持續。</div></div></div>
@@ -885,7 +968,46 @@ nav{padding:16px 24px}
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled',window.scrollY>60); });
 
-  // ── SCROLL REVEAL ──
+  // ── CHART MODAL ──
+  function openChartModal(id) {
+    const overlay = document.getElementById(id);
+    const contentEl = document.getElementById(id + '-content');
+    // Find which panel corresponds to this modal
+    const panelMap = { 'modal-s0': 'panel-0', 'modal-s1': 'panel-1', 'modal-s2': 'panel-2' };
+    const panel = document.getElementById(panelMap[id]);
+    if (panel && contentEl) {
+      // Clone the SVG and legend into modal
+      const chartBox = panel.querySelector('.chart-box');
+      if (chartBox) {
+        contentEl.innerHTML = '';
+        const clone = chartBox.cloneNode(true);
+        // Remove zoom button from clone if present
+        const btn = clone.querySelector('.chart-zoom-btn');
+        if (btn) btn.remove();
+        clone.style.marginBottom = '0';
+        clone.style.boxShadow = 'none';
+        clone.style.background = 'transparent';
+        clone.style.border = 'none';
+        contentEl.appendChild(clone);
+      }
+    }
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeChartModal(event, id) {
+    if (event && event.target !== document.getElementById(id)) return;
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.chart-modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
   function observeReveal() {
     const els = document.querySelectorAll('.reveal:not(.visible)');
     const obs = new IntersectionObserver(entries=>{
@@ -895,6 +1017,30 @@ nav{padding:16px 24px}
   }
   observeReveal();
 </script>
+
+
+<!-- ═══ CHART ZOOM MODALS ═══ -->
+<div class="chart-modal-overlay" id="modal-s0" onclick="closeChartModal(event, 'modal-s0')">
+  <div class="chart-modal-inner" onclick="event.stopPropagation()">
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s0')">✕ 關閉</button>
+    <div class="chart-modal-title">🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動</div>
+    <div id="modal-s0-content"></div>
+  </div>
+</div>
+<div class="chart-modal-overlay" id="modal-s1" onclick="closeChartModal(event, 'modal-s1')">
+  <div class="chart-modal-inner" onclick="event.stopPropagation()">
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s1')">✕ 關閉</button>
+    <div class="chart-modal-title">🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化</div>
+    <div id="modal-s1-content"></div>
+  </div>
+</div>
+<div class="chart-modal-overlay" id="modal-s2" onclick="closeChartModal(event, 'modal-s2')">
+  <div class="chart-modal-inner" onclick="event.stopPropagation()">
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s2')">✕ 關閉</button>
+    <div class="chart-modal-title">🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍</div>
+    <div id="modal-s2-content"></div>
+  </div>
+</div>
 
 </body>
 </html>
