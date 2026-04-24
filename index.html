@@ -53,25 +53,26 @@ overflow-x: hidden;
 cursor: none;
 }
 
+
 /* ── LANG TOGGLE ── */
 .lang-toggle {
-display:flex;align-items:center;gap:0;
-background:rgba(255,255,255,0.08);
-border:1px solid rgba(212,196,168,0.25);
-border-radius:30px;overflow:hidden;
-flex-shrink:0;
+  display:flex;align-items:center;gap:0;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(212,196,168,0.25);
+  border-radius:30px;overflow:hidden;
+  flex-shrink:0;
 }
 .lang-toggle button {
-padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:1px;
-font-family:‘Noto Sans TC’,sans-serif;
-background:transparent;border:none;cursor:pointer;
-color:rgba(212,196,168,0.55);
-transition:background .2s,color .2s;
+  padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:1px;
+  font-family:'Noto Sans TC',sans-serif;
+  background:transparent;border:none;cursor:pointer;
+  color:rgba(212,196,168,0.55);
+  transition:background .2s,color .2s;
 }
 .lang-toggle button.active {
-background:var(–honey,#d4944a);
-color:#3a2a1e;
-border-radius:30px;
+  background:var(--honey,#d4944a);
+  color:#3a2a1e;
+  border-radius:30px;
 }
 .lang-toggle button:hover:not(.active) { color:rgba(212,196,168,0.9); }
 
@@ -332,66 +333,66 @@ svg.chart{width:100%;height:auto;display:block}
 .bs-card-link .bs-card { transition:background .25s,transform .25s,box-shadow .25s; }
 .bs-card-link:hover .bs-card { transform:translateY(-6px);box-shadow:0 16px 40px rgba(92,61,46,.18); }
 .bs-card-link .go-arrow {
-display:inline-flex;align-items:center;gap:6px;
-font-size:11px;font-weight:700;color:var(–earth);
-margin-top:12px;
-transition:gap .2s,color .2s;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;color:var(--earth);
+  margin-top:12px;
+  transition:gap .2s,color .2s;
 }
-.bs-card-link:hover .go-arrow { gap:10px;color:var(–honey); }
+.bs-card-link:hover .go-arrow { gap:10px;color:var(--honey); }
 
 /* ── CHART ZOOM MODAL ── */
 .chart-zoom-wrap { position:relative;cursor:zoom-in; }
 .chart-zoom-btn {
-position:absolute;top:10px;right:10px;z-index:10;
-background:rgba(61,43,30,0.85);
-border:1px solid rgba(212,196,168,0.3);
-color:#d4b896;
-font-size:11px;font-family:‘Noto Sans TC’,sans-serif;
-padding:5px 12px;border-radius:20px;
-cursor:pointer;
-display:flex;align-items:center;gap:5px;
-transition:background .2s,color .2s;
-backdrop-filter:blur(4px);
+  position:absolute;top:10px;right:10px;z-index:10;
+  background:rgba(61,43,30,0.85);
+  border:1px solid rgba(212,196,168,0.3);
+  color:#d4b896;
+  font-size:11px;font-family:'Noto Sans TC',sans-serif;
+  padding:5px 12px;border-radius:20px;
+  cursor:pointer;
+  display:flex;align-items:center;gap:5px;
+  transition:background .2s,color .2s;
+  backdrop-filter:blur(4px);
 }
 .chart-zoom-btn:hover { background:rgba(212,148,74,0.25);color:#f0d898; }
 
 .chart-modal-overlay {
-display:none;
-position:fixed;inset:0;z-index:9000;
-background:rgba(20,12,6,0.88);
-backdrop-filter:blur(6px);
-align-items:center;justify-content:center;
-padding:20px;
+  display:none;
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(20,12,6,0.88);
+  backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;
+  padding:20px;
 }
 .chart-modal-overlay.open { display:flex; }
 .chart-modal-inner {
-background:#3d2b1e;
-border:1px solid rgba(212,196,168,0.18);
-border-radius:20px;
-width:min(960px,100%);
-max-height:90vh;
-overflow-y:auto;
-position:relative;
-animation:modalIn .25s ease;
-padding:28px 24px;
+  background:#3d2b1e;
+  border:1px solid rgba(212,196,168,0.18);
+  border-radius:20px;
+  width:min(960px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  animation:modalIn .25s ease;
+  padding:28px 24px;
 }
 @keyframes modalIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
 .chart-modal-close {
-position:sticky;top:0;float:right;
-background:rgba(212,148,74,0.18);
-border:1px solid rgba(212,148,74,0.35);
-color:#d4b896;
-font-size:13px;font-family:‘Noto Sans TC’,sans-serif;
-padding:7px 18px;border-radius:20px;
-cursor:pointer;margin-bottom:16px;
-transition:background .2s;
-z-index:1;
+  position:sticky;top:0;float:right;
+  background:rgba(212,148,74,0.18);
+  border:1px solid rgba(212,148,74,0.35);
+  color:#d4b896;
+  font-size:13px;font-family:'Noto Sans TC',sans-serif;
+  padding:7px 18px;border-radius:20px;
+  cursor:pointer;margin-bottom:16px;
+  transition:background .2s;
+  z-index:1;
 }
 .chart-modal-close:hover { background:rgba(212,148,74,0.32);color:#f0d898; }
 .chart-modal-title {
-font-family:‘Noto Serif TC’,serif;
-font-size:16px;font-weight:700;color:#d4a040;
-margin-bottom:16px;clear:both;
+  font-family:'Noto Serif TC',serif;
+  font-size:16px;font-weight:700;color:#d4a040;
+  margin-bottom:16px;clear:both;
 }
 .chart-modal-inner svg.chart { width:100%;height:auto; }
 
@@ -465,14 +466,14 @@ nav{padding:16px 24px}
       <p class="hero-desc" data-i18n="hero_desc">你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="scrollToSection('concept')" data-i18n="hero_cta1">開始了解</button>
-        <button class="btn-ghost" onclick="showPage('chart')">
+        <button class="btn-ghost" onclick="showPage('chart')" data-i18n="hero_cta2">
           查看血糖分析圖表
           <span class="arrow">→</span>
         </button>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-number" data-i18n="stat_n1">3種</div><div class="stat-label" data-i18n="stat1">飲食模式比較</div></div>
-        <div class="stat"><div class="stat-number">24小時</div><div class="stat-label" data-i18n="stat2">全天血糖追蹤</div></div>
+        <div class="stat"><div class="stat-number" data-i18n="stat_n2">24小時</div><div class="stat-label" data-i18n="stat2">全天血糖追蹤</div></div>
         <div class="stat"><div class="stat-number" data-i18n="stat_n3">1個</div><div class="stat-label" data-i18n="stat3">正確方向</div></div>
       </div>
     </div>
@@ -485,9 +486,9 @@ nav{padding:16px 24px}
             <div class="plate-emoji">🥗</div>
             <div class="plate-tagline" data-i18n="plate_tag">低GI · 全營養</div>
           </div>
-          <div class="float-tag ft1"><span class="tag-dot" style="background:#6b9e78;"></span data-i18n="tag1">血糖平穩上升</div>
-          <div class="float-tag ft2"><span class="tag-dot" style="background:#d4944a;"></span data-i18n="tag2">持續燃燒脂肪</div>
-          <div class="float-tag ft3"><span class="tag-dot" style="background:#b89880;"></span data-i18n="tag3">保留肌肉量</div>
+          <div class="float-tag ft1" data-i18n="tag1"><span class="tag-dot" style="background:#6b9e78;"></span>血糖平穩上升</div>
+          <div class="float-tag ft2" data-i18n="tag2"><span class="tag-dot" style="background:#d4944a;"></span>持續燃燒脂肪</div>
+          <div class="float-tag ft3" data-i18n="tag3"><span class="tag-dot" style="background:#b89880;"></span>保留肌肉量</div>
         </div>
       </div>
       <div class="leaf l1">🌿</div>
@@ -503,20 +504,20 @@ nav{padding:16px 24px}
       <p class="section-sub reveal" data-i18n="concept_sub">問題不在你意志力不夠，而在你還不知道身體是怎麼運作的。</p>
       <div class="concept-grid">
         <div class="concept-text">
-          <p class="reveal">每次你吃進<strong>高升糖指數（高GI）的食物</strong>，血糖就會急速飆升，身體為了應對，大量分泌<strong>胰島素</strong>（囤脂荷爾蒙）。胰島素的工作就是把多餘的血糖<strong>轉換成脂肪儲存起來</strong>，同時阻止身體燃燒脂肪。</p>
-          <p class="reveal">更糟的是，胰島素把血糖壓得太低後，你又開始覺得餓——這是「低血糖飢餓陷阱」，讓你不斷重複「吃→胰島素飆→囤脂→餓→再吃」的循環。</p>
-          <p class="reveal">解決方法很簡單：<strong>選擇讓血糖緩慢平穩上升的食物</strong>，胰島素保持低位，身體的<strong>升糖素</strong>（燃脂荷爾蒙）才有機會活化，脂肪才能真正被消耗。</p>
+          <p class="reveal" data-i18n="concept_p1">每次你吃進<strong>高升糖指數（高GI）的食物</strong>，血糖就會急速飆升，身體為了應對，大量分泌<strong>胰島素</strong>（囤脂荷爾蒙）。胰島素的工作就是把多餘的血糖<strong>轉換成脂肪儲存起來</strong>，同時阻止身體燃燒脂肪。</p>
+          <p class="reveal" data-i18n="concept_p2">更糟的是，胰島素把血糖壓得太低後，你又開始覺得餓——這是「低血糖飢餓陷阱」，讓你不斷重複「吃→胰島素飆→囤脂→餓→再吃」的循環。</p>
+          <p class="reveal" data-i18n="concept_p3">解決方法很簡單：<strong>選擇讓血糖緩慢平穩上升的食物</strong>，胰島素保持低位，身體的<strong>升糖素</strong>（燃脂荷爾蒙）才有機會活化，脂肪才能真正被消耗。</p>
           <div class="concept-pillars">
-            <div class="pillar reveal reveal-delay-1"><div class="pillar-icon">🌾</div><div><div class="pillar-title">選低GI食物</div><div class="pillar-desc">燕麥、糙米、地瓜、豆類——消化慢，血糖緩升，飽足感持久</div></div></div>
-            <div class="pillar reveal reveal-delay-2"><div class="pillar-icon">🥩</div><div><div class="pillar-title">攝取足夠蛋白質</div><div class="pillar-desc">蛋白質能進一步緩衝血糖上升，同時保護肌肉不被分解</div></div></div>
-            <div class="pillar reveal reveal-delay-3"><div class="pillar-icon">🥤</div><div><div class="pillar-title">善用營養奶昔</div><div class="pillar-desc">早餐和下午茶換成低GI高纖營養奶昔，血糖最平穩，燃脂效果最持久</div></div></div>
+            <div class="pillar reveal reveal-delay-1"><div class="pillar-icon">🌾</div><div><div class="pillar-title" data-i18n="pillar1_t">選低GI食物</div><div class="pillar-desc" data-i18n="pillar1_d">燕麥、糙米、地瓜、豆類——消化慢，血糖緩升，飽足感持久</div></div></div>
+            <div class="pillar reveal reveal-delay-2"><div class="pillar-icon">🥩</div><div><div class="pillar-title" data-i18n="pillar2_t">攝取足夠蛋白質</div><div class="pillar-desc" data-i18n="pillar2_d">蛋白質能進一步緩衝血糖上升，同時保護肌肉不被分解</div></div></div>
+            <div class="pillar reveal reveal-delay-3"><div class="pillar-icon">🥤</div><div><div class="pillar-title" data-i18n="pillar3_t">善用營養奶昔</div><div class="pillar-desc" data-i18n="pillar3_d">早餐和下午茶換成低GI高纖營養奶昔，血糖最平穩，燃脂效果最持久</div></div></div>
           </div>
         </div>
         <div class="concept-visual reveal">
           <div class="concept-card-stack">
-            <div class="ccard ccard-1"><div class="ccard-emoji">📈</div><div class="ccard-label">高GI飲食</div><div class="ccard-title">血糖大起大落</div><div class="ccard-desc">每次進食後血糖急升急降，囤脂荷爾蒙反覆大量分泌，脂肪不斷囤積</div></div>
-            <div class="ccard ccard-2"><div class="ccard-emoji">📉</div><div class="ccard-label">錯誤斷食</div><div class="ccard-title">燒肌肉、留脂肪</div><div class="ccard-desc">不吃早餐讓血糖過低，腎上腺素升高，身體反而優先分解肌肉，脂肪被鎖住</div></div>
-            <div class="ccard ccard-3"><div class="ccard-emoji">🌿</div><div class="ccard-label">低GI正確飲食</div><div class="ccard-title">血糖平穩、持續燃脂</div><div class="ccard-desc">全天血糖平穩波動，燃脂荷爾蒙持續活躍，脂肪被消耗、肌肉被保留</div></div>
+            <div class="ccard ccard-1"><div class="ccard-emoji">📈</div><div class="ccard-label" data-i18n="card1_l">高GI飲食</div><div class="ccard-title" data-i18n="card1_t">血糖大起大落</div><div class="ccard-desc" data-i18n="card1_d">每次進食後血糖急升急降，囤脂荷爾蒙反覆大量分泌，脂肪不斷囤積</div></div>
+            <div class="ccard ccard-2"><div class="ccard-emoji">📉</div><div class="ccard-label" data-i18n="card2_l">錯誤斷食</div><div class="ccard-title" data-i18n="card2_t">燒肌肉、留脂肪</div><div class="ccard-desc" data-i18n="card2_d">不吃早餐讓血糖過低，腎上腺素升高，身體反而優先分解肌肉，脂肪被鎖住</div></div>
+            <div class="ccard ccard-3"><div class="ccard-emoji">🌿</div><div class="ccard-label" data-i18n="card3_l">低GI正確飲食</div><div class="ccard-title" data-i18n="card3_t">血糖平穩、持續燃脂</div><div class="ccard-desc" data-i18n="card3_d">全天血糖平穩波動，燃脂荷爾蒙持續活躍，脂肪被消耗、肌肉被保留</div></div>
           </div>
         </div>
       </div>
@@ -530,13 +531,13 @@ nav{padding:16px 24px}
       <p class="section-sub reveal" data-i18n="bs_sub">同樣一天24小時，你的飲食習慣決定了身體是在囤積脂肪、分解肌肉，還是真正燃燒脂肪。</p>
       <div class="bs-grid">
         <a class="bs-card-link" onclick="showPage('chart');switchScenario(0)" style="cursor:pointer;">
-          <div class="bs-card bad reveal reveal-delay-1"><div class="bs-scenario">情境 01 · 高GI飲食</div><div class="bs-title">🍞 白吐司、白飯、含糖飲料</div><div class="bs-desc">血糖一天四次劇烈飆升，<strong>胰島素</strong>（囤脂荷爾蒙）反覆大量分泌。長期下來荷爾蒙失調，脂肪越堆越多、越來越難瘦。</div><div class="bs-outcome bad">🔴 血糖震盪 → 脂肪囤積</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+          <div class="bs-card bad reveal reveal-delay-1"><div class="bs-scenario" data-i18n="sc0_label">情境 01 · 高GI飲食</div><div class="bs-title" data-i18n="sc0_t">🍞 白吐司、白飯、含糖飲料</div><div class="bs-desc" data-i18n="sc0_d">血糖一天四次劇烈飆升，<strong>胰島素</strong>（囤脂荷爾蒙）反覆大量分泌。長期下來荷爾蒙失調，脂肪越堆越多、越來越難瘦。</div><div class="bs-outcome bad" data-i18n="sc0_out">🔴 血糖震盪 → 脂肪囤積</div><div class="go-arrow" data-i18n="card_go">查看詳細血糖圖表 →</div></div>
         </a>
         <a class="bs-card-link" onclick="showPage('chart');switchScenario(1)" style="cursor:pointer;">
-          <div class="bs-card warn reveal reveal-delay-2"><div class="bs-scenario">情境 02 · 錯誤 168 斷食</div><div class="bs-title">❌ 不吃早餐，午餐才開始</div><div class="bs-desc">血糖過低時<strong>皮質醇</strong>（壓力荷爾蒙）與<strong>腎上腺素</strong>接連升高，身體優先分解肌肉補充血糖，脂肪反而被鎖住。</div><div class="bs-outcome warn">🟡 燒肌肉 → 代謝越來越慢</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+          <div class="bs-card warn reveal reveal-delay-2"><div class="bs-scenario" data-i18n="sc1_label">情境 02 · 錯誤 168 斷食</div><div class="bs-title" data-i18n="sc1_t">❌ 不吃早餐，午餐才開始</div><div class="bs-desc" data-i18n="sc1_d">血糖過低時<strong>皮質醇</strong>（壓力荷爾蒙）與<strong>腎上腺素</strong>接連升高，身體優先分解肌肉補充血糖，脂肪反而被鎖住。</div><div class="bs-outcome warn" data-i18n="sc1_out">🟡 燒肌肉 → 代謝越來越慢</div><div class="go-arrow" data-i18n="card_go">查看詳細血糖圖表 →</div></div>
         </a>
         <a class="bs-card-link" onclick="showPage('chart');switchScenario(2)" style="cursor:pointer;">
-          <div class="bs-card good reveal reveal-delay-3"><div class="bs-scenario">情境 03 · 正確低GI飲食</div><div class="bs-title">🥤 營養奶昔 + 低GI正餐</div><div class="bs-desc">血糖全天平穩，<strong>胰島素</strong>低位、<strong>升糖素</strong>（燃脂荷爾蒙）持續活躍。夜間<strong>生長激素</strong>正常分泌，睡覺也在燃脂修肌。</div><div class="bs-outcome good">🟢 血糖平穩 → 持續燃脂保肌</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
+          <div class="bs-card good reveal reveal-delay-3"><div class="bs-scenario" data-i18n="sc2_label">情境 03 · 正確低GI飲食</div><div class="bs-title" data-i18n="sc2_t">🥤 營養奶昔 + 低GI正餐</div><div class="bs-desc" data-i18n="sc2_d">血糖全天平穩，<strong>胰島素</strong>低位、<strong>升糖素</strong>（燃脂荷爾蒙）持續活躍。夜間<strong>生長激素</strong>正常分泌，睡覺也在燃脂修肌。</div><div class="bs-outcome good" data-i18n="sc2_out">🟢 血糖平穩 → 持續燃脂保肌</div><div class="go-arrow" data-i18n="card_go">查看詳細血糖圖表 →</div></div>
         </a>
       </div>
       <div class="bs-cta reveal">
@@ -552,17 +553,17 @@ nav{padding:16px 24px}
       <h2 class="section-title reveal" data-i18n="how_h">四個步驟，讓身體進入燃脂模式</h2>
       <p class="section-sub reveal" data-i18n="how_sub">不需要極端節食，只需要讓血糖在正確的軌道上運行。</p>
       <div class="steps">
-        <div class="step reveal reveal-delay-1"><div class="step-num">1<span class="step-icon">🥤</span></div><div class="step-title">早餐換成營養奶昔</div><div class="step-desc">低GI高纖配方，血糖緩升，<strong>胰島素</strong>（囤脂荷爾蒙）維持低位，飽足感持續到午餐</div></div>
-        <div class="step reveal reveal-delay-2"><div class="step-num">2<span class="step-icon">🥗</span></div><div class="step-title">午餐選低GI正餐</div><div class="step-desc">糙米、蛋白質、蔬菜，讓<strong>升糖素</strong>（燃脂荷爾蒙）在餐後持續活躍燃燒脂肪</div></div>
-        <div class="step reveal reveal-delay-3"><div class="step-num">3<span class="step-icon">🥜</span></div><div class="step-title">下午茶再補一杯奶昔</div><div class="step-desc">避開高糖陷阱，讓<strong>升糖素</strong>繼續工作，防止<strong>皮質醇</strong>（壓力荷爾蒙）因低血糖而升高</div></div>
-        <div class="step reveal reveal-delay-4"><div class="step-num">4<span class="step-icon">🌙</span></div><div class="step-title">低GI晚餐 + 好好睡覺</div><div class="step-desc">夜間<strong>生長激素</strong>正常脈衝分泌，修復肌肉、燃燒脂肪，睡得好等於在瘦身</div></div>
+        <div class="step reveal reveal-delay-1"><div class="step-num">1<span class="step-icon">🥤</span></div><div class="step-title" data-i18n="step1_t">早餐換成營養奶昔</div><div class="step-desc" data-i18n="step1_d">低GI高纖配方，血糖緩升，<strong>胰島素</strong>（囤脂荷爾蒙）維持低位，飽足感持續到午餐</div></div>
+        <div class="step reveal reveal-delay-2"><div class="step-num">2<span class="step-icon">🥗</span></div><div class="step-title" data-i18n="step2_t">午餐選低GI正餐</div><div class="step-desc" data-i18n="step2_d">糙米、蛋白質、蔬菜，讓<strong>升糖素</strong>（燃脂荷爾蒙）在餐後持續活躍燃燒脂肪</div></div>
+        <div class="step reveal reveal-delay-3"><div class="step-num">3<span class="step-icon">🥜</span></div><div class="step-title" data-i18n="step3_t">下午茶再補一杯奶昔</div><div class="step-desc" data-i18n="step3_d">避開高糖陷阱，讓<strong>升糖素</strong>繼續工作，防止<strong>皮質醇</strong>（壓力荷爾蒙）因低血糖而升高</div></div>
+        <div class="step reveal reveal-delay-4"><div class="step-num">4<span class="step-icon">🌙</span></div><div class="step-title" data-i18n="step4_t">低GI晚餐 + 好好睡覺</div><div class="step-desc" data-i18n="step4_d">夜間<strong>生長激素</strong>正常脈衝分泌，修復肌肉、燃燒脂肪，睡得好等於在瘦身</div></div>
       </div>
     </div>
   </section>
 
   <div class="quote-section">
     <div class="container">
-      <p class="quote-text reveal">身體不是你的敵人，<br>它只是在<em>照你給它的訊號</em>行事。<br>給它對的訊號，它就會做對的事。</p>
+      <p class="quote-text reveal" data-i18n="quote_text">身體不是你的敵人，<br>它只是在<em>照你給它的訊號</em>行事。<br>給它對的訊號，它就會做對的事。</p>
       <p class="quote-sub reveal"><span data-i18n="quote_attr">— 好好吃 · 飲食管理理念</span></p>
     </div>
   </div>
@@ -589,9 +590,9 @@ nav{padding:16px 24px}
 
   <div class="chart-wrapper">
     <div class="main-header">
-      <div class="eyebrow">體重管理 · 飲食習慣 · 血糖與代謝</div>
-      <h1>你吃的方式<br>決定你的體態</h1>
-      <p class="sub">血糖的起伏幅度，直接決定身體是在「燃燒脂肪」還是「囤積脂肪」<br>同樣一天24小時，三種吃法帶來截然不同的結果</p>
+      <div class="eyebrow" data-i18n="chart_eye">體重管理 · 飲食習慣 · 血糖與代謝</div>
+      <h1 data-i18n="chart_h1">你吃的方式<br>決定你的體態</h1>
+      <p class="sub" data-i18n="chart_sub">血糖的起伏幅度，直接決定身體是在「燃燒脂肪」還是「囤積脂肪」<br>同樣一天24小時，三種吃法帶來截然不同的結果</p>
     </div>
 
 <div class="scenario-nav">
@@ -601,16 +602,15 @@ nav{padding:16px 24px}
 </div>
 
 <!-- ═══ S0 ═══ -->
-
 <div class="scenario-panel s0 active" id="panel-0">
   <div class="chart-zoom-wrap">
-    <button class="chart-zoom-btn" onclick="openChartModal('modal-s0')" type="button">🔍 放大圖表</button>
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s0')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">高GI飲食：全天血糖與胰島素波動</div>
+      <div class="chtitle" data-i18n="s0_chtitle">高GI飲食：全天血糖與胰島素波動</div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>血糖</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>胰島素（囤脂荷爾蒙）</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div><span data-i18n="leg_blood">血糖</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div><span data-i18n="leg_insulin">胰島素（囤脂荷爾蒙）</span></div>
       </div>
     </div>
     <svg class="chart" viewBox="0 0 860 310" xmlns="http://www.w3.org/2000/svg">
@@ -620,16 +620,16 @@ nav{padding:16px 24px}
         <filter id="gl0"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
       <rect x="55" y="8" width="790" height="14" rx="2" fill="rgba(192,80,70,0.2)"/>
-      <text x="62" y="18" font-size="8" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 危險區：血糖過高 → 胰島素大量分泌 → 脂肪囤積</text>
+      <text x="62" y="18" font-size="8" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Danger Zone: Blood Sugar Too High → Insulin Surge → Fat Storage</text>
       <rect x="55" y="22" width="790" height="68" rx="3" fill="rgba(192,80,70,0.08)"/>
       <rect x="55" y="148" width="790" height="50" rx="3" fill="rgba(184,134,11,0.06)"/>
       <line x1="55" y1="90" x2="845" y2="90" stroke="rgba(192,80,70,0.2)" stroke-dasharray="4,5"/>
       <line x1="55" y1="148" x2="845" y2="148" stroke="rgba(184,134,11,0.15)" stroke-dasharray="4,5"/>
       <line x1="55" y1="198" x2="845" y2="198" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,5"/>
-      <text x="50" y="26" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">高</text>
-      <text x="50" y="150" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">正常</text>
-      <text x="50" y="255" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.7)">低</text>
-      <text x="62" y="161" font-size="7.5" fill="rgba(200,160,60,0.8)" font-family="'Noto Sans TC',sans-serif">正常空腹血糖區間</text>
+      <text x="50" y="26" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">High</text>
+      <text x="50" y="150" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">Normal</text>
+      <text x="50" y="255" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.7)">Low</text>
+      <text x="62" y="161" font-size="7.5" fill="rgba(200,160,60,0.8)" font-family="'Noto Sans TC',sans-serif">Normal fasting blood sugar range</text>
       <line x1="55" y1="265" x2="845" y2="265" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="265" stroke="rgba(255,255,255,0.08)"/>
       <line x1="95" y1="5" x2="95" y2="265" stroke="rgba(192,120,64,0.3)" stroke-dasharray="3,6"/>
@@ -641,14 +641,14 @@ nav{padding:16px 24px}
       <text x="500" y="5" text-anchor="middle" font-size="13">🧋</text>
       <text x="675" y="5" text-anchor="middle" font-size="13">🍚</text>
       <g font-size="8.5" fill="rgba(180,155,120,0.85)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="276">早7點</text><text x="220" y="276">9點</text><text x="340" y="276">12點</text><text x="500" y="276">下午3:30</text><text x="675" y="276">晚7點</text><text x="820" y="276">10點</text>
+        <text x="95" y="276">7 AM</text><text x="220" y="276">9 AM</text><text x="340" y="276">12 PM</text><text x="500" y="276">3:30 PM</text><text x="675" y="276">7 PM</text><text x="820" y="276">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="286" fill="rgba(192,120,64,0.9)">早餐</text><text x="340" y="286" fill="rgba(184,134,11,0.9)">午餐</text><text x="500" y="286" fill="rgba(140,100,200,0.8)">下午茶</text><text x="675" y="286" fill="rgba(192,80,70,0.9)">晚餐</text>
+        <text x="95" y="286" fill="rgba(192,120,64,0.9)">Breakfast</text><text x="340" y="286" fill="rgba(184,134,11,0.9)">Lunch</text><text x="500" y="286" fill="rgba(140,100,200,0.8)">Snack</text><text x="675" y="286" fill="rgba(192,80,70,0.9)">Dinner</text>
       </g>
       <path d="M55,198 L95,198 C112,195 120,170 135,72 C148,28 158,20 178,20 C198,20 210,36 228,106 C246,168 255,228 285,222 C310,218 325,216 340,216 C358,214 365,196 380,60 C393,24 400,20 418,20 C436,20 446,36 462,108 C476,166 480,224 520,210 C530,156 545,108 565,52 C578,34 600,30 618,30 C628,44 642,118 655,174 C688,218 700,214 695,204 C706,116 724,62 740,28 C760,12 775,12 793,12 C803,24 817,88 827,132 C840,175" fill="none" stroke="url(#g0l)" stroke-width="3" filter="url(#gl0)" stroke-linecap="round"/>
       <path d="M55,198 L95,198 C112,195 120,170 135,72 C148,28 158,20 178,20 C198,20 210,36 228,106 C246,168 255,228 285,222 C310,218 325,216 340,216 C358,214 365,196 380,60 C393,24 400,20 418,20 C436,20 446,36 462,108 C476,166 480,224 520,210 C530,156 545,108 565,52 C578,34 600,30 618,30 C628,44 642,118 655,174 C688,218 700,214 695,204 C706,116 724,62 740,28 C760,12 775,12 793,12 C803,24 817,88 827,132 C840,175 L840,265 L55,265 Z" fill="url(#g0f)" opacity="0.65"/>
-      <!-- 胰島素（囤脂荷爾蒙）— 跟隨每次血糖峰值大幅飆升，並過衝造成低血糖 -->
+      <!-- Insulin (fat-storing hormone) — surges with each blood sugar peak, overshoots causing hypoglycemia -->
       <path d="M55,255 C70,255 82,254 95,252
                C105,250 115,244 128,222
                C138,205 145,185 158,158
@@ -677,40 +677,41 @@ nav{padding:16px 24px}
                C798,238 806,222 818,196
                C827,174 834,158 845,148"
         fill="none" stroke="#4a7c59" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.95" filter="url(#gl0)"/>
-      <text x="195" y="30" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ 胰島素急升（囤脂）</text>
-      <text x="282" y="262" font-size="7.5" fill="rgba(90,160,110,0.85)" font-family="'Noto Sans TC',sans-serif">↓ 胰島素過衝→低血糖→飢餓</text>
-      <text x="690" y="48" font-size="8" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔒 夜間囤積最強</text>
+      <text x="195" y="30" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Surge (Fat Storage)</text>
+      <text x="282" y="262" font-size="7.5" fill="rgba(90,160,110,0.85)" font-family="'Noto Sans TC',sans-serif">↓ Insulin Overshoot → Low Blood Sugar → Hunger</text>
+      <text x="690" y="48" font-size="8" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔒 Peak Fat Storage at Night</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">飲食中的碳水化合物消化後進入血液。高GI食物讓血糖急速飆升，低GI食物讓血糖緩慢上升。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">血糖升高時由胰臟分泌。把血糖轉成脂肪儲存，同時阻止身體燃脂。血糖越高，分泌越多，囤脂越強。</div></div></div>
+  <!-- ── Hormone legend ── -->
+  <div class="hormone-panel">
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar (Glucose)</div><div class="h-desc">Carbohydrates in food are digested and enter the bloodstream. High-GI foods cause blood sugar to spike rapidly; low-GI foods raise it gradually.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Secreted by the pancreas when blood sugar rises. Converts blood sugar into stored fat and prevents the body from burning fat. The higher the blood sugar, the more insulin, the more fat stored.</div></div></div>
   </div>
 
   <div class="cards">
-    <div class="card"><div class="clabel">☀️ 早餐 7:00</div><div class="cname">白吐司 + 含糖果汁</div><div class="cdesc">精製澱粉和糖分消化極快，血糖在短短30分鐘內急速飆高，身體為了壓制高血糖，分泌大量「囤脂荷爾蒙」</div><span class="badge b-red">⚠ 血糖急升 → 脂肪囤積</span></div>
-    <div class="card"><div class="clabel">🌞 午餐 12:00</div><div class="cname">白飯 + 拉麵</div><div class="cdesc">第二波大量精製碳水，囤脂荷爾蒙再次大量分泌，多餘的糖份直接被身體轉換成脂肪儲存</div><span class="badge b-orange">↑ 第二波囤脂高峰</span></div>
-    <div class="card"><div class="clabel">🌤 下午茶 3:30</div><div class="cname">珍珠奶茶 + 蛋糕</div><div class="cdesc">血糖急降讓你感到飢餓、想吃甜食——這是身體的「低血糖飢餓陷阱」，吃進去後血糖又再次飆高</div><span class="badge b-red">⚠ 低血糖飢餓陷阱</span></div>
-    <div class="card"><div class="clabel">🌙 晚餐 7:00</div><div class="cname">炒飯 + 含糖飲料</div><div class="cdesc">夜間身體活動少、代謝慢，多餘血糖無處消耗；夜間脂肪儲存能力最強，這一餐囤積的脂肪比白天更多</div><span class="badge b-red">🌙 夜間囤積效率最高</span></div>
+    <div class="card"><div class="clabel">☀️ Breakfast 7:00</div><div class="cname">White Toast + Sugary Juice</div><div class="cdesc">Refined starch and sugar digest extremely fast, causing blood sugar to spike sharply within 30 minutes. The body secretes large amounts of the "fat-storing hormone" to counter it.</div><span class="badge b-red">⚠ Blood Sugar Spike → Fat Storage</span></div>
+    <div class="card"><div class="clabel">🌞 Lunch 12:00</div><div class="cname">White Rice + Noodles</div><div class="cdesc">A second wave of refined carbs triggers another surge of the fat-storing hormone; excess sugar is converted directly into stored fat.</div><span class="badge b-orange">↑ Second Fat-Storage Peak</span></div>
+    <div class="card"><div class="clabel">🌤 Afternoon Snack 3:30</div><div class="cname">Bubble Tea + Cake</div><div class="cdesc">Dropping blood sugar makes you crave sweets — this is the body's "low blood sugar hunger trap". Eating again sends blood sugar soaring once more.</div><span class="badge b-red">⚠ Low Blood Sugar Hunger Trap</span></div>
+    <div class="card"><div class="clabel">🌙 Dinner 7:00</div><div class="cname">Fried Rice + Sugary Drink</div><div class="cdesc">At night the body is less active and metabolism slows; excess blood sugar has nowhere to go. Nighttime fat-storage capacity is at its peak — the fat stored from this meal exceeds any other time of day.</div><span class="badge b-red">🌙 Highest Nighttime Storage Efficiency</span></div>
   </div>
-  <div class="conclusion"><div class="big-icon pulse">🫃</div><div><h3>血糖反覆大起大落 → 脂肪不斷囤積</h3><p>每次血糖飆升，身體就分泌大量<strong>胰島素（囤脂荷爾蒙）</strong>來壓制。胰島素的作用是把多餘的糖分<strong>轉換成脂肪儲存</strong>，同時阻止身體燃燒脂肪。一天四次劇烈震盪，長期下來形成<strong>囤脂荷爾蒙越來越多 → 脂肪越堆越厚 → 越來越難瘦</strong>的惡性循環。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>血糖飆升 → 囤脂荷爾蒙大量分泌</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>囤脂荷爾蒙↑ → 脂肪轉換儲存↑</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>長期反覆 → 荷爾蒙失調惡性循環</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">🫃</div><div><h3>Blood Sugar Repeatedly Spikes & Crashes → Fat Keeps Accumulating</h3><p>Every time blood sugar spikes, the body secretes large amounts of <strong>insulin (the fat-storing hormone)</strong> to bring it down. Insulin's job is to <strong>convert excess sugar into stored fat</strong> while blocking the body from burning fat. Four violent swings a day, day after day, creates a vicious cycle of <strong>more and more fat-storing hormone → thicker and thicker fat → harder and harder to lose weight</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>Blood Sugar Spike → Insulin Flood</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>Insulin ↑ → Fat Conversion & Storage ↑</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Long-term Repetition → Hormonal Dysregulation</span></div></div></div>
 </div>
 
 <!-- ═══ S1 ═══ -->
-
 <div class="scenario-panel s1" id="panel-1">
   <div class="chart-zoom-wrap">
-    <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button">🔍 放大圖表</button>
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">錯誤168斷食：血糖、荷爾蒙變化</div>
+      <div class="chtitle">Wrong 16:8 Fasting: Blood Sugar & Hormone Changes</div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>血糖</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>囤脂荷爾蒙</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#c04444 0,#c04444 3px,transparent 3px,transparent 7px);"></div>壓力荷爾蒙（分解肌肉）</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);"></div>腎上腺素（緊急警報）</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>Blood Sugar</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>Fat-Storing Hormone</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#c04444 0,#c04444 3px,transparent 3px,transparent 7px);"></div>Stress Hormone (Muscle Breakdown)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);"></div>Adrenaline (Emergency Alert)</div>
       </div>
     </div>
     <svg class="chart" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
@@ -718,47 +719,47 @@ nav{padding:16px 24px}
         <linearGradient id="g1f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c07840" stop-opacity="0.22"/><stop offset="100%" stop-color="#c07840" stop-opacity="0"/></linearGradient>
         <filter id="gl1"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <!-- 斷食期背景 -->
+      <!-- Fasting period background -->
       <rect x="55" y="5" width="285" height="255" rx="4" fill="rgba(192,120,64,0.06)"/>
-      <text x="197" y="18" text-anchor="middle" font-size="8" fill="rgba(192,120,64,0.7)" font-family="'Noto Sans TC',sans-serif">── 斷食期（不吃早餐）──</text>
-      <!-- 危險區 -->
+      <text x="197" y="18" text-anchor="middle" font-size="8" fill="rgba(192,120,64,0.7)" font-family="'Noto Sans TC',sans-serif">── Fasting Period (No Breakfast) ──</text>
+      <!-- Danger zone -->
       <rect x="55" y="22" width="790" height="12" rx="2" fill="rgba(192,80,70,0.2)"/>
-      <text x="62" y="31" font-size="7.5" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 血糖過高危險區 → 胰島素大量分泌</text>
+      <text x="62" y="31" font-size="7.5" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Blood Sugar Danger Zone → Insulin Surge</text>
       <rect x="55" y="34" width="790" height="56" rx="3" fill="rgba(192,80,70,0.07)"/>
-      <!-- 低血糖區 -->
+      <!-- Low blood sugar zone -->
       <rect x="55" y="238" width="790" height="28" rx="3" fill="rgba(92,107,192,0.1)"/>
-      <text x="62" y="250" font-size="7.5" fill="rgba(130,150,210,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ 低血糖危險區：肝醣耗盡 → 皮質醇升高 → 分解肌肉蛋白當血糖</text>
+      <text x="62" y="250" font-size="7.5" fill="rgba(130,150,210,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Hypoglycemia Danger Zone: Glycogen Depleted → Cortisol Rises → Muscle Protein Broken Down for Blood Sugar</text>
       <!-- 格線 -->
       <line x1="55" y1="90" x2="845" y2="90" stroke="rgba(192,80,70,0.18)" stroke-dasharray="4,5"/>
       <line x1="55" y1="155" x2="845" y2="155" stroke="rgba(184,134,11,0.12)" stroke-dasharray="4,5"/>
       <line x1="55" y1="238" x2="845" y2="238" stroke="rgba(92,107,192,0.18)" stroke-dasharray="2,5"/>
-      <!-- Y軸 -->
-      <text x="50" y="38" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">高</text>
-      <text x="50" y="157" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">正常</text>
-      <text x="50" y="240" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(130,150,210,0.9)">低</text>
-      <!-- 座標軸 -->
+      <!-- Y-axis -->
+      <text x="50" y="38" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">High</text>
+      <text x="50" y="157" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">Normal</text>
+      <text x="50" y="240" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(130,150,210,0.9)">Low</text>
+      <!-- Axes -->
       <line x1="55" y1="280" x2="840" y2="280" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="280" stroke="rgba(255,255,255,0.08)"/>
-      <!-- 餐點線 -->
+      <!-- Meal lines -->
       <line x1="340" y1="5" x2="340" y2="280" stroke="rgba(184,134,11,0.25)" stroke-dasharray="3,6"/>
       <line x1="510" y1="5" x2="510" y2="280" stroke="rgba(140,100,200,0.22)" stroke-dasharray="3,6"/>
       <line x1="680" y1="5" x2="680" y2="280" stroke="rgba(192,80,70,0.25)" stroke-dasharray="3,6"/>
-      <!-- 圖示 -->
+      <!-- Meal icons -->
       <text x="95" y="5" text-anchor="middle" font-size="13">❌</text>
       <text x="340" y="5" text-anchor="middle" font-size="13">🍜</text>
       <text x="510" y="5" text-anchor="middle" font-size="13">🧋</text>
       <text x="680" y="5" text-anchor="middle" font-size="13">🍚</text>
-      <!-- X軸 -->
+      <!-- X-axis -->
       <g font-size="8.5" fill="rgba(180,155,120,0.85)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="291">早7點</text><text x="205" y="291">10點</text><text x="340" y="291">12點</text><text x="510" y="291">下午3:30</text><text x="680" y="291">晚7點</text><text x="820" y="291">10點</text>
+        <text x="95" y="291">7 AM</text><text x="205" y="291">10 AM</text><text x="340" y="291">12 PM</text><text x="510" y="291">3:30 PM</text><text x="680" y="291">7 PM</text><text x="820" y="291">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="301" fill="rgba(192,120,64,0.8)">跳過早餐</text><text x="340" y="301" fill="rgba(184,134,11,0.9)">高GI午餐</text><text x="510" y="301" fill="rgba(140,100,200,0.8)">含糖點心</text><text x="680" y="301" fill="rgba(192,80,70,0.9)">高GI晚餐</text>
+        <text x="95" y="301" fill="rgba(192,120,64,0.8)">Skip Breakfast</text><text x="340" y="301" fill="rgba(184,134,11,0.9)">High-GI Lunch</text><text x="510" y="301" fill="rgba(140,100,200,0.8)">Sugary Snack</text><text x="680" y="301" fill="rgba(192,80,70,0.9)">High-GI Dinner</text>
       </g>
       <!-- 血糖填充 + 線條 -->
       <path d="M55,210 C90,210 120,213 150,220 C180,230 200,236 230,241 C260,245 290,243 340,241 C360,232 374,210 387,70 C398,36 405,26 423,26 C441,26 451,40 466,110 C480,164 486,218 510,218 C524,212 530,162 545,114 C551,82 566,60 579,42 C586,36 602,36 620,36 C630,50 643,118 656,172 C663,214 688,218 700,214 C695,202 708,118 726,48 C742,24 762,10 778,10 C796,10 806,24 820,86 C830,130 840,174 840,174 L840,280 L55,280 Z" fill="url(#g1f)" opacity="0.65"/>
       <path d="M55,210 C90,210 120,213 150,220 C180,230 200,236 230,241 C260,245 290,243 340,241 C360,232 374,210 387,70 C398,36 405,26 423,26 C441,26 451,40 466,110 C480,164 486,218 524,212 C530,162 545,114 566,60 C579,42 602,36 620,36 C630,50 643,118 656,172 C688,218 700,214 695,202 C708,118 726,48 742,24 C762,10 778,10 796,10 C806,24 820,86 840,174" fill="none" stroke="#c07840" stroke-width="3" filter="url(#gl1)" stroke-linecap="round"/>
-      <!-- 胰島素（囤脂荷爾蒙）— 斷食期幾乎為零，午餐因空腹增敏後爆發性飆升，其他餐次也大幅上升 -->
+      <!-- Insulin (fat-storing hormone) — near zero during fast, explosive surge after lunch due to fasting-induced sensitivity, large rises at other meals -->
       <path d="M55,272 C70,272 90,271 120,270
                C150,269 200,268 250,267
                C290,266 320,265 340,265
@@ -781,87 +782,83 @@ nav{padding:16px 24px}
                C808,26 816,20 828,22
                C836,24 840,32 845,44"
         fill="none" stroke="#4a7c59" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.95" filter="url(#gl1)"/>
-      <!-- 胰島素飆升標注 -->
-      <text x="434" y="22" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ 胰島素爆發（空腹增敏）</text>
-      <!-- 壓力荷爾蒙（皮質醇）：空腹升高 -->
+      <!-- Insulin surge annotation -->
+      <text x="434" y="22" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Explosion (Fasting-Enhanced Sensitivity)</text>
+      <!-- Stress hormone (cortisol): rises during fasting -->
       <path d="M55,176 C70,172 88,166 108,160 C126,154 148,148 168,144 C188,140 208,137 228,136 C248,136 268,138 288,142 C306,146 322,152 336,158 C340,160 348,166 360,174 C372,182 380,186 394,186 C406,186 416,182 428,176 C440,170 448,166 460,164 C472,162 480,164 492,170 C504,175 512,182 524,188 C534,191 542,191 552,188 C562,182 570,176 582,170 C592,166 600,164 612,166 C624,168 632,174 644,186 C654,196 662,204 672,208 C682,210 690,208 700,200 C712,192 720,184 732,180 C744,177 752,177 763,181 C774,186 783,194 794,204 C803,212 828,224 845,228" fill="none" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.8"/>
-      <!-- 腎上腺素：低血糖時急升 -->
+      <!-- Adrenaline: emergency surge when blood sugar stays too low -->
       <path d="M55,236 C68,235 88,234 110,232 C130,229 148,225 164,218 C178,212 192,204 206,194 C216,187 224,180 236,174 C246,170 254,168 264,170 C274,172 282,178 294,190 C304,200 312,212 324,220 C334,225 342,228 352,228 C362,226 370,222 382,216 C394,210 402,204 414,200 C424,197 432,197 444,200 C456,204 464,212 476,221 C486,228 494,233 508,235 C520,235 528,232 538,224 C550,215 558,207 570,202 C580,198 588,198 600,202 C612,206 620,215 632,225 C642,233 650,238 664,240 C676,241 686,240 698,233 C710,226 718,218 730,212 C740,206 748,204 760,206 C772,210 781,219 792,230 C801,238 820,248 845,252" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.9"/>
-      <!-- 空腹後飆升標注 -->
+      <!-- Post-fast spike annotation -->
       <circle cx="423" cy="26" r="4" fill="#c07840" filter="url(#gl1)"/>
-      <text x="434" y="32" font-size="8" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ 空腹後血糖猛烈飆升（對糖更敏感）</text>
+      <text x="434" y="32" font-size="8" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ Post-Fast Blood Sugar Violent Spike (Enhanced Insulin Sensitivity)</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
+  <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖</div><div class="h-desc">斷食期緩慢下滑，午餐後因空腹增敏而急劇飆升，比正常進食飆得更高。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">斷食期接近零，餐後因血糖急升而大量分泌，脂肪合成效率比正常吃早餐更強。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#a03030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">皮質醇（壓力荷爾蒙）</div><div class="h-desc">血糖過低時升高，命令身體分解肌肉蛋白轉為血糖。長期高皮質醇會導致腹部脂肪堆積。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#9a7000;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">腎上腺素（緊急警報）</div><div class="h-desc">血糖繼續過低時啟動第二道緊急機制。讓你感到心跳加速、手抖、焦慮、強烈飢餓感。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar</div><div class="h-desc">Gradually falls during the fast, then spikes sharply after lunch due to fasting-induced sensitivity — rising higher than after a normal breakfast.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Near zero during the fast; surges massively after the blood sugar spike from lunch. Fat synthesis efficiency is stronger than after eating a normal breakfast.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#a03030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Cortisol (Stress Hormone)</div><div class="h-desc">Rises when blood sugar drops too low, commanding the body to break down muscle protein for blood sugar. Chronically high cortisol leads to abdominal fat accumulation.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#9a7000;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Adrenaline (Emergency Alert)</div><div class="h-desc">Activates a second emergency mechanism when blood sugar continues to drop. Causes a racing heartbeat, shaking hands, anxiety, and intense hunger.</div></div></div>
   </div>
 
   <div class="cards">
-    <div class="card"><div class="clabel">❌ 早上7–12點（跳過早餐）</div><div class="cname">不吃早餐</div><div class="cdesc">空腹超過12小時，血糖持續下降。肝醣耗盡後，<strong>壓力荷爾蒙</strong>先升高分解肌肉補血糖；血糖繼續太低時，<strong>腎上腺素</strong>緊急分泌——這就是你感到心跳加速、手抖、焦慮、極度飢餓的原因</div><span class="badge b-amber">⚠ 燒肌肉 不燒脂肪</span></div>
-    <div class="card"><div class="clabel">⚡ 低血糖的兩階段緊急反應</div><div class="cname">壓力荷爾蒙 + 腎上腺素</div><div class="cdesc">血糖過低時，身體啟動兩道緊急機制：<strong>①壓力荷爾蒙</strong>先出動，分解肌肉蛋白轉為血糖；血糖再撐不住時，<strong>②腎上腺素</strong>緊急介入，進一步加速分解、抑制囤脂荷爾蒙——脂肪反而被鎖住不動</div><span class="badge b-amber">⚠ 脂肪被鎖住 肌肉被燃燒</span></div>
-    <div class="card"><div class="clabel">🌞 午餐 12:00</div><div class="cname">空腹後吃高GI午餐</div><div class="cdesc">長時間不吃讓身體對糖分特別敏感，午餐的血糖飆升比平常更猛烈，分泌的囤脂荷爾蒙更多，儲存的脂肪反而<strong>比正常吃早餐更多</strong></div><span class="badge b-red">↑ 空腹後囤脂反應更強</span></div>
-    <div class="card"><div class="clabel">🌙 下午茶+晚餐</div><div class="cname">繼續高GI飲食</div><div class="cdesc">肌肉已被部分分解，<strong>代謝速度下降</strong>，身體燒熱量的能力變差。夜間高血糖加上低代謝率，脂肪囤積效率比任何時候都高</div><span class="badge b-red">🌙 代謝↓ 囤脂效率↑</span></div>
+    <div class="card"><div class="clabel">❌ Morning 7–12 (Skip Breakfast)</div><div class="cname">No Breakfast</div><div class="cdesc">Fasting for over 12 hours, blood sugar keeps dropping. After glycogen runs out, <strong>the stress hormone</strong> rises first, breaking down muscle to restore blood sugar; when blood sugar stays too low, <strong>adrenaline</strong> kicks in as an emergency — this is why you feel a racing heart, shaking hands, anxiety, and extreme hunger.</div><span class="badge b-amber">⚠ Burns Muscle, Not Fat</span></div>
+    <div class="card"><div class="clabel">⚡ Two-Stage Emergency Response to Low Blood Sugar</div><div class="cname">Stress Hormone + Adrenaline</div><div class="cdesc">When blood sugar drops too low, the body triggers two emergency mechanisms: <strong>① Cortisol</strong> acts first, breaking down muscle protein into blood sugar; when blood sugar still can't hold, <strong>② adrenaline</strong> intervenes urgently, further accelerating breakdown and suppressing the fat-storing hormone — fat actually gets locked away.</div><span class="badge b-amber">⚠ Fat Locked Away · Muscle Being Burned</span></div>
+    <div class="card"><div class="clabel">🌞 Lunch 12:00</div><div class="cname">High-GI Lunch After Fasting</div><div class="cdesc">Extended fasting makes the body hyper-sensitive to sugar; the blood sugar spike from lunch is far more violent than normal, triggering more fat-storing hormone and storing more fat than if you had eaten breakfast normally.</div><span class="badge b-red">↑ Enhanced Fat-Storage Response After Fasting</span></div>
+    <div class="card"><div class="clabel">🌙 Afternoon Snack + Dinner</div><div class="cname">Continuing High-GI Diet</div><div class="cdesc">With muscle partially broken down, <strong>metabolic rate drops</strong> — the body burns fewer calories. High blood sugar at night combined with a lower metabolic rate means fat storage efficiency is higher than at any other time.</div><span class="badge b-red">🌙 Metabolism ↓ · Fat Storage Efficiency ↑</span></div>
   </div>
 
-  <!-- 科普解說：為什麼低血糖時燒肌肉而非脂肪 -->
-
+  <!-- Science explainer: why low blood sugar burns muscle instead of fat -->
   <div style="background:rgba(184,134,11,0.08);border:1px solid rgba(184,134,11,0.28);border-radius:18px;padding:24px 28px;margin-bottom:24px;">
     <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
       <div style="font-size:40px;flex-shrink:0;line-height:1;">🤔</div>
       <div>
-        <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;">為什麼血糖太低時，腎上腺素反而鎖住脂肪、優先燒肌肉？脂肪不能用嗎？</div>
+        <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;">Why does low blood sugar cause adrenaline to lock away fat and prioritise burning muscle instead? Can't fat be used?</div>
 
-```
-    <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
-      <strong style="color:#b37e1d;">脂肪可以用，但太慢了。</strong>這是身體的「緊急速度」問題。
-    </div>
+        <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
+          <strong style="color:#b37e1d;">Fat can be used, but it's too slow.</strong> This is a body "emergency speed" problem.
+        </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
-      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-        <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">脂肪分解的速度</div>
-        <div style="font-size:12px;color:#030200;line-height:1.7;">脂肪需要先從脂肪細胞<strong style="color:#c96c02;">「解包」</strong>成脂肪酸，再送到肝臟、再轉換成酮體，才能讓大腦用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦平時不習慣用脂肪當緊急燃料。</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
+          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">The Speed of Fat Breakdown</div>
+            <div style="font-size:12px;color:#030200;line-height:1.7;">Fat must first be <strong style="color:#c96c02;">"unpacked"</strong> from fat cells into fatty acids, then sent to the liver, then converted into ketones before the brain can use them. This process takes <strong style="color:#c96c02;">hours</strong>, and the brain isn't used to running on fat as emergency fuel.</div>
+          </div>
+          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">The Speed of Muscle Breakdown</div>
+            <div style="font-size:12px;color:#030200;line-height:1.7;">Muscle protein is broken down into <strong style="color:#c96c02;">amino acids</strong>, and the liver can convert them into glucose (gluconeogenesis) within <strong style="color:#c96c02;">minutes</strong>. This is exactly the emergency fuel the brain and heart know best.</div>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
+          <div style="font-size:12.5px;color:#030200;line-height:1.8;">
+            💡 <strong style="color:#c96c02;">The body's logic:</strong> When blood sugar drops rapidly, the brain has only a few minutes of glucose reserves left. This is a life-or-death emergency. The body won't wait for fat to slowly convert — adrenaline directly orders the body to <strong style="color:#c96c02;">"suspend fat breakdown, burn muscle immediately"</strong> because that's the fastest option.
+          </div>
+        </div>
+
+        <div style="font-size:12px;color:#d98c00;line-height:1.8;">
+          What's even more ironic is that adrenaline simultaneously <strong style="color:#c96c02;">suppresses insulin</strong> (temporarily halting fat storage), causing blood sugar to briefly recover — but this is only a stopgap, and the cost is muscle being consumed. Long-term repetition of this cycle leads to: <strong style="color:#c96c02;">less and less muscle → lower and lower basal metabolism → harder and harder to burn fat</strong>.
+        </div>
       </div>
-      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-        <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">肌肉分解的速度</div>
-        <div style="font-size:12px;color:#030200;line-height:1.7;">肌肉蛋白分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可以在<strong style="color:#c96c02;">幾分鐘內</strong>把它轉換成葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
-      </div>
-    </div>
-
-    <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
-      <div style="font-size:12.5px;color:#030200;line-height:1.8;">
-        💡 <strong style="color:#c96c02;">身體的邏輯：</strong>血糖急速下降時，大腦只剩幾分鐘的葡萄糖儲備。這是生死存亡的緊急狀態，身體不等脂肪慢慢轉換——腎上腺素直接下令<strong style="color:#c96c02;">「暫停脂肪分解、立刻燃燒肌肉」</strong>，因為這樣最快。
-      </div>
-    </div>
-
-    <div style="font-size:12px;color:#d98c00;line-height:1.8;">
-      更諷刺的是，腎上腺素同時會<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是應急，代價是肌肉被消耗掉。長期反覆這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 脂肪越來越難燒</strong>。
     </div>
   </div>
-</div>
-```
 
-  </div>
-
-  <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3>錯誤斷食 = 肌肉越來越少 × 脂肪越來越多</h3><p>不吃早餐時，身體啟動兩道緊急保命機制：<strong>①壓力荷爾蒙（皮質醇）</strong>先升高，把肌肉蛋白分解成血糖；血糖繼續太低時，<strong>②腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮、強烈想吃東西的原因。腎上腺素同時把脂肪「鎖住」無法有效燃燒，身體反而優先消耗肌肉。等到午餐時，空腹讓身體對糖分極度敏感，<strong>囤脂荷爾蒙分泌更多</strong>，最終結果：<strong>肌肉越來越少 → 代謝越來越慢 → 越來越容易復胖</strong>。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>壓力荷爾蒙↑ → 肌肉分解 → 代謝↓</span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span>腎上腺素↑ → 心跳加速手抖焦慮飢餓</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>空腹後高GI → 囤脂荷爾蒙反應更強</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>肌肉↓ → 基礎代謝↓ → 更易復胖</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3>Wrong Fasting = Less and Less Muscle × More and More Fat</h3><p>When you skip breakfast, the body triggers two emergency survival mechanisms: <strong>① Cortisol (stress hormone)</strong> rises first, breaking down muscle protein into blood sugar; when blood sugar still can't recover, <strong>② adrenaline</strong> intervenes urgently — this is exactly why you feel a racing heartbeat, shaking hands, anxiety, and intense food cravings. Adrenaline simultaneously "locks" fat so it can't be burned effectively, and the body preferentially consumes muscle instead. By lunchtime, the fast has made the body hyper-sensitive to sugar, causing <strong>even more fat-storing hormone to be secreted</strong>. The final result: <strong>less and less muscle → slower and slower metabolism → easier and easier to regain weight</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>Cortisol ↑ → Muscle Breakdown → Metabolism ↓</span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span>Adrenaline ↑ → Racing Heart, Shaking, Anxiety, Hunger</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>Post-Fast High-GI → Stronger Fat-Storing Response</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Muscle ↓ → Basal Metabolism ↓ → Easier to Regain Weight</span></div></div></div>
 </div>
 
 <!-- ═══ S2 ═══ -->
-
 <div class="scenario-panel s2" id="panel-2">
   <div class="chart-zoom-wrap">
-    <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button">🔍 放大圖表</button>
+    <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">正確低GI飲食：血糖平穩，身體持續燃脂</div>
+      <div class="chtitle">Correct Low-GI Diet: Stable Blood Sugar, Body Burns Fat Continuously</div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:#4a7c59;"></div>血糖</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#2e7d8a 0,#2e7d8a 5px,transparent 5px,transparent 9px);"></div>囤脂荷爾蒙（低）</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);"></div>燃脂荷爾蒙</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#4a7c59;"></div>Blood Sugar</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#2e7d8a 0,#2e7d8a 5px,transparent 5px,transparent 9px);"></div>Fat-Storing Hormone (Low)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);"></div>Fat-Burning Hormone</div>
       </div>
     </div>
     <svg class="chart" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg">
@@ -869,77 +866,78 @@ nav{padding:16px 24px}
         <linearGradient id="g2f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7c59" stop-opacity="0.2"/><stop offset="100%" stop-color="#4a7c59" stop-opacity="0"/></linearGradient>
         <filter id="gl2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
-      <!-- 理想區間背景 -->
+      <!-- Ideal range background -->
       <rect x="55" y="95" width="790" height="80" rx="3" fill="rgba(90,160,110,0.07)"/>
-      <!-- 理想區間標籤 — 在背景最頂 -->
-      <text x="62" y="108" font-size="8.5" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ 理想血糖控制區間：全天波動平穩，身體持續燃燒脂肪</text>
-      <!-- 格線 -->
+      <!-- Ideal range label — at top of background -->
+      <text x="62" y="108" font-size="8.5" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Ideal Blood Sugar Control Range: Stable all-day fluctuation — body burns fat continuously</text>
+      <!-- Grid lines -->
       <line x1="55" y1="95" x2="840" y2="95" stroke="rgba(90,160,110,0.2)" stroke-dasharray="4,5"/>
       <line x1="55" y1="175" x2="840" y2="175" stroke="rgba(90,160,110,0.12)" stroke-dasharray="4,5"/>
       <line x1="55" y1="218" x2="840" y2="218" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,5"/>
-      <!-- Y軸標籤 -->
-      <text x="50" y="99" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.9)">理想</text>
-      <text x="50" y="177" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.7)">區間</text>
-      <text x="50" y="220" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.65)">低</text>
-      <!-- 座標軸 -->
+      <!-- Y-axis labels -->
+      <text x="50" y="99" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.9)">Ideal</text>
+      <text x="50" y="177" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.7)">Range</text>
+      <text x="50" y="220" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.65)">Low</text>
+      <!-- Axes -->
       <line x1="55" y1="255" x2="840" y2="255" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="255" stroke="rgba(255,255,255,0.08)"/>
-      <!-- 餐點垂直線 -->
+      <!-- Meal vertical lines -->
       <line x1="95" y1="5" x2="95" y2="255" stroke="rgba(90,160,110,0.22)" stroke-dasharray="3,6"/>
       <line x1="340" y1="5" x2="340" y2="255" stroke="rgba(90,160,110,0.22)" stroke-dasharray="3,6"/>
       <line x1="500" y1="5" x2="500" y2="255" stroke="rgba(46,125,138,0.22)" stroke-dasharray="3,6"/>
       <line x1="675" y1="5" x2="675" y2="255" stroke="rgba(90,160,110,0.22)" stroke-dasharray="3,6"/>
-      <!-- 餐點圖示 -->
+      <!-- Meal icons -->
       <text x="95" y="5" text-anchor="middle" font-size="13">🥤</text>
       <text x="340" y="5" text-anchor="middle" font-size="13">🥗</text>
       <text x="500" y="5" text-anchor="middle" font-size="13">🥤</text>
       <text x="675" y="5" text-anchor="middle" font-size="13">🐟</text>
-      <!-- X軸時間 -->
+      <!-- X-axis time labels -->
       <g font-size="8.5" fill="rgba(180,155,120,0.85)" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="266">早7點</text><text x="210" y="266">10點</text><text x="340" y="266">12點</text><text x="500" y="266">下午3:30</text><text x="675" y="266">晚7點</text><text x="820" y="266">10點</text>
+        <text x="95" y="266">7 AM</text><text x="210" y="266">10 AM</text><text x="340" y="266">12 PM</text><text x="500" y="266">3:30 PM</text><text x="675" y="266">7 PM</text><text x="820" y="266">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="276" fill="rgba(90,160,110,0.9)">營養奶昔</text><text x="340" y="276" fill="rgba(90,160,110,0.9)">低GI午餐</text><text x="500" y="276" fill="rgba(46,125,138,0.9)">營養奶昔</text><text x="675" y="276" fill="rgba(90,160,110,0.9)">低GI晚餐</text>
+        <text x="95" y="276" fill="rgba(90,160,110,0.9)">Shake</text><text x="340" y="276" fill="rgba(90,160,110,0.9)">Low-GI Lunch</text><text x="500" y="276" fill="rgba(46,125,138,0.9)">Shake</text><text x="675" y="276" fill="rgba(90,160,110,0.9)">Low-GI Dinner</text>
       </g>
       <!-- 血糖填充 -->
       <path d="M55,195 L95,195 C110,193 120,184 138,163 C152,148 162,136 178,132 C194,128 205,130 220,138 C235,146 242,161 258,175 C272,188 286,191 340,190 C352,186 360,175 374,159 C386,145 394,130 410,126 C426,122 436,124 450,132 C462,139 470,153 485,172 C494,183 510,188 522,185 C530,177 542,154 564,142 C578,140 598,149 616,165 C628,176 638,185 675,188 C685,185 694,175 706,160 C718,144 740,134 754,132 C762,134 776,143 796,162 C808,174 830,186 840,188 L840,255 L55,255 Z" fill="url(#g2f)" opacity="0.8"/>
       <!-- 血糖線 -->
       <path d="M55,195 L95,195 C110,193 120,184 138,163 C152,148 162,136 178,132 C194,128 205,130 220,138 C235,146 242,161 258,175 C272,188 286,191 340,190 C352,186 360,175 374,159 C386,145 394,130 410,126 C426,122 436,124 450,132 C462,139 470,153 485,172 C494,183 522,185 530,177 C542,154 564,142 578,140 C598,149 616,165 628,176 C638,185 675,188 685,185 C694,175 706,160 718,144 C740,134 754,132 762,134 C776,143 796,162 830,186 C840,188" fill="none" stroke="#4a7c59" stroke-width="3" filter="url(#gl2)" stroke-linecap="round"/>
-      <!-- 胰島素（囤脂荷爾蒙）— 全天低位小幅波動 -->
+      <!-- Insulin (fat-storing hormone) — low all day with small fluctuations -->
       <path d="M55,224 L95,223 C108,221 118,216 133,207 C146,198 155,192 171,190 C187,188 197,191 211,200 C223,207 231,215 258,218 C278,220 302,220 340,220 C352,218 360,211 374,204 C386,197 394,192 410,190 C424,188 434,190 447,197 C458,203 466,210 482,215 C492,218 498,219 512,217 C520,212 530,206 542,200 C550,196 564,195 580,194 C588,195 600,202 612,208 C620,214 630,219 642,221 C652,222 675,221 685,219 C694,214 706,207 718,200 C726,195 738,193 752,192 C762,193 774,200 784,207 C793,213 807,217 820,219 C830,220 838,220 845,220" fill="none" stroke="#2e7d8a" stroke-width="2" stroke-dasharray="6,3" opacity="0.9"/>
-      <!-- 升糖素（燃脂荷爾蒙）— 胰島素低時持續活躍 -->
+      <!-- Glucagon (fat-burning hormone) — continuously active when insulin is low -->
       <path d="M55,140 C72,138 90,136 110,133 C128,130 146,128 162,127 C178,126 192,126 206,129 C218,132 228,137 242,143 C252,148 260,153 274,156 C284,158 296,158 310,157 C322,155 332,152 340,149 C350,146 360,142 374,138 C386,134 396,132 410,132 C424,132 434,134 446,139 C456,144 464,150 476,155 C486,158 496,159 508,158 C518,155 528,150 540,146 C550,142 562,140 574,140 C586,140 596,143 608,148 C618,153 626,159 638,164 C648,167 658,168 670,167 C680,165 690,161 702,155 C714,150 724,147 736,146 C748,145 758,147 770,152 C780,157 790,164 802,168 C812,171 824,172 834,171 C840,170 843,170 845,169" fill="none" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="8,3" opacity="0.9"/>
-      <!-- 簡短圖內標注 — 放在曲線上方空白區 -->
-      <text x="360" y="55" font-size="9" fill="rgba(92,107,192,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔥 升糖素持續活躍 → 餐間也在燃脂</text>
-      <text x="680" y="55" font-size="8.5" fill="rgba(92,107,192,0.88)" font-family="'Noto Sans TC',sans-serif">夜間生長激素分泌</text>
-      <text x="680" y="66" font-size="8" fill="rgba(92,107,192,0.75)" font-family="'Noto Sans TC',sans-serif">→ 修肌 + 燃脂</text>
-      <!-- 全程理想區間標記 -->
+      <!-- Brief in-chart annotations — placed in empty space above curves -->
+      <text x="360" y="55" font-size="9" fill="rgba(92,107,192,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔥 Glucagon Continuously Active → Burning Fat Between Meals</text>
+      <text x="680" y="55" font-size="8.5" fill="rgba(92,107,192,0.88)" font-family="'Noto Sans TC',sans-serif">Growth Hormone at Night</text>
+      <text x="680" y="66" font-size="8" fill="rgba(92,107,192,0.75)" font-family="'Noto Sans TC',sans-serif">→ Muscle Repair + Fat Burn</text>
+      <!-- Full ideal range marker -->
       <rect x="690" y="88" width="148" height="24" rx="5" fill="rgba(90,160,110,0.15)" stroke="rgba(90,160,110,0.35)" stroke-width="1"/>
-      <text x="764" y="103" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ 全程保持理想區間</text>
+      <text x="764" y="103" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Stays in Ideal Range All Day</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
+  <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">血糖（葡萄糖）</div><div class="h-desc">低GI飲食讓血糖全天緩升緩降，波動幅度小。胰島素只需少量分泌，燃脂模式得以持續。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#1e6070;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">胰島素（囤脂荷爾蒙）</div><div class="h-desc">低GI飲食下全天維持低位，幾乎不觸發脂肪合成。低胰島素是讓身體燃脂的前提。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#4040a0;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">升糖素（燃脂荷爾蒙）</div><div class="h-desc">胰島素低時由胰臟分泌。活化脂肪細胞釋放脂肪酸供能，即使不在運動也持續燃燒脂肪。</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#806040;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">生長激素（夜間）</div><div class="h-desc">睡眠深層期脈衝分泌，促進肌肉蛋白合成與脂肪分解。低GI晚餐讓胰島素低，生長激素才能正常釋放。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar (Glucose)</div><div class="h-desc">Low-GI eating keeps blood sugar rising and falling gently all day with small fluctuations. Only a small amount of insulin is needed, so fat-burning mode can be sustained.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#1e6070;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Stays low all day under a low-GI diet, barely triggering fat synthesis. Low insulin is the prerequisite for the body to enter fat-burning mode.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#4040a0;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Glucagon (Fat-Burning Hormone)</div><div class="h-desc">Secreted by the pancreas when insulin is low. Activates fat cells to release fatty acids for energy — burns fat continuously even without exercise.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#806040;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Growth Hormone (Nighttime)</div><div class="h-desc">Secreted in pulses during deep sleep, promoting muscle protein synthesis and fat breakdown. A low-GI dinner keeps insulin low so growth hormone can be released normally.</div></div></div>
   </div>
   <div style="background:rgba(90,160,110,0.08);border:1px solid rgba(90,160,110,0.25);border-radius:16px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
     <div style="font-size:36px;flex-shrink:0;">🥤</div>
     <div>
-      <div style="font-size:13px;font-weight:700;color:#8aca9e;margin-bottom:6px;">營養奶昔（早餐 &amp; 下午茶）</div>
-      <div style="font-size:12px;color:#d4b896;line-height:1.75;">低升糖指數（GI值低）&nbsp;·&nbsp;高膳食纖維&nbsp;·&nbsp;低脂低熱量&nbsp;·&nbsp;含完整蛋白質、醣類、脂肪（巨量營養素）&nbsp;·&nbsp;含豐富維生素與礦物質（微量營養素）<br>血糖緩慢上升，飽足感持久，不觸發大量囤脂荷爾蒙，讓身體的燃脂模式持續運作。</div>
+      <div style="font-size:13px;font-weight:700;color:#8aca9e;margin-bottom:6px;">Nutritional Shake (Breakfast &amp; Afternoon Snack)</div>
+      <div style="font-size:12px;color:#d4b896;line-height:1.75;">Low glycemic index (low GI)&nbsp;·&nbsp;High dietary fiber&nbsp;·&nbsp;Low fat &amp; calories&nbsp;·&nbsp;Complete protein, carbohydrates &amp; fat (macronutrients)&nbsp;·&nbsp;Rich in vitamins &amp; minerals (micronutrients)<br>Blood sugar rises slowly, satiety lasts longer, minimal fat-storing hormone triggered — keeps the body's fat-burning mode running continuously.</div>
     </div>
   </div>
   <div class="cards">
-    <div class="card shake-highlight"><div class="clabel">🥤 早餐 7:00</div><div class="cname">營養奶昔</div><div class="cdesc">低GI配方讓血糖緩慢上升，高纖維和蛋白質讓你有飽足感、不會很快肚子餓；囤脂荷爾蒙只需少量分泌，燃脂荷爾蒙保持活躍</div><span class="badge b-green">✅ 緩升血糖 飽足感持久</span></div>
-    <div class="card"><div class="clabel">🥗 低GI午餐 12:00</div><div class="cname">糙米 + 蛋白質 + 蔬菜</div><div class="cdesc">複合碳水消化慢，蔬菜纖維進一步緩衝血糖上升；蛋白質讓你有飽足感，血糖平穩不超標，囤脂荷爾蒙維持低位</div><span class="badge b-green">✅ 血糖峰值低 飽足感強</span></div>
-    <div class="card shake-highlight"><div class="clabel">🥤 下午茶 3:30</div><div class="cname">營養奶昔</div><div class="cdesc">下午是最容易想吃甜食的時段，這杯奶昔幫你補充完整營養，血糖不上不下維持穩定，讓燃脂荷爾蒙繼續運作到晚餐前</div><span class="badge b-teal">🌿 穩定血糖 持續燃脂</span></div>
-    <div class="card"><div class="clabel">🐟 低GI晚餐 7:00</div><div class="cname">魚 + 地瓜 + 綠葉蔬菜</div><div class="cdesc">低GI晚餐讓囤脂荷爾蒙夜間維持低位；睡眠時<strong>生長荷爾蒙</strong>正常分泌，幫助修復與增長肌肉，同時持續燃燒脂肪</div><span class="badge b-green">🌙 睡眠燃脂 修復肌肉</span></div>
+    <div class="card shake-highlight"><div class="clabel">🥤 Breakfast 7:00</div><div class="cname">Nutritional Shake</div><div class="cdesc">Low-GI formula raises blood sugar slowly; high fiber and protein keep you satiated without hunger returning quickly. The fat-storing hormone only needs minimal secretion while the fat-burning hormone stays active.</div><span class="badge b-green">✅ Gradual Blood Sugar Rise · Lasting Satiety</span></div>
+    <div class="card"><div class="clabel">🥗 Low-GI Lunch 12:00</div><div class="cname">Brown Rice + Protein + Vegetables</div><div class="cdesc">Complex carbs digest slowly; vegetable fiber further buffers the blood sugar rise. Protein keeps you full; blood sugar stays stable without spiking, and the fat-storing hormone stays low.</div><span class="badge b-green">✅ Low Blood Sugar Peak · Strong Satiety</span></div>
+    <div class="card shake-highlight"><div class="clabel">🥤 Afternoon Snack 3:30</div><div class="cname">Nutritional Shake</div><div class="cdesc">The afternoon is when sweet cravings are strongest. This shake provides complete nutrition, keeps blood sugar stable, and lets the fat-burning hormone keep working right through to dinner.</div><span class="badge b-teal">🌿 Stable Blood Sugar · Continuous Fat Burn</span></div>
+    <div class="card"><div class="clabel">🐟 Low-GI Dinner 7:00</div><div class="cname">Fish + Sweet Potato + Leafy Greens</div><div class="cdesc">A low-GI dinner keeps the fat-storing hormone low overnight. During sleep, <strong>growth hormone</strong> is secreted normally, helping to repair and build muscle while continuously burning fat.</div><span class="badge b-green">🌙 Sleep Fat Burn · Muscle Repair</span></div>
   </div>
-  <div class="conclusion"><div class="big-icon pulse">🔥</div><div><h3>血糖平穩 → 身體全天持續燃脂 × 保留肌肉</h3><p>低GI飲食讓囤脂荷爾蒙全天保持低位，身體的<strong>燃脂荷爾蒙</strong>得以持續活躍——即使在餐與餐之間的休息時段，身體也在默默燃燒脂肪。穩定的血糖也防止壓力荷爾蒙升高，肌肉不會被分解，<strong>代謝速度</strong>才能維持在高效狀態。晚上睡覺時，<strong>生長荷爾蒙</strong>正常分泌，繼續修復與強化肌肉，讓你在睡眠中同時燃脂。這才是<strong>讓身體真正瘦下來、不反彈</strong>的正確方向。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#4a7c59;"></span>囤脂荷爾蒙低 → 燃脂荷爾蒙活躍</span><span class="tip-pill"><span class="dot" style="background:#2e7d8a;"></span>肌肉不流失 → 代謝速度維持</span><span class="tip-pill"><span class="dot" style="background:#5c6bc0;"></span>夜間生長荷爾蒙 → 睡眠燃脂+修肌</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>血糖穩定 → 飽足感↑ 不過食</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">🔥</div><div><h3>Stable Blood Sugar → Body Burns Fat All Day × Preserves Muscle</h3><p>A low-GI diet keeps the fat-storing hormone low all day, allowing the body's <strong>fat-burning hormone</strong> to stay continuously active — even during the rest periods between meals, the body is quietly burning fat. Stable blood sugar also prevents the stress hormone from rising, so muscle doesn't break down and <strong>metabolic rate</strong> stays in a highly efficient state. At night during sleep, <strong>growth hormone</strong> is secreted normally, continuing to repair and strengthen muscle so you're burning fat even while you sleep. This is the right approach for <strong>truly losing weight and not regaining it</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#4a7c59;"></span>Fat-Storing Hormone Low → Fat-Burning Hormone Active</span><span class="tip-pill"><span class="dot" style="background:#2e7d8a;"></span>Muscle Preserved → Metabolic Rate Maintained</span><span class="tip-pill"><span class="dot" style="background:#5c6bc0;"></span>Nighttime Growth Hormone → Sleep Fat Burn + Muscle Repair</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Stable Blood Sugar → Satiety ↑ · No Overeating</span></div></div></div>
 </div>
 </div>
 </div>
@@ -1051,7 +1049,8 @@ nav{padding:16px 24px}
       hero_title:'吃對了<br>身體會<em>自己</em><br>找回平衡',
       hero_desc:'你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。',
       hero_cta1:'開始了解',
-      stat_n1:'3種', stat1:'飲食模式比較', stat2:'全天血糖追蹤', stat_n3:'1個', stat3:'正確方向',
+      hero_cta2:'查看血糖分析圖表',
+      stat_n1:'3種', stat1:'飲食模式比較', stat2:'全天血糖追蹤', stat_n2:'24小時', stat_n3:'1個', stat3:'正確方向',
       tag1:'血糖平穩上升', tag2:'持續燃燒脂肪', tag3:'保留肌肉量', plate_tag:'低GI · 全營養',
       concept_eye:'核心飲食觀念', concept_h:'為什麼你一直瘦不下來？',
       concept_sub:'問題不在你意志力不夠，而在你還不知道身體是怎麼運作的。',
@@ -1079,7 +1078,8 @@ nav{padding:16px 24px}
       hero_title:'Eat Right,<br>Let Your Body<br><em>Find Balance</em>',
       hero_desc:"You don't need to starve or cut all sugar. Effective weight management starts with understanding what every bite does to your blood sugar.",
       hero_cta1:'Start Learning',
-      stat_n1:'3', stat1:'Diet Patterns Compared', stat2:'24-hr Blood Sugar Tracking', stat_n3:'1', stat3:'Right Direction',
+      hero_cta2:'View Blood Sugar Charts',
+      stat_n1:'3', stat1:'Diet Patterns Compared', stat2:'24-hr Blood Sugar Tracking', stat_n2:'24 hrs', stat_n3:'1', stat3:'Right Direction',
       tag1:'Stable Blood Sugar', tag2:'Continuous Fat Burning', tag3:'Preserve Muscle', plate_tag:'Low-GI · Complete Nutrition',
       concept_eye:'Core Diet Concepts', concept_h:"Why Can't You Lose Weight?",
       concept_sub:"It's not about willpower — it's about understanding how your body actually works.",
@@ -1098,6 +1098,33 @@ nav{padding:16px 24px}
       modal0_title:'🔴 High-GI Diet: Daily Blood Sugar & Insulin Spikes',
       modal1_title:'🟡 Wrong 16:8 Fasting: Cortisol, Adrenaline & Muscle Loss',
       modal2_title:'🟢 Correct Low-GI Diet: Stable Blood Sugar, Continuous Fat Burning',
+      concept_p1:'Every time you eat <strong>high-glycemic index (high-GI) foods</strong>, your blood sugar spikes rapidly. To handle this, your body releases large amounts of <strong>insulin</strong> (the fat-storing hormone). Insulin\'s job is to <strong>convert excess blood sugar into stored fat</strong> while preventing your body from burning fat.',
+      concept_p2:'What\'s worse, after insulin drives blood sugar too low, you feel hungry again — this is the "low blood sugar hunger trap" that keeps you cycling through "eat → insulin spike → fat storage → hunger → eat again".',
+      concept_p3:'The solution is simple: <strong>choose foods that raise blood sugar slowly and steadily</strong>. When insulin stays low, your body\'s <strong>glucagon</strong> (fat-burning hormone) gets activated, and fat can actually be burned.',
+      pillar1_t:'Choose Low-GI Foods', pillar1_d:'Oats, brown rice, sweet potato, legumes — digest slowly, raise blood sugar gradually, keep you full longer.',
+      pillar2_t:'Get Enough Protein', pillar2_d:'Protein further buffers blood sugar rises while protecting muscle from being broken down.',
+      pillar3_t:'Use Nutritional Shakes', pillar3_d:'Swap breakfast and afternoon snack for a low-GI, high-fiber nutritional shake — the steadiest blood sugar, longest-lasting fat-burn.',
+      card1_l:'High-GI Diet', card1_t:'Blood Sugar Rollercoaster', card1_d:'Blood sugar spikes and crashes after every meal; the fat-storing hormone floods the body repeatedly, piling on fat continuously.',
+      card2_l:'Wrong Fasting', card2_t:'Burns Muscle, Keeps Fat', card2_d:'Skipping breakfast drops blood sugar too low; adrenaline surges, and the body prioritises breaking down muscle instead — fat gets locked away.',
+      card3_l:'Correct Low-GI Diet', card3_t:'Stable Blood Sugar · Continuous Fat Burn', card3_d:'Blood sugar stays steady all day; the fat-burning hormone stays continuously active, fat is burned, and muscle is preserved.',
+      sc0_label:'Scenario 01 · High-GI Diet', sc0_t:'🍞 White Toast, White Rice, Sugary Drinks', sc0_d:'Blood sugar spikes violently four times a day; <strong>insulin</strong> (the fat-storing hormone) floods the body repeatedly. Over time, hormones become dysregulated, fat keeps accumulating, and losing weight gets harder and harder.',
+      sc0_out:'🔴 Blood Sugar Swings → Fat Accumulation',
+      sc1_label:'Scenario 02 · Wrong 16:8 Fasting', sc1_t:'❌ Skip Breakfast, Start Eating at Lunch', sc1_d:'When blood sugar drops too low, <strong>cortisol</strong> (the stress hormone) and <strong>adrenaline</strong> surge one after another. The body prioritises breaking down muscle to restore blood sugar — fat ends up locked away.',
+      sc1_out:'🟡 Burns Muscle → Metabolism Gets Slower and Slower',
+      sc2_label:'Scenario 03 · Correct Low-GI Diet', sc2_t:'🥤 Nutritional Shake + Low-GI Meals', sc2_d:'Blood sugar stays stable all day; <strong>insulin</strong> stays low while <strong>glucagon</strong> (the fat-burning hormone) remains continuously active. At night, <strong>growth hormone</strong> is secreted normally — burning fat and building muscle even while you sleep.',
+      sc2_out:'🟢 Stable Blood Sugar → Continuous Fat Burn & Muscle Preservation',
+      card_go:'View Detailed Blood Sugar Chart →',
+      chart_eye:'Weight Management · Diet Habits · Blood Sugar & Metabolism',
+      chart_h1:'How You Eat<br>Determines Your Body',
+      chart_sub:'The degree of blood sugar fluctuation directly determines whether your body is "burning fat" or "storing fat"<br>The same 24 hours — three ways of eating bring completely different results.',
+      zoom_btn:'🔍 Zoom Chart',
+      s0_chtitle:'High-GI Diet: Daily Blood Sugar & Insulin Fluctuation',
+      leg_blood:'Blood Sugar', leg_insulin:'Insulin (Fat-Storing Hormone)',
+      quote_text:'Your body is not your enemy.<br>It simply <em>acts on the signals you give it.</em><br>Give it the right signals, and it will do the right things.',
+      step1_t:'Switch Breakfast to a Nutritional Shake', step1_d:'Low-GI, high-fiber formula raises blood sugar gradually, keeps <strong>insulin</strong> (the fat-storing hormone) low, and keeps you full until lunch.',
+      step2_t:'Choose a Low-GI Lunch', step2_d:'Brown rice, protein, and vegetables keep <strong>glucagon</strong> (the fat-burning hormone) actively burning fat after the meal.',
+      step3_t:'Add a Shake for Afternoon Snack', step3_d:'Avoid the high-sugar trap, let <strong>glucagon</strong> keep working, and prevent <strong>cortisol</strong> (the stress hormone) from rising due to low blood sugar.',
+      step4_t:'Low-GI Dinner + Quality Sleep', step4_d:'<strong>Growth hormone</strong> is secreted normally during deep sleep, repairing muscle and burning fat — good sleep equals slimming down.',
     }
   };
   let currentLang = 'zh';
@@ -1131,7 +1158,6 @@ nav{padding:16px 24px}
 </script>
 
 <!-- ═══ CHART ZOOM MODALS ═══ -->
-
 <div class="chart-modal-overlay" id="modal-s0" onclick="closeChartModal(event, 'modal-s0')">
   <div class="chart-modal-inner" onclick="event.stopPropagation()">
     <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s0')" data-i18n="modal_close">✕ 關閉</button>
