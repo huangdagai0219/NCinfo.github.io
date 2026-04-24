@@ -623,16 +623,16 @@ nav{padding:16px 24px}
         <filter id="gl0"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
       <rect x="55" y="8" width="790" height="14" rx="2" fill="rgba(192,80,70,0.2)"/>
-      <text x="62" y="18" font-size="8" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Danger Zone: Blood Sugar Too High → Insulin Surge → Fat Storage</text>
+      <text id="s0t_danger" x="62" y="18" font-size="8" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Danger Zone: Blood Sugar Too High → Insulin Surge → Fat Storage</text>
       <rect x="55" y="22" width="790" height="68" rx="3" fill="rgba(192,80,70,0.08)"/>
       <rect x="55" y="148" width="790" height="50" rx="3" fill="rgba(184,134,11,0.06)"/>
       <line x1="55" y1="90" x2="845" y2="90" stroke="rgba(192,80,70,0.2)" stroke-dasharray="4,5"/>
       <line x1="55" y1="148" x2="845" y2="148" stroke="rgba(184,134,11,0.15)" stroke-dasharray="4,5"/>
       <line x1="55" y1="198" x2="845" y2="198" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,5"/>
-      <text x="50" y="26" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">High</text>
-      <text x="50" y="150" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">Normal</text>
-      <text x="50" y="255" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.7)">Low</text>
-      <text x="62" y="161" font-size="7.5" fill="rgba(200,160,60,0.8)" font-family="'Noto Sans TC',sans-serif">Normal fasting blood sugar range</text>
+      <text x="50" y="26" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)" id="s0t_high">High</text>
+      <text x="50" y="150" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)" id="s0t_normal">Normal</text>
+      <text x="50" y="255" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.7)" id="s0t_low">Low</text>
+      <text id="s0t_range" x="62" y="161" font-size="7.5" fill="rgba(200,160,60,0.8)" font-family="'Noto Sans TC',sans-serif">Normal fasting blood sugar range</text>
       <line x1="55" y1="265" x2="845" y2="265" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="265" stroke="rgba(255,255,255,0.08)"/>
       <line x1="95" y1="5" x2="95" y2="265" stroke="rgba(192,120,64,0.3)" stroke-dasharray="3,6"/>
@@ -647,7 +647,7 @@ nav{padding:16px 24px}
         <text x="95" y="276">7 AM</text><text x="220" y="276">9 AM</text><text x="340" y="276">12 PM</text><text x="500" y="276">3:30 PM</text><text x="675" y="276">7 PM</text><text x="820" y="276">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="286" fill="rgba(192,120,64,0.9)">Breakfast</text><text x="340" y="286" fill="rgba(184,134,11,0.9)">Lunch</text><text x="500" y="286" fill="rgba(140,100,200,0.8)">Snack</text><text x="675" y="286" fill="rgba(192,80,70,0.9)">Dinner</text>
+        <text id="s0t_m1" x="95" y="286" fill="rgba(192,120,64,0.9)">Breakfast</text><text id="s0t_m2" x="340" y="286" fill="rgba(184,134,11,0.9)">Lunch</text><text id="s0t_m3" x="500" y="286" fill="rgba(140,100,200,0.8)">Snack</text><text id="s0t_m4" x="675" y="286" fill="rgba(192,80,70,0.9)">Dinner</text>
       </g>
       <path d="M55,198 L95,198 C112,195 120,170 135,72 C148,28 158,20 178,20 C198,20 210,36 228,106 C246,168 255,228 285,222 C310,218 325,216 340,216 C358,214 365,196 380,60 C393,24 400,20 418,20 C436,20 446,36 462,108 C476,166 480,224 520,210 C530,156 545,108 565,52 C578,34 600,30 618,30 C628,44 642,118 655,174 C688,218 700,214 695,204 C706,116 724,62 740,28 C760,12 775,12 793,12 C803,24 817,88 827,132 C840,175" fill="none" stroke="url(#g0l)" stroke-width="3" filter="url(#gl0)" stroke-linecap="round"/>
       <path d="M55,198 L95,198 C112,195 120,170 135,72 C148,28 158,20 178,20 C198,20 210,36 228,106 C246,168 255,228 285,222 C310,218 325,216 340,216 C358,214 365,196 380,60 C393,24 400,20 418,20 C436,20 446,36 462,108 C476,166 480,224 520,210 C530,156 545,108 565,52 C578,34 600,30 618,30 C628,44 642,118 655,174 C688,218 700,214 695,204 C706,116 724,62 740,28 C760,12 775,12 793,12 C803,24 817,88 827,132 C840,175 L840,265 L55,265 Z" fill="url(#g0f)" opacity="0.65"/>
@@ -680,14 +680,13 @@ nav{padding:16px 24px}
                C798,238 806,222 818,196
                C827,174 834,158 845,148"
         fill="none" stroke="#4a7c59" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.95" filter="url(#gl0)"/>
-      <text x="195" y="30" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Surge (Fat Storage)</text>
-      <text x="282" y="262" font-size="7.5" fill="rgba(90,160,110,0.85)" font-family="'Noto Sans TC',sans-serif">↓ Insulin Overshoot → Low Blood Sugar → Hunger</text>
-      <text x="690" y="48" font-size="8" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔒 Peak Fat Storage at Night</text>
+      <text id="s0t_insulin_surge" x="195" y="30" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Surge (Fat Storage)</text>
+      <text id="s0t_overshoot" x="282" y="262" font-size="7.5" fill="rgba(90,160,110,0.85)" font-family="'Noto Sans TC',sans-serif">↓ Insulin Overshoot → Low Blood Sugar → Hunger</text>
+      <text id="s0t_night" x="690" y="48" font-size="8" fill="rgba(192,80,70,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔒 Peak Fat Storage at Night</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
   <!-- 荷爾蒙說明 -->
-  <div class="hormone-panel">
   <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
     <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s0_h1_name">血糖（葡萄糖）</div><div class="h-desc" data-i18n="s0_h1_desc">食物中的碳水化合物消化後進入血液。高GI食物讓血糖快速飆升；低GI食物則緩慢上升。</div></div></div>
@@ -727,19 +726,19 @@ nav{padding:16px 24px}
       <text x="197" y="18" text-anchor="middle" font-size="8" fill="rgba(192,120,64,0.7)" font-family="'Noto Sans TC',sans-serif">── Fasting Period (No Breakfast) ──</text>
       <!-- Danger zone -->
       <rect x="55" y="22" width="790" height="12" rx="2" fill="rgba(192,80,70,0.2)"/>
-      <text x="62" y="31" font-size="7.5" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Blood Sugar Danger Zone → Insulin Surge</text>
+      <text id="s1t_danger1" x="62" y="31" font-size="7.5" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Blood Sugar Danger Zone → Insulin Surge</text>
       <rect x="55" y="34" width="790" height="56" rx="3" fill="rgba(192,80,70,0.07)"/>
       <!-- Low blood sugar zone -->
       <rect x="55" y="238" width="790" height="28" rx="3" fill="rgba(92,107,192,0.1)"/>
-      <text x="62" y="250" font-size="7.5" fill="rgba(130,150,210,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Hypoglycemia Danger Zone: Glycogen Depleted → Cortisol Rises → Muscle Protein Broken Down for Blood Sugar</text>
+      <text id="s1t_hypo" x="62" y="250" font-size="7.5" fill="rgba(130,150,210,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Hypoglycemia Danger Zone: Glycogen Depleted → Cortisol Rises → Muscle Protein Broken Down for Blood Sugar</text>
       <!-- 格線 -->
       <line x1="55" y1="90" x2="845" y2="90" stroke="rgba(192,80,70,0.18)" stroke-dasharray="4,5"/>
       <line x1="55" y1="155" x2="845" y2="155" stroke="rgba(184,134,11,0.12)" stroke-dasharray="4,5"/>
       <line x1="55" y1="238" x2="845" y2="238" stroke="rgba(92,107,192,0.18)" stroke-dasharray="2,5"/>
       <!-- Y-axis -->
-      <text x="50" y="38" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">High</text>
-      <text x="50" y="157" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">Normal</text>
-      <text x="50" y="240" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(130,150,210,0.9)">Low</text>
+      <text id="s1t_high" x="50" y="38" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(220,100,80,0.9)">High</text>
+      <text id="s1t_normal" x="50" y="157" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(200,160,60,0.9)">Normal</text>
+      <text id="s1t_low" x="50" y="240" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(130,150,210,0.9)">Low</text>
       <!-- Axes -->
       <line x1="55" y1="280" x2="840" y2="280" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="280" stroke="rgba(255,255,255,0.08)"/>
@@ -757,7 +756,7 @@ nav{padding:16px 24px}
         <text x="95" y="291">7 AM</text><text x="205" y="291">10 AM</text><text x="340" y="291">12 PM</text><text x="510" y="291">3:30 PM</text><text x="680" y="291">7 PM</text><text x="820" y="291">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="301" fill="rgba(192,120,64,0.8)">Skip Breakfast</text><text x="340" y="301" fill="rgba(184,134,11,0.9)">High-GI Lunch</text><text x="510" y="301" fill="rgba(140,100,200,0.8)">Sugary Snack</text><text x="680" y="301" fill="rgba(192,80,70,0.9)">High-GI Dinner</text>
+        <text id="s1t_m1" x="95" y="301" fill="rgba(192,120,64,0.8)">Skip Breakfast</text><text id="s1t_m2" x="340" y="301" fill="rgba(184,134,11,0.9)">High-GI Lunch</text><text id="s1t_m3" x="510" y="301" fill="rgba(140,100,200,0.8)">Sugary Snack</text><text id="s1t_m4" x="680" y="301" fill="rgba(192,80,70,0.9)">High-GI Dinner</text>
       </g>
       <!-- 血糖填充 + 線條 -->
       <path d="M55,210 C90,210 120,213 150,220 C180,230 200,236 230,241 C260,245 290,243 340,241 C360,232 374,210 387,70 C398,36 405,26 423,26 C441,26 451,40 466,110 C480,164 486,218 510,218 C524,212 530,162 545,114 C551,82 566,60 579,42 C586,36 602,36 620,36 C630,50 643,118 656,172 C663,214 688,218 700,214 C695,202 708,118 726,48 C742,24 762,10 778,10 C796,10 806,24 820,86 C830,130 840,174 840,174 L840,280 L55,280 Z" fill="url(#g1f)" opacity="0.65"/>
@@ -786,14 +785,14 @@ nav{padding:16px 24px}
                C836,24 840,32 845,44"
         fill="none" stroke="#4a7c59" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.95" filter="url(#gl1)"/>
       <!-- Insulin surge annotation -->
-      <text x="434" y="22" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Explosion (Fasting-Enhanced Sensitivity)</text>
+      <text id="s1t_insulin_surge" x="434" y="22" font-size="8" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⬆ Insulin Explosion (Fasting-Enhanced Sensitivity)</text>
       <!-- Stress hormone (cortisol): rises during fasting -->
       <path d="M55,176 C70,172 88,166 108,160 C126,154 148,148 168,144 C188,140 208,137 228,136 C248,136 268,138 288,142 C306,146 322,152 336,158 C340,160 348,166 360,174 C372,182 380,186 394,186 C406,186 416,182 428,176 C440,170 448,166 460,164 C472,162 480,164 492,170 C504,175 512,182 524,188 C534,191 542,191 552,188 C562,182 570,176 582,170 C592,166 600,164 612,166 C624,168 632,174 644,186 C654,196 662,204 672,208 C682,210 690,208 700,200 C712,192 720,184 732,180 C744,177 752,177 763,181 C774,186 783,194 794,204 C803,212 828,224 845,228" fill="none" stroke="#c04444" stroke-width="1.5" stroke-dasharray="3,5" opacity="0.8"/>
       <!-- Adrenaline: emergency surge when blood sugar stays too low -->
       <path d="M55,236 C68,235 88,234 110,232 C130,229 148,225 164,218 C178,212 192,204 206,194 C216,187 224,180 236,174 C246,170 254,168 264,170 C274,172 282,178 294,190 C304,200 312,212 324,220 C334,225 342,228 352,228 C362,226 370,222 382,216 C394,210 402,204 414,200 C424,197 432,197 444,200 C456,204 464,212 476,221 C486,228 494,233 508,235 C520,235 528,232 538,224 C550,215 558,207 570,202 C580,198 588,198 600,202 C612,206 620,215 632,225 C642,233 650,238 664,240 C676,241 686,240 698,233 C710,226 718,218 730,212 C740,206 748,204 760,206 C772,210 781,219 792,230 C801,238 820,248 845,252" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.9"/>
       <!-- Post-fast spike annotation -->
       <circle cx="423" cy="26" r="4" fill="#c07840" filter="url(#gl1)"/>
-      <text x="434" y="32" font-size="8" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ Post-Fast Blood Sugar Violent Spike (Enhanced Insulin Sensitivity)</text>
+      <text id="s1t_spike" x="434" y="32" font-size="8" fill="#c07840" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚡ Post-Fast Blood Sugar Violent Spike (Enhanced Insulin Sensitivity)</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
@@ -872,7 +871,7 @@ nav{padding:16px 24px}
       <!-- Ideal range background -->
       <rect x="55" y="95" width="790" height="80" rx="3" fill="rgba(90,160,110,0.07)"/>
       <!-- Ideal range label — at top of background -->
-      <text x="62" y="108" font-size="8.5" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Ideal Blood Sugar Control Range: Stable all-day fluctuation — body burns fat continuously</text>
+      <text id="s2t_ideal_range" x="62" y="108" font-size="8.5" fill="rgba(90,160,110,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Ideal Blood Sugar Control Range: Stable all-day fluctuation — body burns fat continuously</text>
       <!-- Grid lines -->
       <line x1="55" y1="95" x2="840" y2="95" stroke="rgba(90,160,110,0.2)" stroke-dasharray="4,5"/>
       <line x1="55" y1="175" x2="840" y2="175" stroke="rgba(90,160,110,0.12)" stroke-dasharray="4,5"/>
@@ -899,7 +898,7 @@ nav{padding:16px 24px}
         <text x="95" y="266">7 AM</text><text x="210" y="266">10 AM</text><text x="340" y="266">12 PM</text><text x="500" y="266">3:30 PM</text><text x="675" y="266">7 PM</text><text x="820" y="266">10 PM</text>
       </g>
       <g font-size="7.5" font-family="'Noto Sans TC',sans-serif" text-anchor="middle">
-        <text x="95" y="276" fill="rgba(90,160,110,0.9)">Shake</text><text x="340" y="276" fill="rgba(90,160,110,0.9)">Low-GI Lunch</text><text x="500" y="276" fill="rgba(46,125,138,0.9)">Shake</text><text x="675" y="276" fill="rgba(90,160,110,0.9)">Low-GI Dinner</text>
+        <text id="s2t_m1" x="95" y="276" fill="rgba(90,160,110,0.9)">Shake</text><text id="s2t_m2" x="340" y="276" fill="rgba(90,160,110,0.9)">Low-GI Lunch</text><text id="s2t_m3" x="500" y="276" fill="rgba(46,125,138,0.9)">Shake</text><text id="s2t_m4" x="675" y="276" fill="rgba(90,160,110,0.9)">Low-GI Dinner</text>
       </g>
       <!-- 血糖填充 -->
       <path d="M55,195 L95,195 C110,193 120,184 138,163 C152,148 162,136 178,132 C194,128 205,130 220,138 C235,146 242,161 258,175 C272,188 286,191 340,190 C352,186 360,175 374,159 C386,145 394,130 410,126 C426,122 436,124 450,132 C462,139 470,153 485,172 C494,183 510,188 522,185 C530,177 542,154 564,142 C578,140 598,149 616,165 C628,176 638,185 675,188 C685,185 694,175 706,160 C718,144 740,134 754,132 C762,134 776,143 796,162 C808,174 830,186 840,188 L840,255 L55,255 Z" fill="url(#g2f)" opacity="0.8"/>
@@ -910,12 +909,12 @@ nav{padding:16px 24px}
       <!-- Glucagon (fat-burning hormone) — continuously active when insulin is low -->
       <path d="M55,140 C72,138 90,136 110,133 C128,130 146,128 162,127 C178,126 192,126 206,129 C218,132 228,137 242,143 C252,148 260,153 274,156 C284,158 296,158 310,157 C322,155 332,152 340,149 C350,146 360,142 374,138 C386,134 396,132 410,132 C424,132 434,134 446,139 C456,144 464,150 476,155 C486,158 496,159 508,158 C518,155 528,150 540,146 C550,142 562,140 574,140 C586,140 596,143 608,148 C618,153 626,159 638,164 C648,167 658,168 670,167 C680,165 690,161 702,155 C714,150 724,147 736,146 C748,145 758,147 770,152 C780,157 790,164 802,168 C812,171 824,172 834,171 C840,170 843,170 845,169" fill="none" stroke="#5c6bc0" stroke-width="2" stroke-dasharray="8,3" opacity="0.9"/>
       <!-- Brief in-chart annotations — placed in empty space above curves -->
-      <text x="360" y="55" font-size="9" fill="rgba(92,107,192,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔥 Glucagon Continuously Active → Burning Fat Between Meals</text>
-      <text x="680" y="55" font-size="8.5" fill="rgba(92,107,192,0.88)" font-family="'Noto Sans TC',sans-serif">Growth Hormone at Night</text>
-      <text x="680" y="66" font-size="8" fill="rgba(92,107,192,0.75)" font-family="'Noto Sans TC',sans-serif">→ Muscle Repair + Fat Burn</text>
+      <text id="s2t_glucagon" x="360" y="55" font-size="9" fill="rgba(92,107,192,0.95)" font-family="'Noto Sans TC',sans-serif" font-weight="700">🔥 Glucagon Continuously Active → Burning Fat Between Meals</text>
+      <text id="s2t_growth1" x="680" y="55" font-size="8.5" fill="rgba(92,107,192,0.88)" font-family="'Noto Sans TC',sans-serif">Growth Hormone at Night</text>
+      <text id="s2t_growth2" x="680" y="66" font-size="8" fill="rgba(92,107,192,0.75)" font-family="'Noto Sans TC',sans-serif">→ Muscle Repair + Fat Burn</text>
       <!-- Full ideal range marker -->
       <rect x="690" y="88" width="148" height="24" rx="5" fill="rgba(90,160,110,0.15)" stroke="rgba(90,160,110,0.35)" stroke-width="1"/>
-      <text x="764" y="103" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Stays in Ideal Range All Day</text>
+      <text id="s2t_ideal_badge" x="764" y="103" text-anchor="middle" font-size="8.5" fill="rgba(90,160,110,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">✅ Stays in Ideal Range All Day</text>
     </svg>
   </div>
   </div><!-- /chart-zoom-wrap -->
@@ -1246,6 +1245,89 @@ nav{padding:16px 24px}
     document.getElementById('btn-en-chart').classList.toggle('active', lang==='en');
     document.documentElement.lang = lang==='zh' ? 'zh-TW' : 'en';
     document.title = lang==='zh' ? '好好吃 · 讓身體找回平衡' : 'EatWell · Let Your Body Find Balance';
+
+    // ── SVG chart inline text translation ──
+    const svgTexts = {
+      zh: {
+        // S0 chart
+        s0t_danger: '⚠ 危險區：血糖過高 → 胰島素大量分泌 → 脂肪囤積',
+        s0t_high: '高',
+        s0t_normal: '正常',
+        s0t_low: '低',
+        s0t_range: '正常空腹血糖範圍',
+        s0t_insulin_surge: '⬆ 胰島素飆升（囤積脂肪）',
+        s0t_overshoot: '↓ 胰島素過衝 → 低血糖 → 飢餓感',
+        s0t_night: '🔒 夜間囤脂達到高峰',
+        s0t_m1: '早餐',
+        s0t_m2: '午餐',
+        s0t_m3: '下午茶',
+        s0t_m4: '晚餐',
+        // S1 chart
+        s1t_danger1: '⚠ 血糖危險區 → 胰島素大量分泌',
+        s1t_hypo: '⚠ 低血糖危險區：肝醣耗盡 → 皮質醇升高 → 肌肉蛋白質分解補充血糖',
+        s1t_high: '高',
+        s1t_normal: '正常',
+        s1t_low: '低',
+        s1t_insulin_surge: '⬆ 胰島素爆發（斷食增敏效應）',
+        s1t_spike: '⚡ 斷食後血糖劇烈飆升（胰島素敏感性增強）',
+        s1t_m1: '不吃早餐',
+        s1t_m2: '高GI午餐',
+        s1t_m3: '含糖下午茶',
+        s1t_m4: '高GI晚餐',
+        // S2 chart
+        s2t_ideal_range: '✅ 理想血糖控制範圍：全天平穩波動——身體持續燃燒脂肪',
+        s2t_glucagon: '🔥 升糖素持續活躍 → 兩餐之間也在燃脂',
+        s2t_growth1: '夜間生長激素',
+        s2t_growth2: '→ 修復肌肉 + 燃燒脂肪',
+        s2t_ideal_badge: '✅ 全天維持在理想範圍',
+        s2t_m1: '奶昔',
+        s2t_m2: '低GI午餐',
+        s2t_m3: '奶昔',
+        s2t_m4: '低GI晚餐',
+      },
+      en: {
+        // S0 chart
+        s0t_danger: '⚠ Danger Zone: Blood Sugar Too High → Insulin Surge → Fat Storage',
+        s0t_high: 'High',
+        s0t_normal: 'Normal',
+        s0t_low: 'Low',
+        s0t_range: 'Normal fasting blood sugar range',
+        s0t_insulin_surge: '⬆ Insulin Surge (Fat Storage)',
+        s0t_overshoot: '↓ Insulin Overshoot → Low Blood Sugar → Hunger',
+        s0t_night: '🔒 Peak Fat Storage at Night',
+        s0t_m1: 'Breakfast',
+        s0t_m2: 'Lunch',
+        s0t_m3: 'Snack',
+        s0t_m4: 'Dinner',
+        // S1 chart
+        s1t_danger1: '⚠ Blood Sugar Danger Zone → Insulin Surge',
+        s1t_hypo: '⚠ Hypoglycemia Danger Zone: Glycogen Depleted → Cortisol Rises → Muscle Protein Broken Down for Blood Sugar',
+        s1t_high: 'High',
+        s1t_normal: 'Normal',
+        s1t_low: 'Low',
+        s1t_insulin_surge: '⬆ Insulin Explosion (Fasting-Enhanced Sensitivity)',
+        s1t_spike: '⚡ Post-Fast Blood Sugar Violent Spike (Enhanced Insulin Sensitivity)',
+        s1t_m1: 'Skip Breakfast',
+        s1t_m2: 'High-GI Lunch',
+        s1t_m3: 'Sugary Snack',
+        s1t_m4: 'High-GI Dinner',
+        // S2 chart
+        s2t_ideal_range: '✅ Ideal Blood Sugar Control Range: Stable all-day fluctuation — body burns fat continuously',
+        s2t_glucagon: '🔥 Glucagon Continuously Active → Burning Fat Between Meals',
+        s2t_growth1: 'Growth Hormone at Night',
+        s2t_growth2: '→ Muscle Repair + Fat Burn',
+        s2t_ideal_badge: '✅ Stays in Ideal Range All Day',
+        s2t_m1: 'Shake',
+        s2t_m2: 'Low-GI Lunch',
+        s2t_m3: 'Shake',
+        s2t_m4: 'Low-GI Dinner',
+      }
+    };
+    const svgDict = svgTexts[lang];
+    Object.keys(svgDict).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = svgDict[id];
+    });
   }
 
   function observeReveal() {
