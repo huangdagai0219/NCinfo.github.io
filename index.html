@@ -585,7 +585,10 @@ nav{padding:16px 24px}
   <div class="chart-topbar">
     <button class="back-btn" onclick="showPage('home')" data-i18n="back_btn">← 返回首頁</button>
     <div class="chart-bar-title" data-i18n="chart_title">血糖分析圖表</div>
-    <div style="width:120px;"></div>
+    <div class="lang-toggle" style="flex-shrink:0;">
+      <button id="btn-zh-chart" class="active" onclick="setLang('zh')">中文</button>
+      <button id="btn-en-chart" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 
   <div class="chart-wrapper">
@@ -687,17 +690,17 @@ nav{padding:16px 24px}
   <div class="hormone-panel">
   <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar (Glucose)</div><div class="h-desc">Carbohydrates in food are digested and enter the bloodstream. High-GI foods cause blood sugar to spike rapidly; low-GI foods raise it gradually.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Secreted by the pancreas when blood sugar rises. Converts blood sugar into stored fat and prevents the body from burning fat. The higher the blood sugar, the more insulin, the more fat stored.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s0_h1_name">血糖（葡萄糖）</div><div class="h-desc" data-i18n="s0_h1_desc">食物中的碳水化合物消化後進入血液。高GI食物讓血糖快速飆升；低GI食物則緩慢上升。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s0_h2_name">胰島素（囤脂荷爾蒙）</div><div class="h-desc" data-i18n="s0_h2_desc">血糖上升時由胰腺分泌。將血糖轉換為脂肪儲存，同時阻止身體燃燒脂肪。血糖越高，胰島素越多，脂肪囤積越多。</div></div></div>
   </div>
 
   <div class="cards">
-    <div class="card"><div class="clabel">☀️ Breakfast 7:00</div><div class="cname">White Toast + Sugary Juice</div><div class="cdesc">Refined starch and sugar digest extremely fast, causing blood sugar to spike sharply within 30 minutes. The body secretes large amounts of the "fat-storing hormone" to counter it.</div><span class="badge b-red">⚠ Blood Sugar Spike → Fat Storage</span></div>
-    <div class="card"><div class="clabel">🌞 Lunch 12:00</div><div class="cname">White Rice + Noodles</div><div class="cdesc">A second wave of refined carbs triggers another surge of the fat-storing hormone; excess sugar is converted directly into stored fat.</div><span class="badge b-orange">↑ Second Fat-Storage Peak</span></div>
-    <div class="card"><div class="clabel">🌤 Afternoon Snack 3:30</div><div class="cname">Bubble Tea + Cake</div><div class="cdesc">Dropping blood sugar makes you crave sweets — this is the body's "low blood sugar hunger trap". Eating again sends blood sugar soaring once more.</div><span class="badge b-red">⚠ Low Blood Sugar Hunger Trap</span></div>
-    <div class="card"><div class="clabel">🌙 Dinner 7:00</div><div class="cname">Fried Rice + Sugary Drink</div><div class="cdesc">At night the body is less active and metabolism slows; excess blood sugar has nowhere to go. Nighttime fat-storage capacity is at its peak — the fat stored from this meal exceeds any other time of day.</div><span class="badge b-red">🌙 Highest Nighttime Storage Efficiency</span></div>
+    <div class="card"><div class="clabel" data-i18n="s0_c1_label">☀️ 早餐 7:00</div><div class="cname" data-i18n="s0_c1_name">白吐司 + 含糖果汁</div><div class="cdesc" data-i18n="s0_c1_desc">精製澱粉與糖消化極快，30分鐘內血糖急速飆升，身體大量分泌「囤脂荷爾蒙」來應對。</div><span class="badge b-red" data-i18n="s0_c1_badge">⚠ 血糖急升 → 脂肪囤積</span></div>
+    <div class="card"><div class="clabel" data-i18n="s0_c2_label">🌞 午餐 12:00</div><div class="cname" data-i18n="s0_c2_name">白飯 + 麵食</div><div class="cdesc" data-i18n="s0_c2_desc">第二波精製碳水再度引爆囤脂荷爾蒙；多餘的血糖直接被轉化為脂肪儲存。</div><span class="badge b-orange" data-i18n="s0_c2_badge">↑ 第二次囤脂高峰</span></div>
+    <div class="card"><div class="clabel" data-i18n="s0_c3_label">🌤 下午茶 3:30</div><div class="cname" data-i18n="s0_c3_name">手搖飲 + 蛋糕</div><div class="cdesc" data-i18n="s0_c3_desc">血糖下降讓你渴望甜食——這是身體的「低血糖飢餓陷阱」。再次進食後血糖再度飆升。</div><span class="badge b-red" data-i18n="s0_c3_badge">⚠ 低血糖飢餓陷阱</span></div>
+    <div class="card"><div class="clabel" data-i18n="s0_c4_label">🌙 晚餐 7:00</div><div class="cname" data-i18n="s0_c4_name">炒飯 + 含糖飲料</div><div class="cdesc" data-i18n="s0_c4_desc">夜間身體活動減少、代謝變慢；多餘的血糖無處消耗。夜間囤脂能力達到頂峰——這餐囤積的脂肪超過一天任何時段。</div><span class="badge b-red" data-i18n="s0_c4_badge">🌙 夜間囤脂效率最高</span></div>
   </div>
-  <div class="conclusion"><div class="big-icon pulse">🫃</div><div><h3>Blood Sugar Repeatedly Spikes & Crashes → Fat Keeps Accumulating</h3><p>Every time blood sugar spikes, the body secretes large amounts of <strong>insulin (the fat-storing hormone)</strong> to bring it down. Insulin's job is to <strong>convert excess sugar into stored fat</strong> while blocking the body from burning fat. Four violent swings a day, day after day, creates a vicious cycle of <strong>more and more fat-storing hormone → thicker and thicker fat → harder and harder to lose weight</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>Blood Sugar Spike → Insulin Flood</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>Insulin ↑ → Fat Conversion & Storage ↑</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Long-term Repetition → Hormonal Dysregulation</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">🫃</div><div><h3 data-i18n="s0_conc_h">血糖反覆飆升急降 → 脂肪不斷囤積</h3><p data-i18n="s0_conc_p">每次血糖飆升，身體就大量分泌<strong>胰島素（囤脂荷爾蒙）</strong>來壓制。胰島素的工作是<strong>把多餘的血糖轉化為脂肪儲存</strong>，同時阻止身體燃燒脂肪。一天四次劇烈震盪，日復一日，形成惡性循環：<strong>囤脂荷爾蒙越來越多 → 脂肪越來越厚 → 越來越難瘦</strong>。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span><span data-i18n="s0_tip1">血糖飆升 → 胰島素大量分泌</span></span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span><span data-i18n="s0_tip2">胰島素↑ → 脂肪轉化囤積↑</span></span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span><span data-i18n="s0_tip3">長期重複 → 荷爾蒙失調</span></span></div></div></div>
 </div>
 
 <!-- ═══ S1 ═══ -->
@@ -706,12 +709,12 @@ nav{padding:16px 24px}
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">Wrong 16:8 Fasting: Blood Sugar & Hormone Changes</div>
+      <div class="chtitle" data-i18n="s1_chtitle">錯誤168斷食：血糖與荷爾蒙變化</div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div>Blood Sugar</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div>Fat-Storing Hormone</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#c04444 0,#c04444 3px,transparent 3px,transparent 7px);"></div>Stress Hormone (Muscle Breakdown)</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);"></div>Adrenaline (Emergency Alert)</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#c07840;"></div><span data-i18n="leg_blood_s1">血糖</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div><span data-i18n="leg_insulin_s1">胰島素（囤脂荷爾蒙）</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#c04444 0,#c04444 3px,transparent 3px,transparent 7px);"></div><span data-i18n="leg_cortisol">壓力荷爾蒙（分解肌肉）</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);"></div><span data-i18n="leg_adrenaline">腎上腺素（緊急警報）</span></div>
       </div>
     </div>
     <svg class="chart" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
@@ -797,17 +800,17 @@ nav{padding:16px 24px}
   <!-- 荷爾蒙說明 -->
   <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar</div><div class="h-desc">Gradually falls during the fast, then spikes sharply after lunch due to fasting-induced sensitivity — rising higher than after a normal breakfast.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Near zero during the fast; surges massively after the blood sugar spike from lunch. Fat synthesis efficiency is stronger than after eating a normal breakfast.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#a03030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Cortisol (Stress Hormone)</div><div class="h-desc">Rises when blood sugar drops too low, commanding the body to break down muscle protein for blood sugar. Chronically high cortisol leads to abdominal fat accumulation.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#9a7000;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Adrenaline (Emergency Alert)</div><div class="h-desc">Activates a second emergency mechanism when blood sugar continues to drop. Causes a racing heartbeat, shaking hands, anxiety, and intense hunger.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#b87030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s1_h1_name">血糖</div><div class="h-desc" data-i18n="s1_h1_desc">斷食期間血糖緩慢下降，午餐後因斷食增敏而急速飆升——峰值比正常吃早餐後更高。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s1_h2_name">胰島素（囤脂荷爾蒙）</div><div class="h-desc" data-i18n="s1_h2_desc">斷食期間幾乎為零；午餐血糖急升後大量爆發。脂肪合成效率比正常吃早餐後更強。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#a03030;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s1_h3_name">皮質醇（壓力荷爾蒙）</div><div class="h-desc" data-i18n="s1_h3_desc">血糖過低時升高，命令身體分解肌肉蛋白質補充血糖。長期皮質醇偏高會導致腹部脂肪堆積。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#9a7000;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s1_h4_name">腎上腺素（緊急警報）</div><div class="h-desc" data-i18n="s1_h4_desc">血糖持續下降時啟動第二道緊急機制。引發心跳加速、手抖、焦慮與強烈飢餓感。</div></div></div>
   </div>
 
   <div class="cards">
-    <div class="card"><div class="clabel">❌ Morning 7–12 (Skip Breakfast)</div><div class="cname">No Breakfast</div><div class="cdesc">Fasting for over 12 hours, blood sugar keeps dropping. After glycogen runs out, <strong>the stress hormone</strong> rises first, breaking down muscle to restore blood sugar; when blood sugar stays too low, <strong>adrenaline</strong> kicks in as an emergency — this is why you feel a racing heart, shaking hands, anxiety, and extreme hunger.</div><span class="badge b-amber">⚠ Burns Muscle, Not Fat</span></div>
-    <div class="card"><div class="clabel">⚡ Two-Stage Emergency Response to Low Blood Sugar</div><div class="cname">Stress Hormone + Adrenaline</div><div class="cdesc">When blood sugar drops too low, the body triggers two emergency mechanisms: <strong>① Cortisol</strong> acts first, breaking down muscle protein into blood sugar; when blood sugar still can't hold, <strong>② adrenaline</strong> intervenes urgently, further accelerating breakdown and suppressing the fat-storing hormone — fat actually gets locked away.</div><span class="badge b-amber">⚠ Fat Locked Away · Muscle Being Burned</span></div>
-    <div class="card"><div class="clabel">🌞 Lunch 12:00</div><div class="cname">High-GI Lunch After Fasting</div><div class="cdesc">Extended fasting makes the body hyper-sensitive to sugar; the blood sugar spike from lunch is far more violent than normal, triggering more fat-storing hormone and storing more fat than if you had eaten breakfast normally.</div><span class="badge b-red">↑ Enhanced Fat-Storage Response After Fasting</span></div>
-    <div class="card"><div class="clabel">🌙 Afternoon Snack + Dinner</div><div class="cname">Continuing High-GI Diet</div><div class="cdesc">With muscle partially broken down, <strong>metabolic rate drops</strong> — the body burns fewer calories. High blood sugar at night combined with a lower metabolic rate means fat storage efficiency is higher than at any other time.</div><span class="badge b-red">🌙 Metabolism ↓ · Fat Storage Efficiency ↑</span></div>
+    <div class="card"><div class="clabel" data-i18n="s1_c1_label">❌ 早上 7–12（不吃早餐）</div><div class="cname" data-i18n="s1_c1_name">空腹</div><div class="cdesc" data-i18n="s1_c1_desc">空腹超過12小時，血糖持續下降。肝醣耗盡後，<strong>壓力荷爾蒙</strong>首先上升，分解肌肉補充血糖；血糖仍過低時，<strong>腎上腺素</strong>緊急介入——這就是為什麼你感到心跳加速、手抖、焦慮與極度飢餓。</div><span class="badge b-amber" data-i18n="s1_c1_badge">⚠ 燒肌肉，不燒脂肪</span></div>
+    <div class="card"><div class="clabel" data-i18n="s1_c2_label">⚡ 低血糖的兩段式緊急反應</div><div class="cname" data-i18n="s1_c2_name">壓力荷爾蒙 + 腎上腺素</div><div class="cdesc" data-i18n="s1_c2_desc">血糖過低時，身體啟動兩道緊急機制：<strong>① 皮質醇</strong>先出動，將肌肉蛋白質分解為血糖；血糖仍無法維持時，<strong>② 腎上腺素</strong>緊急介入，進一步加速分解並抑制囤脂荷爾蒙——脂肪反而被鎖住。</div><span class="badge b-amber" data-i18n="s1_c2_badge">⚠ 脂肪被鎖住・肌肉被燃燒</span></div>
+    <div class="card"><div class="clabel" data-i18n="s1_c3_label">🌞 午餐 12:00</div><div class="cname" data-i18n="s1_c3_name">斷食後的高GI午餐</div><div class="cdesc" data-i18n="s1_c3_desc">長時間空腹讓身體對糖分過度敏感；午餐的血糖飆升遠比正常進食更劇烈，觸發更多囤脂荷爾蒙，囤積的脂肪比正常吃早餐還多。</div><span class="badge b-red" data-i18n="s1_c3_badge">↑ 斷食後囤脂反應增強</span></div>
+    <div class="card"><div class="clabel" data-i18n="s1_c4_label">🌙 下午茶 + 晚餐</div><div class="cname" data-i18n="s1_c4_name">繼續高GI飲食</div><div class="cdesc" data-i18n="s1_c4_desc">部分肌肉被分解後，<strong>代謝率下降</strong>——身體消耗的熱量減少。夜間血糖高加上代謝率降低，脂肪囤積效率比任何時段都高。</div><span class="badge b-red" data-i18n="s1_c4_badge">🌙 代謝↓・囤脂效率↑</span></div>
   </div>
 
   <!-- Science explainer: why low blood sugar burns muscle instead of fat -->
@@ -815,37 +818,37 @@ nav{padding:16px 24px}
     <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
       <div style="font-size:40px;flex-shrink:0;line-height:1;">🤔</div>
       <div>
-        <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;">Why does low blood sugar cause adrenaline to lock away fat and prioritise burning muscle instead? Can't fat be used?</div>
+        <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;" data-i18n="s1_sci_q">為什麼低血糖會讓腎上腺素鎖住脂肪、優先燃燒肌肉？脂肪不能用嗎？</div>
 
         <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
-          <strong style="color:#b37e1d;">Fat can be used, but it's too slow.</strong> This is a body "emergency speed" problem.
+          <strong style="color:#b37e1d;" data-i18n="s1_sci_ans">脂肪可以用，但速度太慢。</strong> <span data-i18n="s1_sci_sub">這是身體「緊急速度」的問題。</span>
         </div>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
           <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">The Speed of Fat Breakdown</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;">Fat must first be <strong style="color:#c96c02;">"unpacked"</strong> from fat cells into fatty acids, then sent to the liver, then converted into ketones before the brain can use them. This process takes <strong style="color:#c96c02;">hours</strong>, and the brain isn't used to running on fat as emergency fuel.</div>
+            <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_fat_title">脂肪分解的速度</div>
+            <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_fat_desc">脂肪必須先從脂肪細胞「解包」成脂肪酸，再送到肝臟，再轉化為酮體，大腦才能使用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦不習慣緊急時用脂肪燃料。</div>
           </div>
           <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">The Speed of Muscle Breakdown</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;">Muscle protein is broken down into <strong style="color:#c96c02;">amino acids</strong>, and the liver can convert them into glucose (gluconeogenesis) within <strong style="color:#c96c02;">minutes</strong>. This is exactly the emergency fuel the brain and heart know best.</div>
+            <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_mus_title">肌肉分解的速度</div>
+            <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_mus_desc">肌肉蛋白質被分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可在<strong style="color:#c96c02;">數分鐘</strong>內轉化為葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
           </div>
         </div>
 
         <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
-          <div style="font-size:12.5px;color:#030200;line-height:1.8;">
-            💡 <strong style="color:#c96c02;">The body's logic:</strong> When blood sugar drops rapidly, the brain has only a few minutes of glucose reserves left. This is a life-or-death emergency. The body won't wait for fat to slowly convert — adrenaline directly orders the body to <strong style="color:#c96c02;">"suspend fat breakdown, burn muscle immediately"</strong> because that's the fastest option.
+          <div style="font-size:12.5px;color:#030200;line-height:1.8;" data-i18n="s1_sci_logic">
+            💡 <strong style="color:#c96c02;">身體的邏輯：</strong>當血糖急速下降，大腦只剩幾分鐘的葡萄糖儲備。這是攸關生死的緊急狀況。身體不會等待脂肪慢慢轉化——腎上腺素直接命令身體「暫停脂肪分解，立即燃燒肌肉」，因為那是最快的選項。
           </div>
         </div>
 
-        <div style="font-size:12px;color:#d98c00;line-height:1.8;">
-          What's even more ironic is that adrenaline simultaneously <strong style="color:#c96c02;">suppresses insulin</strong> (temporarily halting fat storage), causing blood sugar to briefly recover — but this is only a stopgap, and the cost is muscle being consumed. Long-term repetition of this cycle leads to: <strong style="color:#c96c02;">less and less muscle → lower and lower basal metabolism → harder and harder to burn fat</strong>.
+        <div style="font-size:12px;color:#d98c00;line-height:1.8;" data-i18n="s1_sci_irony">
+          更諷刺的是，腎上腺素同時<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是權宜之計，代價是肌肉被消耗。長期重複這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 越來越難燃燒脂肪</strong>。
         </div>
       </div>
     </div>
   </div>
 
-  <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3>Wrong Fasting = Less and Less Muscle × More and More Fat</h3><p>When you skip breakfast, the body triggers two emergency survival mechanisms: <strong>① Cortisol (stress hormone)</strong> rises first, breaking down muscle protein into blood sugar; when blood sugar still can't recover, <strong>② adrenaline</strong> intervenes urgently — this is exactly why you feel a racing heartbeat, shaking hands, anxiety, and intense food cravings. Adrenaline simultaneously "locks" fat so it can't be burned effectively, and the body preferentially consumes muscle instead. By lunchtime, the fast has made the body hyper-sensitive to sugar, causing <strong>even more fat-storing hormone to be secreted</strong>. The final result: <strong>less and less muscle → slower and slower metabolism → easier and easier to regain weight</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>Cortisol ↑ → Muscle Breakdown → Metabolism ↓</span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span>Adrenaline ↑ → Racing Heart, Shaking, Anxiety, Hunger</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>Post-Fast High-GI → Stronger Fat-Storing Response</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Muscle ↓ → Basal Metabolism ↓ → Easier to Regain Weight</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3 data-i18n="s1_conc_h">錯誤斷食 = 肌肉越來越少 × 脂肪越來越多</h3><p data-i18n="s1_conc_p">不吃早餐時，身體啟動兩道緊急求生機制：<strong>① 皮質醇（壓力荷爾蒙）</strong>首先升高，將肌肉蛋白質分解為血糖；血糖仍無法回升時，<strong>② 腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮與強烈食慾的原因。腎上腺素同時「鎖住」脂肪使其無法有效燃燒，身體優先消耗肌肉。到了午餐，斷食讓身體對糖分超級敏感，導致<strong>分泌更多囤脂荷爾蒙</strong>。最終結果：<strong>肌肉越來越少 → 代謝越來越慢 → 越來越容易復胖</strong>。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span><span data-i18n="s1_tip1">皮質醇↑ → 肌肉分解 → 代謝↓</span></span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span><span data-i18n="s1_tip2">腎上腺素↑ → 心跳加速、手抖、焦慮、飢餓</span></span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span><span data-i18n="s1_tip3">斷食後高GI → 更強囤脂反應</span></span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span><span data-i18n="s1_tip4">肌肉↓ → 基礎代謝↓ → 更易復胖</span></span></div></div></div>
 </div>
 
 <!-- ═══ S2 ═══ -->
@@ -854,11 +857,11 @@ nav{padding:16px 24px}
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
   <div class="chart-box">
     <div class="chart-header">
-      <div class="chtitle">Correct Low-GI Diet: Stable Blood Sugar, Body Burns Fat Continuously</div>
+      <div class="chtitle" data-i18n="s2_chtitle">正確低GI飲食：血糖平穩，身體持續燃燒脂肪</div>
       <div class="legend">
-        <div class="leg-item"><div class="leg-swatch" style="background:#4a7c59;"></div>Blood Sugar</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#2e7d8a 0,#2e7d8a 5px,transparent 5px,transparent 9px);"></div>Fat-Storing Hormone (Low)</div>
-        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);"></div>Fat-Burning Hormone</div>
+        <div class="leg-item"><div class="leg-swatch" style="background:#4a7c59;"></div><span data-i18n="leg_blood_s2">血糖</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#2e7d8a 0,#2e7d8a 5px,transparent 5px,transparent 9px);"></div><span data-i18n="leg_insulin_s2">胰島素（囤脂荷爾蒙，低位）</span></div>
+        <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);"></div><span data-i18n="leg_glucagon">升糖素（燃脂荷爾蒙）</span></div>
       </div>
     </div>
     <svg class="chart" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg">
@@ -919,25 +922,25 @@ nav{padding:16px 24px}
   <!-- 荷爾蒙說明 -->
   <!-- ── Hormone legend ── -->
   <div class="hormone-panel">
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Blood Sugar (Glucose)</div><div class="h-desc">Low-GI eating keeps blood sugar rising and falling gently all day with small fluctuations. Only a small amount of insulin is needed, so fat-burning mode can be sustained.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#1e6070;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Insulin (Fat-Storing Hormone)</div><div class="h-desc">Stays low all day under a low-GI diet, barely triggering fat synthesis. Low insulin is the prerequisite for the body to enter fat-burning mode.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#4040a0;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Glucagon (Fat-Burning Hormone)</div><div class="h-desc">Secreted by the pancreas when insulin is low. Activates fat cells to release fatty acids for energy — burns fat continuously even without exercise.</div></div></div>
-    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#806040;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name">Growth Hormone (Nighttime)</div><div class="h-desc">Secreted in pulses during deep sleep, promoting muscle protein synthesis and fat breakdown. A low-GI dinner keeps insulin low so growth hormone can be released normally.</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#3a7a50;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s2_h1_name">血糖（葡萄糖）</div><div class="h-desc" data-i18n="s2_h1_desc">低GI飲食讓血糖全天緩慢起伏，波動幅度小。只需少量胰島素，燃脂模式得以持續維持。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#1e6070;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s2_h2_name">胰島素（囤脂荷爾蒙）</div><div class="h-desc" data-i18n="s2_h2_desc">低GI飲食下全天維持低位，幾乎不觸發脂肪合成。胰島素低位是身體進入燃脂模式的先決條件。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:4px;background:#4040a0;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s2_h3_name">升糖素（燃脂荷爾蒙）</div><div class="h-desc" data-i18n="s2_h3_desc">胰島素低時由胰腺分泌。活化脂肪細胞釋放脂肪酸供能——即使不運動也能持續燃燒脂肪。</div></div></div>
+    <div class="h-pill"><div style="width:18px;height:18px;border-radius:50%;background:#806040;flex-shrink:0;margin-top:2px;"></div><div><div class="h-name" data-i18n="s2_h4_name">生長激素（夜間）</div><div class="h-desc" data-i18n="s2_h4_desc">深度睡眠時脈衝分泌，促進肌肉蛋白質合成與脂肪分解。低GI晚餐讓胰島素保持低位，生長激素才能正常釋放。</div></div></div>
   </div>
   <div style="background:rgba(90,160,110,0.08);border:1px solid rgba(90,160,110,0.25);border-radius:16px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
     <div style="font-size:36px;flex-shrink:0;">🥤</div>
     <div>
-      <div style="font-size:13px;font-weight:700;color:#8aca9e;margin-bottom:6px;">Nutritional Shake (Breakfast &amp; Afternoon Snack)</div>
-      <div style="font-size:12px;color:#d4b896;line-height:1.75;">Low glycemic index (low GI)&nbsp;·&nbsp;High dietary fiber&nbsp;·&nbsp;Low fat &amp; calories&nbsp;·&nbsp;Complete protein, carbohydrates &amp; fat (macronutrients)&nbsp;·&nbsp;Rich in vitamins &amp; minerals (micronutrients)<br>Blood sugar rises slowly, satiety lasts longer, minimal fat-storing hormone triggered — keeps the body's fat-burning mode running continuously.</div>
+      <div style="font-size:13px;font-weight:700;color:#8aca9e;margin-bottom:6px;" data-i18n="s2_shake_title">營養奶昔（早餐 & 下午茶）</div>
+      <div style="font-size:12px;color:#d4b896;line-height:1.75;" data-i18n="s2_shake_desc">低升糖指數（低GI）&nbsp;·&nbsp;高膳食纖維&nbsp;·&nbsp;低脂低熱量&nbsp;·&nbsp;完整蛋白質、碳水化合物 & 脂肪（三大營養素）&nbsp;·&nbsp;豐富維生素 & 礦物質（微量元素）<br>血糖緩慢上升，飽足感更持久，觸發的囤脂荷爾蒙極少——讓身體的燃脂模式持續運作。</div>
     </div>
   </div>
   <div class="cards">
-    <div class="card shake-highlight"><div class="clabel">🥤 Breakfast 7:00</div><div class="cname">Nutritional Shake</div><div class="cdesc">Low-GI formula raises blood sugar slowly; high fiber and protein keep you satiated without hunger returning quickly. The fat-storing hormone only needs minimal secretion while the fat-burning hormone stays active.</div><span class="badge b-green">✅ Gradual Blood Sugar Rise · Lasting Satiety</span></div>
-    <div class="card"><div class="clabel">🥗 Low-GI Lunch 12:00</div><div class="cname">Brown Rice + Protein + Vegetables</div><div class="cdesc">Complex carbs digest slowly; vegetable fiber further buffers the blood sugar rise. Protein keeps you full; blood sugar stays stable without spiking, and the fat-storing hormone stays low.</div><span class="badge b-green">✅ Low Blood Sugar Peak · Strong Satiety</span></div>
-    <div class="card shake-highlight"><div class="clabel">🥤 Afternoon Snack 3:30</div><div class="cname">Nutritional Shake</div><div class="cdesc">The afternoon is when sweet cravings are strongest. This shake provides complete nutrition, keeps blood sugar stable, and lets the fat-burning hormone keep working right through to dinner.</div><span class="badge b-teal">🌿 Stable Blood Sugar · Continuous Fat Burn</span></div>
-    <div class="card"><div class="clabel">🐟 Low-GI Dinner 7:00</div><div class="cname">Fish + Sweet Potato + Leafy Greens</div><div class="cdesc">A low-GI dinner keeps the fat-storing hormone low overnight. During sleep, <strong>growth hormone</strong> is secreted normally, helping to repair and build muscle while continuously burning fat.</div><span class="badge b-green">🌙 Sleep Fat Burn · Muscle Repair</span></div>
+    <div class="card shake-highlight"><div class="clabel" data-i18n="s2_c1_label">🥤 早餐 7:00</div><div class="cname" data-i18n="s2_c1_name">營養奶昔</div><div class="cdesc" data-i18n="s2_c1_desc">低GI配方讓血糖緩慢上升；高纖維和蛋白質讓你有飽足感且不易返飢。囤脂荷爾蒙只需少量分泌，燃脂荷爾蒙持續活躍。</div><span class="badge b-green" data-i18n="s2_c1_badge">✅ 血糖緩升・飽足感持久</span></div>
+    <div class="card"><div class="clabel" data-i18n="s2_c2_label">🥗 低GI午餐 12:00</div><div class="cname" data-i18n="s2_c2_name">糙米 + 蛋白質 + 蔬菜</div><div class="cdesc" data-i18n="s2_c2_desc">複合碳水消化慢；蔬菜纖維進一步緩衝血糖上升。蛋白質讓你有飽足感；血糖平穩不飆升，囤脂荷爾蒙維持低位。</div><span class="badge b-green" data-i18n="s2_c2_badge">✅ 血糖峰值低・飽足感強</span></div>
+    <div class="card shake-highlight"><div class="clabel" data-i18n="s2_c3_label">🥤 下午茶 3:30</div><div class="cname" data-i18n="s2_c3_name">營養奶昔</div><div class="cdesc" data-i18n="s2_c3_desc">下午是甜食慾望最強的時段。這杯奶昔提供完整營養，讓血糖平穩，燃脂荷爾蒙一路工作到晚餐。</div><span class="badge b-teal" data-i18n="s2_c3_badge">🌿 血糖平穩・持續燃脂</span></div>
+    <div class="card"><div class="clabel" data-i18n="s2_c4_label">🐟 低GI晚餐 7:00</div><div class="cname" data-i18n="s2_c4_name">魚 + 地瓜 + 深色蔬菜</div><div class="cdesc" data-i18n="s2_c4_desc">低GI晚餐讓囤脂荷爾蒙整夜維持低位。睡眠期間，<strong>生長激素</strong>正常分泌，協助修復並建立肌肉，同時持續燃燒脂肪。</div><span class="badge b-green" data-i18n="s2_c4_badge">🌙 睡眠燃脂・修復肌肉</span></div>
   </div>
-  <div class="conclusion"><div class="big-icon pulse">🔥</div><div><h3>Stable Blood Sugar → Body Burns Fat All Day × Preserves Muscle</h3><p>A low-GI diet keeps the fat-storing hormone low all day, allowing the body's <strong>fat-burning hormone</strong> to stay continuously active — even during the rest periods between meals, the body is quietly burning fat. Stable blood sugar also prevents the stress hormone from rising, so muscle doesn't break down and <strong>metabolic rate</strong> stays in a highly efficient state. At night during sleep, <strong>growth hormone</strong> is secreted normally, continuing to repair and strengthen muscle so you're burning fat even while you sleep. This is the right approach for <strong>truly losing weight and not regaining it</strong>.</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#4a7c59;"></span>Fat-Storing Hormone Low → Fat-Burning Hormone Active</span><span class="tip-pill"><span class="dot" style="background:#2e7d8a;"></span>Muscle Preserved → Metabolic Rate Maintained</span><span class="tip-pill"><span class="dot" style="background:#5c6bc0;"></span>Nighttime Growth Hormone → Sleep Fat Burn + Muscle Repair</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>Stable Blood Sugar → Satiety ↑ · No Overeating</span></div></div></div>
+  <div class="conclusion"><div class="big-icon pulse">🔥</div><div><h3 data-i18n="s2_conc_h">血糖平穩 → 身體全天燃脂 × 保留肌肉</h3><p data-i18n="s2_conc_p">低GI飲食讓囤脂荷爾蒙全天維持低位，身體的<strong>燃脂荷爾蒙</strong>得以持續活躍——即使在兩餐之間的休息時段，身體也在悄悄燃燒脂肪。血糖平穩也防止壓力荷爾蒙升高，肌肉不被分解，<strong>代謝率</strong>維持在高效狀態。夜間睡眠時，<strong>生長激素</strong>正常分泌，持續修復並強化肌肉，讓你睡覺也在瘦。這才是<strong>真正瘦下來且不復胖</strong>的正確方式。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#4a7c59;"></span><span data-i18n="s2_tip1">囤脂荷爾蒙低 → 燃脂荷爾蒙活躍</span></span><span class="tip-pill"><span class="dot" style="background:#2e7d8a;"></span><span data-i18n="s2_tip2">肌肉保留 → 代謝率維持</span></span><span class="tip-pill"><span class="dot" style="background:#5c6bc0;"></span><span data-i18n="s2_tip3">夜間生長激素 → 睡眠燃脂 + 修復肌肉</span></span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span><span data-i18n="s2_tip4">血糖平穩 → 飽足感↑・不暴食</span></span></div></div></div>
 </div>
 </div>
 </div>
@@ -1069,6 +1072,54 @@ nav{padding:16px 24px}
       modal0_title:'🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動',
       modal1_title:'🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化',
       modal2_title:'🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍',
+      // S0 chart content
+      s0_chtitle:'高GI飲食：全天血糖與胰島素波動',
+      leg_blood:'血糖', leg_insulin:'胰島素（囤脂荷爾蒙）',
+      s0_h1_name:'血糖（葡萄糖）', s0_h1_desc:'食物中的碳水化合物消化後進入血液。高GI食物讓血糖快速飆升；低GI食物則緩慢上升。',
+      s0_h2_name:'胰島素（囤脂荷爾蒙）', s0_h2_desc:'血糖上升時由胰腺分泌。將血糖轉換為脂肪儲存，同時阻止身體燃燒脂肪。血糖越高，胰島素越多，脂肪囤積越多。',
+      s0_c1_label:'☀️ 早餐 7:00', s0_c1_name:'白吐司 + 含糖果汁', s0_c1_desc:'精製澱粉與糖消化極快，30分鐘內血糖急速飆升，身體大量分泌「囤脂荷爾蒙」來應對。', s0_c1_badge:'⚠ 血糖急升 → 脂肪囤積',
+      s0_c2_label:'🌞 午餐 12:00', s0_c2_name:'白飯 + 麵食', s0_c2_desc:'第二波精製碳水再度引爆囤脂荷爾蒙；多餘的血糖直接被轉化為脂肪儲存。', s0_c2_badge:'↑ 第二次囤脂高峰',
+      s0_c3_label:'🌤 下午茶 3:30', s0_c3_name:'手搖飲 + 蛋糕', s0_c3_desc:'血糖下降讓你渴望甜食——這是身體的「低血糖飢餓陷阱」。再次進食後血糖再度飆升。', s0_c3_badge:'⚠ 低血糖飢餓陷阱',
+      s0_c4_label:'🌙 晚餐 7:00', s0_c4_name:'炒飯 + 含糖飲料', s0_c4_desc:'夜間身體活動減少、代謝變慢；多餘的血糖無處消耗。夜間囤脂能力達到頂峰——這餐囤積的脂肪超過一天任何時段。', s0_c4_badge:'🌙 夜間囤脂效率最高',
+      s0_conc_h:'血糖反覆飆升急降 → 脂肪不斷囤積',
+      s0_conc_p:'每次血糖飆升，身體就大量分泌<strong>胰島素（囤脂荷爾蒙）</strong>來壓制。胰島素的工作是<strong>把多餘的血糖轉化為脂肪儲存</strong>，同時阻止身體燃燒脂肪。一天四次劇烈震盪，日復一日，形成惡性循環：<strong>囤脂荷爾蒙越來越多 → 脂肪越來越厚 → 越來越難瘦</strong>。',
+      s0_tip1:'血糖飆升 → 胰島素大量分泌', s0_tip2:'胰島素↑ → 脂肪轉化囤積↑', s0_tip3:'長期重複 → 荷爾蒙失調',
+      // S1 chart content
+      s1_chtitle:'錯誤168斷食：血糖與荷爾蒙變化',
+      leg_blood_s1:'血糖', leg_insulin_s1:'胰島素（囤脂荷爾蒙）', leg_cortisol:'壓力荷爾蒙（分解肌肉）', leg_adrenaline:'腎上腺素（緊急警報）',
+      s1_h1_name:'血糖', s1_h1_desc:'斷食期間血糖緩慢下降，午餐後因斷食增敏而急速飆升——峰值比正常吃早餐後更高。',
+      s1_h2_name:'胰島素（囤脂荷爾蒙）', s1_h2_desc:'斷食期間幾乎為零；午餐血糖急升後大量爆發。脂肪合成效率比正常吃早餐後更強。',
+      s1_h3_name:'皮質醇（壓力荷爾蒙）', s1_h3_desc:'血糖過低時升高，命令身體分解肌肉蛋白質補充血糖。長期皮質醇偏高會導致腹部脂肪堆積。',
+      s1_h4_name:'腎上腺素（緊急警報）', s1_h4_desc:'血糖持續下降時啟動第二道緊急機制。引發心跳加速、手抖、焦慮與強烈飢餓感。',
+      s1_c1_label:'❌ 早上 7–12（不吃早餐）', s1_c1_name:'空腹', s1_c1_desc:'空腹超過12小時，血糖持續下降。肝醣耗盡後，<strong>壓力荷爾蒙</strong>首先上升，分解肌肉補充血糖；血糖仍過低時，<strong>腎上腺素</strong>緊急介入——這就是為什麼你感到心跳加速、手抖、焦慮與極度飢餓。', s1_c1_badge:'⚠ 燒肌肉，不燒脂肪',
+      s1_c2_label:'⚡ 低血糖的兩段式緊急反應', s1_c2_name:'壓力荷爾蒙 + 腎上腺素', s1_c2_desc:'血糖過低時，身體啟動兩道緊急機制：<strong>① 皮質醇</strong>先出動，將肌肉蛋白質分解為血糖；血糖仍無法維持時，<strong>② 腎上腺素</strong>緊急介入，進一步加速分解並抑制囤脂荷爾蒙——脂肪反而被鎖住。', s1_c2_badge:'⚠ 脂肪被鎖住・肌肉被燃燒',
+      s1_c3_label:'🌞 午餐 12:00', s1_c3_name:'斷食後的高GI午餐', s1_c3_desc:'長時間空腹讓身體對糖分過度敏感；午餐的血糖飆升遠比正常進食更劇烈，觸發更多囤脂荷爾蒙，囤積的脂肪比正常吃早餐還多。', s1_c3_badge:'↑ 斷食後囤脂反應增強',
+      s1_c4_label:'🌙 下午茶 + 晚餐', s1_c4_name:'繼續高GI飲食', s1_c4_desc:'部分肌肉被分解後，<strong>代謝率下降</strong>——身體消耗的熱量減少。夜間血糖高加上代謝率降低，脂肪囤積效率比任何時段都高。', s1_c4_badge:'🌙 代謝↓・囤脂效率↑',
+      s1_sci_q:'為什麼低血糖會讓腎上腺素鎖住脂肪、優先燃燒肌肉？脂肪不能用嗎？',
+      s1_sci_ans:'脂肪可以用，但速度太慢。', s1_sci_sub:'這是身體「緊急速度」的問題。',
+      s1_sci_fat_title:'脂肪分解的速度', s1_sci_fat_desc:'脂肪必須先從脂肪細胞「解包」成脂肪酸，再送到肝臟，再轉化為酮體，大腦才能使用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦不習慣緊急時用脂肪燃料。',
+      s1_sci_mus_title:'肌肉分解的速度', s1_sci_mus_desc:'肌肉蛋白質被分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可在<strong style="color:#c96c02;">數分鐘</strong>內轉化為葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。',
+      s1_sci_logic:'💡 <strong style="color:#c96c02;">身體的邏輯：</strong>當血糖急速下降，大腦只剩幾分鐘的葡萄糖儲備。這是攸關生死的緊急狀況。身體不會等待脂肪慢慢轉化——腎上腺素直接命令身體「暫停脂肪分解，立即燃燒肌肉」，因為那是最快的選項。',
+      s1_sci_irony:'更諷刺的是，腎上腺素同時<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是權宜之計，代價是肌肉被消耗。長期重複這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 越來越難燃燒脂肪</strong>。',
+      s1_conc_h:'錯誤斷食 = 肌肉越來越少 × 脂肪越來越多',
+      s1_conc_p:'不吃早餐時，身體啟動兩道緊急求生機制：<strong>① 皮質醇（壓力荷爾蒙）</strong>首先升高，將肌肉蛋白質分解為血糖；血糖仍無法回升時，<strong>② 腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮與強烈食慾的原因。腎上腺素同時「鎖住」脂肪使其無法有效燃燒，身體優先消耗肌肉。到了午餐，斷食讓身體對糖分超級敏感，導致<strong>分泌更多囤脂荷爾蒙</strong>。最終結果：<strong>肌肉越來越少 → 代謝越來越慢 → 越來越容易復胖</strong>。',
+      s1_tip1:'皮質醇↑ → 肌肉分解 → 代謝↓', s1_tip2:'腎上腺素↑ → 心跳加速、手抖、焦慮、飢餓', s1_tip3:'斷食後高GI → 更強囤脂反應', s1_tip4:'肌肉↓ → 基礎代謝↓ → 更易復胖',
+      // S2 chart content
+      s2_chtitle:'正確低GI飲食：血糖平穩，身體持續燃燒脂肪',
+      leg_blood_s2:'血糖', leg_insulin_s2:'胰島素（囤脂荷爾蒙，低位）', leg_glucagon:'升糖素（燃脂荷爾蒙）',
+      s2_h1_name:'血糖（葡萄糖）', s2_h1_desc:'低GI飲食讓血糖全天緩慢起伏，波動幅度小。只需少量胰島素，燃脂模式得以持續維持。',
+      s2_h2_name:'胰島素（囤脂荷爾蒙）', s2_h2_desc:'低GI飲食下全天維持低位，幾乎不觸發脂肪合成。胰島素低位是身體進入燃脂模式的先決條件。',
+      s2_h3_name:'升糖素（燃脂荷爾蒙）', s2_h3_desc:'胰島素低時由胰腺分泌。活化脂肪細胞釋放脂肪酸供能——即使不運動也能持續燃燒脂肪。',
+      s2_h4_name:'生長激素（夜間）', s2_h4_desc:'深度睡眠時脈衝分泌，促進肌肉蛋白質合成與脂肪分解。低GI晚餐讓胰島素保持低位，生長激素才能正常釋放。',
+      s2_shake_title:'營養奶昔（早餐 & 下午茶）',
+      s2_shake_desc:'低升糖指數（低GI）&nbsp;·&nbsp;高膳食纖維&nbsp;·&nbsp;低脂低熱量&nbsp;·&nbsp;完整蛋白質、碳水化合物 & 脂肪（三大營養素）&nbsp;·&nbsp;豐富維生素 & 礦物質（微量元素）<br>血糖緩慢上升，飽足感更持久，觸發的囤脂荷爾蒙極少——讓身體的燃脂模式持續運作。',
+      s2_c1_label:'🥤 早餐 7:00', s2_c1_name:'營養奶昔', s2_c1_desc:'低GI配方讓血糖緩慢上升；高纖維和蛋白質讓你有飽足感且不易返飢。囤脂荷爾蒙只需少量分泌，燃脂荷爾蒙持續活躍。', s2_c1_badge:'✅ 血糖緩升・飽足感持久',
+      s2_c2_label:'🥗 低GI午餐 12:00', s2_c2_name:'糙米 + 蛋白質 + 蔬菜', s2_c2_desc:'複合碳水消化慢；蔬菜纖維進一步緩衝血糖上升。蛋白質讓你有飽足感；血糖平穩不飆升，囤脂荷爾蒙維持低位。', s2_c2_badge:'✅ 血糖峰值低・飽足感強',
+      s2_c3_label:'🥤 下午茶 3:30', s2_c3_name:'營養奶昔', s2_c3_desc:'下午是甜食慾望最強的時段。這杯奶昔提供完整營養，讓血糖平穩，燃脂荷爾蒙一路工作到晚餐。', s2_c3_badge:'🌿 血糖平穩・持續燃脂',
+      s2_c4_label:'🐟 低GI晚餐 7:00', s2_c4_name:'魚 + 地瓜 + 深色蔬菜', s2_c4_desc:'低GI晚餐讓囤脂荷爾蒙整夜維持低位。睡眠期間，<strong>生長激素</strong>正常分泌，協助修復並建立肌肉，同時持續燃燒脂肪。', s2_c4_badge:'🌙 睡眠燃脂・修復肌肉',
+      s2_conc_h:'血糖平穩 → 身體全天燃脂 × 保留肌肉',
+      s2_conc_p:'低GI飲食讓囤脂荷爾蒙全天維持低位，身體的<strong>燃脂荷爾蒙</strong>得以持續活躍——即使在兩餐之間的休息時段，身體也在悄悄燃燒脂肪。血糖平穩也防止壓力荷爾蒙升高，肌肉不被分解，<strong>代謝率</strong>維持在高效狀態。夜間睡眠時，<strong>生長激素</strong>正常分泌，持續修復並強化肌肉，讓你睡覺也在瘦。這才是<strong>真正瘦下來且不復胖</strong>的正確方式。',
+      s2_tip1:'囤脂荷爾蒙低 → 燃脂荷爾蒙活躍', s2_tip2:'肌肉保留 → 代謝率維持', s2_tip3:'夜間生長激素 → 睡眠燃脂 + 修復肌肉', s2_tip4:'血糖平穩 → 飽足感↑・不暴食',
     },
     en: {
       nav_concept:'Diet Concepts', nav_blood:'Blood Sugar', nav_how:'How To',
@@ -1098,6 +1149,54 @@ nav{padding:16px 24px}
       modal0_title:'🔴 High-GI Diet: Daily Blood Sugar & Insulin Spikes',
       modal1_title:'🟡 Wrong 16:8 Fasting: Cortisol, Adrenaline & Muscle Loss',
       modal2_title:'🟢 Correct Low-GI Diet: Stable Blood Sugar, Continuous Fat Burning',
+      // S0 chart content
+      s0_chtitle:'High-GI Diet: Daily Blood Sugar & Insulin Fluctuation',
+      leg_blood:'Blood Sugar', leg_insulin:'Insulin (Fat-Storing Hormone)',
+      s0_h1_name:'Blood Sugar (Glucose)', s0_h1_desc:'Carbohydrates in food are digested and enter the bloodstream. High-GI foods cause blood sugar to spike rapidly; low-GI foods raise it gradually.',
+      s0_h2_name:'Insulin (Fat-Storing Hormone)', s0_h2_desc:'Secreted by the pancreas when blood sugar rises. Converts blood sugar into stored fat and prevents the body from burning fat. The higher the blood sugar, the more insulin, the more fat stored.',
+      s0_c1_label:'☀️ Breakfast 7:00', s0_c1_name:'White Toast + Sugary Juice', s0_c1_desc:'Refined starch and sugar digest extremely fast, causing blood sugar to spike sharply within 30 minutes. The body secretes large amounts of the "fat-storing hormone" to counter it.', s0_c1_badge:'⚠ Blood Sugar Spike → Fat Storage',
+      s0_c2_label:'🌞 Lunch 12:00', s0_c2_name:'White Rice + Noodles', s0_c2_desc:'A second wave of refined carbs triggers another surge of the fat-storing hormone; excess sugar is converted directly into stored fat.', s0_c2_badge:'↑ Second Fat-Storage Peak',
+      s0_c3_label:'🌤 Afternoon Snack 3:30', s0_c3_name:'Bubble Tea + Cake', s0_c3_desc:'Dropping blood sugar makes you crave sweets — this is the body\'s "low blood sugar hunger trap". Eating again sends blood sugar soaring once more.', s0_c3_badge:'⚠ Low Blood Sugar Hunger Trap',
+      s0_c4_label:'🌙 Dinner 7:00', s0_c4_name:'Fried Rice + Sugary Drink', s0_c4_desc:'At night the body is less active and metabolism slows; excess blood sugar has nowhere to go. Nighttime fat-storage capacity is at its peak — the fat stored from this meal exceeds any other time of day.', s0_c4_badge:'🌙 Highest Nighttime Storage Efficiency',
+      s0_conc_h:'Blood Sugar Repeatedly Spikes & Crashes → Fat Keeps Accumulating',
+      s0_conc_p:'Every time blood sugar spikes, the body secretes large amounts of <strong>insulin (the fat-storing hormone)</strong> to bring it down. Insulin\'s job is to <strong>convert excess sugar into stored fat</strong> while blocking the body from burning fat. Four violent swings a day, day after day, creates a vicious cycle of <strong>more and more fat-storing hormone → thicker and thicker fat → harder and harder to lose weight</strong>.',
+      s0_tip1:'Blood Sugar Spike → Insulin Flood', s0_tip2:'Insulin ↑ → Fat Conversion & Storage ↑', s0_tip3:'Long-term Repetition → Hormonal Dysregulation',
+      // S1 chart content
+      s1_chtitle:'Wrong 16:8 Fasting: Blood Sugar & Hormone Changes',
+      leg_blood_s1:'Blood Sugar', leg_insulin_s1:'Fat-Storing Hormone', leg_cortisol:'Stress Hormone (Muscle Breakdown)', leg_adrenaline:'Adrenaline (Emergency Alert)',
+      s1_h1_name:'Blood Sugar', s1_h1_desc:'Gradually falls during the fast, then spikes sharply after lunch due to fasting-induced sensitivity — rising higher than after a normal breakfast.',
+      s1_h2_name:'Insulin (Fat-Storing Hormone)', s1_h2_desc:'Near zero during the fast; surges massively after the blood sugar spike from lunch. Fat synthesis efficiency is stronger than after eating a normal breakfast.',
+      s1_h3_name:'Cortisol (Stress Hormone)', s1_h3_desc:'Rises when blood sugar drops too low, commanding the body to break down muscle protein for blood sugar. Chronically high cortisol leads to abdominal fat accumulation.',
+      s1_h4_name:'Adrenaline (Emergency Alert)', s1_h4_desc:'Activates a second emergency mechanism when blood sugar continues to drop. Causes a racing heartbeat, shaking hands, anxiety, and intense hunger.',
+      s1_c1_label:'❌ Morning 7–12 (Skip Breakfast)', s1_c1_name:'No Breakfast', s1_c1_desc:'Fasting for over 12 hours, blood sugar keeps dropping. After glycogen runs out, <strong>the stress hormone</strong> rises first, breaking down muscle to restore blood sugar; when blood sugar stays too low, <strong>adrenaline</strong> kicks in as an emergency — this is why you feel a racing heart, shaking hands, anxiety, and extreme hunger.', s1_c1_badge:'⚠ Burns Muscle, Not Fat',
+      s1_c2_label:'⚡ Two-Stage Emergency Response to Low Blood Sugar', s1_c2_name:'Stress Hormone + Adrenaline', s1_c2_desc:'When blood sugar drops too low, the body triggers two emergency mechanisms: <strong>① Cortisol</strong> acts first, breaking down muscle protein into blood sugar; when blood sugar still can\'t hold, <strong>② adrenaline</strong> intervenes urgently, further accelerating breakdown and suppressing the fat-storing hormone — fat actually gets locked away.', s1_c2_badge:'⚠ Fat Locked Away · Muscle Being Burned',
+      s1_c3_label:'🌞 Lunch 12:00', s1_c3_name:'High-GI Lunch After Fasting', s1_c3_desc:'Extended fasting makes the body hyper-sensitive to sugar; the blood sugar spike from lunch is far more violent than normal, triggering more fat-storing hormone and storing more fat than if you had eaten breakfast normally.', s1_c3_badge:'↑ Enhanced Fat-Storage Response After Fasting',
+      s1_c4_label:'🌙 Afternoon Snack + Dinner', s1_c4_name:'Continuing High-GI Diet', s1_c4_desc:'With muscle partially broken down, <strong>metabolic rate drops</strong> — the body burns fewer calories. High blood sugar at night combined with a lower metabolic rate means fat storage efficiency is higher than at any other time.', s1_c4_badge:'🌙 Metabolism ↓ · Fat Storage Efficiency ↑',
+      s1_sci_q:'Why does low blood sugar cause adrenaline to lock away fat and prioritise burning muscle instead? Can\'t fat be used?',
+      s1_sci_ans:'Fat can be used, but it\'s too slow.', s1_sci_sub:'This is a body "emergency speed" problem.',
+      s1_sci_fat_title:'The Speed of Fat Breakdown', s1_sci_fat_desc:'Fat must first be <strong style="color:#c96c02;">"unpacked"</strong> from fat cells into fatty acids, then sent to the liver, then converted into ketones before the brain can use them. This process takes <strong style="color:#c96c02;">hours</strong>, and the brain isn\'t used to running on fat as emergency fuel.',
+      s1_sci_mus_title:'The Speed of Muscle Breakdown', s1_sci_mus_desc:'Muscle protein is broken down into <strong style="color:#c96c02;">amino acids</strong>, and the liver can convert them into glucose (gluconeogenesis) within <strong style="color:#c96c02;">minutes</strong>. This is exactly the emergency fuel the brain and heart know best.',
+      s1_sci_logic:'💡 <strong style="color:#c96c02;">The body\'s logic:</strong> When blood sugar drops rapidly, the brain has only a few minutes of glucose reserves left. This is a life-or-death emergency. The body won\'t wait for fat to slowly convert — adrenaline directly orders the body to <strong style="color:#c96c02;">"suspend fat breakdown, burn muscle immediately"</strong> because that\'s the fastest option.',
+      s1_sci_irony:'What\'s even more ironic is that adrenaline simultaneously <strong style="color:#c96c02;">suppresses insulin</strong> (temporarily halting fat storage), causing blood sugar to briefly recover — but this is only a stopgap, and the cost is muscle being consumed. Long-term repetition of this cycle leads to: <strong style="color:#c96c02;">less and less muscle → lower and lower basal metabolism → harder and harder to burn fat</strong>.',
+      s1_conc_h:'Wrong Fasting = Less and Less Muscle × More and More Fat',
+      s1_conc_p:'When you skip breakfast, the body triggers two emergency survival mechanisms: <strong>① Cortisol (stress hormone)</strong> rises first, breaking down muscle protein into blood sugar; when blood sugar still can\'t recover, <strong>② adrenaline</strong> intervenes urgently — this is exactly why you feel a racing heartbeat, shaking hands, anxiety, and intense food cravings. Adrenaline simultaneously "locks" fat so it can\'t be burned effectively, and the body preferentially consumes muscle instead. By lunchtime, the fast has made the body hyper-sensitive to sugar, causing <strong>even more fat-storing hormone to be secreted</strong>. The final result: <strong>less and less muscle → slower and slower metabolism → easier and easier to regain weight</strong>.',
+      s1_tip1:'Cortisol ↑ → Muscle Breakdown → Metabolism ↓', s1_tip2:'Adrenaline ↑ → Racing Heart, Shaking, Anxiety, Hunger', s1_tip3:'Post-Fast High-GI → Stronger Fat-Storing Response', s1_tip4:'Muscle ↓ → Basal Metabolism ↓ → Easier to Regain Weight',
+      // S2 chart content
+      s2_chtitle:'Correct Low-GI Diet: Stable Blood Sugar, Body Burns Fat Continuously',
+      leg_blood_s2:'Blood Sugar', leg_insulin_s2:'Fat-Storing Hormone (Low)', leg_glucagon:'Fat-Burning Hormone',
+      s2_h1_name:'Blood Sugar (Glucose)', s2_h1_desc:'Low-GI eating keeps blood sugar rising and falling gently all day with small fluctuations. Only a small amount of insulin is needed, so fat-burning mode can be sustained.',
+      s2_h2_name:'Insulin (Fat-Storing Hormone)', s2_h2_desc:'Stays low all day under a low-GI diet, barely triggering fat synthesis. Low insulin is the prerequisite for the body to enter fat-burning mode.',
+      s2_h3_name:'Glucagon (Fat-Burning Hormone)', s2_h3_desc:'Secreted by the pancreas when insulin is low. Activates fat cells to release fatty acids for energy — burns fat continuously even without exercise.',
+      s2_h4_name:'Growth Hormone (Nighttime)', s2_h4_desc:'Secreted in pulses during deep sleep, promoting muscle protein synthesis and fat breakdown. A low-GI dinner keeps insulin low so growth hormone can be released normally.',
+      s2_shake_title:'Nutritional Shake (Breakfast & Afternoon Snack)',
+      s2_shake_desc:'Low glycemic index (low GI)&nbsp;·&nbsp;High dietary fiber&nbsp;·&nbsp;Low fat &amp; calories&nbsp;·&nbsp;Complete protein, carbohydrates &amp; fat (macronutrients)&nbsp;·&nbsp;Rich in vitamins &amp; minerals (micronutrients)<br>Blood sugar rises slowly, satiety lasts longer, minimal fat-storing hormone triggered — keeps the body\'s fat-burning mode running continuously.',
+      s2_c1_label:'🥤 Breakfast 7:00', s2_c1_name:'Nutritional Shake', s2_c1_desc:'Low-GI formula raises blood sugar slowly; high fiber and protein keep you satiated without hunger returning quickly. The fat-storing hormone only needs minimal secretion while the fat-burning hormone stays active.', s2_c1_badge:'✅ Gradual Blood Sugar Rise · Lasting Satiety',
+      s2_c2_label:'🥗 Low-GI Lunch 12:00', s2_c2_name:'Brown Rice + Protein + Vegetables', s2_c2_desc:'Complex carbs digest slowly; vegetable fiber further buffers the blood sugar rise. Protein keeps you full; blood sugar stays stable without spiking, and the fat-storing hormone stays low.', s2_c2_badge:'✅ Low Blood Sugar Peak · Strong Satiety',
+      s2_c3_label:'🥤 Afternoon Snack 3:30', s2_c3_name:'Nutritional Shake', s2_c3_desc:'The afternoon is when sweet cravings are strongest. This shake provides complete nutrition, keeps blood sugar stable, and lets the fat-burning hormone keep working right through to dinner.', s2_c3_badge:'🌿 Stable Blood Sugar · Continuous Fat Burn',
+      s2_c4_label:'🐟 Low-GI Dinner 7:00', s2_c4_name:'Fish + Sweet Potato + Leafy Greens', s2_c4_desc:'A low-GI dinner keeps the fat-storing hormone low overnight. During sleep, <strong>growth hormone</strong> is secreted normally, helping to repair and build muscle while continuously burning fat.', s2_c4_badge:'🌙 Sleep Fat Burn · Muscle Repair',
+      s2_conc_h:'Stable Blood Sugar → Body Burns Fat All Day × Preserves Muscle',
+      s2_conc_p:'A low-GI diet keeps the fat-storing hormone low all day, allowing the body\'s <strong>fat-burning hormone</strong> to stay continuously active — even during the rest periods between meals, the body is quietly burning fat. Stable blood sugar also prevents the stress hormone from rising, so muscle doesn\'t break down and <strong>metabolic rate</strong> stays in a highly efficient state. At night during sleep, <strong>growth hormone</strong> is secreted normally, continuing to repair and strengthen muscle so you\'re burning fat even while you sleep. This is the right approach for <strong>truly losing weight and not regaining it</strong>.',
+      s2_tip1:'Fat-Storing Hormone Low → Fat-Burning Hormone Active', s2_tip2:'Muscle Preserved → Metabolic Rate Maintained', s2_tip3:'Nighttime Growth Hormone → Sleep Fat Burn + Muscle Repair', s2_tip4:'Stable Blood Sugar → Satiety ↑ · No Overeating',
       concept_p1:'Every time you eat <strong>high-glycemic index (high-GI) foods</strong>, your blood sugar spikes rapidly. To handle this, your body releases large amounts of <strong>insulin</strong> (the fat-storing hormone). Insulin\'s job is to <strong>convert excess blood sugar into stored fat</strong> while preventing your body from burning fat.',
       concept_p2:'What\'s worse, after insulin drives blood sugar too low, you feel hungry again — this is the "low blood sugar hunger trap" that keeps you cycling through "eat → insulin spike → fat storage → hunger → eat again".',
       concept_p3:'The solution is simple: <strong>choose foods that raise blood sugar slowly and steadily</strong>. When insulin stays low, your body\'s <strong>glucagon</strong> (fat-burning hormone) gets activated, and fat can actually be burned.',
@@ -1143,6 +1242,8 @@ nav{padding:16px 24px}
     });
     document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
     document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    document.getElementById('btn-zh-chart').classList.toggle('active', lang==='zh');
+    document.getElementById('btn-en-chart').classList.toggle('active', lang==='en');
     document.documentElement.lang = lang==='zh' ? 'zh-TW' : 'en';
     document.title = lang==='zh' ? '好好吃 · 讓身體找回平衡' : 'EatWell · Let Your Body Find Balance';
   }
