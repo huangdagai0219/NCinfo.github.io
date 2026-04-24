@@ -904,9 +904,9 @@ nav{padding:16px 24px}
       <line x1="55" y1="175" x2="840" y2="175" stroke="rgba(90,160,110,0.12)" stroke-dasharray="4,5"/>
       <line x1="55" y1="218" x2="840" y2="218" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4,5"/>
       <!-- Y-axis labels -->
-      <text x="50" y="99" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.9)">Ideal</text>
-      <text x="50" y="177" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.7)">Range</text>
-      <text x="50" y="220" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.65)">Low</text>
+      <text id="s2t_high" x="50" y="99" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.9)">Ideal</text>
+      <text id="s2t_range" x="50" y="177" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(90,160,110,0.7)">Range</text>
+      <text id="s2t_low" x="50" y="220" font-size="8" font-family="monospace" text-anchor="end" fill="rgba(160,140,110,0.65)">Low</text>
       <!-- Axes -->
       <line x1="55" y1="255" x2="840" y2="255" stroke="rgba(255,255,255,0.08)"/>
       <line x1="55" y1="5" x2="55" y2="255" stroke="rgba(255,255,255,0.08)"/>
@@ -1311,6 +1311,9 @@ nav{padding:16px 24px}
         s1t_m4: '高GI晚餐',
         // S2 chart
         s2t_ideal_range: '✅ 理想血糖控制範圍：全天平穩波動——身體持續燃燒脂肪',
+        s2t_high: '理想',
+        s2t_range: '區間',
+        s2t_low: '低',
         s2t_glucagon: '🔥 升糖素持續活躍 → 兩餐之間也在燃脂',
         s2t_growth1: '夜間生長激素',
         s2t_growth2: '→ 修復肌肉 + 燃燒脂肪',
@@ -1349,6 +1352,9 @@ nav{padding:16px 24px}
         s1t_m4: 'High-GI Dinner',
         // S2 chart
         s2t_ideal_range: '✅ Ideal Blood Sugar Control Range: Stable all-day fluctuation — body burns fat continuously',
+        s2t_high: 'Ideal',
+        s2t_range: 'Range',
+        s2t_low: 'Low',
         s2t_glucagon: '🔥 Glucagon Continuously Active → Burning Fat Between Meals',
         s2t_growth1: 'Growth Hormone at Night',
         s2t_growth2: '→ Muscle Repair + Fat Burn',
@@ -1374,6 +1380,9 @@ nav{padding:16px 24px}
     els.forEach(el=>obs.observe(el));
   }
   observeReveal();
+
+  // Initialise language to Chinese on every page load
+  setLang('zh');
 </script>
 
 <!-- ═══ CHART ZOOM MODALS ═══ -->
