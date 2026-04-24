@@ -53,6 +53,28 @@ overflow-x: hidden;
 cursor: none;
 }
 
+/* ── LANG TOGGLE ── */
+.lang-toggle {
+display:flex;align-items:center;gap:0;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(212,196,168,0.25);
+border-radius:30px;overflow:hidden;
+flex-shrink:0;
+}
+.lang-toggle button {
+padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:1px;
+font-family:‘Noto Sans TC’,sans-serif;
+background:transparent;border:none;cursor:pointer;
+color:rgba(212,196,168,0.55);
+transition:background .2s,color .2s;
+}
+.lang-toggle button.active {
+background:var(–honey,#d4944a);
+color:#3a2a1e;
+border-radius:30px;
+}
+.lang-toggle button:hover:not(.active) { color:rgba(212,196,168,0.9); }
+
 /* CURSOR */
 .cursor { position:fixed;top:0;left:0;width:12px;height:12px;background:var(–honey);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:multiply; }
 .cursor-ring { position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid var(–clay);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease-out;opacity:.6; }
@@ -310,66 +332,66 @@ svg.chart{width:100%;height:auto;display:block}
 .bs-card-link .bs-card { transition:background .25s,transform .25s,box-shadow .25s; }
 .bs-card-link:hover .bs-card { transform:translateY(-6px);box-shadow:0 16px 40px rgba(92,61,46,.18); }
 .bs-card-link .go-arrow {
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:700;color:var(--earth);
-  margin-top:12px;
-  transition:gap .2s,color .2s;
+display:inline-flex;align-items:center;gap:6px;
+font-size:11px;font-weight:700;color:var(–earth);
+margin-top:12px;
+transition:gap .2s,color .2s;
 }
-.bs-card-link:hover .go-arrow { gap:10px;color:var(--honey); }
+.bs-card-link:hover .go-arrow { gap:10px;color:var(–honey); }
 
 /* ── CHART ZOOM MODAL ── */
 .chart-zoom-wrap { position:relative;cursor:zoom-in; }
 .chart-zoom-btn {
-  position:absolute;top:10px;right:10px;z-index:10;
-  background:rgba(61,43,30,0.85);
-  border:1px solid rgba(212,196,168,0.3);
-  color:#d4b896;
-  font-size:11px;font-family:'Noto Sans TC',sans-serif;
-  padding:5px 12px;border-radius:20px;
-  cursor:pointer;
-  display:flex;align-items:center;gap:5px;
-  transition:background .2s,color .2s;
-  backdrop-filter:blur(4px);
+position:absolute;top:10px;right:10px;z-index:10;
+background:rgba(61,43,30,0.85);
+border:1px solid rgba(212,196,168,0.3);
+color:#d4b896;
+font-size:11px;font-family:‘Noto Sans TC’,sans-serif;
+padding:5px 12px;border-radius:20px;
+cursor:pointer;
+display:flex;align-items:center;gap:5px;
+transition:background .2s,color .2s;
+backdrop-filter:blur(4px);
 }
 .chart-zoom-btn:hover { background:rgba(212,148,74,0.25);color:#f0d898; }
 
 .chart-modal-overlay {
-  display:none;
-  position:fixed;inset:0;z-index:9000;
-  background:rgba(20,12,6,0.88);
-  backdrop-filter:blur(6px);
-  align-items:center;justify-content:center;
-  padding:20px;
+display:none;
+position:fixed;inset:0;z-index:9000;
+background:rgba(20,12,6,0.88);
+backdrop-filter:blur(6px);
+align-items:center;justify-content:center;
+padding:20px;
 }
 .chart-modal-overlay.open { display:flex; }
 .chart-modal-inner {
-  background:#3d2b1e;
-  border:1px solid rgba(212,196,168,0.18);
-  border-radius:20px;
-  width:min(960px,100%);
-  max-height:90vh;
-  overflow-y:auto;
-  position:relative;
-  animation:modalIn .25s ease;
-  padding:28px 24px;
+background:#3d2b1e;
+border:1px solid rgba(212,196,168,0.18);
+border-radius:20px;
+width:min(960px,100%);
+max-height:90vh;
+overflow-y:auto;
+position:relative;
+animation:modalIn .25s ease;
+padding:28px 24px;
 }
 @keyframes modalIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
 .chart-modal-close {
-  position:sticky;top:0;float:right;
-  background:rgba(212,148,74,0.18);
-  border:1px solid rgba(212,148,74,0.35);
-  color:#d4b896;
-  font-size:13px;font-family:'Noto Sans TC',sans-serif;
-  padding:7px 18px;border-radius:20px;
-  cursor:pointer;margin-bottom:16px;
-  transition:background .2s;
-  z-index:1;
+position:sticky;top:0;float:right;
+background:rgba(212,148,74,0.18);
+border:1px solid rgba(212,148,74,0.35);
+color:#d4b896;
+font-size:13px;font-family:‘Noto Sans TC’,sans-serif;
+padding:7px 18px;border-radius:20px;
+cursor:pointer;margin-bottom:16px;
+transition:background .2s;
+z-index:1;
 }
 .chart-modal-close:hover { background:rgba(212,148,74,0.32);color:#f0d898; }
 .chart-modal-title {
-  font-family:'Noto Serif TC',serif;
-  font-size:16px;font-weight:700;color:#d4a040;
-  margin-bottom:16px;clear:both;
+font-family:‘Noto Serif TC’,serif;
+font-size:16px;font-weight:700;color:#d4a040;
+margin-bottom:16px;clear:both;
 }
 .chart-modal-inner svg.chart { width:100%;height:auto; }
 
@@ -421,11 +443,15 @@ nav{padding:16px 24px}
 <nav id="mainNav">
   <a class="nav-logo" onclick="showPage('home')">好好吃<span>·</span></a>
   <ul class="nav-links">
-    <li><a onclick="showPage('home');scrollToSection('concept')">飲食觀念</a></li>
-    <li><a onclick="showPage('home');scrollToSection('bloodsugar')">血糖管理</a></li>
-    <li><a onclick="showPage('home');scrollToSection('howto')">怎麼做</a></li>
-    <li><a class="nav-cta" onclick="showPage('chart')">查看圖表分析</a></li>
+    <li><a onclick="showPage('home');scrollToSection('concept')" data-i18n="nav_concept">飲食觀念</a></li>
+    <li><a onclick="showPage('home');scrollToSection('bloodsugar')" data-i18n="nav_blood">血糖管理</a></li>
+    <li><a onclick="showPage('home');scrollToSection('howto')" data-i18n="nav_how">怎麼做</a></li>
+    <li><a class="nav-cta" onclick="showPage('chart')" data-i18n="nav_chart">查看圖表分析</a></li>
   </ul>
+  <div class="lang-toggle">
+    <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
 </nav>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
@@ -434,20 +460,20 @@ nav{padding:16px 24px}
 
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow">飲食 · 血糖 · 體重管理</div>
-      <h1 class="hero-title">吃對了<br>身體會<em>自己</em><br>找回平衡</h1>
-      <p class="hero-desc">你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。</p>
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">飲食 · 血糖 · 體重管理</div>
+      <h1 class="hero-title" data-i18n="hero_title">吃對了<br>身體會<em>自己</em><br>找回平衡</h1>
+      <p class="hero-desc" data-i18n="hero_desc">你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="scrollToSection('concept')">開始了解</button>
+        <button class="btn-primary" onclick="scrollToSection('concept')" data-i18n="hero_cta1">開始了解</button>
         <button class="btn-ghost" onclick="showPage('chart')">
           查看血糖分析圖表
           <span class="arrow">→</span>
         </button>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-number">3種</div><div class="stat-label">飲食模式比較</div></div>
-        <div class="stat"><div class="stat-number">24小時</div><div class="stat-label">全天血糖追蹤</div></div>
-        <div class="stat"><div class="stat-number">1個</div><div class="stat-label">正確方向</div></div>
+        <div class="stat"><div class="stat-number" data-i18n="stat_n1">3種</div><div class="stat-label" data-i18n="stat1">飲食模式比較</div></div>
+        <div class="stat"><div class="stat-number">24小時</div><div class="stat-label" data-i18n="stat2">全天血糖追蹤</div></div>
+        <div class="stat"><div class="stat-number" data-i18n="stat_n3">1個</div><div class="stat-label" data-i18n="stat3">正確方向</div></div>
       </div>
     </div>
     <div class="hero-right">
@@ -457,11 +483,11 @@ nav{padding:16px 24px}
           <div class="ring-inner"></div>
           <div class="plate">
             <div class="plate-emoji">🥗</div>
-            <div class="plate-tagline">低GI · 全營養</div>
+            <div class="plate-tagline" data-i18n="plate_tag">低GI · 全營養</div>
           </div>
-          <div class="float-tag ft1"><span class="tag-dot" style="background:#6b9e78;"></span>血糖平穩上升</div>
-          <div class="float-tag ft2"><span class="tag-dot" style="background:#d4944a;"></span>持續燃燒脂肪</div>
-          <div class="float-tag ft3"><span class="tag-dot" style="background:#b89880;"></span>保留肌肉量</div>
+          <div class="float-tag ft1"><span class="tag-dot" style="background:#6b9e78;"></span data-i18n="tag1">血糖平穩上升</div>
+          <div class="float-tag ft2"><span class="tag-dot" style="background:#d4944a;"></span data-i18n="tag2">持續燃燒脂肪</div>
+          <div class="float-tag ft3"><span class="tag-dot" style="background:#b89880;"></span data-i18n="tag3">保留肌肉量</div>
         </div>
       </div>
       <div class="leaf l1">🌿</div>
@@ -472,9 +498,9 @@ nav{padding:16px 24px}
 
   <section class="home-section concept" id="concept">
     <div class="container">
-      <div class="section-eyebrow reveal">核心飲食觀念</div>
-      <h2 class="section-title reveal">為什麼你一直瘦不下來？</h2>
-      <p class="section-sub reveal">問題不在你意志力不夠，而在你還不知道身體是怎麼運作的。</p>
+      <div class="section-eyebrow reveal" data-i18n="concept_eye">核心飲食觀念</div>
+      <h2 class="section-title reveal" data-i18n="concept_h">為什麼你一直瘦不下來？</h2>
+      <p class="section-sub reveal" data-i18n="concept_sub">問題不在你意志力不夠，而在你還不知道身體是怎麼運作的。</p>
       <div class="concept-grid">
         <div class="concept-text">
           <p class="reveal">每次你吃進<strong>高升糖指數（高GI）的食物</strong>，血糖就會急速飆升，身體為了應對，大量分泌<strong>胰島素</strong>（囤脂荷爾蒙）。胰島素的工作就是把多餘的血糖<strong>轉換成脂肪儲存起來</strong>，同時阻止身體燃燒脂肪。</p>
@@ -499,9 +525,9 @@ nav{padding:16px 24px}
 
   <section class="home-section blood-sugar-section" id="bloodsugar">
     <div class="container" style="position:relative;z-index:1;">
-      <div class="section-eyebrow reveal">血糖與體重管理</div>
-      <h2 class="section-title reveal">三種吃法，三種截然不同的結果</h2>
-      <p class="section-sub reveal">同樣一天24小時，你的飲食習慣決定了身體是在囤積脂肪、分解肌肉，還是真正燃燒脂肪。</p>
+      <div class="section-eyebrow reveal" data-i18n="bs_eye">血糖與體重管理</div>
+      <h2 class="section-title reveal" data-i18n="bs_h">三種吃法，三種截然不同的結果</h2>
+      <p class="section-sub reveal" data-i18n="bs_sub">同樣一天24小時，你的飲食習慣決定了身體是在囤積脂肪、分解肌肉，還是真正燃燒脂肪。</p>
       <div class="bs-grid">
         <a class="bs-card-link" onclick="showPage('chart');switchScenario(0)" style="cursor:pointer;">
           <div class="bs-card bad reveal reveal-delay-1"><div class="bs-scenario">情境 01 · 高GI飲食</div><div class="bs-title">🍞 白吐司、白飯、含糖飲料</div><div class="bs-desc">血糖一天四次劇烈飆升，<strong>胰島素</strong>（囤脂荷爾蒙）反覆大量分泌。長期下來荷爾蒙失調，脂肪越堆越多、越來越難瘦。</div><div class="bs-outcome bad">🔴 血糖震盪 → 脂肪囤積</div><div class="go-arrow">查看詳細血糖圖表 →</div></div>
@@ -514,17 +540,17 @@ nav{padding:16px 24px}
         </a>
       </div>
       <div class="bs-cta reveal">
-        <div class="bs-cta-text"><h3>想看完整的血糖波動圖表分析？</h3><p>互動圖表帶你一目了然比較三種飲食模式，了解每一餐對你身體的影響</p></div>
-        <button class="btn-light" onclick="showPage('chart')">查看詳細圖表 →</button>
+        <div class="bs-cta-text"><h3 data-i18n="bs_cta_h">想看完整的血糖波動圖表分析？</h3><p data-i18n="bs_cta_p">互動圖表帶你一目了然比較三種飲食模式，了解每一餐對你身體的影響</p></div>
+        <button class="btn-light" onclick="showPage('chart')" data-i18n="bs_cta_btn">查看詳細圖表 →</button>
       </div>
     </div>
   </section>
 
   <section class="home-section how" id="howto">
     <div class="container">
-      <div class="section-eyebrow reveal">怎麼開始</div>
-      <h2 class="section-title reveal">四個步驟，讓身體進入燃脂模式</h2>
-      <p class="section-sub reveal">不需要極端節食，只需要讓血糖在正確的軌道上運行。</p>
+      <div class="section-eyebrow reveal" data-i18n="how_eye">怎麼開始</div>
+      <h2 class="section-title reveal" data-i18n="how_h">四個步驟，讓身體進入燃脂模式</h2>
+      <p class="section-sub reveal" data-i18n="how_sub">不需要極端節食，只需要讓血糖在正確的軌道上運行。</p>
       <div class="steps">
         <div class="step reveal reveal-delay-1"><div class="step-num">1<span class="step-icon">🥤</span></div><div class="step-title">早餐換成營養奶昔</div><div class="step-desc">低GI高纖配方，血糖緩升，<strong>胰島素</strong>（囤脂荷爾蒙）維持低位，飽足感持續到午餐</div></div>
         <div class="step reveal reveal-delay-2"><div class="step-num">2<span class="step-icon">🥗</span></div><div class="step-title">午餐選低GI正餐</div><div class="step-desc">糙米、蛋白質、蔬菜，讓<strong>升糖素</strong>（燃脂荷爾蒙）在餐後持續活躍燃燒脂肪</div></div>
@@ -537,17 +563,17 @@ nav{padding:16px 24px}
   <div class="quote-section">
     <div class="container">
       <p class="quote-text reveal">身體不是你的敵人，<br>它只是在<em>照你給它的訊號</em>行事。<br>給它對的訊號，它就會做對的事。</p>
-      <p class="quote-sub reveal">— 好好吃 · 飲食管理理念</p>
+      <p class="quote-sub reveal"><span data-i18n="quote_attr">— 好好吃 · 飲食管理理念</span></p>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo">好好吃<span>·</span></div>
-    <div class="footer-copy">讓每一口食物，都成為你的盟友</div>
+    <div class="footer-copy" data-i18n="footer_copy">讓每一口食物，都成為你的盟友</div>
     <div class="footer-links">
-      <a onclick="scrollToSection('concept')">飲食觀念</a>
-      <a onclick="scrollToSection('bloodsugar')">血糖管理</a>
-      <a onclick="showPage('chart')">圖表分析</a>
+      <a onclick="scrollToSection('concept')" data-i18n="nav_concept2">飲食觀念</a>
+      <a onclick="scrollToSection('bloodsugar')" data-i18n="nav_blood2">血糖管理</a>
+      <a onclick="showPage('chart')" data-i18n="nav_chart2">圖表分析</a>
     </div>
   </footer>
 </div>
@@ -556,8 +582,8 @@ nav{padding:16px 24px}
 
 <div class="page" id="chart">
   <div class="chart-topbar">
-    <button class="back-btn" onclick="showPage('home')">← 返回首頁</button>
-    <div class="chart-bar-title">血糖分析圖表</div>
+    <button class="back-btn" onclick="showPage('home')" data-i18n="back_btn">← 返回首頁</button>
+    <div class="chart-bar-title" data-i18n="chart_title">血糖分析圖表</div>
     <div style="width:120px;"></div>
   </div>
 
@@ -569,12 +595,13 @@ nav{padding:16px 24px}
     </div>
 
 <div class="scenario-nav">
-  <button data-s="0" class="active" onclick="switchScenario(0)"><span class="s-icon">🔴</span><span><span class="s-title">高GI飲食</span><span class="s-tag">血糖大起大落 → 囤積脂肪</span></span></button>
-  <button data-s="1" onclick="switchScenario(1)"><span class="s-icon">🟡</span><span><span class="s-title">錯誤168斷食</span><span class="s-tag">不吃早餐 → 燒肌肉留脂肪</span></span></button>
-  <button data-s="2" onclick="switchScenario(2)"><span class="s-icon">🟢</span><span><span class="s-title">正確低GI飲食</span><span class="s-tag">血糖平穩 → 燃脂保肌</span></span></button>
+  <button data-s="0" class="active" onclick="switchScenario(0)"><span class="s-icon">🔴</span><span><span class="s-title" data-i18n="s0_title">高GI飲食</span><span class="s-tag" data-i18n="s0_tag">血糖大起大落 → 囤積脂肪</span></span></button>
+  <button data-s="1" onclick="switchScenario(1)"><span class="s-icon">🟡</span><span><span class="s-title" data-i18n="s1_title">錯誤168斷食</span><span class="s-tag" data-i18n="s1_tag">不吃早餐 → 燒肌肉留脂肪</span></span></button>
+  <button data-s="2" onclick="switchScenario(2)"><span class="s-icon">🟢</span><span><span class="s-title" data-i18n="s2_title">正確低GI飲食</span><span class="s-tag" data-i18n="s2_tag">血糖平穩 → 燃脂保肌</span></span></button>
 </div>
 
 <!-- ═══ S0 ═══ -->
+
 <div class="scenario-panel s0 active" id="panel-0">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s0')" type="button">🔍 放大圖表</button>
@@ -672,6 +699,7 @@ nav{padding:16px 24px}
 </div>
 
 <!-- ═══ S1 ═══ -->
+
 <div class="scenario-panel s1" id="panel-1">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button">🔍 放大圖表</button>
@@ -781,44 +809,49 @@ nav{padding:16px 24px}
   </div>
 
   <!-- 科普解說：為什麼低血糖時燒肌肉而非脂肪 -->
+
   <div style="background:rgba(184,134,11,0.08);border:1px solid rgba(184,134,11,0.28);border-radius:18px;padding:24px 28px;margin-bottom:24px;">
     <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
       <div style="font-size:40px;flex-shrink:0;line-height:1;">🤔</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;">為什麼血糖太低時，腎上腺素反而鎖住脂肪、優先燒肌肉？脂肪不能用嗎？</div>
 
-        <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
-          <strong style="color:#b37e1d;">脂肪可以用，但太慢了。</strong>這是身體的「緊急速度」問題。
-        </div>
+```
+    <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
+      <strong style="color:#b37e1d;">脂肪可以用，但太慢了。</strong>這是身體的「緊急速度」問題。
+    </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
-          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">脂肪分解的速度</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;">脂肪需要先從脂肪細胞<strong style="color:#c96c02;">「解包」</strong>成脂肪酸，再送到肝臟、再轉換成酮體，才能讓大腦用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦平時不習慣用脂肪當緊急燃料。</div>
-          </div>
-          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">肌肉分解的速度</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;">肌肉蛋白分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可以在<strong style="color:#c96c02;">幾分鐘內</strong>把它轉換成葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
-          </div>
-        </div>
-
-        <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
-          <div style="font-size:12.5px;color:#030200;line-height:1.8;">
-            💡 <strong style="color:#c96c02;">身體的邏輯：</strong>血糖急速下降時，大腦只剩幾分鐘的葡萄糖儲備。這是生死存亡的緊急狀態，身體不等脂肪慢慢轉換——腎上腺素直接下令<strong style="color:#c96c02;">「暫停脂肪分解、立刻燃燒肌肉」</strong>，因為這樣最快。
-          </div>
-        </div>
-
-        <div style="font-size:12px;color:#d98c00;line-height:1.8;">
-          更諷刺的是，腎上腺素同時會<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是應急，代價是肌肉被消耗掉。長期反覆這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 脂肪越來越難燒</strong>。
-        </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
+      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">脂肪分解的速度</div>
+        <div style="font-size:12px;color:#030200;line-height:1.7;">脂肪需要先從脂肪細胞<strong style="color:#c96c02;">「解包」</strong>成脂肪酸，再送到肝臟、再轉換成酮體，才能讓大腦用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦平時不習慣用脂肪當緊急燃料。</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">肌肉分解的速度</div>
+        <div style="font-size:12px;color:#030200;line-height:1.7;">肌肉蛋白分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可以在<strong style="color:#c96c02;">幾分鐘內</strong>把它轉換成葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
       </div>
     </div>
+
+    <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
+      <div style="font-size:12.5px;color:#030200;line-height:1.8;">
+        💡 <strong style="color:#c96c02;">身體的邏輯：</strong>血糖急速下降時，大腦只剩幾分鐘的葡萄糖儲備。這是生死存亡的緊急狀態，身體不等脂肪慢慢轉換——腎上腺素直接下令<strong style="color:#c96c02;">「暫停脂肪分解、立刻燃燒肌肉」</strong>，因為這樣最快。
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:#d98c00;line-height:1.8;">
+      更諷刺的是，腎上腺素同時會<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是應急，代價是肌肉被消耗掉。長期反覆這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 脂肪越來越難燒</strong>。
+    </div>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3>錯誤斷食 = 肌肉越來越少 × 脂肪越來越多</h3><p>不吃早餐時，身體啟動兩道緊急保命機制：<strong>①壓力荷爾蒙（皮質醇）</strong>先升高，把肌肉蛋白分解成血糖；血糖繼續太低時，<strong>②腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮、強烈想吃東西的原因。腎上腺素同時把脂肪「鎖住」無法有效燃燒，身體反而優先消耗肌肉。等到午餐時，空腹讓身體對糖分極度敏感，<strong>囤脂荷爾蒙分泌更多</strong>，最終結果：<strong>肌肉越來越少 → 代謝越來越慢 → 越來越容易復胖</strong>。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span>壓力荷爾蒙↑ → 肌肉分解 → 代謝↓</span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span>腎上腺素↑ → 心跳加速手抖焦慮飢餓</span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span>空腹後高GI → 囤脂荷爾蒙反應更強</span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span>肌肉↓ → 基礎代謝↓ → 更易復胖</span></div></div></div>
 </div>
 
 <!-- ═══ S2 ═══ -->
+
 <div class="scenario-panel s2" id="panel-2">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button">🔍 放大圖表</button>
@@ -1008,6 +1041,85 @@ nav{padding:16px 24px}
       });
     }
   });
+  // ── LANGUAGE SWITCHER ──
+  const i18n = {
+    zh: {
+      nav_concept:'飲食觀念', nav_blood:'血糖管理', nav_how:'怎麼做',
+      nav_chart:'查看圖表分析', nav_concept2:'飲食觀念', nav_blood2:'血糖管理', nav_chart2:'圖表分析',
+      back_btn:'← 返回首頁', chart_title:'血糖分析圖表',
+      hero_eyebrow:'飲食 · 血糖 · 體重管理',
+      hero_title:'吃對了<br>身體會<em>自己</em><br>找回平衡',
+      hero_desc:'你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。',
+      hero_cta1:'開始了解',
+      stat_n1:'3種', stat1:'飲食模式比較', stat2:'全天血糖追蹤', stat_n3:'1個', stat3:'正確方向',
+      tag1:'血糖平穩上升', tag2:'持續燃燒脂肪', tag3:'保留肌肉量', plate_tag:'低GI · 全營養',
+      concept_eye:'核心飲食觀念', concept_h:'為什麼你一直瘦不下來？',
+      concept_sub:'問題不在你意志力不夠，而在你還不知道身體是怎麼運作的。',
+      bs_eye:'血糖與體重管理', bs_h:'三種吃法，三種截然不同的結果',
+      bs_sub:'同樣一天24小時，你的飲食習慣決定了身體是在囤積脂肪、分解肌肉，還是真正燃燒脂肪。',
+      bs_cta_h:'想看完整的血糖波動圖表分析？',
+      bs_cta_p:'互動圖表帶你一目了然比較三種飲食模式，了解每一餐對你身體的影響',
+      bs_cta_btn:'查看詳細圖表 →',
+      how_eye:'怎麼開始', how_h:'四個步驟，讓身體進入燃脂模式',
+      how_sub:'不需要極端節食，只需要讓血糖在正確的軌道上運行。',
+      quote_attr:'— 好好吃 · 飲食管理理念', footer_copy:'讓每一口食物，都成為你的盟友',
+      s0_title:'高GI飲食', s0_tag:'血糖大起大落 → 囤積脂肪',
+      s1_title:'錯誤168斷食', s1_tag:'不吃早餐 → 燒肌肉留脂肪',
+      s2_title:'正確低GI飲食', s2_tag:'血糖平穩 → 燃脂保肌',
+      modal_close:'✕ 關閉',
+      modal0_title:'🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動',
+      modal1_title:'🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化',
+      modal2_title:'🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍',
+    },
+    en: {
+      nav_concept:'Diet Concepts', nav_blood:'Blood Sugar', nav_how:'How To',
+      nav_chart:'View Charts', nav_concept2:'Diet Concepts', nav_blood2:'Blood Sugar', nav_chart2:'Charts',
+      back_btn:'← Back to Home', chart_title:'Blood Sugar Analysis',
+      hero_eyebrow:'Diet · Blood Sugar · Weight Management',
+      hero_title:'Eat Right,<br>Let Your Body<br><em>Find Balance</em>',
+      hero_desc:"You don't need to starve or cut all sugar. Effective weight management starts with understanding what every bite does to your blood sugar.",
+      hero_cta1:'Start Learning',
+      stat_n1:'3', stat1:'Diet Patterns Compared', stat2:'24-hr Blood Sugar Tracking', stat_n3:'1', stat3:'Right Direction',
+      tag1:'Stable Blood Sugar', tag2:'Continuous Fat Burning', tag3:'Preserve Muscle', plate_tag:'Low-GI · Complete Nutrition',
+      concept_eye:'Core Diet Concepts', concept_h:"Why Can't You Lose Weight?",
+      concept_sub:"It's not about willpower — it's about understanding how your body actually works.",
+      bs_eye:'Blood Sugar & Weight Management', bs_h:'3 Ways to Eat, 3 Completely Different Results',
+      bs_sub:'The same 24 hours — your eating habits decide whether your body stores fat, burns muscle, or burns fat.',
+      bs_cta_h:'Want to see the full blood sugar chart analysis?',
+      bs_cta_p:'Interactive charts let you compare all 3 diet patterns and understand the impact of every meal.',
+      bs_cta_btn:'View Detailed Charts →',
+      how_eye:'Getting Started', how_h:'4 Steps to Enter Fat-Burning Mode',
+      how_sub:'No extreme dieting needed — just keep your blood sugar on the right track.',
+      quote_attr:'— EatWell · Diet Management Philosophy', footer_copy:'Let every bite become your ally.',
+      s0_title:'High-GI Diet', s0_tag:'Blood Sugar Spikes → Fat Storage',
+      s1_title:'Wrong 16:8 Fasting', s1_tag:'Skip Breakfast → Burn Muscle',
+      s2_title:'Correct Low-GI Diet', s2_tag:'Stable Blood Sugar → Burn Fat',
+      modal_close:'✕ Close',
+      modal0_title:'🔴 High-GI Diet: Daily Blood Sugar & Insulin Spikes',
+      modal1_title:'🟡 Wrong 16:8 Fasting: Cortisol, Adrenaline & Muscle Loss',
+      modal2_title:'🟢 Correct Low-GI Diet: Stable Blood Sugar, Continuous Fat Burning',
+    }
+  };
+  let currentLang = 'zh';
+  function setLang(lang) {
+    currentLang = lang;
+    const dict = i18n[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.nav-logo').forEach(el => {
+      el.innerHTML = lang==='zh' ? '好好吃<span>·</span>' : 'EatWell<span>·</span>';
+    });
+    document.querySelectorAll('.footer-logo').forEach(el => {
+      el.innerHTML = lang==='zh' ? '好好吃<span>·</span>' : 'EatWell<span>·</span>';
+    });
+    document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
+    document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    document.documentElement.lang = lang==='zh' ? 'zh-TW' : 'en';
+    document.title = lang==='zh' ? '好好吃 · 讓身體找回平衡' : 'EatWell · Let Your Body Find Balance';
+  }
+
   function observeReveal() {
     const els = document.querySelectorAll('.reveal:not(.visible)');
     const obs = new IntersectionObserver(entries=>{
@@ -1018,26 +1130,26 @@ nav{padding:16px 24px}
   observeReveal();
 </script>
 
-
 <!-- ═══ CHART ZOOM MODALS ═══ -->
+
 <div class="chart-modal-overlay" id="modal-s0" onclick="closeChartModal(event, 'modal-s0')">
   <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s0')">✕ 關閉</button>
-    <div class="chart-modal-title">🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動</div>
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s0')" data-i18n="modal_close">✕ 關閉</button>
+    <div class="chart-modal-title" data-i18n="modal0_title">🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動</div>
     <div id="modal-s0-content"></div>
   </div>
 </div>
 <div class="chart-modal-overlay" id="modal-s1" onclick="closeChartModal(event, 'modal-s1')">
   <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s1')">✕ 關閉</button>
-    <div class="chart-modal-title">🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化</div>
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s1')" data-i18n="modal_close">✕ 關閉</button>
+    <div class="chart-modal-title" data-i18n="modal1_title">🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化</div>
     <div id="modal-s1-content"></div>
   </div>
 </div>
 <div class="chart-modal-overlay" id="modal-s2" onclick="closeChartModal(event, 'modal-s2')">
   <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s2')">✕ 關閉</button>
-    <div class="chart-modal-title">🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍</div>
+    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s2')" data-i18n="modal_close">✕ 關閉</button>
+    <div class="chart-modal-title" data-i18n="modal2_title">🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍</div>
     <div id="modal-s2-content"></div>
   </div>
 </div>
