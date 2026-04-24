@@ -360,7 +360,7 @@ svg.chart{width:100%;height:auto;display:block}
 .chart-modal-overlay {
   display:none;
   position:fixed;inset:0;z-index:9000;
-  background:#0c0b14;
+  background:#faf7f2;
   overflow-y:auto;
   padding:0;
 }
@@ -370,17 +370,17 @@ svg.chart{width:100%;height:auto;display:block}
 .chart-modal-close {
   position:fixed;top:16px;right:20px;z-index:9100;
   width:44px;height:44px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(92,61,46,0.1);
+  border:1.5px solid rgba(92,61,46,0.25);
   border-radius:50%;
-  color:#f0e8d8;
+  color:#5c3d2e;
   font-size:20px;line-height:1;
   font-family:'Noto Sans TC',sans-serif;
   cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:background .2s,transform .2s;
 }
-.chart-modal-close:hover { background:rgba(255,77,109,0.25);transform:scale(1.1); }
+.chart-modal-close:hover { background:rgba(92,61,46,0.18);transform:scale(1.1); }
 
 .chart-modal-inner {
   background:transparent;
@@ -396,24 +396,32 @@ svg.chart{width:100%;height:auto;display:block}
 
 .chart-modal-title {
   font-family:'Noto Serif TC',serif;
-  font-size:18px;font-weight:700;
-  margin-bottom:20px;
+  font-size:20px;font-weight:900;
+  margin-bottom:24px;
+  color:#5c3d2e;
 }
-.chart-modal-title.s0 { color:#c07840; }
-.chart-modal-title.s1 { color:#d4944a; }
-.chart-modal-title.s2 { color:#4a7c59; }
 
 /* SVG inside modal — full width */
 .chart-modal-inner svg.chart { width:100%;height:auto;display:block; }
 
-/* Hormone pills inside modal — dark version */
-.chart-modal-inner .hormone-panel { margin-top:20px; }
-.chart-modal-inner .h-name { color:#f0d898; }
-.chart-modal-inner .h-desc { color:#c8a060; }
-.chart-modal-inner .h-pill {
-  background:rgba(255,255,255,0.05);
-  border-color:rgba(255,255,255,0.1);
+/* Chart box inside modal */
+.chart-modal-inner .chart-box {
+  background:#fff !important;
+  border:1px solid rgba(180,152,128,0.2) !important;
+  border-radius:16px !important;
+  box-shadow:0 8px 32px rgba(92,61,46,0.08) !important;
 }
+
+/* Hormone pills inside modal */
+.chart-modal-inner .hormone-panel { margin-top:20px; }
+.chart-modal-inner .h-pill {
+  background:rgba(92,61,46,0.04);
+  border:1px solid rgba(180,152,128,0.2);
+}
+.chart-modal-inner .h-name { color:#5c3d2e !important; }
+.chart-modal-inner .h-desc { color:#7a6858 !important; }
+.chart-modal-inner .chtitle { color:#8b6b52 !important; }
+.chart-modal-inner .leg-item { color:#7a6858 !important; }
 
 /* Hormone info panel below chart */
 .hormone-panel { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px;margin-top:16px; }
@@ -1038,11 +1046,6 @@ nav{padding:16px 24px}
         // Remove zoom btn from clone
         const btn = clone.querySelector('.chart-zoom-btn');
         if (btn) btn.remove();
-        // Strip brown box styles — use transparent dark background
-        clone.style.cssText = 'background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 20px 16px;margin-bottom:20px;box-shadow:none;';
-        // Fix legend text color
-        clone.querySelectorAll('.leg-item').forEach(el => { el.style.color = '#c8a878'; });
-        clone.querySelectorAll('.chtitle').forEach(el => { el.style.color = '#c8a878'; });
         contentEl.appendChild(clone);
       }
 
@@ -1050,13 +1053,6 @@ nav{padding:16px 24px}
       const hormonePanel = panel.querySelector('.hormone-panel');
       if (hormonePanel) {
         const hClone = hormonePanel.cloneNode(true);
-        // Fix pill styles for dark bg
-        hClone.querySelectorAll('.h-pill').forEach(p => {
-          p.style.background = 'rgba(255,255,255,0.05)';
-          p.style.borderColor = 'rgba(255,255,255,0.1)';
-        });
-        hClone.querySelectorAll('.h-name').forEach(n => { n.style.color = '#f0d898'; });
-        hClone.querySelectorAll('.h-desc').forEach(d => { d.style.color = '#c8a060'; });
         contentEl.appendChild(hClone);
       }
     }
