@@ -616,7 +616,7 @@ nav{padding:16px 24px}
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#4a7c59 0,#4a7c59 5px,transparent 5px,transparent 9px);"></div><span data-i18n="leg_insulin">胰島素（囤脂荷爾蒙）</span></div>
       </div>
     </div>
-    <svg class="chart" viewBox="0 0 860 310" xmlns="http://www.w3.org/2000/svg">
+    <svg class="chart" viewBox="0 -12 860 322" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g0f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c04444" stop-opacity="0.28"/><stop offset="100%" stop-color="#c04444" stop-opacity="0"/></linearGradient>
         <linearGradient id="g0l" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c07840"/><stop offset="50%" stop-color="#c04444"/><stop offset="100%" stop-color="#c07840"/></linearGradient>
@@ -716,14 +716,14 @@ nav{padding:16px 24px}
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#b8860b 0,#b8860b 4px,transparent 4px,transparent 8px);"></div><span data-i18n="leg_adrenaline">腎上腺素（緊急警報）</span></div>
       </div>
     </div>
-    <svg class="chart" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg">
+    <svg class="chart" viewBox="0 -12 860 352" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g1f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c07840" stop-opacity="0.22"/><stop offset="100%" stop-color="#c07840" stop-opacity="0"/></linearGradient>
         <filter id="gl1"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       </defs>
       <!-- Fasting period background -->
       <rect x="55" y="5" width="285" height="255" rx="4" fill="rgba(192,120,64,0.06)"/>
-      <text x="197" y="18" text-anchor="middle" font-size="8" fill="rgba(192,120,64,0.7)" font-family="'Noto Sans TC',sans-serif">── Fasting Period (No Breakfast) ──</text>
+      <text id="s1t_fasting" x="197" y="18" text-anchor="middle" font-size="8" fill="rgba(192,120,64,0.7)" font-family="'Noto Sans TC',sans-serif">── Fasting Period (No Breakfast) ──</text>
       <!-- Danger zone -->
       <rect x="55" y="22" width="790" height="12" rx="2" fill="rgba(192,80,70,0.2)"/>
       <text id="s1t_danger1" x="62" y="31" font-size="7.5" fill="rgba(230,110,90,1.0)" font-family="'Noto Sans TC',sans-serif" font-weight="700">⚠ Blood Sugar Danger Zone → Insulin Surge</text>
@@ -863,7 +863,7 @@ nav{padding:16px 24px}
         <div class="leg-item"><div class="leg-swatch" style="background:repeating-linear-gradient(90deg,#5c6bc0 0,#5c6bc0 7px,transparent 7px,transparent 11px);"></div><span data-i18n="leg_glucagon">升糖素（燃脂荷爾蒙）</span></div>
       </div>
     </div>
-    <svg class="chart" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg">
+    <svg class="chart" viewBox="0 -12 860 312" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g2f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7c59" stop-opacity="0.2"/><stop offset="100%" stop-color="#4a7c59" stop-opacity="0"/></linearGradient>
         <filter id="gl2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -954,6 +954,8 @@ nav{padding:16px 24px}
     const nav = document.getElementById('mainNav');
     if (id === 'chart') {
       nav.style.display = 'none';
+      // Re-apply current language so SVG chart texts render correctly
+      setLang(currentLang);
     } else {
       nav.style.display = '';
       nav.style.background = '';
@@ -1270,6 +1272,7 @@ nav{padding:16px 24px}
         s1t_low: '低',
         s1t_insulin_surge: '⬆ 胰島素爆發（斷食增敏效應）',
         s1t_spike: '⚡ 斷食後血糖劇烈飆升（胰島素敏感性增強）',
+        s1t_fasting: '── 斷食期間（不吃早餐）──',
         s1t_m1: '不吃早餐',
         s1t_m2: '高GI午餐',
         s1t_m3: '含糖下午茶',
@@ -1307,6 +1310,7 @@ nav{padding:16px 24px}
         s1t_low: 'Low',
         s1t_insulin_surge: '⬆ Insulin Explosion (Fasting-Enhanced Sensitivity)',
         s1t_spike: '⚡ Post-Fast Blood Sugar Violent Spike (Enhanced Insulin Sensitivity)',
+        s1t_fasting: '── Fasting Period (No Breakfast) ──',
         s1t_m1: 'Skip Breakfast',
         s1t_m2: 'High-GI Lunch',
         s1t_m3: 'Sugary Snack',
