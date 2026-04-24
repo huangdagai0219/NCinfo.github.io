@@ -344,9 +344,9 @@ svg.chart{width:100%;height:auto;display:block}
 .chart-zoom-wrap { position:relative;cursor:zoom-in; }
 .chart-zoom-btn {
   position:absolute;top:10px;right:10px;z-index:10;
-  background:rgba(61,43,30,0.85);
-  border:1px solid rgba(212,196,168,0.3);
-  color:#d4b896;
+  background:rgba(12,11,20,0.82);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#c8a878;
   font-size:11px;font-family:'Noto Sans TC',sans-serif;
   padding:5px 12px;border-radius:20px;
   cursor:pointer;
@@ -354,47 +354,66 @@ svg.chart{width:100%;height:auto;display:block}
   transition:background .2s,color .2s;
   backdrop-filter:blur(4px);
 }
-.chart-zoom-btn:hover { background:rgba(212,148,74,0.25);color:#f0d898; }
+.chart-zoom-btn:hover { background:rgba(255,255,255,0.12);color:#f0e8d8; }
 
+/* ── FULLSCREEN CHART MODAL ── */
 .chart-modal-overlay {
   display:none;
   position:fixed;inset:0;z-index:9000;
-  background:rgba(20,12,6,0.88);
-  backdrop-filter:blur(6px);
-  align-items:center;justify-content:center;
-  padding:20px;
-}
-.chart-modal-overlay.open { display:flex; }
-.chart-modal-inner {
-  background:#3d2b1e;
-  border:1px solid rgba(212,196,168,0.18);
-  border-radius:20px;
-  width:min(960px,100%);
-  max-height:90vh;
+  background:#0c0b14;
   overflow-y:auto;
-  position:relative;
-  animation:modalIn .25s ease;
-  padding:28px 24px;
+  padding:0;
 }
-@keyframes modalIn { from{opacity:0;transform:scale(.95)} to{opacity:1;transform:scale(1)} }
+.chart-modal-overlay.open { display:block; }
+
+/* Close button — fixed top-right */
 .chart-modal-close {
-  position:sticky;top:0;float:right;
-  background:rgba(212,148,74,0.18);
-  border:1px solid rgba(212,148,74,0.35);
-  color:#d4b896;
-  font-size:13px;font-family:'Noto Sans TC',sans-serif;
-  padding:7px 18px;border-radius:20px;
-  cursor:pointer;margin-bottom:16px;
-  transition:background .2s;
-  z-index:1;
+  position:fixed;top:16px;right:20px;z-index:9100;
+  width:44px;height:44px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:50%;
+  color:#f0e8d8;
+  font-size:20px;line-height:1;
+  font-family:'Noto Sans TC',sans-serif;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;
 }
-.chart-modal-close:hover { background:rgba(212,148,74,0.32);color:#f0d898; }
+.chart-modal-close:hover { background:rgba(255,77,109,0.25);transform:scale(1.1); }
+
+.chart-modal-inner {
+  background:transparent;
+  width:100%;
+  min-height:100vh;
+  padding:72px 32px 48px;
+  max-width:1100px;
+  margin:0 auto;
+  animation:modalIn .2s ease;
+  position:relative;
+}
+@keyframes modalIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
 .chart-modal-title {
   font-family:'Noto Serif TC',serif;
-  font-size:16px;font-weight:700;color:#d4a040;
-  margin-bottom:16px;clear:both;
+  font-size:18px;font-weight:700;
+  margin-bottom:20px;
 }
-.chart-modal-inner svg.chart { width:100%;height:auto; }
+.chart-modal-title.s0 { color:#c07840; }
+.chart-modal-title.s1 { color:#d4944a; }
+.chart-modal-title.s2 { color:#4a7c59; }
+
+/* SVG inside modal — full width */
+.chart-modal-inner svg.chart { width:100%;height:auto;display:block; }
+
+/* Hormone pills inside modal — dark version */
+.chart-modal-inner .hormone-panel { margin-top:20px; }
+.chart-modal-inner .h-name { color:#f0d898; }
+.chart-modal-inner .h-desc { color:#c8a060; }
+.chart-modal-inner .h-pill {
+  background:rgba(255,255,255,0.05);
+  border-color:rgba(255,255,255,0.1);
+}
 
 /* Hormone info panel below chart */
 .hormone-panel { display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:20px;margin-top:16px; }
@@ -1007,33 +1026,50 @@ nav{padding:16px 24px}
   function openChartModal(id) {
     const overlay = document.getElementById(id);
     const contentEl = document.getElementById(id + '-content');
-    // Find which panel corresponds to this modal
     const panelMap = { 'modal-s0': 'panel-0', 'modal-s1': 'panel-1', 'modal-s2': 'panel-2' };
     const panel = document.getElementById(panelMap[id]);
     if (panel && contentEl) {
-      // Clone the SVG and legend into modal
+      contentEl.innerHTML = '';
+
+      // Clone chart-box (SVG + legend)
       const chartBox = panel.querySelector('.chart-box');
       if (chartBox) {
-        contentEl.innerHTML = '';
         const clone = chartBox.cloneNode(true);
-        // Remove zoom button from clone if present
+        // Remove zoom btn from clone
         const btn = clone.querySelector('.chart-zoom-btn');
         if (btn) btn.remove();
-        clone.style.marginBottom = '0';
-        clone.style.boxShadow = 'none';
-        clone.style.background = 'transparent';
-        clone.style.border = 'none';
+        // Strip brown box styles — use transparent dark background
+        clone.style.cssText = 'background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 20px 16px;margin-bottom:20px;box-shadow:none;';
+        // Fix legend text color
+        clone.querySelectorAll('.leg-item').forEach(el => { el.style.color = '#c8a878'; });
+        clone.querySelectorAll('.chtitle').forEach(el => { el.style.color = '#c8a878'; });
         contentEl.appendChild(clone);
+      }
+
+      // Clone hormone panel
+      const hormonePanel = panel.querySelector('.hormone-panel');
+      if (hormonePanel) {
+        const hClone = hormonePanel.cloneNode(true);
+        // Fix pill styles for dark bg
+        hClone.querySelectorAll('.h-pill').forEach(p => {
+          p.style.background = 'rgba(255,255,255,0.05)';
+          p.style.borderColor = 'rgba(255,255,255,0.1)';
+        });
+        hClone.querySelectorAll('.h-name').forEach(n => { n.style.color = '#f0d898'; });
+        hClone.querySelectorAll('.h-desc').forEach(d => { d.style.color = '#c8a060'; });
+        contentEl.appendChild(hClone);
       }
     }
     overlay.classList.add('open');
+    overlay.scrollTop = 0;
     document.body.style.overflow = 'hidden';
   }
-  function closeChartModal(event, id) {
-    if (event && event.target !== document.getElementById(id)) return;
+
+  function closeChartModal(id) {
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
   }
+
   // Close on Escape key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
@@ -1345,24 +1381,24 @@ nav{padding:16px 24px}
 </script>
 
 <!-- ═══ CHART ZOOM MODALS ═══ -->
-<div class="chart-modal-overlay" id="modal-s0" onclick="closeChartModal(event, 'modal-s0')">
-  <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s0')" data-i18n="modal_close">✕ 關閉</button>
-    <div class="chart-modal-title" data-i18n="modal0_title">🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動</div>
+<div class="chart-modal-overlay" id="modal-s0">
+  <button class="chart-modal-close" onclick="closeChartModal('modal-s0')" title="關閉">✕</button>
+  <div class="chart-modal-inner">
+    <div class="chart-modal-title s0" data-i18n="modal0_title">🔴 高GI飲食：全天血糖與胰島素（囤脂荷爾蒙）波動</div>
     <div id="modal-s0-content"></div>
   </div>
 </div>
-<div class="chart-modal-overlay" id="modal-s1" onclick="closeChartModal(event, 'modal-s1')">
-  <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s1')" data-i18n="modal_close">✕ 關閉</button>
-    <div class="chart-modal-title" data-i18n="modal1_title">🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化</div>
+<div class="chart-modal-overlay" id="modal-s1">
+  <button class="chart-modal-close" onclick="closeChartModal('modal-s1')" title="關閉">✕</button>
+  <div class="chart-modal-inner">
+    <div class="chart-modal-title s1" data-i18n="modal1_title">🟡 錯誤168斷食：血糖、皮質醇、腎上腺素變化</div>
     <div id="modal-s1-content"></div>
   </div>
 </div>
-<div class="chart-modal-overlay" id="modal-s2" onclick="closeChartModal(event, 'modal-s2')">
-  <div class="chart-modal-inner" onclick="event.stopPropagation()">
-    <button class="chart-modal-close" onclick="closeChartModal(null,'modal-s2')" data-i18n="modal_close">✕ 關閉</button>
-    <div class="chart-modal-title" data-i18n="modal2_title">🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍</div>
+<div class="chart-modal-overlay" id="modal-s2">
+  <button class="chart-modal-close" onclick="closeChartModal('modal-s2')" title="關閉">✕</button>
+  <div class="chart-modal-inner">
+    <div class="chart-modal-title s2" data-i18n="modal2_title">🟢 正確低GI飲食：血糖平穩、燃脂荷爾蒙持續活躍</div>
     <div id="modal-s2-content"></div>
   </div>
 </div>
