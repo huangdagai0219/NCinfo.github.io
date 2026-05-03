@@ -458,9 +458,180 @@ nav{padding:16px 24px}
 .hero-stats{gap:24px}
 .tip-row{flex-direction:column}
 }
-</style>
+/* ══════════════════════════════
+MAINTAIN PAGE STYLES
+══════════════════════════════ */
+#maintain {
+  background: var(--light);
+  color: var(--text);
+  min-height: 100vh;
+}
 
-</head>
+.maintain-topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245,240,232,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(180,152,128,0.2);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.maintain-topbar .back-btn {
+  background: rgba(92,61,46,0.08);
+  border: 1px solid rgba(92,61,46,0.2);
+  color: var(--bark);
+}
+.maintain-topbar .back-btn:hover { background: rgba(92,61,46,0.15); color: var(--bark); }
+.maintain-topbar .chart-bar-title { color: var(--honey); }
+.maintain-topbar .lang-toggle {
+  background: rgba(92,61,46,0.06);
+  border: 1px solid rgba(92,61,46,0.2);
+}
+.maintain-topbar .lang-toggle button { color: rgba(92,61,46,0.5); }
+.maintain-topbar .lang-toggle button.active { background: var(--bark); color: var(--cream); }
+.maintain-topbar .lang-toggle button:hover:not(.active) { color: var(--bark); }
+
+.maintain-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 56px 48px 80px;
+}
+
+/* Hero */
+.maintain-hero { text-align: center; margin-bottom: 72px; }
+.maintain-hero-eyebrow {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--honey); margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.maintain-hero-eyebrow::before { content:''; width: 24px; height: 1px; background: var(--honey); }
+.maintain-hero-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900; line-height: 1.2;
+  color: var(--bark); margin-bottom: 20px;
+}
+.maintain-hero-title em { font-style: normal; color: var(--honey); }
+.maintain-hero-desc {
+  font-size: 15px; line-height: 1.9; color: #6b5644;
+  max-width: 620px; margin: 0 auto;
+}
+
+/* Sections */
+.m-section { margin-bottom: 72px; }
+.m-section-alt { background: var(--cream); border-radius: 28px; padding: 48px; margin-bottom: 72px; }
+.m-section-label {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--honey); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.m-section-label::before { content:''; width: 20px; height: 1px; background: var(--honey); }
+.m-section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-weight: 900; color: var(--bark);
+  margin-bottom: 14px; line-height: 1.3;
+}
+.m-section-intro { font-size: 14.5px; color: #6b5644; line-height: 1.9; max-width: 700px; margin-bottom: 36px; }
+
+/* 3-card grid */
+.m-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+.m-card {
+  border-radius: 20px; padding: 28px 24px;
+  border: 1px solid rgba(180,152,128,0.2);
+  background: white;
+  position: relative; overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.m-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(92,61,46,.1); }
+.m-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.m-card-red::before { background: linear-gradient(90deg, #c0392b, #c07840); }
+.m-card-amber::before { background: linear-gradient(90deg, #c07840, #d4944a); }
+.m-card-green::before { background: linear-gradient(90deg, #4a7c59, #7ab890); }
+.m-card-icon { font-size: 32px; margin-bottom: 14px; }
+.m-card-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: var(--bark); margin-bottom: 10px; }
+.m-card-desc { font-size: 13px; color: #6b5644; line-height: 1.8; }
+
+/* Fat cell diagram */
+.m-fat-block { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: center; background: white; border-radius: 24px; padding: 40px; border: 1px solid rgba(180,152,128,0.2); }
+.m-fat-diagram { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.fat-cell {
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative;
+  background: radial-gradient(circle at 35% 35%, rgba(212,148,74,0.25), rgba(184,152,128,0.15));
+  border: 2px solid rgba(212,148,74,0.4);
+  flex-shrink: 0;
+}
+.fat-big { width: 130px; height: 130px; }
+.fat-small { width: 80px; height: 80px; }
+.fat-label { font-size: 11px; font-weight: 700; color: var(--bark); line-height: 1.4; padding: 4px; }
+.fat-arrow { font-size: 24px; color: var(--clay); flex-shrink: 0; }
+.m-fat-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.6; }
+.m-fat-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--bark); margin-bottom: 14px; }
+.m-fat-text p { font-size: 13.5px; color: #6b5644; line-height: 1.9; margin-bottom: 12px; }
+.m-fat-text strong { color: var(--bark); }
+
+/* Nutrients grid */
+.m-nutrients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
+.m-nutrient {
+  background: white; border-radius: 16px; padding: 20px;
+  border: 1px solid rgba(180,152,128,0.2);
+  transition: transform .2s, box-shadow .2s;
+}
+.m-nutrient:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(92,61,46,.08); }
+.m-nutrient-icon { font-size: 28px; margin-bottom: 10px; }
+.m-nutrient-name { font-size: 13px; font-weight: 700; color: var(--bark); margin-bottom: 6px; }
+.m-nutrient-desc { font-size: 12px; color: #6b5644; line-height: 1.7; }
+
+/* Two column protein/water */
+.m-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.m-col-block { background: white; border-radius: 24px; padding: 36px; border: 1px solid rgba(180,152,128,0.2); }
+.m-col-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.m-col-icon { font-size: 36px; flex-shrink: 0; }
+.m-col-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--honey); margin-bottom: 4px; }
+.m-col-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--bark); }
+.m-col-intro { font-size: 13px; color: #6b5644; line-height: 1.85; margin-bottom: 20px; }
+.m-points { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.m-point { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: #6b5644; line-height: 1.75; }
+.m-point-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.m-point strong { color: var(--bark); }
+
+.m-highlight-box {
+  background: rgba(212,148,74,0.08); border: 1px solid rgba(212,148,74,0.3);
+  border-radius: 16px; padding: 20px; margin-bottom: 20px;
+}
+.m-highlight-teal { background: rgba(46,125,138,0.07); border-color: rgba(46,125,138,0.3); }
+.m-highlight-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--honey); margin-bottom: 6px; }
+.m-highlight-teal .m-highlight-title { color: #2e7d8a; }
+.m-highlight-val { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 900; color: var(--bark); margin-bottom: 6px; }
+.m-highlight-val em { font-style: normal; color: var(--honey); font-size: 28px; }
+.m-highlight-teal .m-highlight-val em { color: #2e7d8a; }
+.m-highlight-sub { font-size: 11.5px; color: var(--muted); line-height: 1.65; }
+
+.m-ref { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.7; }
+
+/* Footer note */
+.maintain-footer-note {
+  display: flex; align-items: center; gap: 20px;
+  background: var(--bark); border-radius: 24px; padding: 32px 40px;
+  margin-top: 24px;
+}
+.mfn-icon { font-size: 40px; flex-shrink: 0; }
+.mfn-text { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--cream); line-height: 1.7; }
+
+@media(max-width:900px){
+  .maintain-wrapper { padding: 32px 24px 60px; }
+  .m-cards-grid { grid-template-columns: 1fr; }
+  .m-fat-block { grid-template-columns: 1fr; gap: 32px; }
+  .m-nutrients-grid { grid-template-columns: 1fr 1fr; }
+  .m-two-col { grid-template-columns: 1fr; }
+  .maintain-topbar { padding: 12px 16px; }
+}
+@media(max-width:600px){
+  .m-nutrients-grid { grid-template-columns: 1fr; }
+  .maintain-footer-note { flex-direction: column; text-align: center; }
+}
+
+</style>
 <body>
 
 <div class="cursor" id="cursor"></div>
@@ -474,6 +645,7 @@ nav{padding:16px 24px}
     <li><a onclick="showPage('home');scrollToSection('concept')" data-i18n="nav_concept">飲食觀念</a></li>
     <li><a onclick="showPage('home');scrollToSection('bloodsugar')" data-i18n="nav_blood">血糖管理</a></li>
     <li><a onclick="showPage('home');scrollToSection('howto')" data-i18n="nav_how">怎麼做</a></li>
+    <li><a onclick="showPage('maintain')" data-i18n="nav_maintain">減重維持</a></li>
     <li><a class="nav-cta" onclick="showPage('chart')" data-i18n="nav_chart">查看圖表分析</a></li>
   </ul>
   <div class="lang-toggle">
@@ -971,6 +1143,227 @@ nav{padding:16px 24px}
 </div>
 </div>
 
+<!-- ═══════════ MAINTAIN PAGE ═══════════ -->
+<div class="page" id="maintain">
+
+  <!-- topbar (同 chart page 風格) -->
+  <div class="maintain-topbar">
+    <button class="back-btn" onclick="showPage('home')">← <span data-i18n="back_btn_text">返回首頁</span></button>
+    <div class="chart-bar-title" data-i18n="maintain_bar_title">減重維持 · 科學指南</div>
+    <div class="lang-toggle">
+      <button id="btn-zh-maintain" class="active" onclick="setLang('zh')">中文</button>
+      <button id="btn-en-maintain" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="maintain-wrapper">
+
+    <!-- Hero -->
+    <div class="maintain-hero reveal">
+      <div class="maintain-hero-eyebrow" data-i18n="maintain_eyebrow">減重 · 維持期 · 身體科學</div>
+      <h1 class="maintain-hero-title" data-i18n="maintain_hero_title">瘦下來只是開始<br>讓身體<em>真正接受</em>新體重</h1>
+      <p class="maintain-hero-desc" data-i18n="maintain_hero_desc">研究顯示高達 80% 的減重者在 1～5 年內恢復原本體重。這不是意志力的問題，而是身體有一套複雜的生理機制在抵抗改變。了解它，才能真正贏過它。</p>
+    </div>
+
+    <!-- Section 1: 維持期 -->
+    <div class="m-section reveal">
+      <div class="m-section-label" data-i18n="m1_label">PART 01 · 維持期</div>
+      <h2 class="m-section-title" data-i18n="m1_title">為什麼減重後容易復胖？</h2>
+      <p class="m-section-intro" data-i18n="m1_intro">很多人努力瘦下來後，沒多久又胖回去，這不是意志力的問題，而是身體的「求生機制」在作怪。</p>
+
+      <div class="m-cards-grid">
+        <div class="m-card m-card-red">
+          <div class="m-card-icon">🍽️</div>
+          <div class="m-card-title" data-i18n="m1_c1_title">飢餓訊號變強</div>
+          <div class="m-card-desc" data-i18n="m1_c1_desc">體重下降後，控制飢餓感的荷爾蒙會失衡——讓你感到飽足的訊號變弱，讓你想吃東西的訊號變強，身體拼命要你補回去。</div>
+        </div>
+        <div class="m-card m-card-amber">
+          <div class="m-card-icon">🔥</div>
+          <div class="m-card-title" data-i18n="m1_c2_title">代謝率下降</div>
+          <div class="m-card-desc" data-i18n="m1_c2_desc">減重過程中，身體為了「省油」，燃燒熱量的效率會降低，同樣的飲食量反而更容易囤積脂肪。</div>
+        </div>
+        <div class="m-card m-card-green">
+          <div class="m-card-icon">🧠</div>
+          <div class="m-card-title" data-i18n="m1_c3_title">身體記憶體重</div>
+          <div class="m-card-desc" data-i18n="m1_c3_desc">大腦會把減重前的體重當成「正常值」，並持續抵抗改變。需要至少 12～24 個月的穩定維持，身體才會接受新體重為新的基準。</div>
+        </div>
+      </div>
+
+      <!-- 脂肪細胞 -->
+      <div class="m-fat-block reveal">
+        <div class="m-fat-visual">
+          <div class="m-fat-diagram">
+            <div class="fat-cell fat-big">
+              <span class="fat-label" data-i18n="fat_big_label">肥胖期<br>脂肪細胞</span>
+            </div>
+            <div class="fat-arrow">→</div>
+            <div class="fat-cell fat-small">
+              <span class="fat-label" data-i18n="fat_small_label">減重後<br>脂肪細胞</span>
+            </div>
+          </div>
+          <div class="m-fat-note" data-i18n="fat_note">脂肪細胞體積縮小，但數量幾乎不變（約 300～400 億個）</div>
+        </div>
+        <div class="m-fat-text">
+          <div class="m-fat-title" data-i18n="fat_title">脂肪細胞是「被撐大」的，不是變多的</div>
+          <p data-i18n="fat_p1">成年後，體內的脂肪細胞數量基本上<strong>固定不變</strong>。變胖時，是每一個脂肪細胞<strong>被油脂撐大</strong>，就像氣球充氣一樣；變瘦時，脂肪細胞<strong>排出油脂、體積縮小</strong>，但細胞本身並不會消失。</p>
+          <p data-i18n="fat_p2">脂肪細胞縮小後，並不會馬上「忘記」曾經被撐大的狀態。細胞在肥胖期間會留下「記憶痕跡」，使它在變瘦後仍然更容易再次囤積脂肪。要讓脂肪細胞真正穩定在新的小尺寸，需要 <strong>6 個月到 2 年</strong>的時間。</p>
+          <div class="m-ref">📖 Spalding et al., <em>Nature</em>, 2008 &nbsp;·&nbsp; Barrès et al., <em>Cell Metabolism</em>, 2012 &nbsp;·&nbsp; Sumithran et al., <em>New England Journal of Medicine</em>, 2011</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: 結締組織 -->
+    <div class="m-section m-section-alt reveal">
+      <div class="m-section-label" data-i18n="m2_label">PART 02 · 結締組織</div>
+      <h2 class="m-section-title" data-i18n="m2_title">減重時皮膚為什麼會鬆弛？</h2>
+      <p class="m-section-intro" data-i18n="m2_intro">皮膚和身體深層組織就像一張「網」，靠膠原蛋白和彈力蛋白維持彈性與緊緻。減重後這張網失去支撐，如果營養不夠，就很難回彈。減重速度越快，皮膚來不及適應，鬆弛的風險就越高。</p>
+
+      <div class="m-nutrients-grid">
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🍊</div>
+          <div class="m-nutrient-name" data-i18n="n1_name">維生素 C</div>
+          <div class="m-nutrient-desc" data-i18n="n1_desc">幫助身體製造膠原蛋白，缺乏時膠原蛋白無法正常合成，是最核心的關鍵營養素</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🥩</div>
+          <div class="m-nutrient-name" data-i18n="n2_name">蛋白質</div>
+          <div class="m-nutrient-desc" data-i18n="n2_desc">膠原蛋白的直接原料，攝取不足時身體沒有材料可以修復組織</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🦪</div>
+          <div class="m-nutrient-name" data-i18n="n3_name">鋅</div>
+          <div class="m-nutrient-desc" data-i18n="n3_desc">促進組織修復與膠原蛋白生成，也幫助皮膚細胞正常更新</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🫘</div>
+          <div class="m-nutrient-name" data-i18n="n4_name">銅</div>
+          <div class="m-nutrient-desc" data-i18n="n4_desc">讓膠原蛋白與彈力蛋白的結構更穩固，缺乏時組織容易失去彈性</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🌾</div>
+          <div class="m-nutrient-name" data-i18n="n5_name">矽</div>
+          <div class="m-nutrient-desc" data-i18n="n5_desc">促進膠原蛋白前驅物的合成，有助維持皮膚與結締組織的結構完整性</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🌻</div>
+          <div class="m-nutrient-name" data-i18n="n6_name">維生素 E</div>
+          <div class="m-nutrient-desc" data-i18n="n6_desc">強效抗氧化，保護皮膚細胞與膠原蛋白不被自由基破壞</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🥕</div>
+          <div class="m-nutrient-name" data-i18n="n7_name">維生素 A</div>
+          <div class="m-nutrient-desc" data-i18n="n7_desc">促進皮膚細胞更新與修復，維持皮膚厚度與彈性</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">🐟</div>
+          <div class="m-nutrient-name" data-i18n="n8_name">Omega-3 脂肪酸</div>
+          <div class="m-nutrient-desc" data-i18n="n8_desc">幫助維持細胞膜完整性，減少皮膚發炎，讓皮膚更有彈性</div>
+        </div>
+        <div class="m-nutrient">
+          <div class="m-nutrient-icon">✨</div>
+          <div class="m-nutrient-name" data-i18n="n9_name">膠原蛋白胜肽</div>
+          <div class="m-nutrient-desc" data-i18n="n9_desc">直接補充膠原蛋白的小分子形式，研究顯示可促進皮膚彈性改善</div>
+        </div>
+      </div>
+      <div class="m-ref" style="margin-top:24px;">📖 Pullar et al., <em>Nutrients</em>, 2017 &nbsp;·&nbsp; Proksch et al., <em>Skin Pharmacology and Physiology</em>, 2014</div>
+    </div>
+
+    <!-- Section 3: 蛋白質與水分 -->
+    <div class="m-section reveal">
+      <div class="m-section-label" data-i18n="m3_label">PART 03 · 蛋白質與水分</div>
+      <h2 class="m-section-title" data-i18n="m3_title">減重真正有效的基礎</h2>
+      <p class="m-section-intro" data-i18n="m3_intro">很多人減重只注意熱量，卻忽略了「吃什麼」和「喝多少水」同樣關鍵。這兩件事直接影響代謝率與減脂效率。</p>
+
+      <div class="m-two-col">
+        <!-- 蛋白質 -->
+        <div class="m-col-block">
+          <div class="m-col-header">
+            <span class="m-col-icon">🥩</span>
+            <div>
+              <div class="m-col-label" data-i18n="protein_label">蛋白質</div>
+              <div class="m-col-title" data-i18n="protein_title">保住肌肉、維持代謝</div>
+            </div>
+          </div>
+          <p class="m-col-intro" data-i18n="protein_intro">減重時如果蛋白質攝取不足，身體會分解<strong>肌肉</strong>來當能量用，結果體重雖然下降，但代謝率也跟著下降，之後反而更難瘦、更容易復胖。</p>
+          <div class="m-points">
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#d4944a;"></div>
+              <div data-i18n="protein_p1"><strong>保留肌肉量：</strong>高蛋白飲食能有效減少肌肉流失，讓減掉的重量主要來自脂肪而非肌肉</div>
+            </div>
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#d4944a;"></div>
+              <div data-i18n="protein_p2"><strong>提升飽足感：</strong>蛋白質是三大營養素中飽足感最強的，能自然減少總熱量攝取</div>
+            </div>
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#d4944a;"></div>
+              <div data-i18n="protein_p3"><strong>消化本身就燃燒熱量：</strong>身體消化蛋白質需要消耗較多能量，約為攝取熱量的 20～30%，遠高於脂肪與碳水化合物</div>
+            </div>
+          </div>
+          <div class="m-highlight-box">
+            <div class="m-highlight-title" data-i18n="protein_rec_title">每日建議攝取量</div>
+            <div class="m-highlight-val" data-i18n="protein_rec_val">每公斤體重 <em>1.2～1.6g</em></div>
+            <div class="m-highlight-sub" data-i18n="protein_rec_sub">運動量較大者可提高至 2.0g／kg</div>
+          </div>
+          <div class="m-ref">📖 Leidy et al., <em>American Journal of Clinical Nutrition</em>, 2015</div>
+        </div>
+
+        <!-- 水分 -->
+        <div class="m-col-block">
+          <div class="m-col-header">
+            <span class="m-col-icon">💧</span>
+            <div>
+              <div class="m-col-label" data-i18n="water_label">水分</div>
+              <div class="m-col-title" data-i18n="water_title">代謝的幕後功臣</div>
+            </div>
+          </div>
+          <p class="m-col-intro" data-i18n="water_intro">水分不足是很多人減重停滯的隱藏原因之一。充足的水分直接支持脂肪代謝、抑制假性飢餓、幫助排除廢物。</p>
+          <div class="m-points">
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#2e7d8a;"></div>
+              <div data-i18n="water_p1"><strong>提升代謝率：</strong>喝水後靜止代謝率可在 30～40 分鐘內短暫提升約 24～30%</div>
+            </div>
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#2e7d8a;"></div>
+              <div data-i18n="water_p2"><strong>促進脂肪分解：</strong>脂肪的代謝過程需要水參與，水分不足時脂肪燃燒效率會下降</div>
+            </div>
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#2e7d8a;"></div>
+              <div data-i18n="water_p3"><strong>抑制假性飢餓：</strong>大腦對「渴」和「餓」的訊號容易混淆，輕度缺水時常被誤判為飢餓感</div>
+            </div>
+            <div class="m-point">
+              <div class="m-point-dot" style="background:#2e7d8a;"></div>
+              <div data-i18n="water_p4"><strong>幫助排除代謝廢物：</strong>減脂過程中產生的廢物需要靠水分排出</div>
+            </div>
+          </div>
+          <div class="m-highlight-box m-highlight-teal">
+            <div class="m-highlight-title" data-i18n="water_rec_title">減重期間每日建議攝取</div>
+            <div class="m-highlight-val" data-i18n="water_rec_val">體重（kg）× <em>50ml</em></div>
+            <div class="m-highlight-sub" data-i18n="water_rec_sub">例：60kg → 每天約 3,000ml｜依運動量、氣溫自行調整｜年長者或腎臟功能較弱者請先諮詢醫師</div>
+          </div>
+          <div class="m-ref">📖 Boschmann et al., <em>Journal of Clinical Endocrinology & Metabolism</em>, 2003</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="maintain-footer-note reveal">
+      <div class="mfn-icon">⏳</div>
+      <div class="mfn-text" data-i18n="maintain_footer_note">減重的終點不是達到目標體重的那天，而是身體真正接受並穩定在新體重的那一刻。給自己時間，給身體時間。</div>
+    </div>
+
+  </div><!-- /maintain-wrapper -->
+
+  <footer style="background:var(--bark);color:#f0e8d8;padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div class="footer-logo">好好吃<span>·</span></div>
+    <div class="footer-copy" data-i18n="footer_copy">讓每一口食物，都成為你的盟友</div>
+    <div class="footer-links">
+      <a onclick="showPage('home')">首頁</a>
+      <a onclick="showPage('chart')">圖表分析</a>
+    </div>
+  </footer>
+
+</div><!-- /maintain page -->
+
 <script>
   // ── PAGE SWITCHER ──
   function showPage(id) {
@@ -979,7 +1372,7 @@ nav{padding:16px 24px}
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // hide nav on chart page, show on home
     const nav = document.getElementById('mainNav');
-    if (id === 'chart') {
+    if (id === 'chart' || id === 'maintain') {
       nav.style.display = 'none';
       // Re-apply current language so SVG chart texts render correctly
       setLang(currentLang);
@@ -1079,8 +1472,53 @@ nav{padding:16px 24px}
   const i18n = {
     zh: {
       nav_concept:'飲食觀念', nav_blood:'血糖管理', nav_how:'怎麼做',
-      nav_chart:'查看圖表分析', nav_concept2:'飲食觀念', nav_blood2:'血糖管理', nav_chart2:'圖表分析',
+      nav_chart:'查看圖表分析', nav_maintain:'減重維持', nav_concept2:'飲食觀念', nav_blood2:'血糖管理', nav_chart2:'圖表分析',
       back_btn:'← 返回首頁', chart_title:'血糖分析圖表',
+      back_btn_text:'返回首頁',
+      maintain_bar_title:'減重維持 · 科學指南',
+      maintain_eyebrow:'減重 · 維持期 · 身體科學',
+      maintain_hero_title:'瘦下來只是開始<br>讓身體<em>真正接受</em>新體重',
+      maintain_hero_desc:'研究顯示高達 80% 的減重者在 1～5 年內恢復原本體重。這不是意志力的問題，而是身體有一套複雜的生理機制在抵抗改變。了解它，才能真正贏過它。',
+      m1_label:'PART 01 · 維持期',
+      m1_title:'為什麼減重後容易復胖？',
+      m1_intro:'很多人努力瘦下來後，沒多久又胖回去，這不是意志力的問題，而是身體的「求生機制」在作怪。',
+      m1_c1_title:'飢餓訊號變強', m1_c1_desc:'體重下降後，控制飢餓感的荷爾蒙會失衡——讓你感到飽足的訊號變弱，讓你想吃東西的訊號變強，身體拼命要你補回去。',
+      m1_c2_title:'代謝率下降', m1_c2_desc:'減重過程中，身體為了「省油」，燃燒熱量的效率會降低，同樣的飲食量反而更容易囤積脂肪。',
+      m1_c3_title:'身體記憶體重', m1_c3_desc:'大腦會把減重前的體重當成「正常值」，並持續抵抗改變。需要至少 12～24 個月的穩定維持，身體才會接受新體重為新的基準。',
+      fat_big_label:'肥胖期\n脂肪細胞', fat_small_label:'減重後\n脂肪細胞',
+      fat_note:'脂肪細胞體積縮小，但數量幾乎不變（約 300～400 億個）',
+      fat_title:'脂肪細胞是「被撐大」的，不是變多的',
+      fat_p1:'成年後，體內的脂肪細胞數量基本上<strong>固定不變</strong>。變胖時，是每一個脂肪細胞<strong>被油脂撐大</strong>，就像氣球充氣一樣；變瘦時，脂肪細胞<strong>排出油脂、體積縮小</strong>，但細胞本身並不會消失。',
+      fat_p2:'脂肪細胞縮小後，並不會馬上「忘記」曾經被撐大的狀態。細胞在肥胖期間會留下「記憶痕跡」，使它在變瘦後仍然更容易再次囤積脂肪。要讓脂肪細胞真正穩定在新的小尺寸，需要 <strong>6 個月到 2 年</strong>的時間。',
+      m2_label:'PART 02 · 結締組織',
+      m2_title:'減重時皮膚為什麼會鬆弛？',
+      m2_intro:'皮膚和身體深層組織就像一張「網」，靠膠原蛋白和彈力蛋白維持彈性與緊緻。減重後這張網失去支撐，如果營養不夠，就很難回彈。減重速度越快，皮膚來不及適應，鬆弛的風險就越高。',
+      n1_name:'維生素 C', n1_desc:'幫助身體製造膠原蛋白，缺乏時膠原蛋白無法正常合成，是最核心的關鍵營養素',
+      n2_name:'蛋白質', n2_desc:'膠原蛋白的直接原料，攝取不足時身體沒有材料可以修復組織',
+      n3_name:'鋅', n3_desc:'促進組織修復與膠原蛋白生成，也幫助皮膚細胞正常更新',
+      n4_name:'銅', n4_desc:'讓膠原蛋白與彈力蛋白的結構更穩固，缺乏時組織容易失去彈性',
+      n5_name:'矽', n5_desc:'促進膠原蛋白前驅物的合成，有助維持皮膚與結締組織的結構完整性',
+      n6_name:'維生素 E', n6_desc:'強效抗氧化，保護皮膚細胞與膠原蛋白不被自由基破壞',
+      n7_name:'維生素 A', n7_desc:'促進皮膚細胞更新與修復，維持皮膚厚度與彈性',
+      n8_name:'Omega-3 脂肪酸', n8_desc:'幫助維持細胞膜完整性，減少皮膚發炎，讓皮膚更有彈性',
+      n9_name:'膠原蛋白胜肽', n9_desc:'直接補充膠原蛋白的小分子形式，研究顯示可促進皮膚彈性改善',
+      m3_label:'PART 03 · 蛋白質與水分',
+      m3_title:'減重真正有效的基礎',
+      m3_intro:'很多人減重只注意熱量，卻忽略了「吃什麼」和「喝多少水」同樣關鍵。這兩件事直接影響代謝率與減脂效率。',
+      protein_label:'蛋白質', protein_title:'保住肌肉、維持代謝',
+      protein_intro:'減重時如果蛋白質攝取不足，身體會分解<strong>肌肉</strong>來當能量用，結果體重雖然下降，但代謝率也跟著下降，之後反而更難瘦、更容易復胖。',
+      protein_p1:'<strong>保留肌肉量：</strong>高蛋白飲食能有效減少肌肉流失，讓減掉的重量主要來自脂肪而非肌肉',
+      protein_p2:'<strong>提升飽足感：</strong>蛋白質是三大營養素中飽足感最強的，能自然減少總熱量攝取',
+      protein_p3:'<strong>消化本身就燃燒熱量：</strong>身體消化蛋白質需要消耗較多能量，約為攝取熱量的 20～30%，遠高於脂肪與碳水化合物',
+      protein_rec_title:'每日建議攝取量', protein_rec_val:'每公斤體重 <em>1.2～1.6g</em>', protein_rec_sub:'運動量較大者可提高至 2.0g／kg',
+      water_label:'水分', water_title:'代謝的幕後功臣',
+      water_intro:'水分不足是很多人減重停滯的隱藏原因之一。充足的水分直接支持脂肪代謝、抑制假性飢餓、幫助排除廢物。',
+      water_p1:'<strong>提升代謝率：</strong>喝水後靜止代謝率可在 30～40 分鐘內短暫提升約 24～30%',
+      water_p2:'<strong>促進脂肪分解：</strong>脂肪的代謝過程需要水參與，水分不足時脂肪燃燒效率會下降',
+      water_p3:'<strong>抑制假性飢餓：</strong>大腦對「渴」和「餓」的訊號容易混淆，輕度缺水時常被誤判為飢餓感',
+      water_p4:'<strong>幫助排除代謝廢物：</strong>減脂過程中產生的廢物需要靠水分排出',
+      water_rec_title:'減重期間每日建議攝取', water_rec_val:'體重（kg）× <em>50ml</em>', water_rec_sub:'例：60kg → 每天約 3,000ml｜依運動量、氣溫自行調整｜年長者或腎臟功能較弱者請先諮詢醫師',
+      maintain_footer_note:'減重的終點不是達到目標體重的那天，而是身體真正接受並穩定在新體重的那一刻。給自己時間，給身體時間。',
       hero_eyebrow:'飲食 · 血糖 · 體重管理',
       hero_title:'吃對了<br>身體會<em>自己</em><br>找回平衡',
       hero_desc:'你不需要餓肚子，也不需要完全戒糖。真正有效的體重管理，從了解每一口食物對你的血糖做了什麼開始。',
@@ -1156,8 +1594,53 @@ nav{padding:16px 24px}
     },
     en: {
       nav_concept:'Diet Concepts', nav_blood:'Blood Sugar', nav_how:'How To',
-      nav_chart:'View Charts', nav_concept2:'Diet Concepts', nav_blood2:'Blood Sugar', nav_chart2:'Charts',
+      nav_chart:'View Charts', nav_maintain:'Weight Maintenance', nav_concept2:'Diet Concepts', nav_blood2:'Blood Sugar', nav_chart2:'Charts',
       back_btn:'← Back to Home', chart_title:'Blood Sugar Analysis',
+      back_btn_text:'Back to Home',
+      maintain_bar_title:'Weight Maintenance · Science Guide',
+      maintain_eyebrow:'Weight Loss · Maintenance · Body Science',
+      maintain_hero_title:'Reaching Your Goal Is Just the Start<br>Let Your Body <em>Truly Accept</em> Its New Weight',
+      maintain_hero_desc:'Studies show that up to 80% of people who lose weight regain it within 1–5 years. This is not a willpower problem — your body has complex physiological mechanisms that resist change. Understanding them is how you truly win.',
+      m1_label:'PART 01 · MAINTENANCE PHASE',
+      m1_title:'Why Do People Regain Weight So Easily?',
+      m1_intro:"Many people work hard to lose weight, only to regain it shortly after. This isn't a failure of willpower — it's the body's survival mechanisms at work.",
+      m1_c1_title:'Hunger Signals Intensify', m1_c1_desc:'After weight loss, hunger-regulating hormones fall out of balance — the signals that make you feel full get weaker, while the signals that make you want to eat get stronger, pushing you to compensate.',
+      m1_c2_title:'Metabolic Rate Drops', m1_c2_desc:'During weight loss, the body becomes more fuel-efficient, burning fewer calories. The same diet that once caused loss can now lead to fat accumulation.',
+      m1_c3_title:'Body Remembers the Old Weight', m1_c3_desc:'The brain treats your pre-diet weight as the "normal" and actively resists change. Research shows it takes at least 12–24 months of stable maintenance before the body accepts the new weight as its baseline.',
+      fat_big_label:'Fat Cell\nDuring Obesity', fat_small_label:'Fat Cell\nAfter Weight Loss',
+      fat_note:'Fat cells shrink in volume, but their count stays roughly the same (~30–40 billion)',
+      fat_title:'Fat Cells Are "Inflated" — Not Multiplied',
+      fat_p1:'After adulthood, the number of fat cells in your body is essentially <strong>fixed</strong>. When you gain weight, each fat cell <strong>swells with stored fat</strong> like an inflating balloon; when you lose weight, fat cells <strong>release fat and shrink</strong> — but the cells themselves do not disappear.',
+      fat_p2:"Fat cells that have shrunk don't immediately \"forget\" their enlarged state. During obesity, cells develop a kind of \"memory trace\" that makes them more likely to swell again after weight loss. It takes <strong>6 months to 2 years</strong> for fat cells to truly stabilize at their new smaller size.",
+      m2_label:'PART 02 · CONNECTIVE TISSUE',
+      m2_title:'Why Does Skin Sag After Weight Loss?',
+      m2_intro:'Skin and deep connective tissue form a "net" held together by collagen and elastin. After weight loss, this net loses its support. Without adequate nutrition, it struggles to snap back. The faster the weight loss, the higher the risk of sagging.',
+      n1_name:'Vitamin C', n1_desc:'Essential for collagen synthesis — without it, the body cannot produce collagen normally. The most critical nutrient for connective tissue.',
+      n2_name:'Protein', n2_desc:'The direct raw material for collagen. Without enough protein, the body has no building blocks to repair tissue.',
+      n3_name:'Zinc', n3_desc:'Promotes tissue repair and collagen production, and supports normal skin cell turnover.',
+      n4_name:'Copper', n4_desc:'Stabilises the structure of collagen and elastin. Deficiency leads to loss of tissue elasticity.',
+      n5_name:'Silicon', n5_desc:'Promotes synthesis of collagen precursors, helping maintain the structural integrity of skin and connective tissue.',
+      n6_name:'Vitamin E', n6_desc:'A powerful antioxidant that protects skin cells and collagen from free radical damage.',
+      n7_name:'Vitamin A', n7_desc:'Promotes skin cell renewal and repair, maintaining skin thickness and elasticity.',
+      n8_name:'Omega-3 Fatty Acids', n8_desc:'Helps maintain cell membrane integrity, reduces skin inflammation, and improves skin elasticity.',
+      n9_name:'Collagen Peptides', n9_desc:'A small-molecule form of collagen that can be directly supplemented. Studies show it helps improve skin elasticity.',
+      m3_label:'PART 03 · PROTEIN & HYDRATION',
+      m3_title:'The True Foundation of Effective Weight Loss',
+      m3_intro:"Many people focus only on calories when losing weight, overlooking what they eat and how much they drink — both of which directly affect metabolic rate and fat-loss efficiency.",
+      protein_label:'Protein', protein_title:'Protect Muscle, Preserve Metabolism',
+      protein_intro:'Without enough protein during weight loss, the body breaks down <strong>muscle</strong> for energy. Even if the scale goes down, metabolic rate drops — making it harder to lose weight later and easier to regain.',
+      protein_p1:'<strong>Preserve Muscle Mass:</strong> A high-protein diet effectively reduces muscle loss, so the weight you lose comes primarily from fat, not muscle.',
+      protein_p2:'<strong>Increase Satiety:</strong> Protein is the most satiating of the three macronutrients, naturally reducing total calorie intake.',
+      protein_p3:'<strong>Digestion Burns Calories:</strong> Digesting protein requires significantly more energy — about 20–30% of its calorie content — far more than fat or carbohydrates.',
+      protein_rec_title:'Daily Recommended Intake', protein_rec_val:'<em>1.2–1.6g</em> per kg of body weight', protein_rec_sub:'Up to 2.0g/kg for those with higher activity levels',
+      water_label:'Hydration', water_title:'The Hidden Driver of Metabolism',
+      water_intro:'Insufficient hydration is one of the most overlooked reasons for weight-loss plateaus. Adequate water directly supports fat metabolism, suppresses false hunger, and aids in waste removal.',
+      water_p1:'<strong>Boost Metabolic Rate:</strong> Drinking water can temporarily increase resting metabolic rate by about 24–30% within 30–40 minutes.',
+      water_p2:'<strong>Promote Fat Breakdown:</strong> Fat metabolism requires water. When hydration is low, fat-burning efficiency drops.',
+      water_p3:'<strong>Suppress False Hunger:</strong> The brain often confuses thirst with hunger — mild dehydration is frequently misread as appetite.',
+      water_p4:'<strong>Remove Metabolic Waste:</strong> The by-products of fat breakdown need water to be flushed out of the body.',
+      water_rec_title:'Recommended During Weight Loss', water_rec_val:'Body weight (kg) × <em>50ml</em>', water_rec_sub:'e.g. 60kg → ~3,000ml/day · Adjust for activity & climate · Consult a doctor if elderly or with kidney concerns',
+      maintain_footer_note:"The goal of weight loss isn't the day you hit your target — it's the day your body truly accepts and settles into its new weight. Give yourself time. Give your body time.",
       hero_eyebrow:'Diet · Blood Sugar · Weight Management',
       hero_title:'Eat Right,<br>Let Your Body<br><em>Find Balance</em>',
       hero_desc:"You don't need to starve or cut all sugar. Effective weight management starts with understanding what every bite does to your blood sugar.",
@@ -1277,6 +1760,8 @@ nav{padding:16px 24px}
     document.getElementById('btn-en').classList.toggle('active', lang==='en');
     document.getElementById('btn-zh-chart').classList.toggle('active', lang==='zh');
     document.getElementById('btn-en-chart').classList.toggle('active', lang==='en');
+    document.getElementById('btn-zh-maintain').classList.toggle('active', lang==='zh');
+    document.getElementById('btn-en-maintain').classList.toggle('active', lang==='en');
     document.documentElement.lang = lang==='zh' ? 'zh-TW' : 'en';
     document.title = lang==='zh' ? '好好吃 · 讓身體找回平衡' : 'EatWell · Let Your Body Find Balance';
 
