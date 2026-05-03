@@ -53,26 +53,25 @@ overflow-x: hidden;
 cursor: none;
 }
 
-
 /* ── LANG TOGGLE ── */
 .lang-toggle {
-  display:flex;align-items:center;gap:0;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(212,196,168,0.25);
-  border-radius:30px;overflow:hidden;
-  flex-shrink:0;
+display:flex;align-items:center;gap:0;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(212,196,168,0.25);
+border-radius:30px;overflow:hidden;
+flex-shrink:0;
 }
 .lang-toggle button {
-  padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:1px;
-  font-family:'Noto Sans TC',sans-serif;
-  background:transparent;border:none;cursor:pointer;
-  color:rgba(212,196,168,0.55);
-  transition:background .2s,color .2s;
+padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:1px;
+font-family:‘Noto Sans TC’,sans-serif;
+background:transparent;border:none;cursor:pointer;
+color:rgba(212,196,168,0.55);
+transition:background .2s,color .2s;
 }
 .lang-toggle button.active {
-  background:var(--honey,#d4944a);
-  color:#3a2a1e;
-  border-radius:30px;
+background:var(–honey,#d4944a);
+color:#3a2a1e;
+border-radius:30px;
 }
 .lang-toggle button:hover:not(.active) { color:rgba(212,196,168,0.9); }
 
@@ -93,6 +92,163 @@ nav.scrolled { background:rgba(245,240,232,.92);backdrop-filter:blur(12px);paddi
 .nav-cta { background:var(–bark)!important;color:var(–cream)!important;padding:9px 22px;border-radius:40px;font-size:12px!important;letter-spacing:1.5px!important;transition:background .25s,transform .2s!important; }
 .nav-cta:hover { background:var(–earth)!important;transform:translateY(-1px); }
 .nav-cta::after { display:none!important; }
+
+/* ── HAMBURGER MENU ── */
+.hamburger {
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 5px;
+width: 40px;
+height: 40px;
+background: transparent;
+border: 1.5px solid rgba(92,61,46,0.25);
+border-radius: 10px;
+cursor: pointer;
+padding: 8px;
+transition: background .25s, border-color .25s;
+flex-shrink: 0;
+}
+.hamburger:hover { background: rgba(92,61,46,0.07); border-color: rgba(92,61,46,0.45); }
+.hamburger span {
+display: block;
+width: 18px;
+height: 1.8px;
+background: var(–bark);
+border-radius: 2px;
+transition: transform .3s, opacity .3s, width .3s;
+transform-origin: center;
+}
+nav.scrolled .hamburger { border-color: rgba(92,61,46,0.3); }
+
+/* Hamburger open state */
+.hamburger.open span:nth-child(1) { transform: translateY(6.8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
+
+/* Mobile dropdown menu */
+.mobile-menu {
+display: none;
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+z-index: 99;
+pointer-events: none;
+}
+.mobile-menu-overlay {
+position: absolute;
+inset: 0;
+background: rgba(58,42,30,0.45);
+opacity: 0;
+transition: opacity .3s;
+pointer-events: none;
+}
+.mobile-menu-panel {
+position: absolute;
+top: 0; right: 0;
+width: min(300px, 85vw);
+height: 100%;
+background: var(–cream);
+box-shadow: -8px 0 40px rgba(58,42,30,0.18);
+display: flex;
+flex-direction: column;
+padding: 80px 32px 40px;
+transform: translateX(100%);
+transition: transform .35s cubic-bezier(.4,0,.2,1);
+pointer-events: none;
+}
+.mobile-menu.open {
+display: block;
+pointer-events: auto;
+}
+.mobile-menu.open .mobile-menu-overlay {
+opacity: 1;
+pointer-events: auto;
+}
+.mobile-menu.open .mobile-menu-panel {
+transform: translateX(0);
+pointer-events: auto;
+}
+.mobile-menu-logo {
+font-family: ‘Noto Serif TC’, serif;
+font-size: 18px;
+font-weight: 900;
+color: var(–bark);
+letter-spacing: 2px;
+margin-bottom: 36px;
+}
+.mobile-menu-logo span { color: var(–honey); }
+.mobile-nav-links {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 4px;
+flex: 1;
+}
+.mobile-nav-links a {
+display: block;
+padding: 14px 0;
+font-size: 15px;
+font-weight: 500;
+color: var(–muted);
+text-decoration: none;
+border-bottom: 1px solid rgba(180,152,128,0.18);
+cursor: pointer;
+transition: color .2s, padding-left .2s;
+letter-spacing: .5px;
+}
+.mobile-nav-links a:hover { color: var(–bark); padding-left: 6px; }
+.mobile-nav-links .mobile-nav-cta {
+margin-top: 16px;
+display: inline-block;
+background: var(–bark);
+color: var(–cream) !important;
+padding: 14px 28px;
+border-radius: 40px;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-align: center;
+border-bottom: none;
+transition: background .25s, transform .2s !important;
+}
+.mobile-nav-links .mobile-nav-cta:hover { background: var(–earth); transform: translateY(-1px); padding-left: 28px; }
+.mobile-menu-footer {
+margin-top: 32px;
+padding-top: 24px;
+border-top: 1px solid rgba(180,152,128,0.2);
+}
+.mobile-lang-toggle {
+display: flex;
+gap: 0;
+background: rgba(92,61,46,0.06);
+border: 1px solid rgba(92,61,46,0.2);
+border-radius: 30px;
+overflow: hidden;
+width: fit-content;
+}
+.mobile-lang-toggle button {
+padding: 8px 18px;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 1px;
+font-family: ‘Noto Sans TC’, sans-serif;
+background: transparent;
+border: none;
+cursor: pointer;
+color: rgba(92,61,46,0.45);
+transition: background .2s, color .2s;
+}
+.mobile-lang-toggle button.active {
+background: var(–bark);
+color: var(–cream);
+border-radius: 30px;
+}
+.mobile-lang-toggle button:hover:not(.active) { color: var(–bark); }
+
+@media(max-width:900px){
+.hamburger { display: flex; }
+}
 
 /* ── HOME ── */
 #home { background:var(–light);color:var(–text); }
@@ -333,72 +489,72 @@ svg.chart{width:100%;height:auto;display:block}
 .bs-card-link .bs-card { transition:background .25s,transform .25s,box-shadow .25s; }
 .bs-card-link:hover .bs-card { transform:translateY(-6px);box-shadow:0 16px 40px rgba(92,61,46,.18); }
 .bs-card-link .go-arrow {
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:700;color:var(--earth);
-  margin-top:12px;
-  transition:gap .2s,color .2s;
+display:inline-flex;align-items:center;gap:6px;
+font-size:11px;font-weight:700;color:var(–earth);
+margin-top:12px;
+transition:gap .2s,color .2s;
 }
-.bs-card-link:hover .go-arrow { gap:10px;color:var(--honey); }
+.bs-card-link:hover .go-arrow { gap:10px;color:var(–honey); }
 
 /* ── CHART ZOOM MODAL ── */
 .chart-zoom-wrap { position:relative;cursor:zoom-in; }
 .chart-zoom-btn {
-  position:absolute;top:10px;right:10px;z-index:10;
-  background:rgba(12,11,20,0.82);
-  border:1px solid rgba(255,255,255,0.15);
-  color:#c8a878;
-  font-size:11px;font-family:'Noto Sans TC',sans-serif;
-  padding:5px 12px;border-radius:20px;
-  cursor:pointer;
-  display:flex;align-items:center;gap:5px;
-  transition:background .2s,color .2s;
-  backdrop-filter:blur(4px);
+position:absolute;top:10px;right:10px;z-index:10;
+background:rgba(12,11,20,0.82);
+border:1px solid rgba(255,255,255,0.15);
+color:#c8a878;
+font-size:11px;font-family:‘Noto Sans TC’,sans-serif;
+padding:5px 12px;border-radius:20px;
+cursor:pointer;
+display:flex;align-items:center;gap:5px;
+transition:background .2s,color .2s;
+backdrop-filter:blur(4px);
 }
 .chart-zoom-btn:hover { background:rgba(255,255,255,0.12);color:#f0e8d8; }
 
 /* ── FULLSCREEN CHART MODAL ── */
 .chart-modal-overlay {
-  display:none;
-  position:fixed;inset:0;z-index:9000;
-  background:#faf7f2;
-  overflow-y:auto;
-  padding:0;
+display:none;
+position:fixed;inset:0;z-index:9000;
+background:#faf7f2;
+overflow-y:auto;
+padding:0;
 }
 .chart-modal-overlay.open { display:block; }
 
 /* Close button — fixed top-right */
 .chart-modal-close {
-  position:fixed;top:16px;right:20px;z-index:9100;
-  width:44px;height:44px;
-  background:rgba(92,61,46,0.1);
-  border:1.5px solid rgba(92,61,46,0.25);
-  border-radius:50%;
-  color:#5c3d2e;
-  font-size:20px;line-height:1;
-  font-family:'Noto Sans TC',sans-serif;
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .2s,transform .2s;
+position:fixed;top:16px;right:20px;z-index:9100;
+width:44px;height:44px;
+background:rgba(92,61,46,0.1);
+border:1.5px solid rgba(92,61,46,0.25);
+border-radius:50%;
+color:#5c3d2e;
+font-size:20px;line-height:1;
+font-family:‘Noto Sans TC’,sans-serif;
+cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+transition:background .2s,transform .2s;
 }
 .chart-modal-close:hover { background:rgba(92,61,46,0.18);transform:scale(1.1); }
 
 .chart-modal-inner {
-  background:transparent;
-  width:100%;
-  min-height:100vh;
-  padding:72px 32px 48px;
-  max-width:1100px;
-  margin:0 auto;
-  animation:modalIn .2s ease;
-  position:relative;
+background:transparent;
+width:100%;
+min-height:100vh;
+padding:72px 32px 48px;
+max-width:1100px;
+margin:0 auto;
+animation:modalIn .2s ease;
+position:relative;
 }
 @keyframes modalIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
 .chart-modal-title {
-  font-family:'Noto Serif TC',serif;
-  font-size:20px;font-weight:900;
-  margin-bottom:24px;
-  color:#5c3d2e;
+font-family:‘Noto Serif TC’,serif;
+font-size:20px;font-weight:900;
+margin-bottom:24px;
+color:#5c3d2e;
 }
 
 /* SVG inside modal — full width */
@@ -406,17 +562,17 @@ svg.chart{width:100%;height:auto;display:block}
 
 /* Chart box inside modal */
 .chart-modal-inner .chart-box {
-  background:#fff !important;
-  border:1px solid rgba(180,152,128,0.2) !important;
-  border-radius:16px !important;
-  box-shadow:0 8px 32px rgba(92,61,46,0.08) !important;
+background:#fff !important;
+border:1px solid rgba(180,152,128,0.2) !important;
+border-radius:16px !important;
+box-shadow:0 8px 32px rgba(92,61,46,0.08) !important;
 }
 
 /* Hormone pills inside modal */
 .chart-modal-inner .hormone-panel { margin-top:20px; }
 .chart-modal-inner .h-pill {
-  background:rgba(92,61,46,0.04);
-  border:1px solid rgba(180,152,128,0.2);
+background:rgba(92,61,46,0.04);
+border:1px solid rgba(180,152,128,0.2);
 }
 .chart-modal-inner .h-name { color:#5c3d2e !important; }
 .chart-modal-inner .h-desc { color:#7a6858 !important; }
@@ -462,124 +618,124 @@ nav{padding:16px 24px}
 MAINTAIN PAGE STYLES
 ══════════════════════════════ */
 #maintain {
-  background: var(--light);
-  color: var(--text);
-  min-height: 100vh;
+background: var(–light);
+color: var(–text);
+min-height: 100vh;
 }
 
 .maintain-topbar {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(245,240,232,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(180,152,128,0.2);
-  padding: 14px 32px;
-  display: flex; align-items: center; justify-content: space-between;
+position: sticky; top: 0; z-index: 50;
+background: rgba(245,240,232,0.97);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(180,152,128,0.2);
+padding: 14px 32px;
+display: flex; align-items: center; justify-content: space-between;
 }
 .maintain-topbar .back-btn {
-  background: rgba(92,61,46,0.08);
-  border: 1px solid rgba(92,61,46,0.2);
-  color: var(--bark);
+background: rgba(92,61,46,0.08);
+border: 1px solid rgba(92,61,46,0.2);
+color: var(–bark);
 }
-.maintain-topbar .back-btn:hover { background: rgba(92,61,46,0.15); color: var(--bark); }
-.maintain-topbar .chart-bar-title { color: var(--honey); }
+.maintain-topbar .back-btn:hover { background: rgba(92,61,46,0.15); color: var(–bark); }
+.maintain-topbar .chart-bar-title { color: var(–honey); }
 .maintain-topbar .lang-toggle {
-  background: rgba(92,61,46,0.06);
-  border: 1px solid rgba(92,61,46,0.2);
+background: rgba(92,61,46,0.06);
+border: 1px solid rgba(92,61,46,0.2);
 }
 .maintain-topbar .lang-toggle button { color: rgba(92,61,46,0.5); }
-.maintain-topbar .lang-toggle button.active { background: var(--bark); color: var(--cream); }
-.maintain-topbar .lang-toggle button:hover:not(.active) { color: var(--bark); }
+.maintain-topbar .lang-toggle button.active { background: var(–bark); color: var(–cream); }
+.maintain-topbar .lang-toggle button:hover:not(.active) { color: var(–bark); }
 
 .maintain-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 56px 48px 80px;
+max-width: 1000px;
+margin: 0 auto;
+padding: 56px 48px 80px;
 }
 
 /* Hero */
 .maintain-hero { text-align: center; margin-bottom: 72px; }
 .maintain-hero-eyebrow {
-  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--honey); margin-bottom: 16px;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
+font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+color: var(–honey); margin-bottom: 16px;
+display: flex; align-items: center; justify-content: center; gap: 10px;
 }
-.maintain-hero-eyebrow::before { content:''; width: 24px; height: 1px; background: var(--honey); }
+.maintain-hero-eyebrow::before { content:’’; width: 24px; height: 1px; background: var(–honey); }
 .maintain-hero-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(32px, 5vw, 54px);
-  font-weight: 900; line-height: 1.2;
-  color: var(--bark); margin-bottom: 20px;
+font-family: ‘Noto Serif TC’, serif;
+font-size: clamp(32px, 5vw, 54px);
+font-weight: 900; line-height: 1.2;
+color: var(–bark); margin-bottom: 20px;
 }
-.maintain-hero-title em { font-style: normal; color: var(--honey); }
+.maintain-hero-title em { font-style: normal; color: var(–honey); }
 .maintain-hero-desc {
-  font-size: 15px; line-height: 1.9; color: #6b5644;
-  max-width: 620px; margin: 0 auto;
+font-size: 15px; line-height: 1.9; color: #6b5644;
+max-width: 620px; margin: 0 auto;
 }
 
 /* Sections */
 .m-section { margin-bottom: 72px; }
-.m-section-alt { background: var(--cream); border-radius: 28px; padding: 48px; margin-bottom: 72px; }
+.m-section-alt { background: var(–cream); border-radius: 28px; padding: 48px; margin-bottom: 72px; }
 .m-section-label {
-  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--honey); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 10px;
+font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+color: var(–honey); margin-bottom: 10px;
+display: flex; align-items: center; gap: 10px;
 }
-.m-section-label::before { content:''; width: 20px; height: 1px; background: var(--honey); }
+.m-section-label::before { content:’’; width: 20px; height: 1px; background: var(–honey); }
 .m-section-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(22px, 3.5vw, 34px);
-  font-weight: 900; color: var(--bark);
-  margin-bottom: 14px; line-height: 1.3;
+font-family: ‘Noto Serif TC’, serif;
+font-size: clamp(22px, 3.5vw, 34px);
+font-weight: 900; color: var(–bark);
+margin-bottom: 14px; line-height: 1.3;
 }
 .m-section-intro { font-size: 14.5px; color: #6b5644; line-height: 1.9; max-width: 700px; margin-bottom: 36px; }
 
 /* 3-card grid */
 .m-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
 .m-card {
-  border-radius: 20px; padding: 28px 24px;
-  border: 1px solid rgba(180,152,128,0.2);
-  background: white;
-  position: relative; overflow: hidden;
-  transition: transform .25s, box-shadow .25s;
+border-radius: 20px; padding: 28px 24px;
+border: 1px solid rgba(180,152,128,0.2);
+background: white;
+position: relative; overflow: hidden;
+transition: transform .25s, box-shadow .25s;
 }
 .m-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(92,61,46,.1); }
-.m-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.m-card::before { content:’’; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
 .m-card-red::before { background: linear-gradient(90deg, #c0392b, #c07840); }
 .m-card-amber::before { background: linear-gradient(90deg, #c07840, #d4944a); }
 .m-card-green::before { background: linear-gradient(90deg, #4a7c59, #7ab890); }
 .m-card-icon { font-size: 32px; margin-bottom: 14px; }
-.m-card-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: var(--bark); margin-bottom: 10px; }
+.m-card-title { font-family: ‘Noto Serif TC’, serif; font-size: 16px; font-weight: 700; color: var(–bark); margin-bottom: 10px; }
 .m-card-desc { font-size: 13px; color: #6b5644; line-height: 1.8; }
 
 /* Fat cell diagram */
 .m-fat-block { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: center; background: white; border-radius: 24px; padding: 40px; border: 1px solid rgba(180,152,128,0.2); }
 .m-fat-diagram { display: flex; align-items: center; justify-content: center; gap: 20px; }
 .fat-cell {
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  text-align: center; position: relative;
-  background: radial-gradient(circle at 35% 35%, rgba(212,148,74,0.25), rgba(184,152,128,0.15));
-  border: 2px solid rgba(212,148,74,0.4);
-  flex-shrink: 0;
+border-radius: 50%; display: flex; align-items: center; justify-content: center;
+text-align: center; position: relative;
+background: radial-gradient(circle at 35% 35%, rgba(212,148,74,0.25), rgba(184,152,128,0.15));
+border: 2px solid rgba(212,148,74,0.4);
+flex-shrink: 0;
 }
 .fat-big { width: 130px; height: 130px; }
 .fat-small { width: 80px; height: 80px; }
-.fat-label { font-size: 11px; font-weight: 700; color: var(--bark); line-height: 1.4; padding: 4px; }
-.fat-arrow { font-size: 24px; color: var(--clay); flex-shrink: 0; }
-.m-fat-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.6; }
-.m-fat-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--bark); margin-bottom: 14px; }
+.fat-label { font-size: 11px; font-weight: 700; color: var(–bark); line-height: 1.4; padding: 4px; }
+.fat-arrow { font-size: 24px; color: var(–clay); flex-shrink: 0; }
+.m-fat-note { font-size: 11px; color: var(–muted); text-align: center; margin-top: 14px; line-height: 1.6; }
+.m-fat-title { font-family: ‘Noto Serif TC’, serif; font-size: 18px; font-weight: 700; color: var(–bark); margin-bottom: 14px; }
 .m-fat-text p { font-size: 13.5px; color: #6b5644; line-height: 1.9; margin-bottom: 12px; }
-.m-fat-text strong { color: var(--bark); }
+.m-fat-text strong { color: var(–bark); }
 
 /* Nutrients grid */
 .m-nutrients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
 .m-nutrient {
-  background: white; border-radius: 16px; padding: 20px;
-  border: 1px solid rgba(180,152,128,0.2);
-  transition: transform .2s, box-shadow .2s;
+background: white; border-radius: 16px; padding: 20px;
+border: 1px solid rgba(180,152,128,0.2);
+transition: transform .2s, box-shadow .2s;
 }
 .m-nutrient:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(92,61,46,.08); }
 .m-nutrient-icon { font-size: 28px; margin-bottom: 10px; }
-.m-nutrient-name { font-size: 13px; font-weight: 700; color: var(--bark); margin-bottom: 6px; }
+.m-nutrient-name { font-size: 13px; font-weight: 700; color: var(–bark); margin-bottom: 6px; }
 .m-nutrient-desc { font-size: 12px; color: #6b5644; line-height: 1.7; }
 
 /* Two column protein/water */
@@ -587,48 +743,48 @@ MAINTAIN PAGE STYLES
 .m-col-block { background: white; border-radius: 24px; padding: 36px; border: 1px solid rgba(180,152,128,0.2); }
 .m-col-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
 .m-col-icon { font-size: 36px; flex-shrink: 0; }
-.m-col-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--honey); margin-bottom: 4px; }
-.m-col-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: var(--bark); }
+.m-col-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(–honey); margin-bottom: 4px; }
+.m-col-title { font-family: ‘Noto Serif TC’, serif; font-size: 18px; font-weight: 700; color: var(–bark); }
 .m-col-intro { font-size: 13px; color: #6b5644; line-height: 1.85; margin-bottom: 20px; }
 .m-points { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
 .m-point { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: #6b5644; line-height: 1.75; }
 .m-point-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-.m-point strong { color: var(--bark); }
+.m-point strong { color: var(–bark); }
 
 .m-highlight-box {
-  background: rgba(212,148,74,0.08); border: 1px solid rgba(212,148,74,0.3);
-  border-radius: 16px; padding: 20px; margin-bottom: 20px;
+background: rgba(212,148,74,0.08); border: 1px solid rgba(212,148,74,0.3);
+border-radius: 16px; padding: 20px; margin-bottom: 20px;
 }
 .m-highlight-teal { background: rgba(46,125,138,0.07); border-color: rgba(46,125,138,0.3); }
-.m-highlight-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--honey); margin-bottom: 6px; }
+.m-highlight-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(–honey); margin-bottom: 6px; }
 .m-highlight-teal .m-highlight-title { color: #2e7d8a; }
-.m-highlight-val { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 900; color: var(--bark); margin-bottom: 6px; }
-.m-highlight-val em { font-style: normal; color: var(--honey); font-size: 28px; }
+.m-highlight-val { font-family: ‘Noto Serif TC’, serif; font-size: 22px; font-weight: 900; color: var(–bark); margin-bottom: 6px; }
+.m-highlight-val em { font-style: normal; color: var(–honey); font-size: 28px; }
 .m-highlight-teal .m-highlight-val em { color: #2e7d8a; }
-.m-highlight-sub { font-size: 11.5px; color: var(--muted); line-height: 1.65; }
+.m-highlight-sub { font-size: 11.5px; color: var(–muted); line-height: 1.65; }
 
-.m-ref { font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.7; }
+.m-ref { font-size: 11px; color: var(–muted); font-style: italic; line-height: 1.7; }
 
 /* Footer note */
 .maintain-footer-note {
-  display: flex; align-items: center; gap: 20px;
-  background: var(--bark); border-radius: 24px; padding: 32px 40px;
-  margin-top: 24px;
+display: flex; align-items: center; gap: 20px;
+background: var(–bark); border-radius: 24px; padding: 32px 40px;
+margin-top: 24px;
 }
 .mfn-icon { font-size: 40px; flex-shrink: 0; }
-.mfn-text { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--cream); line-height: 1.7; }
+.mfn-text { font-family: ‘Noto Serif TC’, serif; font-size: 17px; font-weight: 700; color: var(–cream); line-height: 1.7; }
 
 @media(max-width:900px){
-  .maintain-wrapper { padding: 32px 24px 60px; }
-  .m-cards-grid { grid-template-columns: 1fr; }
-  .m-fat-block { grid-template-columns: 1fr; gap: 32px; }
-  .m-nutrients-grid { grid-template-columns: 1fr 1fr; }
-  .m-two-col { grid-template-columns: 1fr; }
-  .maintain-topbar { padding: 12px 16px; }
+.maintain-wrapper { padding: 32px 24px 60px; }
+.m-cards-grid { grid-template-columns: 1fr; }
+.m-fat-block { grid-template-columns: 1fr; gap: 32px; }
+.m-nutrients-grid { grid-template-columns: 1fr 1fr; }
+.m-two-col { grid-template-columns: 1fr; }
+.maintain-topbar { padding: 12px 16px; }
 }
 @media(max-width:600px){
-  .m-nutrients-grid { grid-template-columns: 1fr; }
-  .maintain-footer-note { flex-direction: column; text-align: center; }
+.m-nutrients-grid { grid-template-columns: 1fr; }
+.maintain-footer-note { flex-direction: column; text-align: center; }
 }
 
 </style>
@@ -652,7 +808,32 @@ MAINTAIN PAGE STYLES
     <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
     <button id="btn-en" onclick="setLang('en')">EN</button>
   </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="選單" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- ── MOBILE MENU ── -->
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-logo">好好吃<span>·</span></div>
+    <ul class="mobile-nav-links">
+      <li><a onclick="closeMobileMenu();showPage('home');scrollToSection('concept')" data-i18n="nav_concept">飲食觀念</a></li>
+      <li><a onclick="closeMobileMenu();showPage('home');scrollToSection('bloodsugar')" data-i18n="nav_blood">血糖管理</a></li>
+      <li><a onclick="closeMobileMenu();showPage('home');scrollToSection('howto')" data-i18n="nav_how">怎麼做</a></li>
+      <li><a onclick="closeMobileMenu();showPage('maintain')" data-i18n="nav_maintain">減重維持</a></li>
+      <li><a class="mobile-nav-cta" onclick="closeMobileMenu();showPage('chart')" data-i18n="nav_chart">查看圖表分析</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <div class="mobile-lang-toggle">
+        <button id="btn-zh-mobile" class="active" onclick="setLang('zh')">中文</button>
+        <button id="btn-en-mobile" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
 
@@ -804,6 +985,7 @@ MAINTAIN PAGE STYLES
 </div>
 
 <!-- ═══ S0 ═══ -->
+
 <div class="scenario-panel s0 active" id="panel-0">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s0')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
@@ -902,6 +1084,7 @@ MAINTAIN PAGE STYLES
 </div>
 
 <!-- ═══ S1 ═══ -->
+
 <div class="scenario-panel s1" id="panel-1">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s1')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
@@ -1012,44 +1195,49 @@ MAINTAIN PAGE STYLES
   </div>
 
   <!-- Science explainer: why low blood sugar burns muscle instead of fat -->
+
   <div style="background:rgba(184,134,11,0.08);border:1px solid rgba(184,134,11,0.28);border-radius:18px;padding:24px 28px;margin-bottom:24px;">
     <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
       <div style="font-size:40px;flex-shrink:0;line-height:1;">🤔</div>
       <div>
         <div style="font-size:14px;font-weight:700;color:#8c5b01;margin-bottom:14px;font-family:'Noto Serif TC',serif;" data-i18n="s1_sci_q">為什麼低血糖會讓腎上腺素鎖住脂肪、優先燃燒肌肉？脂肪不能用嗎？</div>
 
-        <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
-          <strong style="color:#b37e1d;" data-i18n="s1_sci_ans">脂肪可以用，但速度太慢。</strong> <span data-i18n="s1_sci_sub">這是身體「緊急速度」的問題。</span>
-        </div>
+```
+    <div style="font-size:13px;color:#d98c00;line-height:1.9;margin-bottom:12px;">
+      <strong style="color:#b37e1d;" data-i18n="s1_sci_ans">脂肪可以用，但速度太慢。</strong> <span data-i18n="s1_sci_sub">這是身體「緊急速度」的問題。</span>
+    </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
-          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_fat_title">脂肪分解的速度</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_fat_desc">脂肪必須先從脂肪細胞「解包」成脂肪酸，再送到肝臟，再轉化為酮體，大腦才能使用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦不習慣緊急時用脂肪燃料。</div>
-          </div>
-          <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
-            <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_mus_title">肌肉分解的速度</div>
-            <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_mus_desc">肌肉蛋白質被分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可在<strong style="color:#c96c02;">數分鐘</strong>內轉化為葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
-          </div>
-        </div>
-
-        <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
-          <div style="font-size:12.5px;color:#030200;line-height:1.8;" data-i18n="s1_sci_logic">
-            💡 <strong style="color:#c96c02;">身體的邏輯：</strong>當血糖急速下降，大腦只剩幾分鐘的葡萄糖儲備。這是攸關生死的緊急狀況。身體不會等待脂肪慢慢轉化——腎上腺素直接命令身體「暫停脂肪分解，立即燃燒肌肉」，因為那是最快的選項。
-          </div>
-        </div>
-
-        <div style="font-size:12px;color:#d98c00;line-height:1.8;" data-i18n="s1_sci_irony">
-          更諷刺的是，腎上腺素同時<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是權宜之計，代價是肌肉被消耗。長期重複這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 越來越難燃燒脂肪</strong>。
-        </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px;">
+      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:#b8860b;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_fat_title">脂肪分解的速度</div>
+        <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_fat_desc">脂肪必須先從脂肪細胞「解包」成脂肪酸，再送到肝臟，再轉化為酮體，大腦才能使用。這個過程需要<strong style="color:#c96c02;">數小時</strong>，而且大腦不習慣緊急時用脂肪燃料。</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2);border-radius:12px;padding:14px 16px;">
+        <div style="font-size:11px;font-weight:700;color:#c04444;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-i18n="s1_sci_mus_title">肌肉分解的速度</div>
+        <div style="font-size:12px;color:#030200;line-height:1.7;" data-i18n="s1_sci_mus_desc">肌肉蛋白質被分解成<strong style="color:#c96c02;">胺基酸</strong>，肝臟可在<strong style="color:#c96c02;">數分鐘</strong>內轉化為葡萄糖（糖質新生）。這正是大腦和心臟最熟悉的緊急燃料。</div>
       </div>
     </div>
+
+    <div style="background:rgba(0,0,0,0.15);border-left:3px solid #b8860b;padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:10px;">
+      <div style="font-size:12.5px;color:#030200;line-height:1.8;" data-i18n="s1_sci_logic">
+        💡 <strong style="color:#c96c02;">身體的邏輯：</strong>當血糖急速下降，大腦只剩幾分鐘的葡萄糖儲備。這是攸關生死的緊急狀況。身體不會等待脂肪慢慢轉化——腎上腺素直接命令身體「暫停脂肪分解，立即燃燒肌肉」，因為那是最快的選項。
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:#d98c00;line-height:1.8;" data-i18n="s1_sci_irony">
+      更諷刺的是，腎上腺素同時<strong style="color:#c96c02;">抑制胰島素</strong>（暫時停止囤脂），讓血糖短暫回升——但這只是權宜之計，代價是肌肉被消耗。長期重複這個循環：<strong style="color:#c96c02;">肌肉越來越少 → 基礎代謝越來越低 → 越來越難燃燒脂肪</strong>。
+    </div>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="conclusion"><div class="big-icon pulse">💪❌</div><div><h3 data-i18n="s1_conc_h">錯誤斷食 = 肌肉越來越少 × 脂肪越來越多</h3><p data-i18n="s1_conc_p">不吃早餐時，身體啟動兩道緊急求生機制：<strong>① 皮質醇（壓力荷爾蒙）</strong>首先升高，將肌肉蛋白質分解為血糖；血糖仍無法回升時，<strong>② 腎上腺素</strong>緊急介入——這正是你感到心跳加速、手抖、焦慮與強烈食慾的原因。腎上腺素同時「鎖住」脂肪使其無法有效燃燒，身體優先消耗肌肉。到了午餐，斷食讓身體對糖分超級敏感，導致<strong>分泌更多囤脂荷爾蒙</strong>。最終結果：<strong>肌肉越來越少 → 代謝越來越慢 → 越來越容易復胖</strong>。</p><div class="tip-row"><span class="tip-pill"><span class="dot" style="background:#c04444;"></span><span data-i18n="s1_tip1">皮質醇↑ → 肌肉分解 → 代謝↓</span></span><span class="tip-pill"><span class="dot" style="background:#b8860b;"></span><span data-i18n="s1_tip2">腎上腺素↑ → 心跳加速、手抖、焦慮、飢餓</span></span><span class="tip-pill"><span class="dot" style="background:#c07840;"></span><span data-i18n="s1_tip3">斷食後高GI → 更強囤脂反應</span></span><span class="tip-pill"><span class="dot" style="background:#7b5ea7;"></span><span data-i18n="s1_tip4">肌肉↓ → 基礎代謝↓ → 更易復胖</span></span></div></div></div>
 </div>
 
 <!-- ═══ S2 ═══ -->
+
 <div class="scenario-panel s2" id="panel-2">
   <div class="chart-zoom-wrap">
     <button class="chart-zoom-btn" onclick="openChartModal('modal-s2')" type="button" data-i18n="zoom_btn">🔍 放大圖表</button>
@@ -1144,9 +1332,11 @@ MAINTAIN PAGE STYLES
 </div>
 
 <!-- ═══════════ MAINTAIN PAGE ═══════════ -->
+
 <div class="page" id="maintain">
 
   <!-- topbar (同 chart page 風格) -->
+
   <div class="maintain-topbar">
     <button class="back-btn" onclick="showPage('home')">← <span data-i18n="back_btn_text">返回首頁</span></button>
     <div class="chart-bar-title" data-i18n="maintain_bar_title">減重維持 · 科學指南</div>
@@ -1158,198 +1348,200 @@ MAINTAIN PAGE STYLES
 
   <div class="maintain-wrapper">
 
-    <!-- Hero -->
-    <div class="maintain-hero reveal">
-      <div class="maintain-hero-eyebrow" data-i18n="maintain_eyebrow">減重 · 維持期 · 身體科學</div>
-      <h1 class="maintain-hero-title" data-i18n="maintain_hero_title">瘦下來只是開始<br>讓身體<em>真正接受</em>新體重</h1>
-      <p class="maintain-hero-desc" data-i18n="maintain_hero_desc">研究顯示高達 80% 的減重者在 1～5 年內恢復原本體重。這不是意志力的問題，而是身體有一套複雜的生理機制在抵抗改變。了解它，才能真正贏過它。</p>
+```
+<!-- Hero -->
+<div class="maintain-hero reveal">
+  <div class="maintain-hero-eyebrow" data-i18n="maintain_eyebrow">減重 · 維持期 · 身體科學</div>
+  <h1 class="maintain-hero-title" data-i18n="maintain_hero_title">瘦下來只是開始<br>讓身體<em>真正接受</em>新體重</h1>
+  <p class="maintain-hero-desc" data-i18n="maintain_hero_desc">研究顯示高達 80% 的減重者在 1～5 年內恢復原本體重。這不是意志力的問題，而是身體有一套複雜的生理機制在抵抗改變。了解它，才能真正贏過它。</p>
+</div>
+
+<!-- Section 1: 維持期 -->
+<div class="m-section reveal">
+  <div class="m-section-label" data-i18n="m1_label">PART 01 · 維持期</div>
+  <h2 class="m-section-title" data-i18n="m1_title">為什麼減重後容易復胖？</h2>
+  <p class="m-section-intro" data-i18n="m1_intro">很多人努力瘦下來後，沒多久又胖回去，這不是意志力的問題，而是身體的「求生機制」在作怪。</p>
+
+  <div class="m-cards-grid">
+    <div class="m-card m-card-red">
+      <div class="m-card-icon">🍽️</div>
+      <div class="m-card-title" data-i18n="m1_c1_title">飢餓訊號變強</div>
+      <div class="m-card-desc" data-i18n="m1_c1_desc">體重下降後，控制飢餓感的荷爾蒙會失衡——讓你感到飽足的訊號變弱，讓你想吃東西的訊號變強，身體拼命要你補回去。</div>
     </div>
+    <div class="m-card m-card-amber">
+      <div class="m-card-icon">🔥</div>
+      <div class="m-card-title" data-i18n="m1_c2_title">代謝率下降</div>
+      <div class="m-card-desc" data-i18n="m1_c2_desc">減重過程中，身體為了「省油」，燃燒熱量的效率會降低，同樣的飲食量反而更容易囤積脂肪。</div>
+    </div>
+    <div class="m-card m-card-green">
+      <div class="m-card-icon">🧠</div>
+      <div class="m-card-title" data-i18n="m1_c3_title">身體記憶體重</div>
+      <div class="m-card-desc" data-i18n="m1_c3_desc">大腦會把減重前的體重當成「正常值」，並持續抵抗改變。需要至少 12～24 個月的穩定維持，身體才會接受新體重為新的基準。</div>
+    </div>
+  </div>
 
-    <!-- Section 1: 維持期 -->
-    <div class="m-section reveal">
-      <div class="m-section-label" data-i18n="m1_label">PART 01 · 維持期</div>
-      <h2 class="m-section-title" data-i18n="m1_title">為什麼減重後容易復胖？</h2>
-      <p class="m-section-intro" data-i18n="m1_intro">很多人努力瘦下來後，沒多久又胖回去，這不是意志力的問題，而是身體的「求生機制」在作怪。</p>
-
-      <div class="m-cards-grid">
-        <div class="m-card m-card-red">
-          <div class="m-card-icon">🍽️</div>
-          <div class="m-card-title" data-i18n="m1_c1_title">飢餓訊號變強</div>
-          <div class="m-card-desc" data-i18n="m1_c1_desc">體重下降後，控制飢餓感的荷爾蒙會失衡——讓你感到飽足的訊號變弱，讓你想吃東西的訊號變強，身體拼命要你補回去。</div>
+  <!-- 脂肪細胞 -->
+  <div class="m-fat-block reveal">
+    <div class="m-fat-visual">
+      <div class="m-fat-diagram">
+        <div class="fat-cell fat-big">
+          <span class="fat-label" data-i18n="fat_big_label">肥胖期<br>脂肪細胞</span>
         </div>
-        <div class="m-card m-card-amber">
-          <div class="m-card-icon">🔥</div>
-          <div class="m-card-title" data-i18n="m1_c2_title">代謝率下降</div>
-          <div class="m-card-desc" data-i18n="m1_c2_desc">減重過程中，身體為了「省油」，燃燒熱量的效率會降低，同樣的飲食量反而更容易囤積脂肪。</div>
-        </div>
-        <div class="m-card m-card-green">
-          <div class="m-card-icon">🧠</div>
-          <div class="m-card-title" data-i18n="m1_c3_title">身體記憶體重</div>
-          <div class="m-card-desc" data-i18n="m1_c3_desc">大腦會把減重前的體重當成「正常值」，並持續抵抗改變。需要至少 12～24 個月的穩定維持，身體才會接受新體重為新的基準。</div>
+        <div class="fat-arrow">→</div>
+        <div class="fat-cell fat-small">
+          <span class="fat-label" data-i18n="fat_small_label">減重後<br>脂肪細胞</span>
         </div>
       </div>
+      <div class="m-fat-note" data-i18n="fat_note">脂肪細胞體積縮小，但數量幾乎不變（約 300～400 億個）</div>
+    </div>
+    <div class="m-fat-text">
+      <div class="m-fat-title" data-i18n="fat_title">脂肪細胞是「被撐大」的，不是變多的</div>
+      <p data-i18n="fat_p1">成年後，體內的脂肪細胞數量基本上<strong>固定不變</strong>。變胖時，是每一個脂肪細胞<strong>被油脂撐大</strong>，就像氣球充氣一樣；變瘦時，脂肪細胞<strong>排出油脂、體積縮小</strong>，但細胞本身並不會消失。</p>
+      <p data-i18n="fat_p2">脂肪細胞縮小後，並不會馬上「忘記」曾經被撐大的狀態。細胞在肥胖期間會留下「記憶痕跡」，使它在變瘦後仍然更容易再次囤積脂肪。要讓脂肪細胞真正穩定在新的小尺寸，需要 <strong>6 個月到 2 年</strong>的時間。</p>
+      <div class="m-ref">📖 Spalding et al., <em>Nature</em>, 2008 &nbsp;·&nbsp; Barrès et al., <em>Cell Metabolism</em>, 2012 &nbsp;·&nbsp; Sumithran et al., <em>New England Journal of Medicine</em>, 2011</div>
+    </div>
+  </div>
+</div>
 
-      <!-- 脂肪細胞 -->
-      <div class="m-fat-block reveal">
-        <div class="m-fat-visual">
-          <div class="m-fat-diagram">
-            <div class="fat-cell fat-big">
-              <span class="fat-label" data-i18n="fat_big_label">肥胖期<br>脂肪細胞</span>
-            </div>
-            <div class="fat-arrow">→</div>
-            <div class="fat-cell fat-small">
-              <span class="fat-label" data-i18n="fat_small_label">減重後<br>脂肪細胞</span>
-            </div>
-          </div>
-          <div class="m-fat-note" data-i18n="fat_note">脂肪細胞體積縮小，但數量幾乎不變（約 300～400 億個）</div>
-        </div>
-        <div class="m-fat-text">
-          <div class="m-fat-title" data-i18n="fat_title">脂肪細胞是「被撐大」的，不是變多的</div>
-          <p data-i18n="fat_p1">成年後，體內的脂肪細胞數量基本上<strong>固定不變</strong>。變胖時，是每一個脂肪細胞<strong>被油脂撐大</strong>，就像氣球充氣一樣；變瘦時，脂肪細胞<strong>排出油脂、體積縮小</strong>，但細胞本身並不會消失。</p>
-          <p data-i18n="fat_p2">脂肪細胞縮小後，並不會馬上「忘記」曾經被撐大的狀態。細胞在肥胖期間會留下「記憶痕跡」，使它在變瘦後仍然更容易再次囤積脂肪。要讓脂肪細胞真正穩定在新的小尺寸，需要 <strong>6 個月到 2 年</strong>的時間。</p>
-          <div class="m-ref">📖 Spalding et al., <em>Nature</em>, 2008 &nbsp;·&nbsp; Barrès et al., <em>Cell Metabolism</em>, 2012 &nbsp;·&nbsp; Sumithran et al., <em>New England Journal of Medicine</em>, 2011</div>
+<!-- Section 2: 結締組織 -->
+<div class="m-section m-section-alt reveal">
+  <div class="m-section-label" data-i18n="m2_label">PART 02 · 結締組織</div>
+  <h2 class="m-section-title" data-i18n="m2_title">減重時皮膚為什麼會鬆弛？</h2>
+  <p class="m-section-intro" data-i18n="m2_intro">皮膚和身體深層組織就像一張「網」，靠膠原蛋白和彈力蛋白維持彈性與緊緻。減重後這張網失去支撐，如果營養不夠，就很難回彈。減重速度越快，皮膚來不及適應，鬆弛的風險就越高。</p>
+
+  <div class="m-nutrients-grid">
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🍊</div>
+      <div class="m-nutrient-name" data-i18n="n1_name">維生素 C</div>
+      <div class="m-nutrient-desc" data-i18n="n1_desc">幫助身體製造膠原蛋白，缺乏時膠原蛋白無法正常合成，是最核心的關鍵營養素</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🥩</div>
+      <div class="m-nutrient-name" data-i18n="n2_name">蛋白質</div>
+      <div class="m-nutrient-desc" data-i18n="n2_desc">膠原蛋白的直接原料，攝取不足時身體沒有材料可以修復組織</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🦪</div>
+      <div class="m-nutrient-name" data-i18n="n3_name">鋅</div>
+      <div class="m-nutrient-desc" data-i18n="n3_desc">促進組織修復與膠原蛋白生成，也幫助皮膚細胞正常更新</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🫘</div>
+      <div class="m-nutrient-name" data-i18n="n4_name">銅</div>
+      <div class="m-nutrient-desc" data-i18n="n4_desc">讓膠原蛋白與彈力蛋白的結構更穩固，缺乏時組織容易失去彈性</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🌾</div>
+      <div class="m-nutrient-name" data-i18n="n5_name">矽</div>
+      <div class="m-nutrient-desc" data-i18n="n5_desc">促進膠原蛋白前驅物的合成，有助維持皮膚與結締組織的結構完整性</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🌻</div>
+      <div class="m-nutrient-name" data-i18n="n6_name">維生素 E</div>
+      <div class="m-nutrient-desc" data-i18n="n6_desc">強效抗氧化，保護皮膚細胞與膠原蛋白不被自由基破壞</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🥕</div>
+      <div class="m-nutrient-name" data-i18n="n7_name">維生素 A</div>
+      <div class="m-nutrient-desc" data-i18n="n7_desc">促進皮膚細胞更新與修復，維持皮膚厚度與彈性</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">🐟</div>
+      <div class="m-nutrient-name" data-i18n="n8_name">Omega-3 脂肪酸</div>
+      <div class="m-nutrient-desc" data-i18n="n8_desc">幫助維持細胞膜完整性，減少皮膚發炎，讓皮膚更有彈性</div>
+    </div>
+    <div class="m-nutrient">
+      <div class="m-nutrient-icon">✨</div>
+      <div class="m-nutrient-name" data-i18n="n9_name">膠原蛋白胜肽</div>
+      <div class="m-nutrient-desc" data-i18n="n9_desc">直接補充膠原蛋白的小分子形式，研究顯示可促進皮膚彈性改善</div>
+    </div>
+  </div>
+  <div class="m-ref" style="margin-top:24px;">📖 Pullar et al., <em>Nutrients</em>, 2017 &nbsp;·&nbsp; Proksch et al., <em>Skin Pharmacology and Physiology</em>, 2014</div>
+</div>
+
+<!-- Section 3: 蛋白質與水分 -->
+<div class="m-section reveal">
+  <div class="m-section-label" data-i18n="m3_label">PART 03 · 蛋白質與水分</div>
+  <h2 class="m-section-title" data-i18n="m3_title">減重真正有效的基礎</h2>
+  <p class="m-section-intro" data-i18n="m3_intro">很多人減重只注意熱量，卻忽略了「吃什麼」和「喝多少水」同樣關鍵。這兩件事直接影響代謝率與減脂效率。</p>
+
+  <div class="m-two-col">
+    <!-- 蛋白質 -->
+    <div class="m-col-block">
+      <div class="m-col-header">
+        <span class="m-col-icon">🥩</span>
+        <div>
+          <div class="m-col-label" data-i18n="protein_label">蛋白質</div>
+          <div class="m-col-title" data-i18n="protein_title">保住肌肉、維持代謝</div>
         </div>
       </div>
-    </div>
-
-    <!-- Section 2: 結締組織 -->
-    <div class="m-section m-section-alt reveal">
-      <div class="m-section-label" data-i18n="m2_label">PART 02 · 結締組織</div>
-      <h2 class="m-section-title" data-i18n="m2_title">減重時皮膚為什麼會鬆弛？</h2>
-      <p class="m-section-intro" data-i18n="m2_intro">皮膚和身體深層組織就像一張「網」，靠膠原蛋白和彈力蛋白維持彈性與緊緻。減重後這張網失去支撐，如果營養不夠，就很難回彈。減重速度越快，皮膚來不及適應，鬆弛的風險就越高。</p>
-
-      <div class="m-nutrients-grid">
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🍊</div>
-          <div class="m-nutrient-name" data-i18n="n1_name">維生素 C</div>
-          <div class="m-nutrient-desc" data-i18n="n1_desc">幫助身體製造膠原蛋白，缺乏時膠原蛋白無法正常合成，是最核心的關鍵營養素</div>
+      <p class="m-col-intro" data-i18n="protein_intro">減重時如果蛋白質攝取不足，身體會分解<strong>肌肉</strong>來當能量用，結果體重雖然下降，但代謝率也跟著下降，之後反而更難瘦、更容易復胖。</p>
+      <div class="m-points">
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#d4944a;"></div>
+          <div data-i18n="protein_p1"><strong>保留肌肉量：</strong>高蛋白飲食能有效減少肌肉流失，讓減掉的重量主要來自脂肪而非肌肉</div>
         </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🥩</div>
-          <div class="m-nutrient-name" data-i18n="n2_name">蛋白質</div>
-          <div class="m-nutrient-desc" data-i18n="n2_desc">膠原蛋白的直接原料，攝取不足時身體沒有材料可以修復組織</div>
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#d4944a;"></div>
+          <div data-i18n="protein_p2"><strong>提升飽足感：</strong>蛋白質是三大營養素中飽足感最強的，能自然減少總熱量攝取</div>
         </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🦪</div>
-          <div class="m-nutrient-name" data-i18n="n3_name">鋅</div>
-          <div class="m-nutrient-desc" data-i18n="n3_desc">促進組織修復與膠原蛋白生成，也幫助皮膚細胞正常更新</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🫘</div>
-          <div class="m-nutrient-name" data-i18n="n4_name">銅</div>
-          <div class="m-nutrient-desc" data-i18n="n4_desc">讓膠原蛋白與彈力蛋白的結構更穩固，缺乏時組織容易失去彈性</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🌾</div>
-          <div class="m-nutrient-name" data-i18n="n5_name">矽</div>
-          <div class="m-nutrient-desc" data-i18n="n5_desc">促進膠原蛋白前驅物的合成，有助維持皮膚與結締組織的結構完整性</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🌻</div>
-          <div class="m-nutrient-name" data-i18n="n6_name">維生素 E</div>
-          <div class="m-nutrient-desc" data-i18n="n6_desc">強效抗氧化，保護皮膚細胞與膠原蛋白不被自由基破壞</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🥕</div>
-          <div class="m-nutrient-name" data-i18n="n7_name">維生素 A</div>
-          <div class="m-nutrient-desc" data-i18n="n7_desc">促進皮膚細胞更新與修復，維持皮膚厚度與彈性</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">🐟</div>
-          <div class="m-nutrient-name" data-i18n="n8_name">Omega-3 脂肪酸</div>
-          <div class="m-nutrient-desc" data-i18n="n8_desc">幫助維持細胞膜完整性，減少皮膚發炎，讓皮膚更有彈性</div>
-        </div>
-        <div class="m-nutrient">
-          <div class="m-nutrient-icon">✨</div>
-          <div class="m-nutrient-name" data-i18n="n9_name">膠原蛋白胜肽</div>
-          <div class="m-nutrient-desc" data-i18n="n9_desc">直接補充膠原蛋白的小分子形式，研究顯示可促進皮膚彈性改善</div>
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#d4944a;"></div>
+          <div data-i18n="protein_p3"><strong>消化本身就燃燒熱量：</strong>身體消化蛋白質需要消耗較多能量，約為攝取熱量的 20～30%，遠高於脂肪與碳水化合物</div>
         </div>
       </div>
-      <div class="m-ref" style="margin-top:24px;">📖 Pullar et al., <em>Nutrients</em>, 2017 &nbsp;·&nbsp; Proksch et al., <em>Skin Pharmacology and Physiology</em>, 2014</div>
+      <div class="m-highlight-box">
+        <div class="m-highlight-title" data-i18n="protein_rec_title">每日建議攝取量</div>
+        <div class="m-highlight-val" data-i18n="protein_rec_val">每公斤體重 <em>1.2～1.6g</em></div>
+        <div class="m-highlight-sub" data-i18n="protein_rec_sub">運動量較大者可提高至 2.0g／kg</div>
+      </div>
+      <div class="m-ref">📖 Leidy et al., <em>American Journal of Clinical Nutrition</em>, 2015</div>
     </div>
 
-    <!-- Section 3: 蛋白質與水分 -->
-    <div class="m-section reveal">
-      <div class="m-section-label" data-i18n="m3_label">PART 03 · 蛋白質與水分</div>
-      <h2 class="m-section-title" data-i18n="m3_title">減重真正有效的基礎</h2>
-      <p class="m-section-intro" data-i18n="m3_intro">很多人減重只注意熱量，卻忽略了「吃什麼」和「喝多少水」同樣關鍵。這兩件事直接影響代謝率與減脂效率。</p>
-
-      <div class="m-two-col">
-        <!-- 蛋白質 -->
-        <div class="m-col-block">
-          <div class="m-col-header">
-            <span class="m-col-icon">🥩</span>
-            <div>
-              <div class="m-col-label" data-i18n="protein_label">蛋白質</div>
-              <div class="m-col-title" data-i18n="protein_title">保住肌肉、維持代謝</div>
-            </div>
-          </div>
-          <p class="m-col-intro" data-i18n="protein_intro">減重時如果蛋白質攝取不足，身體會分解<strong>肌肉</strong>來當能量用，結果體重雖然下降，但代謝率也跟著下降，之後反而更難瘦、更容易復胖。</p>
-          <div class="m-points">
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#d4944a;"></div>
-              <div data-i18n="protein_p1"><strong>保留肌肉量：</strong>高蛋白飲食能有效減少肌肉流失，讓減掉的重量主要來自脂肪而非肌肉</div>
-            </div>
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#d4944a;"></div>
-              <div data-i18n="protein_p2"><strong>提升飽足感：</strong>蛋白質是三大營養素中飽足感最強的，能自然減少總熱量攝取</div>
-            </div>
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#d4944a;"></div>
-              <div data-i18n="protein_p3"><strong>消化本身就燃燒熱量：</strong>身體消化蛋白質需要消耗較多能量，約為攝取熱量的 20～30%，遠高於脂肪與碳水化合物</div>
-            </div>
-          </div>
-          <div class="m-highlight-box">
-            <div class="m-highlight-title" data-i18n="protein_rec_title">每日建議攝取量</div>
-            <div class="m-highlight-val" data-i18n="protein_rec_val">每公斤體重 <em>1.2～1.6g</em></div>
-            <div class="m-highlight-sub" data-i18n="protein_rec_sub">運動量較大者可提高至 2.0g／kg</div>
-          </div>
-          <div class="m-ref">📖 Leidy et al., <em>American Journal of Clinical Nutrition</em>, 2015</div>
-        </div>
-
-        <!-- 水分 -->
-        <div class="m-col-block">
-          <div class="m-col-header">
-            <span class="m-col-icon">💧</span>
-            <div>
-              <div class="m-col-label" data-i18n="water_label">水分</div>
-              <div class="m-col-title" data-i18n="water_title">代謝的幕後功臣</div>
-            </div>
-          </div>
-          <p class="m-col-intro" data-i18n="water_intro">水分不足是很多人減重停滯的隱藏原因之一。充足的水分直接支持脂肪代謝、抑制假性飢餓、幫助排除廢物。</p>
-          <div class="m-points">
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#2e7d8a;"></div>
-              <div data-i18n="water_p1"><strong>提升代謝率：</strong>喝水後靜止代謝率可在 30～40 分鐘內短暫提升約 24～30%</div>
-            </div>
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#2e7d8a;"></div>
-              <div data-i18n="water_p2"><strong>促進脂肪分解：</strong>脂肪的代謝過程需要水參與，水分不足時脂肪燃燒效率會下降</div>
-            </div>
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#2e7d8a;"></div>
-              <div data-i18n="water_p3"><strong>抑制假性飢餓：</strong>大腦對「渴」和「餓」的訊號容易混淆，輕度缺水時常被誤判為飢餓感</div>
-            </div>
-            <div class="m-point">
-              <div class="m-point-dot" style="background:#2e7d8a;"></div>
-              <div data-i18n="water_p4"><strong>幫助排除代謝廢物：</strong>減脂過程中產生的廢物需要靠水分排出</div>
-            </div>
-          </div>
-          <div class="m-highlight-box m-highlight-teal">
-            <div class="m-highlight-title" data-i18n="water_rec_title">減重期間每日建議攝取</div>
-            <div class="m-highlight-val" data-i18n="water_rec_val">體重（kg）× <em>50ml</em></div>
-            <div class="m-highlight-sub" data-i18n="water_rec_sub">例：60kg → 每天約 3,000ml｜依運動量、氣溫自行調整｜年長者或腎臟功能較弱者請先諮詢醫師</div>
-          </div>
-          <div class="m-ref">📖 Boschmann et al., <em>Journal of Clinical Endocrinology & Metabolism</em>, 2003</div>
+    <!-- 水分 -->
+    <div class="m-col-block">
+      <div class="m-col-header">
+        <span class="m-col-icon">💧</span>
+        <div>
+          <div class="m-col-label" data-i18n="water_label">水分</div>
+          <div class="m-col-title" data-i18n="water_title">代謝的幕後功臣</div>
         </div>
       </div>
+      <p class="m-col-intro" data-i18n="water_intro">水分不足是很多人減重停滯的隱藏原因之一。充足的水分直接支持脂肪代謝、抑制假性飢餓、幫助排除廢物。</p>
+      <div class="m-points">
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#2e7d8a;"></div>
+          <div data-i18n="water_p1"><strong>提升代謝率：</strong>喝水後靜止代謝率可在 30～40 分鐘內短暫提升約 24～30%</div>
+        </div>
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#2e7d8a;"></div>
+          <div data-i18n="water_p2"><strong>促進脂肪分解：</strong>脂肪的代謝過程需要水參與，水分不足時脂肪燃燒效率會下降</div>
+        </div>
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#2e7d8a;"></div>
+          <div data-i18n="water_p3"><strong>抑制假性飢餓：</strong>大腦對「渴」和「餓」的訊號容易混淆，輕度缺水時常被誤判為飢餓感</div>
+        </div>
+        <div class="m-point">
+          <div class="m-point-dot" style="background:#2e7d8a;"></div>
+          <div data-i18n="water_p4"><strong>幫助排除代謝廢物：</strong>減脂過程中產生的廢物需要靠水分排出</div>
+        </div>
+      </div>
+      <div class="m-highlight-box m-highlight-teal">
+        <div class="m-highlight-title" data-i18n="water_rec_title">減重期間每日建議攝取</div>
+        <div class="m-highlight-val" data-i18n="water_rec_val">體重（kg）× <em>50ml</em></div>
+        <div class="m-highlight-sub" data-i18n="water_rec_sub">例：60kg → 每天約 3,000ml｜依運動量、氣溫自行調整｜年長者或腎臟功能較弱者請先諮詢醫師</div>
+      </div>
+      <div class="m-ref">📖 Boschmann et al., <em>Journal of Clinical Endocrinology & Metabolism</em>, 2003</div>
     </div>
+  </div>
+</div>
 
-    <!-- 底部 -->
-    <div class="maintain-footer-note reveal">
-      <div class="mfn-icon">⏳</div>
-      <div class="mfn-text" data-i18n="maintain_footer_note">減重的終點不是達到目標體重的那天，而是身體真正接受並穩定在新體重的那一刻。給自己時間，給身體時間。</div>
-    </div>
+<!-- 底部 -->
+<div class="maintain-footer-note reveal">
+  <div class="mfn-icon">⏳</div>
+  <div class="mfn-text" data-i18n="maintain_footer_note">減重的終點不是達到目標體重的那天，而是身體真正接受並穩定在新體重的那一刻。給自己時間，給身體時間。</div>
+</div>
+```
 
   </div><!-- /maintain-wrapper -->
 
@@ -1762,6 +1954,14 @@ MAINTAIN PAGE STYLES
     document.getElementById('btn-en-chart').classList.toggle('active', lang==='en');
     document.getElementById('btn-zh-maintain').classList.toggle('active', lang==='zh');
     document.getElementById('btn-en-maintain').classList.toggle('active', lang==='en');
+    // Sync mobile menu lang buttons
+    const mzh = document.getElementById('btn-zh-mobile');
+    const men = document.getElementById('btn-en-mobile');
+    if (mzh) mzh.classList.toggle('active', lang==='zh');
+    if (men) men.classList.toggle('active', lang==='en');
+    // Sync mobile menu logo text
+    const mlogo = document.querySelector('.mobile-menu-logo');
+    if (mlogo) mlogo.innerHTML = lang==='zh' ? '好好吃<span>·</span>' : 'EatWell<span>·</span>';
     document.documentElement.lang = lang==='zh' ? 'zh-TW' : 'en';
     document.title = lang==='zh' ? '好好吃 · 讓身體找回平衡' : 'EatWell · Let Your Body Find Balance';
 
@@ -1868,9 +2068,43 @@ MAINTAIN PAGE STYLES
 
   // Initialise language to Chinese on every page load
   setLang('zh');
+
+  // ── MOBILE MENU ──
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburgerBtn');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      menu.style.display = 'block';
+      requestAnimationFrame(() => {
+        menu.classList.add('open');
+        btn.classList.add('open');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburgerBtn');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (!menu.classList.contains('open')) menu.style.display = 'none';
+    }, 380);
+  }
+
+  // Close mobile menu on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
 </script>
 
 <!-- ═══ CHART ZOOM MODALS ═══ -->
+
 <div class="chart-modal-overlay" id="modal-s0">
   <button class="chart-modal-close" onclick="closeChartModal('modal-s0')" title="關閉">✕</button>
   <div class="chart-modal-inner">
